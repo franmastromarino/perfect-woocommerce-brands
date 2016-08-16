@@ -1,0 +1,405 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Perfect WooCommerce Brands\n"
+"POT-Creation-Date: 2016-08-16 18:23+0200\n"
+"PO-Revision-Date: 2016-08-16 18:24+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: main.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: classes/class-perfect-woocommerce-brands.php:110
+msgid "PWB Product carousel"
+msgstr "PWB Carrusel de productos"
+
+#: classes/class-perfect-woocommerce-brands.php:111
+msgid "Product carousel by brand or by category"
+msgstr "Carrusel de productos por marca o categoría"
+
+#: classes/class-perfect-woocommerce-brands.php:119
+#: classes/class-perfect-woocommerce-brands.php:356
+msgid "Brand"
+msgstr "Marca"
+
+#: classes/class-perfect-woocommerce-brands.php:127
+msgid "Products"
+msgstr "Productos"
+
+#: classes/class-perfect-woocommerce-brands.php:130
+msgid "Number of products to load"
+msgstr "Número de productos que cargar"
+
+#: classes/class-perfect-woocommerce-brands.php:135
+msgid "Products to show"
+msgstr "Productos a mostrar"
+
+#: classes/class-perfect-woocommerce-brands.php:138
+msgid "Number of products to show"
+msgstr "Número de productos que mostrar"
+
+#: classes/class-perfect-woocommerce-brands.php:143
+msgid "Products to scroll"
+msgstr "Número de productos por scroll"
+
+#: classes/class-perfect-woocommerce-brands.php:146
+msgid "Number of products to scroll"
+msgstr "Número de productos por cada scroll"
+
+#: classes/class-perfect-woocommerce-brands.php:151
+#: classes/class-perfect-woocommerce-brands.php:195
+msgid "Autoplay"
+msgstr "Modo automático"
+
+#: classes/class-perfect-woocommerce-brands.php:153
+#: classes/class-perfect-woocommerce-brands.php:197
+msgid "Autoplay carousel"
+msgstr "Modo automático para el carrusel"
+
+#: classes/class-perfect-woocommerce-brands.php:161
+msgid "PWB Brands carousel"
+msgstr "PWB Carrusel de marcas"
+
+#: classes/class-perfect-woocommerce-brands.php:162
+msgid "Brands carousel"
+msgstr "Carrusel de marcas"
+
+#: classes/class-perfect-woocommerce-brands.php:171
+msgid "Items"
+msgstr "Elementos"
+
+#: classes/class-perfect-woocommerce-brands.php:174
+msgid "Number of items to load"
+msgstr "Número de elementos que cargar"
+
+#: classes/class-perfect-woocommerce-brands.php:179
+msgid "Items to show"
+msgstr "Elementos a mostrar"
+
+#: classes/class-perfect-woocommerce-brands.php:182
+msgid "Number of items to show"
+msgstr "Número de elementos a mostrar"
+
+#: classes/class-perfect-woocommerce-brands.php:187
+msgid "Items to scroll"
+msgstr "Número de elementos por scroll"
+
+#: classes/class-perfect-woocommerce-brands.php:190
+msgid "Number of items to scroll"
+msgstr "Número de elementos por cada scroll"
+
+#: classes/class-perfect-woocommerce-brands.php:201
+#: classes/class-perfect-woocommerce-brands.php:230
+#: classes/class-perfect-woocommerce-brands.php:259
+#: classes/class-pwb-admin-tab.php:85
+msgid "Brand logo size"
+msgstr "Tamaño del logo de la marca"
+
+#: classes/class-perfect-woocommerce-brands.php:212
+msgid "PWB All brands"
+msgstr "PWB Todas las marcas"
+
+#: classes/class-perfect-woocommerce-brands.php:213
+msgid "Show all brands"
+msgstr "Mostrar todas las marcas"
+
+#: classes/class-perfect-woocommerce-brands.php:223
+msgid "Brands per page"
+msgstr "Marcas por página"
+
+#: classes/class-perfect-woocommerce-brands.php:226
+msgid "Show x brands per page"
+msgstr "Mostrar x marcas por página"
+
+#: classes/class-perfect-woocommerce-brands.php:241
+msgid "PWB brand"
+msgstr "PWB Marca"
+
+#: classes/class-perfect-woocommerce-brands.php:242
+msgid "Show brand for a specific product"
+msgstr "Ver marcas de un producto específico"
+
+#: classes/class-perfect-woocommerce-brands.php:252
+msgid "Product id"
+msgstr "Id del producto"
+
+#: classes/class-perfect-woocommerce-brands.php:255
+msgid "Product id (post id)"
+msgstr "Id del producto (id del post)"
+
+#: classes/class-perfect-woocommerce-brands.php:289
+#: classes/class-perfect-woocommerce-brands.php:291
+#: classes/shortcodes/class-pwb-all-brands-shortcode.php:70
+#: classes/shortcodes/class-pwb-brand-shortcode.php:24
+#: classes/shortcodes/class-pwb-carousel-shortcode.php:42
+msgid "View brand"
+msgstr "Ver marca"
+
+#: classes/class-perfect-woocommerce-brands.php:355
+#: classes/class-perfect-woocommerce-brands.php:357
+#: classes/class-pwb-admin-tab.php:22
+#: classes/widgets/class-pwb-dropdown-widget.php:56
+msgid "Brands"
+msgstr "Marcas"
+
+#: classes/class-perfect-woocommerce-brands.php:358
+msgid "All Brands"
+msgstr "Todas las marcas"
+
+#: classes/class-perfect-woocommerce-brands.php:359
+msgid "Edit Brand"
+msgstr "Editar marca"
+
+#: classes/class-perfect-woocommerce-brands.php:360
+msgid "View Brand"
+msgstr "Ver marca"
+
+#: classes/class-perfect-woocommerce-brands.php:361
+msgid "Update Brand"
+msgstr "Actualizar marca"
+
+#: classes/class-perfect-woocommerce-brands.php:362
+msgid "Add New Brand"
+msgstr "Añadir nueva marca"
+
+#: classes/class-perfect-woocommerce-brands.php:363
+msgid "New Brand Name"
+msgstr "Nuevo nombre de marca"
+
+#: classes/class-perfect-woocommerce-brands.php:364
+msgid "Parent Brand"
+msgstr "Marca Padre"
+
+#: classes/class-perfect-woocommerce-brands.php:365
+msgid "Parent Brand:"
+msgstr "Marca Padre:"
+
+#: classes/class-perfect-woocommerce-brands.php:366
+msgid "Search Brands"
+msgstr "Buscar Marcas"
+
+#: classes/class-perfect-woocommerce-brands.php:367
+msgid "Popular Brands"
+msgstr "Marcas Populares"
+
+#: classes/class-perfect-woocommerce-brands.php:368
+msgid "Separate brands with commas"
+msgstr "Separar marcas con comas"
+
+#: classes/class-perfect-woocommerce-brands.php:369
+msgid "Add or remove brands"
+msgstr "Añadir o eliminar marcas"
+
+#: classes/class-perfect-woocommerce-brands.php:370
+msgid "Choose from the most used brands"
+msgstr "Seleccionar de las marcas más utilizadas"
+
+#: classes/class-perfect-woocommerce-brands.php:371
+msgid "No brands found"
+msgstr "No se han encontrado marcas"
+
+#: classes/class-perfect-woocommerce-brands.php:415
+#: classes/class-perfect-woocommerce-brands.php:448
+msgid "Brand logo"
+msgstr "Logo de la marca"
+
+#: classes/class-perfect-woocommerce-brands.php:417
+#: classes/class-perfect-woocommerce-brands.php:424
+#: classes/class-perfect-woocommerce-brands.php:452
+#: classes/class-perfect-woocommerce-brands.php:463
+msgid "Select image"
+msgstr "Seleccionar imagen"
+
+#: classes/class-perfect-woocommerce-brands.php:422
+#: classes/class-perfect-woocommerce-brands.php:459
+msgid "Brand banner"
+msgstr "Banner de la marca"
+
+#: classes/class-perfect-woocommerce-brands.php:425
+msgid "This image will be shown on brand page"
+msgstr "Esta imagen se mostrará en la página de la marca"
+
+#: classes/class-perfect-woocommerce-brands.php:430
+#: classes/class-perfect-woocommerce-brands.php:470
+msgid "Brand banner link"
+msgstr "Enlace para el banner de la marca"
+
+#: classes/class-perfect-woocommerce-brands.php:432
+#: classes/class-perfect-woocommerce-brands.php:474
+msgid "This link should be relative to site url. Example: product/product-name"
+msgstr ""
+"Este enlace ha de ser relativo a la url del sitio web. Ejemplo: producto/"
+"nombre-del-producto"
+
+#: classes/class-perfect-woocommerce-brands.php:532
+msgid "Logo"
+msgstr "Logo"
+
+#: classes/class-perfect-woocommerce-brands.php:622
+msgid "No products found"
+msgstr "No se han encontrado productos"
+
+#: classes/class-pwb-admin-tab.php:72
+msgid "Brands settings"
+msgstr "Ajustes de las marcas"
+
+#: classes/class-pwb-admin-tab.php:78
+msgid "Slug"
+msgstr "Slug"
+
+#: classes/class-pwb-admin-tab.php:80
+msgid "Brands taxonomy slug"
+msgstr "Slug de la taxonomía marcas"
+
+#: classes/class-pwb-admin-tab.php:87
+msgid "Brand logo size for single product view"
+msgstr "Tamaño del logo para la vista individual de producto"
+
+#: classes/class-pwb-admin-tab.php:92
+msgid "Brand position"
+msgstr "Posición de la marca"
+
+#: classes/class-pwb-admin-tab.php:94
+msgid "For single product"
+msgstr "En la página individual de cada producto"
+
+#: classes/class-pwb-admin-tab.php:97
+msgid "Before title"
+msgstr "Antes del título"
+
+#: classes/class-pwb-admin-tab.php:98
+msgid "After title"
+msgstr "Después del título"
+
+#: classes/class-pwb-admin-tab.php:99
+msgid "After price"
+msgstr "Después del precio"
+
+#: classes/class-pwb-admin-tab.php:100
+msgid "After excerpt"
+msgstr "Después de la descripción corta"
+
+#: classes/class-pwb-admin-tab.php:101
+msgid "After add to cart"
+msgstr "Después del botón de comprar"
+
+#: classes/class-pwb-admin-tab.php:102
+msgid "After meta"
+msgstr "Después del meta"
+
+#: classes/class-pwb-admin-tab.php:103
+msgid "After sharing"
+msgstr "Después de compartir"
+
+#: classes/class-pwb-admin-tab.php:107
+msgid "Show brand description"
+msgstr "Mostrar descripción de la marca"
+
+#: classes/class-pwb-admin-tab.php:110
+msgid "Show brand description (if is set) on brand archive page"
+msgstr "Mostrar descripción de la marca en la página de archivo"
+
+#: classes/shortcodes/class-pwb-all-brands-shortcode.php:83
+msgid "First page"
+msgstr "Primera página"
+
+#: classes/shortcodes/class-pwb-all-brands-shortcode.php:86
+msgid "Previous page"
+msgstr "Página anterior"
+
+#: classes/shortcodes/class-pwb-all-brands-shortcode.php:90
+msgid "Next page"
+msgstr "Siguiente página"
+
+#: classes/shortcodes/class-pwb-all-brands-shortcode.php:93
+msgid "Last page"
+msgstr "Última página"
+
+#: classes/shortcodes/class-pwb-all-brands-shortcode.php:98
+msgid "No results"
+msgstr "No se han encontrado resultados"
+
+#: classes/widgets/class-pwb-dropdown-widget.php:10
+msgid "Adds a brands dropdown to your site"
+msgstr "Añade un desplegable con las marcas a tu sitio"
+
+#: classes/widgets/class-pwb-dropdown-widget.php:11
+msgid "Brands dropdown"
+msgstr "Desplegable de marcas"
+
+#: classes/widgets/class-pwb-dropdown-widget.php:21
+#: classes/widgets/class-pwb-list-widget.php:21
+msgid "Title"
+msgstr "Título"
+
+#: classes/widgets/class-pwb-dropdown-widget.php:64
+#: classes/widgets/class-pwb-list-widget.php:65
+msgid "There is not available brands"
+msgstr "No se encuentran marcas disponibles"
+
+#: classes/widgets/class-pwb-list-widget.php:10
+msgid "Adds a brands list to your site"
+msgstr "Añade una lista de marcas a tu sitio"
+
+#: classes/widgets/class-pwb-list-widget.php:11
+msgid "Brands list"
+msgstr "Lista de marcas"
+
+#: classes/widgets/class-pwb-list-widget.php:60
+msgid "Go to"
+msgstr "Ir a"
+
+#: main.php:55
+msgid ""
+"Perfect WooCommerce Brands needs WooCommerce to run. Please, install and "
+"active WooCommerce plugin."
+msgstr ""
+"Perfect WooCommerce Brands necesita WooCommerce para funcionar. Por favor, "
+"instala y activa WooCommerce."
+
+#. Plugin Name of the plugin/theme
+msgid "Perfect WooCommerce Brands"
+msgstr "Perfect WooCommerce Brands"
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/perfect-woocommerce-brands/"
+msgstr "https://wordpress.org/plugins/perfect-woocommerce-brands/"
+
+#. Description of the plugin/theme
+msgid ""
+"Perfect WooCommerce Brands allows you to show product brands in your "
+"WooCommerce based store."
+msgstr ""
+"Perfect WooCommerce Brands te permite trabajar con marcas de producto en tu "
+"tienda online basada en WooCommerce."
+
+#. Author of the plugin/theme
+msgid "Alberto de Vera Sevilla"
+msgstr "Alberto de Vera Sevilla"
+
+#. Author URI of the plugin/theme
+msgid "https://profiles.wordpress.org/titodevera/"
+msgstr "https://profiles.wordpress.org/titodevera/"
+
+#~ msgid "Brands metabox"
+#~ msgstr "Marcas metabox"
+
+#~ msgid "image for this brand"
+#~ msgstr "imagen para esta marca"
+
+#~ msgid "Select an image"
+#~ msgstr "Seleccione una imagen"
+
+#~ msgid "Show a specific brand"
+#~ msgstr "Mostrar marcas de un producto en concreto"
