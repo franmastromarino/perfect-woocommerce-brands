@@ -15,14 +15,25 @@
 
             $brands = wp_get_post_terms( $atts['product_id'], 'pwb-brand');
 
-            foreach($brands as $brand){
-                if(is_array($brands) && count($brands)>0){
-                    $brand_link = get_term_link ( $brand->term_id, 'pwb-brand' );
-                    $attachment_id = get_term_meta( $brand->term_id, 'pwb_brand_image', 1 );
+            if(is_array($brands) && count($brands)>0){
 
-                    $attachment_html = wp_get_attachment_image($attachment_id,$atts['image_size']);
+              echo '<div class="pwb-brand-shortcode">';
+
+              foreach($brands as $brand){
+                  $brand_link = get_term_link ( $brand->term_id, 'pwb-brand' );
+                  $attachment_id = get_term_meta( $brand->term_id, 'pwb_brand_image', 1 );
+
+                  $attachment_html = wp_get_attachment_image($attachment_id,$atts['image_size']);
+
+                  if(!empty($attachment_html)){
                     echo '<a href="'.$brand_link.'" title="'.__( 'View brand', 'perfect-woocommerce-brands' ).'">'.$attachment_html.'</a>';
-                }
+                  }else{
+                    echo '<a href="'.$brand_link.'" title="'.__( 'View brand', 'perfect-woocommerce-brands' ).'">'.$brand->name.'</a>';
+                  }
+              }
+
+              echo '</div>';
+
             }
 
             return ob_get_clean();

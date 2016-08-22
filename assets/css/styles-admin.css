@@ -5,4 +5,13 @@
 .taxonomy-pwb-brand .pwb_brand_cont div{
   margin-top: 10px;
 }
+@media screen and (max-width: 782px) {
+	.taxonomy-pwb-brand .wp-list-table thead th.column-logo, .taxonomy-pwb-brand .wp-list-table tfoot th.column-logo {
+    display: none;
+  }
+
+  .taxonomy-pwb-brand .wp-list-table td.column-logo:before {
+    content: ""!important;
+  }
+}
 /* ----------------------- /Taxonomy pwb-brand ----------------------- */

@@ -4,7 +4,7 @@ Donate link: mailto:albertodeverasevilla@gmail.com
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
 Tested up to: 4.5.3
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -66,6 +66,9 @@ There are three shortcodes available:
 
 
 == Changelog ==
+= 1.4.2 =
+* Fix: Table collapses in "Admin > Products > Brands" (thanks eljkmw)
+* Fix: "pwb-brand" shortcode does not display the brand when it has not a logo assigned
 = 1.4.1 =
 * Feature (Option): Hide brand's description in archive page
 * Fix: "pwb-all-brands" and "pwb-brand" show the content before they should
