@@ -15,3 +15,29 @@
   }
 }
 /* ----------------------- /Taxonomy pwb-brand ----------------------- */
+
+.pwb-modal{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999999999;
+  line-height: 1;
+  background: rgba(0,0,0,0.9);
+  font-size: 2em;
+  padding-top: 20px;
+  text-align: center;
+}
+.pwb-modal-inner {
+  max-width: 70%;
+  margin: 0 auto;
+  animation: pwbblinkkf 3s linear infinite;
+  color: #fff;
+}
+.pwb-modal-inner p{
+  font-size: 2em;
+}
+@keyframes pwbblinkkf {
+  50% { opacity: 0; }
+}

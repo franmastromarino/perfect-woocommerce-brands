@@ -3,14 +3,14 @@
 Plugin Name: Perfect WooCommerce Brands
 Plugin URI: https://wordpress.org/plugins/perfect-woocommerce-brands/
 Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
-Version: 1.4.2
+Version: 1.4.3
 Author: Alberto de Vera Sevilla
 Author URI: https://profiles.wordpress.org/titodevera/
 Text Domain: perfect-woocommerce-brands
 Domain Path: /lang
 License: GPL3
 
-    Perfect WooCommerce Brands version 1.4.2, Copyright (C) 2016 Alberto de Vera Sevilla
+    Perfect WooCommerce Brands version 1.4.3, Copyright (C) 2016 Alberto de Vera Sevilla
 
     Perfect WooCommerce Brands is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -31,29 +31,41 @@ namespace Perfect_Woocommerce_Brands;
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-register_deactivation_hook( __FILE__, function(){update_option( 'old_wc_pwb_admin_tab_slug', 'null' );} );
+//plugin constants
+define('PWB_PLUGIN', plugins_url( '', __FILE__ ));
+define('PWB_PLUGIN_PATH', plugin_basename( dirname( __FILE__ ) ));
+define('PWB_PLUGIN_VERSION', '1.4.3');
+
+//clean brands slug on plugin deactivation
+register_deactivation_hook( __FILE__, function(){
+  update_option( 'old_wc_pwb_admin_tab_slug', 'null' );
+} );
+
+//loads textdomain for the translations
+add_action( 'plugins_loaded', function(){
+  load_plugin_textdomain( 'perfect-woocommerce-brands', false, PWB_PLUGIN_PATH . '/lang' );
+} );
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-if(is_plugin_active('woocommerce/woocommerce.php')){
+if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
 
-    define('PWB_PLUGIN', plugins_url( '', __FILE__ ));
-    define('PWB_PLUGIN_PATH', plugin_basename( dirname( __FILE__ ) ));
-    define('PWB_PLUGIN_VERSION', '1.4.2');
-    require 'classes/widgets/class-pwb-dropdown-widget.php';
-    require 'classes/widgets/class-pwb-list-widget.php';
-    require 'classes/shortcodes/class-pwb-product-carousel-shortcode.php';
-    require 'classes/shortcodes/class-pwb-carousel-shortcode.php';
-    require 'classes/shortcodes/class-pwb-all-brands-shortcode.php';
-    require 'classes/shortcodes/class-pwb-brand-shortcode.php';
-    require 'classes/class-perfect-woocommerce-brands.php';
-    new \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands();
-    require 'classes/class-pwb-admin-tab.php';
+  require 'classes/widgets/class-pwb-dropdown.php';
+  require 'classes/widgets/class-pwb-list.php';
+  require 'classes/widgets/class-pwb-filter-by-brand.php';
+  require 'classes/shortcodes/class-pwb-product-carousel.php';
+  require 'classes/shortcodes/class-pwb-carousel.php';
+  require 'classes/shortcodes/class-pwb-all-brands.php';
+  require 'classes/shortcodes/class-pwb-brand.php';
+  require 'classes/class-perfect-woocommerce-brands.php';
+  require 'classes/class-pwb-admin-tab.php';
 
-}elseif(is_admin()){
+  new \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands();
 
-    add_action( 'admin_notices', function() {
-        $message = __( 'Perfect WooCommerce Brands needs WooCommerce to run. Please, install and active WooCommerce plugin.', 'perfect-woocommerce-brands' );
-        printf( '<div class="%1$s"><p>%2$s</p></div>', 'notice notice-error', $message );
-    });
+}elseif( is_admin() ){
+
+  add_action( 'admin_notices', function() {
+      $message = __( 'Perfect WooCommerce Brands needs WooCommerce to run. Please, install and active WooCommerce plugin.', 'perfect-woocommerce-brands' );
+      printf( '<div class="%1$s"><p>%2$s</p></div>', 'notice notice-error', $message );
+  });
 
 }

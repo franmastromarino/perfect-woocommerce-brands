@@ -1,11 +1,12 @@
 <?php
-    namespace Perfect_Woocommerce_Brands;
+    namespace Perfect_Woocommerce_Brands\Shortcodes;
 
     defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-    class Pwb_All_Brands_Shortcode{
+    class PWB_All_Brands_Shortcode{
 
         public static function all_brands_shortcode( $atts ) {
+
             $atts = shortcode_atts( array(
                 'per_page' => "10",
                 'image_size' => "thumbnail"
@@ -13,8 +14,7 @@
 
             ob_start();
 
-            $brands = Perfect_Woocommerce_Brands::get_brands();
-
+            $brands = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands();
             ?>
             <div class="pwb-all-brands">
                 <?php static::pagination($brands, $atts['per_page'], $atts['image_size']);?>

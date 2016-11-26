@@ -1,5 +1,5 @@
 <?php
-    namespace Perfect_Woocommerce_Brands;
+    namespace Perfect_Woocommerce_Brands\Admin;
 
     defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
@@ -10,7 +10,6 @@
             add_action( 'woocommerce_settings_tabs_pwb_admin_tab', __CLASS__ . '::settings_tab' );
             add_action( 'woocommerce_update_options_pwb_admin_tab', __CLASS__ . '::update_settings' );
         }
-
 
         /**
          * Add a new settings tab to the WooCommerce settings tabs array.
@@ -32,6 +31,7 @@
          */
         public static function settings_tab() {
             woocommerce_admin_fields( self::get_settings() );
+            woocommerce_admin_fields( self::get_tools() );
         }
 
 
@@ -69,23 +69,23 @@
 
             $settings = array(
                 'section_title' => array(
-                    'name'     => __( 'Brands settings', 'perfect-woocommerce-brands' ),
-                    'type'     => 'title',
-                    'desc'     => '',
-                    'id'       => 'wc_pwb_admin_tab_section_title'
+                    'name'  => __( 'Brands settings', 'perfect-woocommerce-brands' ),
+                    'type'  => 'title',
+                    'desc'  => '',
+                    'id'    => 'wc_pwb_admin_tab_section_title'
                 ),
                 'slug' => array(
-                    'name' => __( 'Slug', 'perfect-woocommerce-brands' ),
-                    'type' => 'text',
-                    'desc' => __( 'Brands taxonomy slug', 'perfect-woocommerce-brands' ),
-                    'id'   => 'wc_pwb_admin_tab_slug',
+                    'name'        => __( 'Slug', 'perfect-woocommerce-brands' ),
+                    'type'        => 'text',
+                    'desc'        => __( 'Brands taxonomy slug', 'perfect-woocommerce-brands' ),
+                    'id'          => 'wc_pwb_admin_tab_slug',
                     'placeholder' => get_taxonomy('pwb-brand')->rewrite['slug']
                 ),
                 'brand_logo_size' => array(
-                    'name' => __( 'Brand logo size', 'perfect-woocommerce-brands' ),
-                    'type' => 'select',
-                    'desc' => __( 'Brand logo size for single product view', 'perfect-woocommerce-brands' ),
-                    'id'   => 'wc_pwb_admin_tab_brand_logo_size',
+                    'name'    => __( 'Brand logo size', 'perfect-woocommerce-brands' ),
+                    'type'    => 'select',
+                    'desc'    => __( 'Brand logo size for single product view', 'perfect-woocommerce-brands' ),
+                    'id'      => 'wc_pwb_admin_tab_brand_logo_size',
                     'options' => $available_image_sizes_adapted
                 ),
                 'brand_single_position' => array(
@@ -94,29 +94,70 @@
                     'desc' => __( 'For single product', 'perfect-woocommerce-brands' ),
                     'id'   => 'wc_pwb_admin_tab_brand_single_position',
                     'options' => array(
-                      'before_title' => __( 'Before title', 'perfect-woocommerce-brands' ),
-                      'after_title' => __( 'After title', 'perfect-woocommerce-brands' ),
-                      'after_price' => __( 'After price', 'perfect-woocommerce-brands' ),
-                      'after_excerpt' => __( 'After excerpt', 'perfect-woocommerce-brands' ),
+                      'before_title'      => __( 'Before title', 'perfect-woocommerce-brands' ),
+                      'after_title'       => __( 'After title', 'perfect-woocommerce-brands' ),
+                      'after_price'       => __( 'After price', 'perfect-woocommerce-brands' ),
+                      'after_excerpt'     => __( 'After excerpt', 'perfect-woocommerce-brands' ),
                       'after_add_to_cart' => __( 'After add to cart', 'perfect-woocommerce-brands' ),
-                      'after_meta' => __( 'After meta', 'perfect-woocommerce-brands' ),
-                      'after_sharing' => __( 'After sharing', 'perfect-woocommerce-brands' )
+                      'after_meta'        => __( 'After meta', 'perfect-woocommerce-brands' ),
+                      'after_sharing'     => __( 'After sharing', 'perfect-woocommerce-brands' )
                     )
                 ),
                 'brand_description' => array(
-                    'name' => __( 'Show brand description', 'perfect-woocommerce-brands' ),
-                    'type' => 'checkbox',
+                    'name'    => __( 'Show brand description', 'perfect-woocommerce-brands' ),
+                    'type'    => 'checkbox',
                     'default' => 'yes',
-                    'desc' => __( 'Show brand description (if is set) on brand archive page', 'perfect-woocommerce-brands' ),
-                    'id'   => 'wc_pwb_admin_tab_brand_desc'
+                    'desc'    => __( 'Show brand description (if is set) on brand archive page', 'perfect-woocommerce-brands' ),
+                    'id'      => 'wc_pwb_admin_tab_brand_desc'
+                ),
+                'show_brand_on_loop' => array(
+                    'name'    => __( 'Show brands in loop', 'perfect-woocommerce-brands' ),
+                    'type'    => 'select',
+                    'desc'    => __( 'Show brand logo (or name) in product loop', 'perfect-woocommerce-brands' ),
+                    'id'      => 'wc_pwb_admin_tab_brands_in_loop',
+                    'options' => array(
+                      'no'           => __( 'No', 'perfect-woocommerce-brands' ),
+                      'brand_link'   => __( 'Show brand link', 'perfect-woocommerce-brands' ),
+                      'brand_image'  => __( 'Show brand image (if is set)', 'perfect-woocommerce-brands' )
+                    )
                 ),
                 'section_end' => array(
                      'type' => 'sectionend',
-                     'id' => 'wc_pwb_admin_tab_section_end'
+                     'id'   => 'wc_pwb_admin_tab_section_end'
                 )
             );
 
             return apply_filters( 'wc_pwb_admin_tab_settings', $settings );
+
+        }
+
+        public static function get_tools() {
+
+            $tools = array(
+              'section_title' => array(
+                  'name'  => __( 'Tools', 'perfect-woocommerce-brands' ),
+                  'type'  => 'title',
+                  'desc'  => '',
+                  'id'    => 'wc_pwb_admin_tab_section_tools_title'
+              ),
+              'slug' => array(
+                  'name'        => __( 'Import brands', 'perfect-woocommerce-brands' ),
+                  'type'        => 'select',
+                  'desc'        => __( 'Import brands from old plugin installation', 'perfect-woocommerce-brands' ),
+                  'id'          => 'wc_pwb_admin_tab_tools_migrate',
+                  'options' => array(
+                    '-'      => __( '-', 'perfect-woocommerce-brands' ),
+                    'yith'       => __( 'YITH WooCommerce Brands Add-On', 'perfect-woocommerce-brands' )
+                  )
+              ),
+              'section_end' => array(
+                   'type' => 'sectionend',
+                   'id'   => 'wc_pwb_admin_tab_section_tools_end'
+              )
+            );
+
+            return apply_filters( 'wc_pwb_admin_tab_tools_settings', $tools );
+
         }
 
     }

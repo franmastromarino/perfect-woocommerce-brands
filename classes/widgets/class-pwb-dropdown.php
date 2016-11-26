@@ -1,16 +1,16 @@
 <?php
-    namespace Perfect_Woocommerce_Brands;
+    namespace Perfect_Woocommerce_Brands\Widgets;
 
     defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-    class Pwb_Dropdown_Widget extends \WP_Widget {
+    class PWB_Dropdown_Widget extends \WP_Widget {
 
         function __construct(){
             $params = array(
                 'description' => __( 'Adds a brands dropdown to your site', 'perfect-woocommerce-brands' ),
                 'name' => __( 'Brands dropdown', 'perfect-woocommerce-brands' )
             );
-            parent::__construct('Pwb_Dropdown_Widget', '', $params);
+            parent::__construct('PWB_Dropdown_Widget', '', $params);
         }
 
         public function form($instance){
@@ -25,7 +25,7 @@
                         id="<?php echo esc_attr( $this->get_field_id('title') ); ?>"
                         name="<?php echo esc_attr( $this->get_field_name('title') ); ?>"
                         value="<?php if(isset($title)) echo esc_attr($title); ?>">
-                </p>			
+                </p>
 
             <?php
         }

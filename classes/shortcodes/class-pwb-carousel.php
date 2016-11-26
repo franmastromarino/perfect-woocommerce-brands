@@ -1,9 +1,9 @@
 <?php
-    namespace Perfect_Woocommerce_Brands;
+    namespace Perfect_Woocommerce_Brands\Shortcodes;
 
     defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-    class Pwb_Carousel_Shortcode{
+    class PWB_Carousel_Shortcode{
 
         public static function carousel_shortcode( $atts ) {
             $atts = shortcode_atts( array(
@@ -24,7 +24,7 @@
             }
 
             ?><div class="pwb-carousel" data-slick='{"slidesToShow": <?php echo (int)$atts['items_to_show'];?>, "slidesToScroll": <?php echo (int)$atts['items_to_scroll'];?>, "autoplay": <?php echo $autoplay;?>}'><?php
-            foreach(Perfect_Woocommerce_Brands::get_brands() as $brand){
+            foreach(\Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands() as $brand){
                 if($foreach_iterator>=(int)$atts['items']){
                     break;
                 }

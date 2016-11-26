@@ -3,8 +3,8 @@ Contributors: titodevera
 Donate link: mailto:albertodeverasevilla@gmail.com
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
-Tested up to: 4.5.3
-Stable tag: 1.4.2
+Tested up to: 4.6.1
+Stable tag: 1.4.3
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -33,9 +33,12 @@ With this extension you can add product brands to your WooCommerce site.
 > * Visual Composer support
 > * Widget: Display brands as dropdown
 > * Widget: Display brands as list
+> * Widget: Filter products by brand **NEW!**
+> * Import brands from other brands plugins **NEW!**
 > * Minimalist design and fully responsive
 > * Very lightweight
 > * Customizable brands slug
+> * And much more!
 
 
 == Installation ==
@@ -51,11 +54,11 @@ Yes, of course. This plugin is 100% free. No ads, no premium version exists.
 Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 = How can i use the available shortcodes without Visual Composer? =
-There are three shortcodes available:
+There are four shortcodes available:
 > * Display all brands: [pwb-all-brands per_page="10" image_size="thumbnail"]
-> * Display brands carousel: [pwb-carousel items="10" items_to_show="5" items_to_scroll="1" image_size="thumbnail" autoplay="true"] 
+> * Display brands carousel: [pwb-carousel items="10" items_to_show="5" items_to_scroll="1" image_size="thumbnail" autoplay="true"]
+> * Display product carousel by brand: [pwb-product-carousel brand="all" products="10" products_to_show="4" products_to_scroll="2" image_size="" items_to_show="2" autoplay="true"] 
 > * Display brands for a specific product: [pwb-brand product_id="5" image_size="thumbnail"]
-> * Display product carousel by brand: [pwb-product-carousel brand="all" products="10" products_to_show="4" products_to_scroll="2" image_size="" items_to_show="2" autoplay="true"]
 
 
 == Screenshots ==
@@ -66,6 +69,11 @@ There are three shortcodes available:
 
 
 == Changelog ==
+= 1.4.3 =
+* Feature (Widget): Filter products by brand
+* Feature (Option): Show brand logo in product loop
+* Feature: Brand microdata added to product page
+* Feature (Tool): Migrate brands from "YITH WooCommerce Brands Add-on"
 = 1.4.2 =
 * Fix: Table collapses in "Admin > Products > Brands" (thanks eljkmw)
 * Fix: "pwb-brand" shortcode does not display the brand when it has not a logo assigned

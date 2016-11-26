@@ -1,9 +1,9 @@
 <?php
-    namespace Perfect_Woocommerce_Brands;
+    namespace Perfect_Woocommerce_Brands\Shortcodes;
 
     defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-    class Pwb_Brand_Shortcode{
+    class PWB_Brand_Shortcode{
 
         public static function brand_shortcode( $atts ) {
             $atts = shortcode_atts( array(

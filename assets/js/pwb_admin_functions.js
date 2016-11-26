@@ -39,4 +39,40 @@ jQuery(document).ready(function( $ ) {
     open_media_uploader_image(event);
   });
 
+
+  /* ····························· Settings tab ····························· */
+
+  $('#wc_pwb_admin_tab_tools_migrate').on( 'change', function(){
+
+    if( $(this).val() != '-' ){
+
+      if( confirm(ajax_object.translations.migrate_notice) ){
+
+        $('html').append('<div class="pwb-modal"><div class="pwb-modal-inner"></div></div>');
+        $('.pwb-modal-inner').html('<p>'+ajax_object.translations.migrating+'</p>');
+
+        var data = {
+      		'action': 'pwb_admin_migrate_brands',
+      		'from': $(this).val()
+      	};
+      	jQuery.post(ajax_object.ajax_url, data, function(response) {
+
+          setTimeout( function(){
+            location.href = ajax_object.brands_url;
+          }, 1000 );
+
+      	});
+
+      }else{
+
+      }
+
+    }
+
+    $(this).val('-');//reset to default value
+
+  } );
+
+  /* ····························· /Settings tab ····························· */
+
 });
