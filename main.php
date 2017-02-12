@@ -3,14 +3,14 @@
 Plugin Name: Perfect WooCommerce Brands
 Plugin URI: https://wordpress.org/plugins/perfect-woocommerce-brands/
 Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
-Version: 1.4.3
+Version: 1.4.4
 Author: Alberto de Vera Sevilla
 Author URI: https://profiles.wordpress.org/titodevera/
 Text Domain: perfect-woocommerce-brands
 Domain Path: /lang
 License: GPL3
 
-    Perfect WooCommerce Brands version 1.4.3, Copyright (C) 2016 Alberto de Vera Sevilla
+    Perfect WooCommerce Brands version 1.4.4, Copyright (C) 2016 Alberto de Vera Sevilla
 
     Perfect WooCommerce Brands is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -32,9 +32,10 @@ namespace Perfect_Woocommerce_Brands;
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 //plugin constants
-define('PWB_PLUGIN', plugins_url( '', __FILE__ ));
-define('PWB_PLUGIN_PATH', plugin_basename( dirname( __FILE__ ) ));
-define('PWB_PLUGIN_VERSION', '1.4.3');
+define( 'PWB_PLUGIN', plugins_url( '', __FILE__ ) );
+define( 'PWB_PLUGIN_PATH', plugin_basename( dirname( __FILE__ ) ) );
+define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+define( 'PWB_PLUGIN_VERSION', '1.4.4' );
 
 //clean brands slug on plugin deactivation
 register_deactivation_hook( __FILE__, function(){

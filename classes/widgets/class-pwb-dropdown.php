@@ -8,7 +8,7 @@
         function __construct(){
             $params = array(
                 'description' => __( 'Adds a brands dropdown to your site', 'perfect-woocommerce-brands' ),
-                'name' => __( 'Brands dropdown', 'perfect-woocommerce-brands' )
+                'name'        => 'PWB: '.__( 'Brands dropdown', 'perfect-woocommerce-brands' )
             );
             parent::__construct('PWB_Dropdown_Widget', '', $params);
         }

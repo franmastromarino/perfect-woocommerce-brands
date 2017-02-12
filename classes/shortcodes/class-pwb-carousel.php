@@ -7,11 +7,12 @@
 
         public static function carousel_shortcode( $atts ) {
             $atts = shortcode_atts( array(
-                'items' => "10",
-                'items_to_show' => "5",
-                'items_to_scroll' => "1",
-                'image_size' => "thumbnail",
-                'autoplay'  => "true"
+                'items'             => "10",
+                'items_to_show'     => "5",
+                'items_to_scroll'   => "1",
+                'image_size'        => "thumbnail",
+                'autoplay'          => false,
+                'arrows'            => false
             ), $atts, 'pwb-carousel' );
 
             ob_start();
@@ -23,7 +24,7 @@
                 $autoplay = 'false';
             }
 
-            ?><div class="pwb-carousel" data-slick='{"slidesToShow": <?php echo (int)$atts['items_to_show'];?>, "slidesToScroll": <?php echo (int)$atts['items_to_scroll'];?>, "autoplay": <?php echo $autoplay;?>}'><?php
+            ?><div class="pwb-carousel" data-slick='{"slidesToShow": <?php echo (int)$atts['items_to_show'];?>, "slidesToScroll": <?php echo (int)$atts['items_to_scroll'];?>, "autoplay": <?php echo $autoplay;?>, "arrows": <?php echo $arrows;?>}'><?php
             foreach(\Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands() as $brand){
                 if($foreach_iterator>=(int)$atts['items']){
                     break;

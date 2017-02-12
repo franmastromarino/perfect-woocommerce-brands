@@ -113,6 +113,27 @@
 }
 /* ----------------------- /PWB All Brands ----------------------- */
 
+/* ----------------------- Columns ----------------------- */
+.pwb-row:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.pwb-columns-2{
+  width: 50%;
+}
+.pwb-columns-3{
+  width: 33.33333%;
+}
+.pwb-columns-4{
+  width: 25%;
+}
+.pwb-columns{
+  display: inline-block;
+  vertical-align:top;
+}
+/* ----------------------- /Columns ----------------------- */
+
 /* ----------------------- Responsive ----------------------- */
 @media screen and (max-width: 1000px) {
     .pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3{
@@ -131,6 +152,9 @@
     }
     .pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3 > div:first-child{
         height: auto;
+    }
+    .pwb-columns-3, .pwb-columns-4{
+      width: 50%;
     }
 }
 /* ----------------------- /Responsive ----------------------- */

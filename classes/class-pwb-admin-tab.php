@@ -81,6 +81,36 @@
                     'id'          => 'wc_pwb_admin_tab_slug',
                     'placeholder' => get_taxonomy('pwb-brand')->rewrite['slug']
                 ),
+                'brand_description' => array(
+                    'name'    => __( 'Show brand description', 'perfect-woocommerce-brands' ),
+                    'type'    => 'checkbox',
+                    'default' => 'yes',
+                    'desc'    => __( 'Show brand description (if is set) on brand archive page', 'perfect-woocommerce-brands' ),
+                    'id'      => 'wc_pwb_admin_tab_brand_desc'
+                ),
+                'show_brand_on_loop' => array(
+                    'name'    => __( 'Show brands in loop', 'perfect-woocommerce-brands' ),
+                    'type'    => 'select',
+                    'desc'    => __( 'Show brand logo (or name) in product loop', 'perfect-woocommerce-brands' ),
+                    'id'      => 'wc_pwb_admin_tab_brands_in_loop',
+                    'options' => array(
+                      'no'           => __( 'No', 'perfect-woocommerce-brands' ),
+                      'brand_link'   => __( 'Show brand link', 'perfect-woocommerce-brands' ),
+                      'brand_image'  => __( 'Show brand image (if is set)', 'perfect-woocommerce-brands' )
+                    )
+                ),
+                'show_brand_in_single' => array(
+                    'name'    => __( 'Show brands in single product', 'perfect-woocommerce-brands' ),
+                    'type'    => 'select',
+                    'desc'    => __( 'Show brand logo (or name) in single product', 'perfect-woocommerce-brands' ),
+                    'default' => 'brand_image',
+                    'id'      => 'wc_pwb_admin_tab_brands_in_single',
+                    'options' => array(
+                      'no'           => __( 'No', 'perfect-woocommerce-brands' ),
+                      'brand_link'   => __( 'Show brand link', 'perfect-woocommerce-brands' ),
+                      'brand_image'  => __( 'Show brand image (if is set)', 'perfect-woocommerce-brands' )
+                    )
+                ),
                 'brand_logo_size' => array(
                     'name'    => __( 'Brand logo size', 'perfect-woocommerce-brands' ),
                     'type'    => 'select',
@@ -101,24 +131,6 @@
                       'after_add_to_cart' => __( 'After add to cart', 'perfect-woocommerce-brands' ),
                       'after_meta'        => __( 'After meta', 'perfect-woocommerce-brands' ),
                       'after_sharing'     => __( 'After sharing', 'perfect-woocommerce-brands' )
-                    )
-                ),
-                'brand_description' => array(
-                    'name'    => __( 'Show brand description', 'perfect-woocommerce-brands' ),
-                    'type'    => 'checkbox',
-                    'default' => 'yes',
-                    'desc'    => __( 'Show brand description (if is set) on brand archive page', 'perfect-woocommerce-brands' ),
-                    'id'      => 'wc_pwb_admin_tab_brand_desc'
-                ),
-                'show_brand_on_loop' => array(
-                    'name'    => __( 'Show brands in loop', 'perfect-woocommerce-brands' ),
-                    'type'    => 'select',
-                    'desc'    => __( 'Show brand logo (or name) in product loop', 'perfect-woocommerce-brands' ),
-                    'id'      => 'wc_pwb_admin_tab_brands_in_loop',
-                    'options' => array(
-                      'no'           => __( 'No', 'perfect-woocommerce-brands' ),
-                      'brand_link'   => __( 'Show brand link', 'perfect-woocommerce-brands' ),
-                      'brand_image'  => __( 'Show brand image (if is set)', 'perfect-woocommerce-brands' )
                     )
                 ),
                 'section_end' => array(
@@ -143,7 +155,7 @@
               'slug' => array(
                   'name'        => __( 'Import brands', 'perfect-woocommerce-brands' ),
                   'type'        => 'select',
-                  'desc'        => __( 'Import brands from old plugin installation', 'perfect-woocommerce-brands' ),
+                  'desc'        => __( 'Import brands from other brand plugin. <strong>Both plugins should be installed and active</strong>', 'perfect-woocommerce-brands' ),
                   'id'          => 'wc_pwb_admin_tab_tools_migrate',
                   'options' => array(
                     '-'      => __( '-', 'perfect-woocommerce-brands' ),

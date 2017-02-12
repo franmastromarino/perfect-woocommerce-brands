@@ -1,4 +1,33 @@
 /* ----------------------- Taxonomy pwb-brand ----------------------- */
+.taxonomy-pwb-brand .pwb_brand_image_selected_remove{
+  color: #FF3030;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in-out;
+  -moz-transition: opacity 200ms ease-in-out;
+  -ms-transition: opacity 200ms ease-in-out;
+  -o-transition: opacity 200ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
+}
+.taxonomy-pwb-brand .pwb_brand_image_selected span{
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  line-height: 90px;
+  height: 90px;
+}
+.taxonomy-pwb-brand .pwb_brand_image_selected span:hover .pwb_brand_image_selected_remove{
+  opacity: 1;
+}
 .taxonomy-pwb-brand .pwb_brand_cont #pwb_brand_image, .taxonomy-pwb-brand .pwb_brand_cont #pwb_brand_banner{
   display: none;
 }
@@ -16,6 +45,19 @@
 }
 /* ----------------------- /Taxonomy pwb-brand ----------------------- */
 
+.pwb-display-as-logo{
+  display: none;
+}
+.pwb-display-as-logo.show{
+  display: block;
+}
+.pwb-notice-dismissible p a{
+  margin-right: 12px;
+}
+.pwb-notice-dismissible .dashicons-heart{
+  color: #f188ff;
+  margin-left: 3px;
+}
 .pwb-modal{
   position: fixed;
   top: 0;

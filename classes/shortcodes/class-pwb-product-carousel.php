@@ -7,25 +7,30 @@
 
         public static function product_carousel_shortcode( $atts ) {
             $atts = shortcode_atts( array(
-                'brand' => "all",
-                'products' => "10",
-                'products_to_show' => "5",
-                'products_to_scroll' => "1",
-                'autoplay'  => "true"
+                'brand'               => "all",
+                'products'            => "10",
+                'products_to_show'    => "5",
+                'products_to_scroll'  => "1",
+                'autoplay'            => false,
+                'arrows'              => false
             ), $atts, 'pwb-product-carousel' );
 
             ob_start();
 
-            $foreach_iterator = 0;
-
-            $autoplay = 'true';
-            if($atts['autoplay']!='true'){
-                $autoplay = 'false';
+            if($atts['autoplay']){
+              $autoplay = 'true';
+            }else{
+              $autoplay = 'false';
+            }
+            if($atts['arrows']){
+              $arrows = 'true';
+            }else{
+              $arrows = 'false';
             }
 
             ?>
 
-            <div class="pwb-product-carousel" data-slick='{"slidesToShow": <?php echo (int)$atts['products_to_show'];?>, "slidesToScroll": <?php echo (int)$atts['products_to_scroll'];?>, "autoplay": <?php echo $autoplay;?>}'>
+            <div class="pwb-product-carousel" data-slick='{"slidesToShow": <?php echo (int)$atts['products_to_show'];?>, "slidesToScroll": <?php echo (int)$atts['products_to_scroll'];?>, "autoplay": <?php echo $autoplay;?>, "arrows": <?php echo $arrows;?>}'>
               <?php echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_products_by_brand($atts['brand'], (int)$atts['products']); ?>
             </div>
 

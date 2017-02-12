@@ -8,13 +8,19 @@
         public static function all_brands_shortcode( $atts ) {
 
             $atts = shortcode_atts( array(
-                'per_page' => "10",
-                'image_size' => "thumbnail"
+                'per_page'    => "10",
+                'image_size'  => "thumbnail",
+                'hide_empty'  => false
             ), $atts, 'pwb-all-brands' );
+
+            $hide_empty = true;
+            if($atts['hide_empty']!='true'){
+                $hide_empty = false;
+            }
 
             ob_start();
 
-            $brands = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands();
+            $brands = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( $hide_empty );
             ?>
             <div class="pwb-all-brands">
                 <?php static::pagination($brands, $atts['per_page'], $atts['image_size']);?>

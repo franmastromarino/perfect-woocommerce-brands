@@ -1,10 +1,10 @@
 === Perfect WooCommerce Brands ===
 Contributors: titodevera
-Donate link: mailto:albertodeverasevilla@gmail.com
+Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
-Tested up to: 4.6.1
-Stable tag: 1.4.3
+Tested up to: 4.7.2
+Stable tag: 1.4.4
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -16,7 +16,7 @@ Is essential to work with product brands for increase sales and generate reliabi
 With this extension you can add product brands to your WooCommerce site.
 
 = Requirements =
-> * PHP 5.3 or higher
+> * PHP 5.3 or higher (tested on PHP7 too)
 > * WordPress 4.4 or higher
 > * WooCommerce 2.4.0 or higher
 > * Visual Composer (recommended)
@@ -32,9 +32,9 @@ With this extension you can add product brands to your WooCommerce site.
 > * Shortcode: Display brands for a specific product
 > * Visual Composer support
 > * Widget: Display brands as dropdown
-> * Widget: Display brands as list
-> * Widget: Filter products by brand **NEW!**
-> * Import brands from other brands plugins **NEW!**
+> * Widget: Display brands as list (brand names or brand logos)
+> * Widget: Filter products by brand
+> * Import brands from other brands plugins
 > * Minimalist design and fully responsive
 > * Very lightweight
 > * Customizable brands slug
@@ -55,9 +55,9 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 = How can i use the available shortcodes without Visual Composer? =
 There are four shortcodes available:
-> * Display all brands: [pwb-all-brands per_page="10" image_size="thumbnail"]
-> * Display brands carousel: [pwb-carousel items="10" items_to_show="5" items_to_scroll="1" image_size="thumbnail" autoplay="true"]
-> * Display product carousel by brand: [pwb-product-carousel brand="all" products="10" products_to_show="4" products_to_scroll="2" image_size="" items_to_show="2" autoplay="true"] 
+> * Display all brands: [pwb-all-brands per_page="10" image_size="thumbnail" hide_empty="false"]
+> * Display brands carousel: [pwb-carousel items="10" items_to_show="5" items_to_scroll="1" image_size="thumbnail" autoplay="true" arrows="true"]
+> * Display product carousel by brand: [pwb-product-carousel brand="all" products="10" products_to_show="4" products_to_scroll="2" image_size="" items_to_show="2" autoplay="true" arrows="true"] 
 > * Display brands for a specific product: [pwb-brand product_id="5" image_size="thumbnail"]
 
 
@@ -66,9 +66,21 @@ There are four shortcodes available:
 2. Brands page
 3. Brands taxonomy
 4. Brands shortcodes (with Visual Composer)
+5. Product carousel by brand
 
 
 == Changelog ==
+= 1.4.4 =
+* Important improvement of the user experience when assigning images to a brand
+* Feature (Option): Hide brands in single product, show as image or show as link
+* Feature: Hide prev/next arrows on carousel shortcodes
+* Feature: Hide empty brands option for "Display all brands" shortcode
+* Feature: New options for "Display brands as list" widget
+* Fix: Autoplay bug on carousel shortcodes
+* Tested on PHP7
+* Shortcut to the plugin settings added to the plugin list page
+* "Help us" notice added
+* Minor code improvements
 = 1.4.3 =
 * Feature (Widget): Filter products by brand
 * Feature (Option): Show brand logo in product loop

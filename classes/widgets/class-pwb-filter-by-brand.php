@@ -8,7 +8,7 @@
   		function __construct() {
         $params = array(
             'description' => __( 'Recommended for product categories or shop page', 'perfect-woocommerce-brands' ),
-            'name' => __( 'Filter products by brand', 'perfect-woocommerce-brands' )
+            'name'        => 'PWB: '.__( 'Filter products by brand', 'perfect-woocommerce-brands' )
         );
         parent::__construct('PWB_Filter_By_Brand_Widget', '', $params);
   		}
@@ -54,7 +54,7 @@
     		if( is_product_category() ){
 
     				$cat_id = $cat->term_taxonomy_id;
-    				$cat_id_array =  get_term_children( $cat_id, 'product_cat' );
+    				$cat_id_array = get_term_children( $cat_id, 'product_cat' );
     				$cat_id_array[] = $cat_id;
 
     				$result_brands = array();

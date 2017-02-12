@@ -9,6 +9,7 @@
   delete_option('wc_pwb_admin_tab_brand_single_position');
   delete_option('wc_pwb_admin_tab_brand_desc');
   delete_option('wc_pwb_admin_tab_section_end');
+  delete_option('wc_pwb_notice_plugin_review');
 
   //update permalinks and clean cache
   flush_rewrite_rules();
