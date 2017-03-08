@@ -19,12 +19,16 @@
 
             $foreach_iterator = 0;
 
-            $autoplay = 'true';
-            if($atts['autoplay']!='true'){
-                $autoplay = 'false';
-            }
+            $slick_settings = [
+              'slidesToShow'   => (int)$atts['items_to_show'],
+              'slidesToScroll' => (int)$atts['items_to_scroll'],
+              'autoplay'       => (bool)$atts['autoplay'],
+              'arrows'         => (bool)$atts['arrows'],
+            ];
+            ?>
 
-            ?><div class="pwb-carousel" data-slick='{"slidesToShow": <?php echo (int)$atts['items_to_show'];?>, "slidesToScroll": <?php echo (int)$atts['items_to_scroll'];?>, "autoplay": <?php echo $autoplay;?>, "arrows": <?php echo $arrows;?>}'><?php
+            <div class="pwb-carousel" data-slick='<?php echo json_encode($slick_settings); ?>'>
+            <?php
             foreach(\Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands() as $brand){
                 if($foreach_iterator>=(int)$atts['items']){
                     break;

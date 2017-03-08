@@ -17,20 +17,15 @@
 
             ob_start();
 
-            if($atts['autoplay']){
-              $autoplay = 'true';
-            }else{
-              $autoplay = 'false';
-            }
-            if($atts['arrows']){
-              $arrows = 'true';
-            }else{
-              $arrows = 'false';
-            }
-
+            $slick_settings = [
+              'slidesToShow'   => (int)$atts['products_to_show'],
+              'slidesToScroll' => (int)$atts['products_to_scroll'],
+              'autoplay'       => (bool)$atts['autoplay'],
+              'arrows'         => (bool)$atts['arrows'],
+            ];
             ?>
 
-            <div class="pwb-product-carousel" data-slick='{"slidesToShow": <?php echo (int)$atts['products_to_show'];?>, "slidesToScroll": <?php echo (int)$atts['products_to_scroll'];?>, "autoplay": <?php echo $autoplay;?>, "arrows": <?php echo $arrows;?>}'>
+            <div class="pwb-product-carousel" data-slick='<?php echo json_encode($slick_settings); ?>'>
               <?php echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_products_by_brand($atts['brand'], (int)$atts['products']); ?>
             </div>
 
