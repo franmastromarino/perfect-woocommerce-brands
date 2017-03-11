@@ -1,0 +1,42 @@
+== Changelog ==
+= 1.4.5 =
+* Fix carousel shortcodes bugs
+* WooCommerce 2.7 support
+= 1.4.4 =
+* Important improvement of the user experience when assigning images to a brand
+* Feature (Option): Hide brands in single product, show as image or show as link
+* Feature: Hide prev/next arrows on carousel shortcodes
+* Feature: Hide empty brands option for "Display all brands" shortcode
+* Feature: New options for "Display brands as list" widget
+* Fix: Autoplay bug on carousel shortcodes
+* Tested on PHP7
+* Shortcut to the plugin settings added to the plugin list page
+* "Help us" notice added
+* Minor code improvements
+= 1.4.3 =
+* Feature (Widget): Filter products by brand
+* Feature (Option): Show brand logo in product loop
+* Feature: Brand microdata added to product page
+* Feature (Tool): Migrate brands from "YITH WooCommerce Brands Add-on"
+= 1.4.2 =
+* Fix: Table collapses in "Admin > Products > Brands" (thanks eljkmw)
+* Fix: "pwb-brand" shortcode does not display the brand when it has not a logo assigned
+= 1.4.1 =
+* Feature (Option): Hide brand's description in archive page
+* Fix: "pwb-all-brands" and "pwb-brand" show the content before they should
+* Clean database on uninstallation
+* Minor code improvements and fixes
+= 1.4 =
+* Feature: Product carousel by brand added
+* Minor bug fixes
+= 1.3 =
+* Feature: If is set, show brand description in brand page
+* Feature: Change brands position in single product
+= 1.2 =
+* Feature: Associate a banner and a link to each brand
+* Minor tweaks
+* Fully tested on WooCommerce 2.6
+= 1.1 =
+* Minor bug fixes
+= 1.0 =
+* Initial release

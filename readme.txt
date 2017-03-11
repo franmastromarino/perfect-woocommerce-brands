@@ -11,8 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store
 
 == Description ==
-Whether we like to admit it or not, we are all influenced by brands. Brands are a guarantee for quality, they assure product recognition in customers. 
-Is essential to work with product brands for increase sales and generate reliability on your e-commerce site. 
+Whether we like to admit it or not, we are all influenced by brands. Brands are a guarantee for quality, they assure product recognition in customers.
+Is essential to work with product brands for increase sales and generate reliability on your e-commerce site.
 With this extension you can add product brands to your WooCommerce site.
 
 = Requirements =
@@ -57,7 +57,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 There are four shortcodes available:
 > * Display all brands: [pwb-all-brands per_page="10" image_size="thumbnail" hide_empty="false"]
 > * Display brands carousel: [pwb-carousel items="10" items_to_show="5" items_to_scroll="1" image_size="thumbnail" autoplay="true" arrows="true"]
-> * Display product carousel by brand: [pwb-product-carousel brand="all" products="10" products_to_show="4" products_to_scroll="2" image_size="" items_to_show="2" autoplay="true" arrows="true"] 
+> * Display product carousel by brand: [pwb-product-carousel brand="all" products="10" products_to_show="4" products_to_scroll="2" image_size="" items_to_show="2" autoplay="true" arrows="true"]
 > * Display brands for a specific product: [pwb-brand product_id="5" image_size="thumbnail"]
 
 
@@ -70,6 +70,9 @@ There are four shortcodes available:
 
 
 == Changelog ==
+= 1.4.5 =
+* Fix carousel shortcodes bugs
+* WooCommerce 2.7 support
 = 1.4.4 =
 * Important improvement of the user experience when assigning images to a brand
 * Feature (Option): Hide brands in single product, show as image or show as link
