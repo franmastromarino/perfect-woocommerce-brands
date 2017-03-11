@@ -44,7 +44,7 @@
       if (  get_option('wc_pwb_notice_plugin_review', true ) ) {
       ?>
         <div class="notice notice-info pwb-notice-dismissible is-dismissible" data-notice="wc_pwb_notice_plugin_review">
-          <p><?php echo __('We are offering you maybe the best WooCommerce brands plugin completly free. You can help us making Perfect WooCommerce Brands a bit better. Thanks!', 'perfect-woocommerce-brands' ); ?><span class="dashicons dashicons-heart"></span></p>
+          <p><?php echo __('We are offering you maybe the best WooCommerce brands plugin completely free. You can help us making Perfect WooCommerce Brands a bit better. Thanks!', 'perfect-woocommerce-brands' ); ?><span class="dashicons dashicons-heart"></span></p>
           <p>
             <?php _e( '<a href="https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?rate=5#new-post" target="_blank">Leave a review</a>', 'perfect-woocommerce-brands' ); ?>
             <?php _e( '<a href="https://translate.wordpress.org/projects/wp-plugins/perfect-woocommerce-brands" target="_blank">Translate the plugin</a>', 'perfect-woocommerce-brands' ); ?>
