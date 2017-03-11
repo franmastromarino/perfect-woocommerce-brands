@@ -1,6 +1,6 @@
 # Perfect WooCommerce Brands 1.4.5
 
-[![N|Solid](https://lh6.googleusercontent.com/9HY07mkLwCKeuvHUxHSLZsnHuush7ufoo8XwNAELboom2EIucT1E5MjvJD2keA0QIIBNXjkXtsXbKHo=w1680-h846)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
+[![Perfect WooCommerce Brands](https://cloud.githubusercontent.com/assets/11556124/23825474/a0b13d56-068a-11e7-980e-775e17a79f82.png)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
 
 **Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.**
 
