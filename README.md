@@ -30,3 +30,11 @@ Whether we like to admit it or not, we are all influenced by brands. Brands are 
 - Very lightweight
 - Customizable brands slug
 - And much more!
+
+### To-do
+- Filter by brand widget improvements
+- (Tool) Load brands dummy data
+- Import brands from "WooCommerce Brands" plugin
+- REST API Support
+
+**Pull request are welcome :)**
