@@ -6,6 +6,7 @@
   class Perfect_Woocommerce_Brands{
 
     function __construct(){
+
       add_action( 'woocommerce_init', array( $this, 'register_brands_taxonomy' ), 10, 0 );
       add_action( 'init', array( $this, 'add_brands_metafields' ) );
       add_action( 'pwb-brand_add_form_fields', array( $this, 'add_brands_metafields_form' ) );
@@ -17,7 +18,6 @@
       add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
       $this->brand_logo_position();
       add_action( 'woocommerce_before_shop_loop', array( $this, 'archive_page_banner' ), 9);
-      add_action( 'woocommerce_before_shop_loop', array( $this, 'show_brand_description' ), 9);
       add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
 
       if ( !is_admin() ) {
@@ -32,7 +32,6 @@
 
       add_action( 'widgets_init', array( $this, 'register_widgets' ) );
       add_action( 'woocommerce_after_single_product_summary' , array( $this, 'product_microdata' ), 40 );
-      add_action( 'wp_ajax_pwb_admin_migrate_brands', array( $this, 'migrate_brands' ) );
       add_action( 'pre_get_posts', array( $this, 'pwb_brand_filter' ) );
       add_filter( 'plugin_action_links_' . PWB_PLUGIN_BASENAME, array( $this, 'plugin_action_links' ) );
       add_action( 'wp_ajax_dismiss_pwb_notice', array( $this, 'dismiss_pwb_notice' ) );
@@ -104,54 +103,6 @@
 
     }
 
-    public function migrate_brands(){
-
-      if( isset( $_POST['from'] ) ){
-
-        switch ($_POST['from']) {
-          case 'yith':
-
-            $terms = get_terms( 'yith_product_brand', array(
-                'hide_empty' => false
-            ) );
-
-            foreach ($terms as $term) {
-
-              global $wpdb;
-
-              //change taxonomy
-              $wpdb->update(
-              	$wpdb->prefix . 'term_taxonomy',
-              	array(
-                  'taxonomy' => 'pwb-brand'
-              	),
-              	array(
-                  'term_id' => $term->term_id
-                )
-              );
-
-              //update term meta
-              $wpdb->update(
-              	$wpdb->prefix . 'termmeta',
-              	array(
-              		'meta_key' => 'pwb_brand_image'
-              	),
-              	array(
-                  'meta_key'         => 'thumbnail_id',
-                  'term_id'          => $term->term_id
-                )
-              );
-
-            }
-
-            break;
-        }
-
-      }
-
-      wp_die();
-    }
-
     /*
     *   Adds microdata (brands) to single products
     */
@@ -188,16 +139,6 @@
       register_widget( '\Perfect_Woocommerce_Brands\Widgets\PWB_List_Widget' );
       register_widget( '\Perfect_Woocommerce_Brands\Widgets\PWB_Dropdown_Widget' );
       register_widget( '\Perfect_Woocommerce_Brands\Widgets\PWB_Filter_By_Brand_Widget' );
-    }
-
-    public function show_brand_description(){
-      $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
-    	$queried_object = get_queried_object();
-    	if(is_a($queried_object,'WP_Term') && $queried_object->taxonomy == 'pwb-brand' && $queried_object->description != '' && $show_desc !== 'no'){
-    		echo '<div class="pwb-brand-description">';
-    		echo $queried_object->description;
-    		echo '</div>';
-    	}
     }
 
     public function show_brands_in_loop(){
@@ -305,7 +246,7 @@
                     "heading"     => __( "Brand", "perfect-woocommerce-brands" ),
                     "param_name"  => "brand",
                     "admin_label" => true,
-                    "value"       => $this->get_brands_array()
+                    "value"       => self::get_brands_array( true )
                 ),
                 array(
                     "type"        => "textfield",
@@ -430,6 +371,40 @@
                     "value"       => $available_image_sizes_adapted
                 ),
                 array(
+                    "type"        => "dropdown",
+                    "heading"     => __( "Order by", "perfect-woocommerce-brands" ),
+                    "param_name"  => "order_by",
+                    "admin_label" => true,
+                    "value"       => array(
+                      'name'        => 'name',
+                      'slug'        => 'slug',
+                      'term_id'     => 'term_id',
+                      'id'          => 'id',
+                      'description' => 'description',
+                      'rand'        => 'rand'
+                    )
+                ),
+                array(
+                    "type"        => "dropdown",
+                    "heading"     => __( "Order", "perfect-woocommerce-brands" ),
+                    "param_name"  => "order",
+                    "admin_label" => true,
+                    "value"       => array(
+                      'ASC' => 'ASC',
+                      'DSC' => 'DSC'
+                    )
+                ),
+                array(
+                    "type"        => "dropdown",
+                    "heading"     => __( "Title position", "perfect-woocommerce-brands" ),
+                    "param_name"  => "title_position",
+                    "admin_label" => true,
+                    "value"       => array(
+                      __( "Before image", "perfect-woocommerce-brands" ) => 'before',
+                      __( "After image", "perfect-woocommerce-brands" )  => 'after'
+                    )
+                ),
+                array(
                     "type"        => "checkbox",
                     "holder"      => "div",
                     "heading"     => __( "Hide empty", "perfect-woocommerce-brands" ),
@@ -475,16 +450,18 @@
     public function action_woocommerce_single_product_summary() {
         $brands = wp_get_post_terms( get_the_ID(), 'pwb-brand');
 
-        if(!is_wp_error($brands)){
+        if( !is_wp_error( $brands ) ){
 
-            if(sizeof($brands>0)){
+            if( sizeof( $brands>0 ) ){
 
               $show_as = get_option( 'wc_pwb_admin_tab_brands_in_single' );
 
               if( $show_as!='no' ){
 
+                do_action( 'pwb_before_single_product_brands', $brands );
+
                 echo '<div class="pwb-single-product-brands pwb-clearfix">';
-                foreach($brands as $brand){
+                foreach( $brands as $brand ){
                     $brand_link = get_term_link ( $brand->term_id, 'pwb-brand' );
                     $attachment_id = get_term_meta( $brand->term_id, 'pwb_brand_image', 1 );
 
@@ -495,13 +472,16 @@
                     }
 
                     $attachment_html = wp_get_attachment_image($attachment_id,$image_size);
-                    if( !empty($attachment_html) && $show_as=='brand_image' ){
+
+                    if( !empty($attachment_html) && $show_as=='brand_image' || !empty($attachment_html) && !$show_as ){
                       echo '<a href="'.$brand_link.'" title="'.__( 'View brand', 'perfect-woocommerce-brands' ).'">'.$attachment_html.'</a>';
                     }else{
                       echo '<a href="'.$brand_link.'" title="'.__( 'View brand', 'perfect-woocommerce-brands' ).'">'.$brand->name.'</a>';
                     }
                 }
                 echo '</div>';
+
+                do_action( 'pwb_after_single_product_brands', $brands );
 
               }
 
@@ -562,11 +542,13 @@
         wp_enqueue_style( 'pwb_styles_brands' );
         wp_enqueue_script( 'pwb_brands_js' );
         wp_localize_script( 'pwb_brands_js', 'ajax_object', array(
-          'ajax_url' => admin_url( 'admin-ajax.php' ),
-          'brands_url' => admin_url( 'edit-tags.php?taxonomy=pwb-brand&post_type=product' ),
+          'ajax_url'     => admin_url( 'admin-ajax.php' ),
+          'brands_url'   => admin_url( 'edit-tags.php?taxonomy=pwb-brand&post_type=product' ),
           'translations' => array(
-            'migrate_notice' => __('¿Start migration?','perfect-woocommerce-brands'),
-            'migrating' => __('We are migrating the product brands. ¡Don´t close this window until the process is finished!','perfect-woocommerce-brands')
+            'migrate_notice'    => __('¿Start migration?','perfect-woocommerce-brands'),
+            'migrating'         => __('We are migrating the product brands. ¡Don´t close this window until the process is finished!','perfect-woocommerce-brands'),
+            'dummy_data_notice' => __('¿Start loading dummy data?','perfect-woocommerce-brands'),
+            'dummy_data'        => __('We are importing the dummy data. ¡Don´t close this window until the process is finished!','perfect-woocommerce-brands')
           )
         ) );
 
@@ -764,7 +746,7 @@
 
     public function brand_taxonomy_columns_head($defaults) {
         $newColumns = array(
-            'cb' => $defaults['cb'],
+            'cb'   => $defaults['cb'],
             'logo' => __( 'Logo', 'perfect-woocommerce-brands' )
         );
 
@@ -783,11 +765,13 @@
         }
     }
 
-    public static function get_brands( $hide_empty = false ){
+    public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC' ){
         $result = array();
 
         $brands = get_terms('pwb-brand',array(
-            'hide_empty' => $hide_empty
+            'hide_empty' => $hide_empty,
+            'order_by'   => $order_by,
+            'order'      => $order
         ));
 
         if(is_array($brands) && count($brands)>0){
@@ -798,9 +782,12 @@
 
     }
 
-    public static function get_brands_array(){
+    public static function get_brands_array( $is_select = false ){
         $result = array();
-        $result[0] = 'all';
+
+        //if is for select input adds default value
+        if( $is_select )
+          $result[0] = __( 'All', 'perfect-woocommerce-brands' );
 
         $brands = get_terms('pwb-brand',array(
             'hide_empty' => false
@@ -866,19 +853,38 @@
     public function archive_page_banner(){
       $queried_object = get_queried_object();
 
-      if(is_a($queried_object,'WP_Term') && $queried_object->taxonomy == 'pwb-brand'){
-        //pwb-brand archive
+      if( is_a( $queried_object,'WP_Term' ) && $queried_object->taxonomy == 'pwb-brand' ){
+
         $brand_banner = get_term_meta( $queried_object->term_id, 'pwb_brand_banner', true );
         $brand_banner_link = get_term_meta( $queried_object->term_id, 'pwb_brand_banner_link', true );
-        if($brand_banner!=''){
-          echo '<div class="pwb-brand-banner pwb-clearfix">';
-          if($brand_banner_link!=''){
-            echo '<a href="'.site_url($brand_banner_link).'">'.wp_get_attachment_image ( $brand_banner, 'full', false ).'</a>';
-          }else{
-            echo wp_get_attachment_image ( $brand_banner, 'full', false );
+        $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
+
+        if( $brand_banner!='' || $queried_object->description != '' && $show_desc !== 'no' ){
+          echo '<div class="pwb-brand-banner-cont">';
+        }
+
+          //pwb-brand archive
+          if( $brand_banner!='' ){
+            echo '<div class="pwb-brand-banner pwb-clearfix">';
+            if($brand_banner_link!=''){
+              echo '<a href="'.site_url($brand_banner_link).'">'.wp_get_attachment_image ( $brand_banner, 'full', false ).'</a>';
+            }else{
+              echo wp_get_attachment_image ( $brand_banner, 'full', false );
+            }
+            echo '</div>';
           }
+
+          //show brand description
+          if( $queried_object->description != '' && $show_desc !== 'no' ){
+            echo '<div class="pwb-brand-description">';
+            echo $queried_object->description;
+            echo '</div>';
+          }
+
+        if( $brand_banner!='' || $queried_object->description != '' && $show_desc !== 'no' ){
           echo '</div>';
         }
+
       }
 
     }

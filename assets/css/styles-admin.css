@@ -45,6 +45,12 @@
 }
 /* ----------------------- /Taxonomy pwb-brand ----------------------- */
 
+/* ----------------------- Widgets page ----------------------- */
+.widgets-php .widget[id*="_pwb_"] .widget-title{
+  border-left: 2px solid #cda000;
+}
+/* ----------------------- /Widgets page ----------------------- */
+
 .pwb-display-as-logo{
   display: none;
 }

@@ -17,12 +17,12 @@
 
             ob_start();
 
-            $slick_settings = [
+            $slick_settings = array(
               'slidesToShow'   => (int)$atts['products_to_show'],
               'slidesToScroll' => (int)$atts['products_to_scroll'],
               'autoplay'       => (bool)$atts['autoplay'],
-              'arrows'         => (bool)$atts['arrows'],
-            ];
+              'arrows'         => (bool)$atts['arrows']
+            );
             ?>
 
             <div class="pwb-product-carousel" data-slick='<?php echo json_encode($slick_settings); ?>'>

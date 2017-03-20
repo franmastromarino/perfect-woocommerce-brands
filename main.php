@@ -3,14 +3,14 @@
 Plugin Name: Perfect WooCommerce Brands
 Plugin URI: https://wordpress.org/plugins/perfect-woocommerce-brands/
 Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
-Version: 1.4.5
+Version: 1.5
 Author: Alberto de Vera Sevilla
 Author URI: https://profiles.wordpress.org/titodevera/
 Text Domain: perfect-woocommerce-brands
 Domain Path: /lang
 License: GPL3
 
-    Perfect WooCommerce Brands version 1.4.5, Copyright (C) 2016 Alberto de Vera Sevilla
+    Perfect WooCommerce Brands version 1.5, Copyright (C) 2016 Alberto de Vera Sevilla
 
     Perfect WooCommerce Brands is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 define( 'PWB_PLUGIN', plugins_url( '', __FILE__ ) );
 define( 'PWB_PLUGIN_PATH', plugin_basename( dirname( __FILE__ ) ) );
 define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'PWB_PLUGIN_VERSION', '1.4.5' );
+define( 'PWB_PLUGIN_VERSION', '1.5' );
 
 //clean brands slug on plugin deactivation
 register_deactivation_hook( __FILE__, function(){
@@ -58,7 +58,14 @@ if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
   require 'classes/shortcodes/class-pwb-all-brands.php';
   require 'classes/shortcodes/class-pwb-brand.php';
   require 'classes/class-perfect-woocommerce-brands.php';
-  require 'classes/class-pwb-admin-tab.php';
+
+  if( is_admin() ){
+    require 'classes/admin/class-pwb-admin-tab.php';
+    require 'classes/admin/class-pwb-migrate.php';
+    new Admin\PWB_Migrate();
+    require 'classes/admin/class-pwb-dummy-data.php';
+    new Admin\PWB_Dummy_Data();
+  }
 
   new \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands();
 

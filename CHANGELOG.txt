@@ -1,4 +1,14 @@
 == Changelog ==
+= 1.5 =
+* Feature (Tool): Install dummy data (generate generic brands and assigns them to available products randomly)
+* Feature: Import brands from "Ultimate WooCommerce Brands"
+* Dev: 'pwb_before_single_product_brands' and 'pwb_after_single_product_brands'
+* Enhancement: The brand banner and brand description have a "div" wrapper for better css customization
+* Enhancement: Brands importer improvements
+* Enhancement: New params for "pwb-all-brands" shortcode
+* Fix: Support for php 5.3 again
+* Fix: Removed ES6 code from admin for better browser support
+* Other minor bug fixes and code improvements
 = 1.4.5 =
 * Fix carousel shortcodes bugs
 * WooCommerce 2.7 support

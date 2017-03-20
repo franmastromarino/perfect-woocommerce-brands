@@ -1,4 +1,4 @@
-# Perfect WooCommerce Brands 1.4.5
+# Perfect WooCommerce Brands 1.5 RC
 
 [![Perfect WooCommerce Brands](https://cloud.githubusercontent.com/assets/11556124/23825474/a0b13d56-068a-11e7-980e-775e17a79f82.png)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
 
@@ -33,7 +33,7 @@ Whether we like to admit it or not, we are all influenced by brands. Brands are 
 
 ### To-do
 - Filter by brand widget improvements
-- (Tool) Load brands dummy data
+- ~~(Tool) Load brands dummy data~~
 - Import brands from "WooCommerce Brands" plugin
 - REST API Support
 

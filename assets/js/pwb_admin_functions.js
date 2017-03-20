@@ -85,6 +85,7 @@ jQuery(document).ready(function( $ ) {
 
   /* ····························· Settings tab ····························· */
 
+  // migrate brands
   $('#wc_pwb_admin_tab_tools_migrate').on( 'change', function(){
 
     if( $(this).val() != '-' ){
@@ -96,6 +97,38 @@ jQuery(document).ready(function( $ ) {
 
         var data = {
       		'action': 'pwb_admin_migrate_brands',
+      		'from': $(this).val()
+      	};
+      	$.post(ajax_object.ajax_url, data, function(response) {
+
+          setTimeout( function(){
+            location.href = ajax_object.brands_url;
+          }, 1000 );
+
+      	});
+
+      }else{
+
+      }
+
+    }
+
+    $(this).val('-');//reset to default value
+
+  } );
+
+  // dummy data
+  $('#wc_pwb_admin_tab_tools_dummy_data').on( 'change', function(){
+
+    if( $(this).val() != '-' ){
+
+      if( confirm(ajax_object.translations.dummy_data_notice) ){
+
+        $('html').append('<div class="pwb-modal"><div class="pwb-modal-inner"></div></div>');
+        $('.pwb-modal-inner').html('<p>'+ajax_object.translations.dummy_data+'</p>');
+
+        var data = {
+      		'action': 'pwb_admin_dummy_data',
       		'from': $(this).val()
       	};
       	$.post(ajax_object.ajax_url, data, function(response) {
@@ -146,9 +179,9 @@ jQuery(document).ready(function( $ ) {
   jQuery(document).on('widget-updated', function(e, widget){
     pwbBindEventsToWigets( widget );
   });
-  function pwbBindEventsToWigets( widget = null ){
+  function pwbBindEventsToWigets( widget ){
     $currentWidget = $(".pwb-select-display-as");
-    if( widget != null ){
+    if( widget != undefined ){
       $currentWidget = $(".pwb-select-display-as", widget);
     }
     $currentWidget.on("change",function(){
