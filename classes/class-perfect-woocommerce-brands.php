@@ -532,8 +532,8 @@
     public function register_admin_scripts($hook){
         $screen = get_current_screen();
 
-        wp_register_style('pwb_styles_brands', plugins_url('perfect-woocommerce-brands/assets/css/styles-admin.css'), array(), PWB_PLUGIN_VERSION);
-        wp_register_script('pwb_brands_js', plugins_url('perfect-woocommerce-brands/assets/js/pwb_admin_functions.js'), array('jquery'), PWB_PLUGIN_VERSION, true);
+        wp_register_style('pwb_styles_brands', PWB_PLUGIN . '/assets/css/styles-admin.css', array(), PWB_PLUGIN_VERSION);
+        wp_register_script('pwb_brands_js', PWB_PLUGIN . '/assets/js/pwb_admin_functions.js', array('jquery'), PWB_PLUGIN_VERSION, true);
 
         if ($hook == 'edit-tags.php' && $screen->taxonomy == 'pwb-brand' || $hook == 'term.php' && $screen->taxonomy == 'pwb-brand') {
             wp_enqueue_media();

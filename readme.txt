@@ -74,8 +74,9 @@ There are four shortcodes available:
 = 1.5 =
 * Feature (Tool): Install dummy data (generate generic brands and assigns them to available products randomly)
 * Feature: Import brands from "Ultimate WooCommerce Brands"
-* Dev: 'pwb_before_single_product_brands' and 'pwb_after_single_product_brands'
-* Enhancement: The brand banner and brand description have a "div" wrapper for better css customization
+* Dev: 'pwb_before_single_product_brands' and 'pwb_after_single_product_brands' hooks added
+* Dev: Basic WordPress REST API support
+* Enhancement: Better HTML markup for the brand banner and the brand description in the single product page
 * Enhancement: Brands importer improvements
 * Enhancement: New params for "pwb-all-brands" shortcode
 * Fix: Support for php 5.3 again

@@ -36,6 +36,7 @@ define( 'PWB_PLUGIN', plugins_url( '', __FILE__ ) );
 define( 'PWB_PLUGIN_PATH', plugin_basename( dirname( __FILE__ ) ) );
 define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'PWB_PLUGIN_VERSION', '1.5' );
+define( 'PWB_WP_VERSION', get_bloginfo( 'version' ) );
 
 //clean brands slug on plugin deactivation
 register_deactivation_hook( __FILE__, function(){
@@ -59,6 +60,11 @@ if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
   require 'classes/shortcodes/class-pwb-brand.php';
   require 'classes/class-perfect-woocommerce-brands.php';
 
+  if( defined( 'WOOCOMMERCE_VERSION' ) && version_compare( WOOCOMMERCE_VERSION, '2.6', '>=' ) ){
+    require 'classes/class-pwb-api-support.php';
+    new PWB_API_Support();
+  }
+
   if( is_admin() ){
     require 'classes/admin/class-pwb-admin-tab.php';
     require 'classes/admin/class-pwb-migrate.php';
@@ -68,6 +74,7 @@ if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
   }
 
   new \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands();
+
 
 }elseif( is_admin() ){
 
