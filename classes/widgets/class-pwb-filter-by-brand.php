@@ -99,7 +99,7 @@
 
     			}else{
     				//no product category
-    				$cate_url = get_permalink( woocommerce_get_page_id( 'shop' ));
+    				$cate_url = get_permalink( wc_get_page_id( 'shop' ));
     				shuffle($brands_ids);
     				$result_brands = array_slice($brands_ids, 0, 20);
     			}

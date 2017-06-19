@@ -36,6 +36,7 @@
       add_filter( 'plugin_action_links_' . PWB_PLUGIN_BASENAME, array( $this, 'plugin_action_links' ) );
       add_action( 'wp_ajax_dismiss_pwb_notice', array( $this, 'dismiss_pwb_notice' ) );
       add_action( 'admin_notices', array( $this, 'review_notice' ) );
+      add_filter( 'term_description', array( $this, 'filter_default_brand_desc' ), 10, 1 );
 
     }
 
@@ -81,13 +82,15 @@
         $terms_array = explode(',',$_GET['pwb-brand-filter']);
 
         //remove invalid terms (security)
-        for ($i=0; $i < count($terms_array); $i++) {
-          if( !term_exists( $terms_array[$i], 'pwb-brand' ) ){
-            unset($terms_array[$i]);
-          }
+        for($i=0; $i < count($terms_array); $i++) {
+          if( !term_exists( $terms_array[$i], 'pwb-brand' ) ) unset($terms_array[$i]);
         }
 
-        if ( !is_admin() && is_post_type_archive( 'product' ) && $query->is_main_query() ) {
+        $filterable_product = false;
+        if( is_product_category() || is_post_type_archive( 'product' ) )
+          $filterable_product = true;
+
+        if( $filterable_product && $query->is_main_query() ) {
 
           $query->set('tax_query', array(
             array (
@@ -108,7 +111,7 @@
     */
     public function product_microdata(){
       global $product;
-      $brands = wp_get_post_terms( $product->id, 'pwb-brand');
+      $brands = wp_get_post_terms( $product->get_id(), 'pwb-brand');
 
       foreach ($brands as $brand) {
         echo '<meta itemprop="brand" content="'.$brand->name.'">';
@@ -148,7 +151,7 @@
       if( $brands_in_loop == 'brand_link' || $brands_in_loop == 'brand_image' ){
 
         global $product;
-        $product_id = $product->id;
+        $product_id = $product->get_id();
         $product_brands =  wp_get_post_terms($product_id, 'pwb-brand');
         if(!empty($product_brands)){
           echo '<div class="pwb-brands-in-loop">';
@@ -853,7 +856,7 @@
     public function archive_page_banner(){
       $queried_object = get_queried_object();
 
-      if( is_a( $queried_object,'WP_Term' ) && $queried_object->taxonomy == 'pwb-brand' ){
+      if( self::is_brand_archive_page() ){
 
         $brand_banner = get_term_meta( $queried_object->term_id, 'pwb_brand_banner', true );
         $brand_banner_link = get_term_meta( $queried_object->term_id, 'pwb_brand_banner_link', true );
@@ -887,6 +890,21 @@
 
       }
 
+    }
+
+    public function filter_default_brand_desc( $desc_kses ){
+      if( self::is_brand_archive_page() ){
+        return false;
+      }
+      return $desc_kses;
+    }
+
+    public static function is_brand_archive_page(){
+      $queried_object = get_queried_object();
+      if( is_a( $queried_object,'WP_Term' ) && $queried_object->taxonomy == 'pwb-brand' ){
+        return true;
+      }
+      return false;
     }
 
   }

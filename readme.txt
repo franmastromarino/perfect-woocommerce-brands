@@ -3,7 +3,7 @@ Contributors: titodevera
 Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
-Tested up to: 4.7.3
+Tested up to: 4.8
 Stable tag: 1.5
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -38,7 +38,7 @@ With this extension you can add product brands to your WooCommerce site.
 > * Minimalist design and fully responsive
 > * Very lightweight
 > * Customizable brands slug
-> * Dummy data installer
+> * Dummy data installer (logos by heroturko)
 > * And much more!
 
 
@@ -76,9 +76,11 @@ There are four shortcodes available:
 * Feature: Import brands from "Ultimate WooCommerce Brands"
 * Dev: 'pwb_before_single_product_brands' and 'pwb_after_single_product_brands' hooks added
 * Dev: Basic WordPress REST API support
-* Enhancement: Better HTML markup for the brand banner and the brand description in the single product page
+* Enhancement: Better HTML markup for the brand banner and the brand description for the archive product page
 * Enhancement: Brands importer improvements
 * Enhancement: New params for "pwb-all-brands" shortcode
+* Fix: The brand description is appearing twice
+* Fix: Product filter widget does not seems to work in product category page (thanks hassandad)
 * Fix: Support for php 5.3 again
 * Fix: Removed ES6 code from admin for better browser support
 * Other minor bug fixes and code improvements

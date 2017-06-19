@@ -4,9 +4,11 @@
 * Feature: Import brands from "Ultimate WooCommerce Brands"
 * Dev: 'pwb_before_single_product_brands' and 'pwb_after_single_product_brands' hooks added
 * Dev: Basic WordPress REST API support
-* Enhancement: Better HTML markup for the brand banner and the brand description in the single product page
+* Enhancement: Better HTML markup for the brand banner and the brand description for the archive product page
 * Enhancement: Brands importer improvements
 * Enhancement: New params for "pwb-all-brands" shortcode
+* Fix: The brand description is appearing twice
+* Fix: Product filter widget does not seems to work in product category page (thanks hassandad)
 * Fix: Support for php 5.3 again
 * Fix: Removed ES6 code from admin for better browser support
 * Other minor bug fixes and code improvements
