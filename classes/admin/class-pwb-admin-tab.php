@@ -183,6 +183,12 @@
                     'start_import'   => __( 'Start import', 'perfect-woocommerce-brands' )
                   )
               ),
+              'brands_system_status' => array(
+                  'name'     => __( 'System status', 'perfect-woocommerce-brands' ),
+                  'type'     => 'textarea',
+                  'desc'     => __( 'Show system status', 'perfect-woocommerce-brands' ),
+                  'id'       => 'wc_pwb_admin_tab_tools_system_status'
+              ),
               'section_end' => array(
                    'type' => 'sectionend',
                    'id'   => 'wc_pwb_admin_tab_section_tools_end'

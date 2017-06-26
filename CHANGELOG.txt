@@ -1,6 +1,8 @@
 == Changelog ==
 = 1.5 =
 * Feature (Tool): Install dummy data (generate generic brands and assigns them to available products randomly)
+* Feature: Restrict coupon by brands
+* Feature: Get system status for better plugin support
 * Feature: Import brands from "Ultimate WooCommerce Brands"
 * Dev: 'pwb_before_single_product_brands' and 'pwb_after_single_product_brands' hooks added
 * Dev: Basic WordPress REST API support

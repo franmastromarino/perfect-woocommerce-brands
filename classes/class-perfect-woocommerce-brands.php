@@ -546,6 +546,7 @@
         wp_enqueue_script( 'pwb_brands_js' );
         wp_localize_script( 'pwb_brands_js', 'ajax_object', array(
           'ajax_url'     => admin_url( 'admin-ajax.php' ),
+          'site_url'     => site_url(),
           'brands_url'   => admin_url( 'edit-tags.php?taxonomy=pwb-brand&post_type=product' ),
           'translations' => array(
             'migrate_notice'    => __('¿Start migration?','perfect-woocommerce-brands'),

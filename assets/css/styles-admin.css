@@ -51,6 +51,17 @@
 }
 /* ----------------------- /Widgets page ----------------------- */
 
+/* ----------------------- Settings page ----------------------- */
+#wc_pwb_admin_status_result{
+  display: none;
+  background-color: #f6f6f6;
+  padding: 14px;
+}
+#wc_pwb_admin_tab_tools_system_status{
+  display: none!important;
+}
+/* ----------------------- /Settings page ----------------------- */
+
 .pwb-display-as-logo{
   display: none;
 }

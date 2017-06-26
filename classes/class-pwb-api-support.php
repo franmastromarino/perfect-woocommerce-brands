@@ -11,7 +11,7 @@
       /**
       *  register_rest_field() was introduced in WordPress 4.7.0
       */
-      if( version_compare( PWB_WP_VERSION, '2.1', '>=', '4.7.0' ) ){
+      if( version_compare( PWB_WP_VERSION, '4.7.0', '>=' ) ){
         add_action( 'rest_api_init', array( $this, 'register_fields' ) );
       }
 
