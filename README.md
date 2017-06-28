@@ -17,18 +17,20 @@ Whether we like to admit it or not, we are all influenced by brands. Brands are 
 - Assign brands to products
 - Associate a banner and a link to each brand
 - Translation-ready (English and Spanish included)
+- Visual Composer support
+- Minimalist design and fully responsive
+- Very lightweight
 - Shortcode: Display all brands
 - Shortcode: Display brands carousel
 - Shortcode: Display product carousel by brand
 - Shortcode: Display brands for a specific product
-- Visual Composer support
 - Widget: Display brands as dropdown
 - Widget: Display brands as list (brand names or brand logos)
 - Widget: Filter products by brand
-- Import brands from other brands plugins
-- Minimalist design and fully responsive
-- Very lightweight
 - Customizable brands slug
+- Show the brands in products loop
+- Import brands (migrate) from other brands plugins
+- Dummy data installer (logos by heroturko)
 - And much more!
 
 **Pull request are welcome :)**
