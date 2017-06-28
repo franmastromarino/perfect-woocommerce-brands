@@ -8,32 +8,42 @@
         public static function all_brands_shortcode( $atts ) {
 
             $atts = shortcode_atts( array(
-                'per_page'    => "10",
-                'image_size'  => "thumbnail",
-                'hide_empty'  => false
+                'per_page'       => "10",
+                'image_size'     => "thumbnail",
+                'hide_empty'     => false,
+                'order_by'       => 'name',
+                'order'          => 'ASC',
+                'title_position' => 'before'
             ), $atts, 'pwb-all-brands' );
 
             $hide_empty = true;
-            if($atts['hide_empty']!='true'){
+            if( $atts['hide_empty'] != 'true' ){
                 $hide_empty = false;
             }
 
             ob_start();
 
-            $brands = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( $hide_empty );
+            $brands = array();
+            if( $atts['order_by'] == 'rand' ){
+              $brands = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( $hide_empty );
+              shuffle( $brands );
+            }else{
+              $brands = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( $hide_empty, $atts['order_by'], $atts['order'] );
+            }
+
             ?>
             <div class="pwb-all-brands">
-                <?php static::pagination($brands, $atts['per_page'], $atts['image_size']);?>
+                <?php static::pagination( $brands, $atts['per_page'], $atts['image_size'], $atts['title_position'] );?>
             </div>
             <?php
 
             return ob_get_clean();
         }
 
-        public static function pagination($display_array, $show_per_page, $image_size) {
+        public static function pagination( $display_array, $show_per_page, $image_size, $title_position ) {
             $page = 1;
 
-            if(isset($_GET['pwb-page']) && filter_var($_GET['pwb-page'], FILTER_VALIDATE_INT) == true){
+            if( isset( $_GET['pwb-page'] ) && filter_var( $_GET['pwb-page'], FILTER_VALIDATE_INT ) == true ){
                 $page = $_GET['pwb-page'];
             }
 
@@ -68,13 +78,25 @@
 
                     ?>
                     <div class="pwb-brands-col3">
-                        <div>
-                            <?php echo $brand_name;?>
-                            <small>(<?php echo $brand->count;?>)</small>
-                        </div>
+
+                        <?php if( $title_position != 'after' ): ?>
+                          <p>
+                              <?php echo $brand_name;?>
+                              <small>(<?php echo $brand->count;?>)</small>
+                          </p>
+                        <?php endif; ?>
+
                         <div>
                             <a href="<?php echo $brand_link;?>" title="<?php _e( 'View brand', 'perfect-woocommerce-brands' );?>"><?php echo $attachment_html;?></a>
                         </div>
+
+                        <?php if( $title_position == 'after' ): ?>
+                          <p>
+                              <?php echo $brand_name;?>
+                              <small>(<?php echo $brand->count;?>)</small>
+                          </p>
+                        <?php endif; ?>
+
                     </div>
                     <?php
                 }

@@ -7,6 +7,12 @@
 /* ----------------------- /Global ----------------------- */
 
 /* ----------------------- PWB Carousel ----------------------- */
+.pwb-carousel .slick-slide a{
+  display: block;
+}
+.pwb-carousel .slick-slide a > img{
+  margin: 0 auto;
+}
 .pwb-carousel .slick-loading .slick-list, .pwb-product-carousel .slick-loading .slick-list{
     background: #fff url('./ajax-loader.gif') center center no-repeat;
 }
@@ -107,9 +113,10 @@
     width: 20%;
     float: left;
 }
-.pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3 > div:first-child{
+.pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3 > p:first-child{
     height: 25px;
     overflow: hidden;
+    font-size: 14px;
 }
 /* ----------------------- /PWB All Brands ----------------------- */
 
@@ -150,7 +157,7 @@
         width: 100%;
         float: none;
     }
-    .pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3 > div:first-child{
+    .pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3 > p:first-child{
         height: auto;
     }
     .pwb-columns-3, .pwb-columns-4{

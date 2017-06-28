@@ -11,20 +11,23 @@
                 'items_to_show'     => "5",
                 'items_to_scroll'   => "1",
                 'image_size'        => "thumbnail",
-                'autoplay'          => false,
-                'arrows'            => false
+                'autoplay'          => "false",
+                'arrows'            => "false"
             ), $atts, 'pwb-carousel' );
-
-            ob_start();
 
             $foreach_iterator = 0;
 
-            $slick_settings = [
+            $atts['autoplay'] = ( $atts['autoplay'] === 'true' ) ? true: false;
+            $atts['arrows'] = ( $atts['arrows'] === 'true' ) ? true: false;
+
+            $slick_settings = array(
               'slidesToShow'   => (int)$atts['items_to_show'],
               'slidesToScroll' => (int)$atts['items_to_scroll'],
               'autoplay'       => (bool)$atts['autoplay'],
-              'arrows'         => (bool)$atts['arrows'],
-            ];
+              'arrows'         => (bool)$atts['arrows']
+            );
+
+            ob_start();
             ?>
 
             <div class="pwb-carousel" data-slick='<?php echo json_encode($slick_settings); ?>'>

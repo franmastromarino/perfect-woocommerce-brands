@@ -77,6 +77,7 @@
                 'slug' => array(
                     'name'        => __( 'Slug', 'perfect-woocommerce-brands' ),
                     'type'        => 'text',
+                    'css'         => 'min-width:350px;display:block;',
                     'desc'        => __( 'Brands taxonomy slug', 'perfect-woocommerce-brands' ),
                     'id'          => 'wc_pwb_admin_tab_slug',
                     'placeholder' => get_taxonomy('pwb-brand')->rewrite['slug']
@@ -91,6 +92,7 @@
                 'show_brand_on_loop' => array(
                     'name'    => __( 'Show brands in loop', 'perfect-woocommerce-brands' ),
                     'type'    => 'select',
+                    'css'     => 'min-width:350px;display:block;',
                     'desc'    => __( 'Show brand logo (or name) in product loop', 'perfect-woocommerce-brands' ),
                     'id'      => 'wc_pwb_admin_tab_brands_in_loop',
                     'options' => array(
@@ -102,6 +104,7 @@
                 'show_brand_in_single' => array(
                     'name'    => __( 'Show brands in single product', 'perfect-woocommerce-brands' ),
                     'type'    => 'select',
+                    'css'     => 'min-width:350px;display:block;',
                     'desc'    => __( 'Show brand logo (or name) in single product', 'perfect-woocommerce-brands' ),
                     'default' => 'brand_image',
                     'id'      => 'wc_pwb_admin_tab_brands_in_single',
@@ -114,15 +117,17 @@
                 'brand_logo_size' => array(
                     'name'    => __( 'Brand logo size', 'perfect-woocommerce-brands' ),
                     'type'    => 'select',
+                    'css'     => 'min-width:350px;display:block;',
                     'desc'    => __( 'Brand logo size for single product view', 'perfect-woocommerce-brands' ),
                     'id'      => 'wc_pwb_admin_tab_brand_logo_size',
                     'options' => $available_image_sizes_adapted
                 ),
                 'brand_single_position' => array(
-                    'name' => __( 'Brand position', 'perfect-woocommerce-brands' ),
-                    'type' => 'select',
-                    'desc' => __( 'For single product', 'perfect-woocommerce-brands' ),
-                    'id'   => 'wc_pwb_admin_tab_brand_single_position',
+                    'name'    => __( 'Brand position', 'perfect-woocommerce-brands' ),
+                    'type'    => 'select',
+                    'css'     => 'min-width:350px;display:block;',
+                    'desc'    => __( 'For single product', 'perfect-woocommerce-brands' ),
+                    'id'      => 'wc_pwb_admin_tab_brand_single_position',
                     'options' => array(
                       'before_title'      => __( 'Before title', 'perfect-woocommerce-brands' ),
                       'after_title'       => __( 'After title', 'perfect-woocommerce-brands' ),
@@ -152,15 +157,37 @@
                   'desc'  => '',
                   'id'    => 'wc_pwb_admin_tab_section_tools_title'
               ),
-              'slug' => array(
-                  'name'        => __( 'Import brands', 'perfect-woocommerce-brands' ),
-                  'type'        => 'select',
-                  'desc'        => __( 'Import brands from other brand plugin. <strong>Both plugins should be installed and active</strong>', 'perfect-woocommerce-brands' ),
-                  'id'          => 'wc_pwb_admin_tab_tools_migrate',
+              'brand_import' => array(
+                  'name'    => __( 'Import brands', 'perfect-woocommerce-brands' ),
+                  'type'    => 'select',
+                  'css'     => 'min-width:350px;display:block;',
+                  'desc'    => sprintf(
+                    __( 'Import brands from other brand plugin. <a href="%s" target="_blank">Click here for more details</a>', 'perfect-woocommerce-brands' ),
+                    'https://github.com/titodevera/perfect-woocommerce-brands/wiki/How-to-import-brands-from-other-brands-plugin'
+                  ),
+                  'id'      => 'wc_pwb_admin_tab_tools_migrate',
                   'options' => array(
-                    '-'      => __( '-', 'perfect-woocommerce-brands' ),
-                    'yith'       => __( 'YITH WooCommerce Brands Add-On', 'perfect-woocommerce-brands' )
+                    '-'         => __( '-', 'perfect-woocommerce-brands' ),
+                    'yith'      => __( 'YITH WooCommerce Brands Add-On', 'perfect-woocommerce-brands' ),
+                    'ultimate'  => __( 'Ultimate WooCommerce Brands', 'perfect-woocommerce-brands' )
                   )
+              ),
+              'brand_dummy_data' => array(
+                  'name'     => __( 'Dummy data', 'perfect-woocommerce-brands' ),
+                  'type'     => 'select',
+          				'css'      => 'min-width:350px;display:block;',
+                  'desc'     => __( 'Import generic brands and assign it to products randomly', 'perfect-woocommerce-brands' ),
+                  'id'       => 'wc_pwb_admin_tab_tools_dummy_data',
+                  'options'  => array(
+                    '-'              => __( '-', 'perfect-woocommerce-brands' ),
+                    'start_import'   => __( 'Start import', 'perfect-woocommerce-brands' )
+                  )
+              ),
+              'brands_system_status' => array(
+                  'name'     => __( 'System status', 'perfect-woocommerce-brands' ),
+                  'type'     => 'textarea',
+                  'desc'     => __( 'Show system status', 'perfect-woocommerce-brands' ),
+                  'id'       => 'wc_pwb_admin_tab_tools_system_status'
               ),
               'section_end' => array(
                    'type' => 'sectionend',

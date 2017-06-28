@@ -3,8 +3,8 @@ Contributors: titodevera
 Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
-Tested up to: 4.7.3
-Stable tag: 1.4.5
+Tested up to: 4.8
+Stable tag: 1.5
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -26,18 +26,20 @@ With this extension you can add product brands to your WooCommerce site.
 > * Assign brands to products
 > * Associate a banner and a link to each brand
 > * Translation-ready (English and Spanish included)
+> * Visual Composer support
+> * Minimalist design and fully responsive
+> * Very lightweight
 > * Shortcode: Display all brands
 > * Shortcode: Display brands carousel
 > * Shortcode: Display product carousel by brand
 > * Shortcode: Display brands for a specific product
-> * Visual Composer support
 > * Widget: Display brands as dropdown
 > * Widget: Display brands as list (brand names or brand logos)
 > * Widget: Filter products by brand
-> * Import brands from other brands plugins
-> * Minimalist design and fully responsive
-> * Very lightweight
 > * Customizable brands slug
+> * Show the brands in products loop
+> * Import brands (migrate) from other brands plugins
+> * Dummy data installer (logos by heroturko)
 > * And much more!
 
 
@@ -54,11 +56,10 @@ Yes, of course. This plugin is 100% free. No ads, no premium version exists.
 Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 = How can i use the available shortcodes without Visual Composer? =
-There are four shortcodes available:
-> * Display all brands: [pwb-all-brands per_page="10" image_size="thumbnail" hide_empty="false"]
-> * Display brands carousel: [pwb-carousel items="10" items_to_show="5" items_to_scroll="1" image_size="thumbnail" autoplay="true" arrows="true"]
-> * Display product carousel by brand: [pwb-product-carousel brand="all" products="10" products_to_show="4" products_to_scroll="2" image_size="" items_to_show="2" autoplay="true" arrows="true"]
-> * Display brands for a specific product: [pwb-brand product_id="5" image_size="thumbnail"]
+[Click here](https://github.com/titodevera/perfect-woocommerce-brands/wiki/How-can-i-use-the-available-shortcodes-without-Visual-Composer%3F)
+
+= How to import brands from other brands plugin? =
+[Click here](https://github.com/titodevera/perfect-woocommerce-brands/wiki/How-to-import-brands-from-other-brands-plugin)
 
 
 == Screenshots ==
@@ -70,6 +71,21 @@ There are four shortcodes available:
 
 
 == Changelog ==
+= 1.5 =
+* Feature (Tool): Install dummy data (generate generic brands and assigns them to available products randomly)
+* Feature: Restrict coupon by brands
+* Feature: Get system status details for a better plugin support
+* Feature: Import brands from "Ultimate WooCommerce Brands"
+* Dev: 'pwb_before_single_product_brands' and 'pwb_after_single_product_brands' hooks added
+* Dev: Basic WordPress REST API support
+* Enhancement: Better HTML markup for the brand banner and the brand description for the archive product page
+* Enhancement: Brands importer improvements
+* Enhancement: New params for "pwb-all-brands" shortcode
+* Fix: The brand description is appearing twice
+* Fix: Product filter widget does not seems to work in product category page (thanks hassandad)
+* Fix: Support for php 5.3 again
+* Fix: Removed ES6 code from admin for better browser support
+* Other minor bug fixes and code improvements
 = 1.4.5 =
 * Fix carousel shortcodes bugs
 * WooCommerce 2.7 support

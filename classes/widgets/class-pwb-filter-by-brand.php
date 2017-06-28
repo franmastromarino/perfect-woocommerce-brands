@@ -14,11 +14,7 @@
   		}
 
       public function form( $instance ) {
-        if ( isset( $instance[ 'title' ] ) ) {
-          $title = $instance[ 'title' ];
-        }else {
-          $title = 'Marcas';
-        }
+        $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
         ?>
         <p>
           <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -29,7 +25,8 @@
 
   		public function widget( $args, $instance ) {
 
-				$title = apply_filters( 'widget_title', $instance['title'] );
+        $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
+				$title = apply_filters( 'widget_title', $title );
 
         echo $args['before_widget'];
             if ( ! empty( $title ) )
@@ -99,7 +96,7 @@
 
     			}else{
     				//no product category
-    				$cate_url = get_permalink( woocommerce_get_page_id( 'shop' ));
+    				$cate_url = get_permalink( wc_get_page_id( 'shop' ));
     				shuffle($brands_ids);
     				$result_brands = array_slice($brands_ids, 0, 20);
     			}

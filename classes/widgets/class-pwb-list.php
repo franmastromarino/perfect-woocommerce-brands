@@ -15,6 +15,9 @@
 
         public function form($instance){
             extract($instance);
+
+            if( !isset( $display_as ) ) $display_as = 'brand_logo';
+            if( !isset( $columns ) ) $columns = '2';
             ?>
 
                 <p>
@@ -65,6 +68,8 @@
                     echo $before_title . $title . $after_title;
                 }
 
+                if( !isset( $display_as ) ) $display_as = 'brand_logo';
+                if( !isset( $columns ) ) $columns = '2';
                 PWB_List_Widget::get_brands( $display_as, $columns );
 
             echo $after_widget;

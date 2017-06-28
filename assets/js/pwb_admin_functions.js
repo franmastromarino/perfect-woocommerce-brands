@@ -58,7 +58,7 @@ jQuery(document).ready(function( $ ) {
   //clear custom fields when brand is added
   jQuery( document ).ajaxSuccess(function( event, xhr, settings ) {
       //Check ajax action of request that succeeded
-      if( ~settings.data.indexOf("action=add-tag") && ~settings.data.indexOf("taxonomy=pwb-brand") ) {
+      if( typeof settings != "undefined" && settings.data && ~settings.data.indexOf("action=add-tag") && ~settings.data.indexOf("taxonomy=pwb-brand") ) {
         $('#pwb_brand_image').val('');
         $('#pwb_brand_banner').val('');
         $('.pwb_brand_image_selected').remove();
@@ -85,6 +85,7 @@ jQuery(document).ready(function( $ ) {
 
   /* ····························· Settings tab ····························· */
 
+  // migrate brands
   $('#wc_pwb_admin_tab_tools_migrate').on( 'change', function(){
 
     if( $(this).val() != '-' ){
@@ -113,6 +114,76 @@ jQuery(document).ready(function( $ ) {
     }
 
     $(this).val('-');//reset to default value
+
+  } );
+
+  // dummy data
+  $('#wc_pwb_admin_tab_tools_dummy_data').on( 'change', function(){
+
+    if( $(this).val() != '-' ){
+
+      if( confirm(ajax_object.translations.dummy_data_notice) ){
+
+        $('html').append('<div class="pwb-modal"><div class="pwb-modal-inner"></div></div>');
+        $('.pwb-modal-inner').html('<p>'+ajax_object.translations.dummy_data+'</p>');
+
+        var data = {
+      		'action': 'pwb_admin_dummy_data',
+      		'from': $(this).val()
+      	};
+      	$.post(ajax_object.ajax_url, data, function(response) {
+
+          setTimeout( function(){
+            location.href = ajax_object.brands_url;
+          }, 1000 );
+
+      	});
+
+      }else{
+
+      }
+
+    }
+
+    $(this).val('-');//reset to default value
+
+  } );
+
+  var $systemStatusBtn = $('#wc_pwb_admin_tab_tools_system_status').siblings('p');
+  $systemStatusBtn.addClass('button wc_pwb_admin_tab_status_btn');
+  $('.wc_pwb_admin_tab_status_btn').on( 'click', function(e){
+    e.preventDefault();
+    if( !$('#wc_pwb_admin_status_result').length ){
+      $systemStatusTextarea = $('#wc_pwb_admin_tab_tools_system_status');
+      $('<pre id="wc_pwb_admin_status_result"></pre>').insertAfter($systemStatusTextarea);
+      jQuery( '#wc_pwb_admin_status_result' ).click( function(e) {
+        e.preventDefault();
+        var refNode = $( this )[0];
+        if ( $.browser.msie ) {
+            var range = document.body.createTextRange();
+            range.moveToElementText( refNode );
+            range.select();
+        } else if ( $.browser.mozilla || $.browser.opera ) {
+            var selection = window.getSelection();
+            var range = document.createRange();
+            range.selectNodeContents( refNode );
+            selection.removeAllRanges();
+            selection.addRange( range );
+        } else if ( $.browser.safari ) {
+            var selection = window.getSelection();
+            selection.setBaseAndExtent( refNode, 0, refNode, 1 );
+        }
+      } );
+    }
+    $('#wc_pwb_admin_status_result').html('<img src="'+ajax_object.site_url+'/wp-admin/images/spinner.gif'+'" alt="Loading" height="20" width="20">');
+    $('#wc_pwb_admin_status_result').show();
+    var data = {
+      'action': 'pwb_system_status'
+    };
+    jQuery.post(ajaxurl, data, function(response) {
+      $('#wc_pwb_admin_status_result').html(response);
+      $('#wc_pwb_admin_status_result').trigger('click');
+    });
 
   } );
 
@@ -146,9 +217,9 @@ jQuery(document).ready(function( $ ) {
   jQuery(document).on('widget-updated', function(e, widget){
     pwbBindEventsToWigets( widget );
   });
-  function pwbBindEventsToWigets( widget = null ){
+  function pwbBindEventsToWigets( widget ){
     $currentWidget = $(".pwb-select-display-as");
-    if( widget != null ){
+    if( widget != undefined ){
       $currentWidget = $(".pwb-select-display-as", widget);
     }
     $currentWidget.on("change",function(){
