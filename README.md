@@ -1,4 +1,4 @@
-# Perfect WooCommerce Brands 1.5 RC3
+# Perfect WooCommerce Brands 1.5
 
 [![Perfect WooCommerce Brands](https://cloud.githubusercontent.com/assets/11556124/23825474/a0b13d56-068a-11e7-980e-775e17a79f82.png)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
 
