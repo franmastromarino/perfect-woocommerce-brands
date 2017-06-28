@@ -56,11 +56,10 @@ Yes, of course. This plugin is 100% free. No ads, no premium version exists.
 Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 = How can i use the available shortcodes without Visual Composer? =
-There are four shortcodes available:
-> * Display all brands: [pwb-all-brands per_page="10" image_size="thumbnail" hide_empty="false" order_by="name" order="ASC" title_position="before"]
-> * Display brands carousel: [pwb-carousel items="10" items_to_show="5" items_to_scroll="1" image_size="thumbnail" autoplay="true" arrows="true"]
-> * Display product carousel by brand: [pwb-product-carousel brand="all" products="10" products_to_show="4" products_to_scroll="2" image_size="" items_to_show="2" autoplay="true" arrows="true"]
-> * Display brands for a specific product: [pwb-brand product_id="5" image_size="thumbnail"]
+[Click here](https://github.com/titodevera/perfect-woocommerce-brands/wiki/How-can-i-use-the-available-shortcodes-without-Visual-Composer%3F)
+
+= How to import brands from other brands plugin? =
+[Click here](https://github.com/titodevera/perfect-woocommerce-brands/wiki/How-to-import-brands-from-other-brands-plugin)
 
 
 == Screenshots ==
@@ -75,7 +74,7 @@ There are four shortcodes available:
 = 1.5 =
 * Feature (Tool): Install dummy data (generate generic brands and assigns them to available products randomly)
 * Feature: Restrict coupon by brands
-* Feature: Get system status for better plugin support
+* Feature: Get system status details for a better plugin support
 * Feature: Import brands from "Ultimate WooCommerce Brands"
 * Dev: 'pwb_before_single_product_brands' and 'pwb_after_single_product_brands' hooks added
 * Dev: Basic WordPress REST API support

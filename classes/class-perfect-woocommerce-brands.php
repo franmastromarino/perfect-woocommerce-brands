@@ -831,14 +831,14 @@
       ob_start();
 
   		$loop = new \WP_Query( $args );
-  		if ( $loop->have_posts() && function_exists('get_product') && function_exists('woocommerce_template_loop_add_to_cart') && function_exists('woocommerce_get_product_thumbnail') ) {
+  		if ( $loop->have_posts() && function_exists('wc_get_product') && function_exists('woocommerce_template_loop_add_to_cart') && function_exists('woocommerce_get_product_thumbnail') ) {
   			while ( $loop->have_posts() ) : $loop->the_post();
-        $product = get_product( get_the_ID() );
+        $product = wc_get_product( get_the_ID() );
 
           echo '<div>';
             echo '<a href="'.get_the_permalink().'">';
               echo woocommerce_get_product_thumbnail();
-              echo '<h3>'.$product->post->post_title.'</h3>';
+              echo '<h3>'.$product->get_title().'</h3>';
               echo '<span class="pwb-amount">'.$product->get_price_html().'</span>';
               woocommerce_template_loop_add_to_cart();
             echo '</a>';

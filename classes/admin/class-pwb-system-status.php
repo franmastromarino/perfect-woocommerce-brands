@@ -28,7 +28,8 @@
         'max_upload_size'           => wp_max_upload_size(),
         'default_timezone'          => date_default_timezone_get(),
         'theme'                     => $this->theme_info(),
-        'active_plugins'            => get_option( 'active_plugins' )
+        'active_plugins'            => get_option( 'active_plugins' ),
+        'pwb_options'               => $this->pwb_options()
       ));
       wp_die();
     }
@@ -39,6 +40,19 @@
         'name'          => $current_theme->__get('name'),
         'version'       => $current_theme->__get('version'),
         'parent_theme'  => $current_theme->__get('parent_theme')
+      );
+    }
+
+    private function pwb_options(){
+      return array(
+        'wc_pwb_admin_tab_brand_single_position' => get_option( 'wc_pwb_admin_tab_brand_single_position' ),
+        'old_wc_pwb_admin_tab_slug'              => get_option( 'old_wc_pwb_admin_tab_slug' ),
+        'wc_pwb_notice_plugin_review'            => get_option( 'wc_pwb_notice_plugin_review' ),
+        'wc_pwb_admin_tab_slug'                  => get_option( 'wc_pwb_admin_tab_slug' ),
+        'wc_pwb_admin_tab_brand_desc'            => get_option( 'wc_pwb_admin_tab_brand_desc' ),
+        'wc_pwb_admin_tab_brands_in_loop'        => get_option( 'wc_pwb_admin_tab_brands_in_loop' ),
+        'wc_pwb_admin_tab_brands_in_single'      => get_option( 'wc_pwb_admin_tab_brands_in_single' ),
+        'wc_pwb_admin_tab_brand_logo_size'       => get_option( 'wc_pwb_admin_tab_brand_logo_size' )
       );
     }
 

@@ -7,6 +7,12 @@
 /* ----------------------- /Global ----------------------- */
 
 /* ----------------------- PWB Carousel ----------------------- */
+.pwb-carousel .slick-slide a{
+  display: block;
+}
+.pwb-carousel .slick-slide a > img{
+  margin: 0 auto;
+}
 .pwb-carousel .slick-loading .slick-list, .pwb-product-carousel .slick-loading .slick-list{
     background: #fff url('./ajax-loader.gif') center center no-repeat;
 }
