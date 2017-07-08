@@ -47,7 +47,8 @@
         $products = $woocommerce->cart->get_cart();
         foreach( $products as $product ) {
           $product_brands = wp_get_post_terms( $product['product_id'], 'pwb-brand', array( 'fields' => 'ids' ) );
-          if( !empty( array_intersect( $selected_brands, $product_brands ) ) ) return true;
+          $valid_brands = array_intersect( $selected_brands, $product_brands );
+          if( !empty( $valid_brands ) ) return true;
         }
         return false;
       }

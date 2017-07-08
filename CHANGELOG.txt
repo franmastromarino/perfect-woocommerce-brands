@@ -1,4 +1,6 @@
 == Changelog ==
+= 1.5.1 =
+* Fix: Fatal error on old php versions (< 5.5)
 = 1.5 =
 * Feature (Tool): Install dummy data (generate generic brands and assigns them to available products randomly)
 * Feature: Restrict coupon by brands

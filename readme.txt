@@ -4,7 +4,7 @@ Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
 Tested up to: 4.8
-Stable tag: 1.5
+Stable tag: 1.5.1
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -71,6 +71,8 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.5.1 =
+* Fix: Fatal error on old php versions (< 5.5)
 = 1.5 =
 * Feature (Tool): Install dummy data (generate generic brands and assigns them to available products randomly)
 * Feature: Restrict coupon by brands
