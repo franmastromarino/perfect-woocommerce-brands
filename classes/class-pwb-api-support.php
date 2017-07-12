@@ -1,53 +1,129 @@
 <?php
-  namespace Perfect_Woocommerce_Brands;
 
-  defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+namespace Perfect_Woocommerce_Brands;
 
-  class PWB_API_Support{
+defined('ABSPATH') or die('No script kiddies please!');
 
-    function __construct(){
-      add_action( 'rest_api_init', array( $this, 'register_endpoints' ) );
+class PWB_API_Support
+{
 
-      /**
-      *  register_rest_field() was introduced in WordPress 4.7.0
-      */
-      if( version_compare( PWB_WP_VERSION, '4.7.0', '>=' ) ){
-        add_action( 'rest_api_init', array( $this, 'register_fields' ) );
-      }
+    private $namespaces = array(
+        "wc/v1",
+        "wc/v2",
+    );
 
-    }
+    function __construct()
+    {
+        add_action('rest_api_init', array($this, 'register_endpoints'));
 
-    public function register_endpoints(){
-
-      register_rest_route( 'wc/v1', '/brands', array(
-          // By using this constant we ensure that when the WP_REST_Server changes our readable endpoints will work as intended.
-          'methods'  => \WP_REST_Server::READABLE,
-          'callback' => function(){
-            return rest_ensure_response(
-              \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands()
-            );
-          }
-      ) );
+        /**
+         *  register_rest_field() was introduced in WordPress 4.7.0
+         */
+        if (version_compare(PWB_WP_VERSION, '4.7.0', '>=')) {
+            add_action('rest_api_init', array($this, 'register_fields'));
+        }
 
     }
 
-    public function register_fields(){
-
-      register_rest_field( 'product', 'brands', array(
-          'get_callback' => function( $product ) {
-              $result_brands_array = array();
-              $brands = wp_get_post_terms($product['id'], 'pwb-brand' );
-              foreach($brands as $brand) {
-                $result_brands_array[$brand->term_id] = $brand->name;
-              }
-              return $result_brands_array;
-          },
-          'schema' => array(
-              'description' => __( 'Product brands' , 'perfect-woocommerce-brands' ),
-              'type'        => 'text'
-          )
-      ) );
-
+    /**
+     * Registers the endpoint for all possible $namespaces
+     */
+    public function register_endpoints()
+    {
+        foreach ($this->namespaces as $namespace) {
+            register_rest_route($namespace, '/brands', array(
+                // By using this constant we ensure that when the WP_REST_Server changes our readable endpoints will work as intended.
+                'methods' => \WP_REST_Server::READABLE,
+                'callback' => function () {
+                    return rest_ensure_response(
+                        Perfect_Woocommerce_Brands::get_brands()
+                    );
+                }
+            ));
+        }
     }
 
-  }
+    /**
+     * Entry point for all rest field settings
+     */
+    public function register_fields()
+    {
+        register_rest_field('product', 'brands', array(
+            'get_callback' => array($this, "get_callback"),
+            'update_callback' => array($this, "update_callback"),
+            'schema' => $this->get_schema(),
+        ));
+    }
+
+    /**
+     * Returns the schema of the "brands" field on the /product route
+     * To attach a brand to a product just append a "brands" key containing an array of brand id's
+     * An empty array wil detach all brands.
+     * @return array
+     */
+    public function get_schema()
+    {
+        return array(
+            'description' => __('Product brands', 'perfect-woocommerce-brands'),
+            'type' => 'array',
+            'items' => array(
+                "type" => "integer"
+            ),
+            'context' => array("view", "edit")
+        );
+    }
+
+    /**
+     * Returns all attached brands to a GET request to /products(/id)
+     * @param $product
+     * @return array|\WP_Error
+     */
+    public function get_callback($product)
+    {
+        $brands = wp_get_post_terms($product['id'], 'pwb-brand');
+
+        $result_brands_array = array();
+        foreach ($brands as $brand) {
+            $result_brands_array[$brand->term_id] = $brand->name;
+        }
+
+        return $result_brands_array;
+    }
+
+    /**
+     * Entry point for an update call
+     * @param $brands
+     * @param $product
+     */
+    public function update_callback($brands, $product)
+    {
+        if (empty($brands)) {
+            $this->removeBrands($product);
+            return; //done
+        }
+        $this->addBrands($brands, $product);
+    }
+
+
+    /**
+     * Detaches all brands from a product
+     * @param \WC_Product $product
+     */
+    private function removeBrands($product)
+    {
+        $brands = wp_get_post_terms($product->get_id(), 'pwb-brand');
+        if (!empty($brands)) {
+            wp_set_post_terms($product->get_id(), array(), 'pwb-brand');
+        }
+    }
+
+    /**
+     * Attaches the given brands to a product. Earlier attached brands, not in this array, will be removed
+     * @param array $brands
+     * @param \WC_Product $product
+     */
+    private function addBrands($brands, $product)
+    {
+        wp_set_post_terms($product->get_id(), $brands, "pwb-brand");
+    }
+}
