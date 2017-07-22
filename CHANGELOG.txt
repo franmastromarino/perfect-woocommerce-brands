@@ -1,4 +1,6 @@
 == Changelog ==
+= 1.5.2 =
+* Dev: Adding brands to a products via the REST API + updating namespaces to include v2 (pull request, thanks doekenorg)
 = 1.5.1 =
 * Fix: Fatal error on old php versions (< 5.5)
 = 1.5 =

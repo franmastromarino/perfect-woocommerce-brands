@@ -1,4 +1,4 @@
-# Perfect WooCommerce Brands 1.5.1
+# Perfect WooCommerce Brands 1.5.2
 
 [![Perfect WooCommerce Brands](https://cloud.githubusercontent.com/assets/11556124/23825474/a0b13d56-068a-11e7-980e-775e17a79f82.png)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
 
@@ -31,6 +31,7 @@ Whether we like to admit it or not, we are all influenced by brands. Brands are 
 - Show the brands in products loop
 - Import brands (migrate) from other brands plugins
 - Dummy data installer (logos by heroturko)
+- WooCommerce REST API support
 - And much more!
 
 **Pull request are welcome :)**

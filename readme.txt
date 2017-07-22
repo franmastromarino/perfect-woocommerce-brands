@@ -4,7 +4,7 @@ Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
 Tested up to: 4.8
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -40,6 +40,7 @@ With this extension you can add product brands to your WooCommerce site.
 > * Show the brands in products loop
 > * Import brands (migrate) from other brands plugins
 > * Dummy data installer (logos by heroturko)
+> * WooCommerce REST API support
 > * And much more!
 
 
@@ -71,6 +72,8 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.5.2 =
+* Dev: Adding brands to a products via the REST API + updating namespaces to include v2 (pull request, thanks doekenorg)
 = 1.5.1 =
 * Fix: Fatal error on old php versions (< 5.5)
 = 1.5 =
