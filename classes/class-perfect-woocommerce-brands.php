@@ -6,7 +6,6 @@
   class Perfect_Woocommerce_Brands{
 
     function __construct(){
-
       add_action( 'woocommerce_init', array( $this, 'register_brands_taxonomy' ), 10, 0 );
       add_action( 'init', array( $this, 'add_brands_metafields' ) );
       add_action( 'pwb-brand_add_form_fields', array( $this, 'add_brands_metafields_form' ) );
@@ -19,17 +18,9 @@
       $this->brand_logo_position();
       add_action( 'woocommerce_before_shop_loop', array( $this, 'archive_page_banner' ), 9);
       add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
-
-      if ( !is_admin() ) {
-          add_action( 'init', array( $this, 'register_frontend_scripts' ) );
-      }
-
+      if( !is_admin() ) add_action( 'init', array( $this, 'register_frontend_scripts' ) );
       $this->add_shortcodes();
-
-      if(is_plugin_active('js_composer/js_composer.php')){
-          add_action( 'vc_before_init', array( $this,'vc_map_shortcodes' ) );
-      }
-
+      if( is_plugin_active('js_composer/js_composer.php') ) add_action( 'vc_before_init', array( $this,'vc_map_shortcodes' ) );
       add_action( 'widgets_init', array( $this, 'register_widgets' ) );
       add_action( 'woocommerce_after_single_product_summary' , array( $this, 'product_microdata' ), 40 );
       add_action( 'pre_get_posts', array( $this, 'pwb_brand_filter' ) );
@@ -37,14 +28,19 @@
       add_action( 'wp_ajax_dismiss_pwb_notice', array( $this, 'dismiss_pwb_notice' ) );
       add_action( 'admin_notices', array( $this, 'review_notice' ) );
       add_filter( 'term_description', array( $this, 'filter_default_brand_desc' ), 10, 1 );
-
     }
 
     public function review_notice(){
-      if (  get_option('wc_pwb_notice_plugin_review', true ) ) {
+      $show_notice = get_option('wc_pwb_notice_plugin_review', true);
+      $activate_on = get_option('pwb_activate_on', time());
+      $now = time();
+      $one_month = 2592000;
+      $date_diff = $now - $activate_on;
+
+      if ( $show_notice && $date_diff > $one_month ) {
       ?>
         <div class="notice notice-info pwb-notice-dismissible is-dismissible" data-notice="wc_pwb_notice_plugin_review">
-          <p><?php echo __('We are offering you maybe the best WooCommerce brands plugin completely free. You can help us making Perfect WooCommerce Brands a bit better. Thanks!', 'perfect-woocommerce-brands' ); ?><span class="dashicons dashicons-heart"></span></p>
+          <p><?php echo __('We know that you´re in love with Perfect WooCommerce Brands, you can help us making it a bit better. Thanks a lot!', 'perfect-woocommerce-brands' ); ?><span class="dashicons dashicons-heart"></span></p>
           <p>
             <?php _e( '<a href="https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?rate=5#new-post" target="_blank">Leave a review</a>', 'perfect-woocommerce-brands' ); ?>
             <?php _e( '<a href="https://translate.wordpress.org/projects/wp-plugins/perfect-woocommerce-brands" target="_blank">Translate the plugin</a>', 'perfect-woocommerce-brands' ); ?>

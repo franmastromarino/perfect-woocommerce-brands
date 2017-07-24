@@ -4,16 +4,14 @@ namespace Perfect_Woocommerce_Brands;
 
 defined('ABSPATH') or die('No script kiddies please!');
 
-class PWB_API_Support
-{
+class PWB_API_Support{
 
     private $namespaces = array(
         "wc/v1",
         "wc/v2",
     );
 
-    function __construct()
-    {
+    function __construct(){
         add_action('rest_api_init', array($this, 'register_endpoints'));
 
         /**
@@ -28,12 +26,11 @@ class PWB_API_Support
     /**
      * Registers the endpoint for all possible $namespaces
      */
-    public function register_endpoints()
-    {
+    public function register_endpoints(){
         foreach ($this->namespaces as $namespace) {
             register_rest_route($namespace, '/brands', array(
                 // By using this constant we ensure that when the WP_REST_Server changes our readable endpoints will work as intended.
-                'methods' => \WP_REST_Server::READABLE,
+                'methods'  => \WP_REST_Server::READABLE,
                 'callback' => function () {
                     return rest_ensure_response(
                         Perfect_Woocommerce_Brands::get_brands()
@@ -46,8 +43,7 @@ class PWB_API_Support
     /**
      * Entry point for all rest field settings
      */
-    public function register_fields()
-    {
+    public function register_fields(){
         register_rest_field('product', 'brands', array(
             'get_callback' => array($this, "get_callback"),
             'update_callback' => array($this, "update_callback"),
@@ -61,8 +57,7 @@ class PWB_API_Support
      * An empty array wil detach all brands.
      * @return array
      */
-    public function get_schema()
-    {
+    public function get_schema(){
         return array(
             'description' => __('Product brands', 'perfect-woocommerce-brands'),
             'type' => 'array',
@@ -78,8 +73,7 @@ class PWB_API_Support
      * @param $product
      * @return array|\WP_Error
      */
-    public function get_callback($product)
-    {
+    public function get_callback($product){
         $brands = wp_get_post_terms($product['id'], 'pwb-brand');
 
         $result_brands_array = array();
@@ -95,8 +89,7 @@ class PWB_API_Support
      * @param $brands
      * @param $product
      */
-    public function update_callback($brands, $product)
-    {
+    public function update_callback($brands, $product){
         if (empty($brands)) {
             $this->removeBrands($product);
             return; //done
@@ -109,8 +102,7 @@ class PWB_API_Support
      * Detaches all brands from a product
      * @param \WC_Product $product
      */
-    private function removeBrands($product)
-    {
+    private function removeBrands($product){
         $brands = wp_get_post_terms($product->get_id(), 'pwb-brand');
         if (!empty($brands)) {
             wp_set_post_terms($product->get_id(), array(), 'pwb-brand');
@@ -122,8 +114,8 @@ class PWB_API_Support
      * @param array $brands
      * @param \WC_Product $product
      */
-    private function addBrands($brands, $product)
-    {
+    private function addBrands($brands, $product){
         wp_set_post_terms($product->get_id(), $brands, "pwb-brand");
     }
+
 }

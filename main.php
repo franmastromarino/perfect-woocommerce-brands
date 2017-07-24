@@ -39,6 +39,10 @@ define( 'PWB_PLUGIN_VERSION', '1.5.2' );
 define( 'PWB_WP_VERSION', get_bloginfo( 'version' ) );
 define( 'PWB_WC_VERSION', get_option( 'woocommerce_version' ) );
 
+register_activation_hook( __FILE__, function(){
+  update_option( 'pwb_activate_on', time() );
+} );
+
 //clean brands slug on plugin deactivation
 register_deactivation_hook( __FILE__, function(){
   update_option( 'old_wc_pwb_admin_tab_slug', 'null' );
@@ -79,7 +83,6 @@ if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
   }
 
   new \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands();
-
 
 }elseif( is_admin() ){
 
