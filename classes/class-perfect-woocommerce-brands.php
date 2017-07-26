@@ -877,7 +877,8 @@
           //show brand description
           if( $queried_object->description != '' && $show_desc !== 'no' ){
             echo '<div class="pwb-brand-description">';
-            echo $queried_object->description;
+            global $wp_embed;
+            echo $wp_embed->autoembed( do_shortcode( $queried_object->description ) );
             echo '</div>';
           }
 
