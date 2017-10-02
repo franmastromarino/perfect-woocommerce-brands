@@ -20,6 +20,9 @@
           case 'ultimate':
             $this->migrate_from_ultimate();
             break;
+	  case 'woobrands':
+            $this->migrate_from_woobrands();
+            break;            
         }
 
 
@@ -92,4 +95,30 @@
 
     }
 
+    public function migrate_from_woobrands(){
+
+      global $wpdb;
+      $terms = $wpdb->get_col( 'SELECT term_id FROM '.$wpdb->prefix.'term_taxonomy WHERE taxonomy LIKE "product_brand"' );
+
+      foreach( $terms as $term_id ) {
+
+        // change taxonomy
+        $wpdb->update(
+          $wpdb->prefix . 'term_taxonomy',
+          array(
+            'taxonomy' => 'pwb-brand'
+          ),
+          array(
+            'term_id' => $term_id
+          )
+        );
+
+	// add the logo id
+	if( $thumb_id = get_woocommerce_term_meta( $term_id, 'thumbnail_id', true ) )
+		add_term_meta( $term_id, 'pwb_brand_image', $thumb_id );
+       	
+      }
+
+    }    
+    
   }

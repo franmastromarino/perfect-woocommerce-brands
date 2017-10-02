@@ -169,7 +169,8 @@
                   'options' => array(
                     '-'         => __( '-', 'perfect-woocommerce-brands' ),
                     'yith'      => __( 'YITH WooCommerce Brands Add-On', 'perfect-woocommerce-brands' ),
-                    'ultimate'  => __( 'Ultimate WooCommerce Brands', 'perfect-woocommerce-brands' )
+                    'ultimate'  => __( 'Ultimate WooCommerce Brands', 'perfect-woocommerce-brands' ),
+                    'woobrands'  => __( 'Offical WooCommerce Brands', 'perfect-woocommerce-brands' )
                   )
               ),
               'brand_dummy_data' => array(
