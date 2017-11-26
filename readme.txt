@@ -3,8 +3,8 @@ Contributors: titodevera
 Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
-Tested up to: 4.8
-Stable tag: 1.5.2
+Tested up to: 4.9
+Stable tag: 1.6.0
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -41,6 +41,8 @@ With this extension you can add product brands to your WooCommerce site.
 > * Import brands (migrate) from other brands plugins
 > * Dummy data installer (logos by heroturko)
 > * WooCommerce REST API support
+> * WooCommerce built-in product importer/exporter support (WooCommerce 3.1.0+)
+> * Brand tab for single product page
 > * And much more!
 
 
@@ -62,6 +64,9 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 = How to import brands from other brands plugin? =
 [Click here](https://github.com/titodevera/perfect-woocommerce-brands/wiki/How-to-import-brands-from-other-brands-plugin)
 
+= REST API docs =
+[Click here](https://github.com/titodevera/perfect-woocommerce-brands/wiki/REST-API-docs)
+
 
 == Screenshots ==
 1. Brands carousel
@@ -72,6 +77,18 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.6.0 =
+* Feature: Migrate brands from the official WooCommerce Brand's plugin (pull request, thanks Chunkford)
+* Feature: Support for the new WooCommerce product importer/exporter
+* Feature: Brand tab in single product page
+* Enhancement: Brands dropdown widget selects the current brand if is a brand archive page
+* Enhancement: Hide the brand name in "Display all brands" shortcode (title_position="none")
+* Enhancement: Important enhancements for the REST API
+* Fix: The brand property is not recognized by Google
+* Fix: No shortcode appeared in some Visual Composer versions
+* Fix: Filter by brand widget fixes
+* Fix: Brand description adds description twice
+* Other minor bug fixes and code improvements
 = 1.5.2 =
 * Dev: Adding brands to a products via the REST API + updating namespaces to include v2 (pull request, thanks doekenorg)
 = 1.5.1 =

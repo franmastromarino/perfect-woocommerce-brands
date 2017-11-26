@@ -60,6 +60,11 @@
 #wc_pwb_admin_tab_tools_system_status{
   display: none!important;
 }
+select.pwb-admin-tab-field, input[type="text"].pwb-admin-tab-field{
+  min-width:350px;
+  display:block;
+  height:auto;
+}
 /* ----------------------- /Settings page ----------------------- */
 
 .pwb-display-as-logo{

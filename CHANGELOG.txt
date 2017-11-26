@@ -1,4 +1,16 @@
 == Changelog ==
+= 1.6.0 =
+* Feature: Migrate brands from the official WooCommerce Brand's plugin (pull request, thanks Chunkford)
+* Feature: Support for the new WooCommerce product importer/exporter
+* Feature: Brand tab in single product page
+* Enhancement: Brands dropdown widget selects the current brand if is a brand archive page
+* Enhancement: Hide the brand name in "Display all brands" shortcode (title_position="none")
+* Enhancement: Important enhancements for the REST API
+* Fix: The brand property is not recognized by Google
+* Fix: No shortcode appeared in some Visual Composer versions
+* Fix: Filter by brand widget fixes
+* Fix: Brand description adds description twice
+* Other minor bug fixes and code improvements
 = 1.5.2 =
 * Dev: Adding brands to a products via the REST API + updating namespaces to include v2 (pull request, thanks doekenorg)
 = 1.5.1 =

@@ -16,6 +16,7 @@
         $thepostid = empty( $thepostid ) ? $post->get_ID() : $thepostid;
 
         $selected_brands = get_post_meta( $thepostid, '_pwb_coupon_restriction', true );
+        if( $selected_brands == '' ) $selected_brands = array();
 
         ob_start();
         ?>

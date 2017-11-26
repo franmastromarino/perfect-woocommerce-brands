@@ -104,15 +104,17 @@
           global $wp;
           $current_url = home_url(add_query_arg(array(),$wp->request));
 
-    			echo '<div class="pwb-filter-products" data-cat-url="'.$cate_url.'">';
-    				echo '<ul>';
-    				foreach (array_unique($result_brands) as $brand) {
-    					$term = get_term($brand);
-    					echo '<li><input type="checkbox" data-brand="'.$brand.'" value="'.$term->slug.'">' . $term->name . '</li>';
-    				}
-    				echo '</ul>';
-    				echo '<button>'.__('Apply filter','perfect-woocommerce-brands').'</button>';
-    			echo '</div>';
+          if( !empty( $result_brands ) ){
+            echo '<div class="pwb-filter-products" data-cat-url="'.$cate_url.'">';
+              echo '<ul>';
+              foreach( array_unique($result_brands) as $brand ) {
+                $term = get_term($brand);
+                echo '<li><label><input type="checkbox" data-brand="'.$brand.'" value="'.$term->slug.'">' . $term->name . '</label></li>';
+              }
+              echo '</ul>';
+              echo '<button>'.__('Apply filter','perfect-woocommerce-brands').'</button>';
+            echo '</div>';
+          }
 
       }
 

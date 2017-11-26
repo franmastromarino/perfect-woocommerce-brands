@@ -89,6 +89,10 @@
 /* ----------------------- /PWB Carousel ----------------------- */
 
 /* ----------------------- PWB All Brands ----------------------- */
+.pwb-brands-cols-outer{
+  margin-left: -15px;
+  margin-right: -15px;
+}
 .pwb-all-brands .pwb-pagination-wrapper{
     margin-top: 20px;
     padding-top: 10px;

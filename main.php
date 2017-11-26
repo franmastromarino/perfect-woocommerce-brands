@@ -3,14 +3,14 @@
 Plugin Name: Perfect WooCommerce Brands
 Plugin URI: https://wordpress.org/plugins/perfect-woocommerce-brands/
 Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
-Version: 1.5.2
+Version: 1.6.0
 Author: Alberto de Vera Sevilla
 Author URI: https://profiles.wordpress.org/titodevera/
 Text Domain: perfect-woocommerce-brands
 Domain Path: /lang
 License: GPL3
 
-    Perfect WooCommerce Brands version 1.5.2, Copyright (C) 2016 Alberto de Vera Sevilla
+    Perfect WooCommerce Brands version 1.6.0, Copyright (C) 2016 Alberto de Vera Sevilla
 
     Perfect WooCommerce Brands is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 define( 'PWB_PLUGIN', plugins_url( '', __FILE__ ) );
 define( 'PWB_PLUGIN_PATH', plugin_basename( dirname( __FILE__ ) ) );
 define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'PWB_PLUGIN_VERSION', '1.5.2' );
+define( 'PWB_PLUGIN_VERSION', '1.6.0' );
 define( 'PWB_WP_VERSION', get_bloginfo( 'version' ) );
 define( 'PWB_WC_VERSION', get_option( 'woocommerce_version' ) );
 
@@ -73,6 +73,7 @@ if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
   }
 
   if( is_admin() ){
+
     require 'classes/admin/class-pwb-system-status.php';
     new Admin\PWB_System_Status();
     require 'classes/admin/class-pwb-admin-tab.php';
@@ -80,6 +81,17 @@ if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
     new Admin\PWB_Migrate();
     require 'classes/admin/class-pwb-dummy-data.php';
     new Admin\PWB_Dummy_Data();
+
+    if( defined('PWB_WC_VERSION') && version_compare( PWB_WC_VERSION, '3.1.0', '>=' ) ){
+      require 'classes/class-pwb-importer-support.php';
+      new PWB_Importer_Support();
+      require 'classes/class-pwb-exporter-support.php';
+      new PWB_Exporter_Support();
+    }
+
+  }else{
+    include_once 'classes/class-pwb-product-tab.php';
+    new PWB_Product_Tab();
   }
 
   new \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands();

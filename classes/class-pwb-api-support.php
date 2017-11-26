@@ -1,6 +1,7 @@
 <?php
 
 namespace Perfect_Woocommerce_Brands;
+use WP_Error, WP_REST_Server;
 
 defined('ABSPATH') or die('No script kiddies please!');
 
@@ -10,6 +11,7 @@ class PWB_API_Support{
         "wc/v1",
         "wc/v2",
     );
+    private $base = 'brands';
 
     function __construct(){
         add_action('rest_api_init', array($this, 'register_endpoints'));
@@ -27,17 +29,43 @@ class PWB_API_Support{
      * Registers the endpoint for all possible $namespaces
      */
     public function register_endpoints(){
-        foreach ($this->namespaces as $namespace) {
-            register_rest_route($namespace, '/brands', array(
-                // By using this constant we ensure that when the WP_REST_Server changes our readable endpoints will work as intended.
-                'methods'  => \WP_REST_Server::READABLE,
+        foreach( $this->namespaces as $namespace ) {
+            register_rest_route($namespace, '/'.$this->base, array(
+              array(
+                'methods'  => WP_REST_Server::READABLE,
                 'callback' => function () {
                     return rest_ensure_response(
                         Perfect_Woocommerce_Brands::get_brands()
                     );
                 }
+              ),
+              array(
+                'methods'  => WP_REST_Server::CREATABLE,
+                'callback'  => array( $this, 'create_brand' )
+              ),
+              array(
+                'methods'   => WP_REST_Server::DELETABLE,
+                'callback'  => array( $this, 'delete_brand' )
+              )
             ));
         }
+    }
+
+    public function delete_brand( $request ){
+      foreach( $request['brands'] as $brand ){
+        $delete_result = wp_delete_term( $brand, 'pwb-brand' );
+        if( is_wp_error( $delete_result ) ) return $delete_result;
+      }
+      return true;
+    }
+
+    public function create_brand( $request ){
+      $new_brand = wp_insert_term( $request['name'], 'pwb-brand', array( 'slug' => $request['slug'] ) );
+      if( !is_wp_error( $new_brand ) ){
+        return true;
+      }else{
+        return $new_brand;
+      }
     }
 
     /**
@@ -45,9 +73,9 @@ class PWB_API_Support{
      */
     public function register_fields(){
         register_rest_field('product', 'brands', array(
-            'get_callback' => array($this, "get_callback"),
+            'get_callback'    => array($this, "get_callback"),
             'update_callback' => array($this, "update_callback"),
-            'schema' => $this->get_schema(),
+            'schema'          => $this->get_schema(),
         ));
     }
 
@@ -78,7 +106,11 @@ class PWB_API_Support{
 
         $result_brands_array = array();
         foreach ($brands as $brand) {
-            $result_brands_array[$brand->term_id] = $brand->name;
+            $result_brands_array[] = array(
+              'id'   => $brand->term_id,
+              'name' => $brand->name,
+              'slug' => $brand->slug
+            );
         }
 
         return $result_brands_array;
@@ -90,11 +122,8 @@ class PWB_API_Support{
      * @param $product
      */
     public function update_callback($brands, $product){
-        if (empty($brands)) {
-            $this->removeBrands($product);
-            return; //done
-        }
-        $this->addBrands($brands, $product);
+        $this->remove_brands($product);
+        $this->add_brands($brands, $product);
     }
 
 
@@ -102,7 +131,7 @@ class PWB_API_Support{
      * Detaches all brands from a product
      * @param \WC_Product $product
      */
-    private function removeBrands($product){
+    private function remove_brands($product){
         $brands = wp_get_post_terms($product->get_id(), 'pwb-brand');
         if (!empty($brands)) {
             wp_set_post_terms($product->get_id(), array(), 'pwb-brand');
@@ -114,7 +143,7 @@ class PWB_API_Support{
      * @param array $brands
      * @param \WC_Product $product
      */
-    private function addBrands($brands, $product){
+    private function add_brands($brands, $product){
         wp_set_post_terms($product->get_id(), $brands, "pwb-brand");
     }
 

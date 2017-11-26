@@ -77,7 +77,7 @@
                 'slug' => array(
                     'name'        => __( 'Slug', 'perfect-woocommerce-brands' ),
                     'type'        => 'text',
-                    'css'         => 'min-width:350px;display:block;',
+                    'class'       => 'pwb-admin-tab-field',
                     'desc'        => __( 'Brands taxonomy slug', 'perfect-woocommerce-brands' ),
                     'id'          => 'wc_pwb_admin_tab_slug',
                     'placeholder' => get_taxonomy('pwb-brand')->rewrite['slug']
@@ -89,10 +89,17 @@
                     'desc'    => __( 'Show brand description (if is set) on brand archive page', 'perfect-woocommerce-brands' ),
                     'id'      => 'wc_pwb_admin_tab_brand_desc'
                 ),
+                'brand_single_product_tab' => array(
+                    'name'    => __( 'Single product tab', 'perfect-woocommerce-brands' ),
+                    'type'    => 'checkbox',
+                    'default' => 'yes',
+                    'desc'    => __( 'Show brand tab in single product page', 'perfect-woocommerce-brands' ),
+                    'id'      => 'wc_pwb_admin_tab_brand_single_product_tab'
+                ),
                 'show_brand_on_loop' => array(
                     'name'    => __( 'Show brands in loop', 'perfect-woocommerce-brands' ),
                     'type'    => 'select',
-                    'css'     => 'min-width:350px;display:block;',
+                    'class'  => 'pwb-admin-tab-field',
                     'desc'    => __( 'Show brand logo (or name) in product loop', 'perfect-woocommerce-brands' ),
                     'id'      => 'wc_pwb_admin_tab_brands_in_loop',
                     'options' => array(
@@ -104,7 +111,7 @@
                 'show_brand_in_single' => array(
                     'name'    => __( 'Show brands in single product', 'perfect-woocommerce-brands' ),
                     'type'    => 'select',
-                    'css'     => 'min-width:350px;display:block;',
+                    'class'   => 'pwb-admin-tab-field',
                     'desc'    => __( 'Show brand logo (or name) in single product', 'perfect-woocommerce-brands' ),
                     'default' => 'brand_image',
                     'id'      => 'wc_pwb_admin_tab_brands_in_single',
@@ -117,7 +124,7 @@
                 'brand_logo_size' => array(
                     'name'    => __( 'Brand logo size', 'perfect-woocommerce-brands' ),
                     'type'    => 'select',
-                    'css'     => 'min-width:350px;display:block;',
+                    'class'  => 'pwb-admin-tab-field',
                     'desc'    => __( 'Brand logo size for single product view', 'perfect-woocommerce-brands' ),
                     'id'      => 'wc_pwb_admin_tab_brand_logo_size',
                     'options' => $available_image_sizes_adapted
@@ -125,7 +132,7 @@
                 'brand_single_position' => array(
                     'name'    => __( 'Brand position', 'perfect-woocommerce-brands' ),
                     'type'    => 'select',
-                    'css'     => 'min-width:350px;display:block;',
+                    'class'  => 'pwb-admin-tab-field',
                     'desc'    => __( 'For single product', 'perfect-woocommerce-brands' ),
                     'id'      => 'wc_pwb_admin_tab_brand_single_position',
                     'options' => array(
@@ -160,7 +167,7 @@
               'brand_import' => array(
                   'name'    => __( 'Import brands', 'perfect-woocommerce-brands' ),
                   'type'    => 'select',
-                  'css'     => 'min-width:350px;display:block;',
+                  'class'  => 'pwb-admin-tab-field',
                   'desc'    => sprintf(
                     __( 'Import brands from other brand plugin. <a href="%s" target="_blank">Click here for more details</a>', 'perfect-woocommerce-brands' ),
                     'https://github.com/titodevera/perfect-woocommerce-brands/wiki/How-to-import-brands-from-other-brands-plugin'
@@ -176,7 +183,7 @@
               'brand_dummy_data' => array(
                   'name'     => __( 'Dummy data', 'perfect-woocommerce-brands' ),
                   'type'     => 'select',
-          				'css'      => 'min-width:350px;display:block;',
+                  'class'    => 'pwb-admin-tab-field',
                   'desc'     => __( 'Import generic brands and assign it to products randomly', 'perfect-woocommerce-brands' ),
                   'id'       => 'wc_pwb_admin_tab_tools_dummy_data',
                   'options'  => array(

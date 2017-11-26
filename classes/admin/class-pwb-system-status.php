@@ -45,14 +45,16 @@
 
     private function pwb_options(){
       return array(
-        'wc_pwb_admin_tab_brand_single_position' => get_option( 'wc_pwb_admin_tab_brand_single_position' ),
-        'old_wc_pwb_admin_tab_slug'              => get_option( 'old_wc_pwb_admin_tab_slug' ),
-        'wc_pwb_notice_plugin_review'            => get_option( 'wc_pwb_notice_plugin_review' ),
-        'wc_pwb_admin_tab_slug'                  => get_option( 'wc_pwb_admin_tab_slug' ),
-        'wc_pwb_admin_tab_brand_desc'            => get_option( 'wc_pwb_admin_tab_brand_desc' ),
-        'wc_pwb_admin_tab_brands_in_loop'        => get_option( 'wc_pwb_admin_tab_brands_in_loop' ),
-        'wc_pwb_admin_tab_brands_in_single'      => get_option( 'wc_pwb_admin_tab_brands_in_single' ),
-        'wc_pwb_admin_tab_brand_logo_size'       => get_option( 'wc_pwb_admin_tab_brand_logo_size' )
+        'version'                                   => PWB_PLUGIN_VERSION,
+        'wc_pwb_admin_tab_brand_single_position'    => get_option( 'wc_pwb_admin_tab_brand_single_position' ),
+        'old_wc_pwb_admin_tab_slug'                 => get_option( 'old_wc_pwb_admin_tab_slug' ),
+        'wc_pwb_notice_plugin_review'               => get_option( 'wc_pwb_notice_plugin_review' ),
+        'wc_pwb_admin_tab_slug'                     => get_option( 'wc_pwb_admin_tab_slug' ),
+        'wc_pwb_admin_tab_brand_desc'               => get_option( 'wc_pwb_admin_tab_brand_desc' ),
+        'wc_pwb_admin_tab_brand_single_product_tab' => get_option( 'wc_pwb_admin_tab_brand_single_product_tab' ),
+        'wc_pwb_admin_tab_brands_in_loop'           => get_option( 'wc_pwb_admin_tab_brands_in_loop' ),
+        'wc_pwb_admin_tab_brands_in_single'         => get_option( 'wc_pwb_admin_tab_brands_in_single' ),
+        'wc_pwb_admin_tab_brand_logo_size'          => get_option( 'wc_pwb_admin_tab_brand_logo_size' )
       );
     }
 

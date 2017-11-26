@@ -51,13 +51,17 @@
                 'hide_empty' => false
             ));
 
-            if(is_array($brands) && count($brands)>0){
+            $queried_obj = get_queried_object();
+            $queried_brand_id = ( isset( $queried_obj->term_id ) ) ? $queried_obj->term_id : false;
+
+            if( is_array($brands) && count($brands)>0 ){
                 echo '<select class="pwb-dropdown-widget">';
                     echo '<option selected="true" disabled="disabled">'.__( 'Brands', 'perfect-woocommerce-brands' ).'</option>';
                     foreach ($brands as $brand) {
                         $brand_name = $brand->name;
-                        $brand_link = get_term_link($brand->term_id);
-                        echo '<option value="'.$brand_link.'">'.$brand->name.'</option>';
+                        $brand_link = get_term_link( $brand->term_id );
+                        $selected = ( $brand->term_id == $queried_brand_id ) ? 'selected="selected"' : '';
+                        echo '<option value="'.$brand_link.'" '.$selected.'>'.$brand->name.'</option>';
                     }
                 echo '</select>';
             }else{

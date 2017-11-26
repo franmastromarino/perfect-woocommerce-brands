@@ -97,6 +97,9 @@ jQuery(document).ready(function( $ ) {
       //removes previous "pwb-brand" from url
       currentUrl = currentUrl.replace(/&?pwb-brand-filter=([^&]$|[^&]*)/i, "");
 
+      //removes pagination
+      currentUrl = currentUrl.replace(/\/page\/\d*\//i, "");
+
       if( currentUrl.indexOf("?") === -1 ){
         currentUrl = currentUrl + '?pwb-brand-filter='+marcas;
       }else{

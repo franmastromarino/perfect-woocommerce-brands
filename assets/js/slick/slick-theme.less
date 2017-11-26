@@ -18,21 +18,10 @@
 
 /* Slider */
 .slick-loading .slick-list{
-    background: #fff url('./ajax-loader.gif') center center no-repeat;
-}
-
-/* Icons */
-@font-face{
-    font-family: 'slick';
-    font-weight: normal;
-    font-style: normal;
-
-    src: url('./fonts/slick.eot');
-    src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg');
+    background: #fff url('@{slick-loader-path}ajax-loader.gif') center center no-repeat;
 }
 
 /* Arrows */
-
 .slick-prev,
 .slick-next {
     position: absolute;
@@ -45,7 +34,6 @@
     background: transparent;
     color: transparent;
     top: 50%;
-    margin-top: -10px~'\9'; /*lte IE 8*/
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
@@ -73,17 +61,28 @@
     opacity: @slick-opacity-default;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
+    & when ( @slick-font-family = 'slick' ) {
+        /* Icons */
+        @font-face {
+            font-family: 'slick';
+            font-weight: normal;
+            font-style: normal;
+            src: url('@{slick-font-path}slick.eot');
+            src: url('@{slick-font-path}slick.eot?#iefix') format('embedded-opentype'), url('@{slick-font-path}slick.woff') format('woff'), url('@{slick-font-path}slick.ttf') format('truetype'), url('@{slick-font-path}slick.svg#slick') format('svg');
+        }
+    }
 }
 
 .slick-prev {
     left: -25px;
-    &[dir="rtl"] {
+    [dir="rtl"] & {
         left: auto;
         right: -25px;
     }
     &:before {
         content: @slick-prev-character;
-        &[dir="rtl"] {
+        [dir="rtl"] & {
             content: @slick-next-character;
         }
     }
@@ -91,13 +90,13 @@
 
 .slick-next {
     right: -25px;
-    &[dir="rtl"] {
+    [dir="rtl"] & {
         left: -25px;
         right: auto;
     }
     &:before {
         content: @slick-next-character;
-        &[dir="rtl"] {
+        [dir="rtl"] & {
             content: @slick-prev-character;
         }
     }
@@ -105,17 +104,18 @@
 
 /* Dots */
 
-.slick-slider {
+.slick-dotted .slick-slider {
     margin-bottom: 30px;
 }
 
 .slick-dots {
     position: absolute;
-    bottom: -45px;
+    bottom: -25px;
     list-style: none;
     display: block;
     text-align: center;
     padding: 0;
+    margin: 0;
     width: 100%;
     li {
         position: relative;

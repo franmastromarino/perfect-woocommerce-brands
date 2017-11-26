@@ -22,7 +22,7 @@
             break;
 	  case 'woobrands':
             $this->migrate_from_woobrands();
-            break;            
+            break;
         }
 
 
@@ -113,12 +113,12 @@
           )
         );
 
-	// add the logo id
-	if( $thumb_id = get_woocommerce_term_meta( $term_id, 'thumbnail_id', true ) )
-		add_term_meta( $term_id, 'pwb_brand_image', $thumb_id );
-       	
+      	// add the logo id
+      	if( $thumb_id = get_woocommerce_term_meta( $term_id, 'thumbnail_id', true ) )
+      		add_term_meta( $term_id, 'pwb_brand_image', $thumb_id );
+
       }
 
-    }    
-    
+    }
+
   }

@@ -79,7 +79,7 @@
                     ?>
                     <div class="pwb-brands-col3">
 
-                        <?php if( $title_position != 'after' ): ?>
+                        <?php if( $title_position != 'none' && $title_position != 'after' ): ?>
                           <p>
                               <?php echo $brand_name;?>
                               <small>(<?php echo $brand->count;?>)</small>
@@ -90,7 +90,7 @@
                             <a href="<?php echo $brand_link;?>" title="<?php _e( 'View brand', 'perfect-woocommerce-brands' );?>"><?php echo $attachment_html;?></a>
                         </div>
 
-                        <?php if( $title_position == 'after' ): ?>
+                        <?php if( $title_position != 'none' && $title_position == 'after' ): ?>
                           <p>
                               <?php echo $brand_name;?>
                               <small>(<?php echo $brand->count;?>)</small>

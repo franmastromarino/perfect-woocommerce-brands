@@ -49,12 +49,23 @@
 
     }
 
+    private function build_description(){
+      $desc = 'lorem ipsum dolor sit amet consectetur adipiscing elit etiam mollis faucibus aliquet';
+      $desc.= 'sed risus turpis dapibus vel rhoncus a vestibulum sed lectus in hac habitasse platea dictumst';
+      $desc.= 'suspendisse non luctus felis morbi id volutpat ligula quisque rutrum arcu at erat lobortis';
+      $exploded_desc = explode( ' ', $desc );
+      shuffle( $exploded_desc );
+      $desc = implode( ' ', $exploded_desc );
+      return ucfirst( $desc );
+    }
+
     public function dummy_data(){
 
       for( $i=1; $i<11; $i++ ) {
+        $term_desc = $this->build_description();
         $brand_name = 'brand'.$i;
         $attachment_id = self::upload_image( false, PWB_PLUGIN . '/assets/img/dummy-data/'.$brand_name.'.png' );
-        $inserted_brand = wp_insert_term( ucfirst( $brand_name ), 'pwb-brand' );
+        $inserted_brand = wp_insert_term( ucfirst( $brand_name ), 'pwb-brand', array( "description" => $term_desc ) );
         if( !is_wp_error( $inserted_brand ) && isset( $inserted_brand['term_id'] ) ){
           add_term_meta( $inserted_brand['term_id'], 'pwb_brand_image', $attachment_id );
         }
