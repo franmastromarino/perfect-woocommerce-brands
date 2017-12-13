@@ -39,15 +39,16 @@
 
                 $brand_id = $brand->term_id;
                 $brand_link = get_term_link($brand_id);
+                $brand_name = $brand->name;
 
                 $attachment_id = get_term_meta( $brand_id, 'pwb_brand_image', 1 );
-                $attachment_html = $brand->name;
+                $attachment_html = $brand_name;
                 if($attachment_id!=''){
                     $attachment_html = wp_get_attachment_image($attachment_id,$atts['image_size']);
                 }
 
                 echo '<div>';
-                    echo '<a href="'.$brand_link.'" title="'.__( 'View brand', 'perfect-woocommerce-brands' ).'">'.$attachment_html.'</a>';
+                    echo '<a href="'.$brand_link.'" title="'.$brand_name.'">'.$attachment_html.'</a>';
                 echo '</div>';
 
                 $foreach_iterator++;
