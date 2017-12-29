@@ -926,4 +926,12 @@
 
     }
 
+    public static function render_template( $name, $folder = '', $data ){
+      ob_start();
+      if( $folder ) $folder = $folder . '/';
+      $template_file = dirname( __DIR__ ) . '/templates/' . $folder . $name . '.php';
+      include $template_file;
+      echo ob_get_clean();
+    }
+
   }
