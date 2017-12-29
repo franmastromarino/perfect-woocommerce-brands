@@ -25,14 +25,15 @@
 
   		public function widget( $args, $instance ) {
 
-        $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
-				$title = apply_filters( 'widget_title', $title );
+        if( !is_tax('pwb-brand') && !is_product()  ){
+          $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
+          $title = apply_filters( 'widget_title', $title );
 
-        echo $args['before_widget'];
-            if ( ! empty( $title ) )
-                echo $args['before_title'] . $title . $args['after_title'];
-            $this->render_widget();
-        echo $args['after_widget'];
+          echo $args['before_widget'];
+              if ( ! empty( $title ) ) echo $args['before_title'] . $title . $args['after_title'];
+              $this->render_widget();
+          echo $args['after_widget'];
+        }
 
   		}
 
@@ -105,15 +106,23 @@
           $current_url = home_url(add_query_arg(array(),$wp->request));
 
           if( !empty( $result_brands ) ){
-            echo '<div class="pwb-filter-products" data-cat-url="'.$cate_url.'">';
-              echo '<ul>';
-              foreach( array_unique($result_brands) as $brand ) {
-                $term = get_term($brand);
-                echo '<li><label><input type="checkbox" data-brand="'.$brand.'" value="'.$term->slug.'">' . $term->name . '</label></li>';
-              }
-              echo '</ul>';
-              echo '<button>'.__('Apply filter','perfect-woocommerce-brands').'</button>';
-            echo '</div>';
+
+            $result_brands         = array_unique($result_brands);
+            $result_brands_ordered = array();
+            foreach( $result_brands as $brand ){
+              $brand = get_term($brand);
+              $result_brands_ordered[$brand->name] = $brand;
+            }
+            ksort($result_brands_ordered);
+
+            $result_brands_ordered = apply_filters( 'pwb_widget_brand_filter', $result_brands_ordered );
+
+            \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
+              'filter-by-brand',
+              'widgets',
+              array( 'cate_url' => $cate_url, 'brands' => $result_brands_ordered )
+            );
+
           }
 
       }
