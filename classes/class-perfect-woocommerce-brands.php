@@ -838,55 +838,6 @@
 
     }
 
-    public static function get_products_by_brand($brand_id, $count){
-
-      if($brand_id === 'all'){
-        $args = array(
-    			'post_type' => 'product',
-    			'posts_per_page' => $count,
-          'paged' => false
-    		);
-      }else{
-        $args = array(
-    			'post_type' => 'product',
-          'tax_query' => array(
-              array(
-                  'taxonomy' => 'pwb-brand',
-                  'field' => 'slug',
-                  'terms' => $brand_id,
-              )
-          ),
-    			'posts_per_page' => $count,
-          'paged' => false
-    		);
-      }
-
-      ob_start();
-
-  		$loop = new \WP_Query( $args );
-  		if ( $loop->have_posts() && function_exists('wc_get_product') && function_exists('woocommerce_template_loop_add_to_cart') && function_exists('woocommerce_get_product_thumbnail') ) {
-  			while ( $loop->have_posts() ) : $loop->the_post();
-        $product = wc_get_product( get_the_ID() );
-
-          echo '<div>';
-            echo '<a href="'.get_the_permalink().'">';
-              echo woocommerce_get_product_thumbnail();
-              echo '<h3>'.$product->get_title().'</h3>';
-              echo '<span class="pwb-amount">'.$product->get_price_html().'</span>';
-              woocommerce_template_loop_add_to_cart();
-            echo '</a>';
-          echo '</div>';
-
-  			endwhile;
-  		} else {
-  			echo __( 'No products found', 'perfect-woocommerce-brands' );
-  		}
-  		wp_reset_postdata();
-
-      return ob_get_clean();
-
-    }
-
     public function archive_page_banner(){
       $queried_object = get_queried_object();
 
