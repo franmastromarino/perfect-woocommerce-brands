@@ -81,6 +81,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 * Fix: Import products fixes
 * Enhancement: Filter by brand widget enhancements
 * Enhancement: Carousels enhancements
+* Feature: Favorite brands
 = 1.6.0 =
 * Feature: Migrate brands from the official WooCommerce Brand's plugin (pull request, thanks Chunkford)
 * Feature: Support for the new WooCommerce product importer/exporter

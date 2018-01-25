@@ -1,3 +1,6 @@
+.pwb-blocked{
+  opacity: .6;
+}
 /* ----------------------- Taxonomy pwb-brand ----------------------- */
 .taxonomy-pwb-brand .pwb_brand_image_selected_remove{
   color: #FF3030;
@@ -33,6 +36,16 @@
 }
 .taxonomy-pwb-brand .pwb_brand_cont div{
   margin-top: 10px;
+}
+.taxonomy-pwb-brand table.wp-list-table .column-featured{
+  width: 48px;
+  text-align: center;
+}
+.taxonomy-pwb-brand table.wp-list-table .column-featured .dashicons-star-empty:hover:before{
+  content: "\f155";
+}
+.taxonomy-pwb-brand table .column-featured > span:hover{
+  cursor: pointer;
 }
 @media screen and (max-width: 782px) {
 	.taxonomy-pwb-brand .wp-list-table thead th.column-logo, .taxonomy-pwb-brand .wp-list-table tfoot th.column-logo {

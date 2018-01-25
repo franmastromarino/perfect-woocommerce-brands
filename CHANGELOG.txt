@@ -1,5 +1,6 @@
 == Changelog ==
 = 1.6.1 =
+* Feature: Favorite brands
 * Fix: Import products fixes
 * Enhancement: Filter by brand widget enhancements
 * Enhancement: Carousels enhancements
