@@ -41,6 +41,9 @@
   width: 48px;
   text-align: center;
 }
+.taxonomy-pwb-brand .pwb-featured-count{
+  font-style: italic;
+}
 .taxonomy-pwb-brand table.wp-list-table .column-featured .dashicons-star-empty:hover:before{
   content: "\f155";
 }

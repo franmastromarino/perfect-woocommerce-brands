@@ -329,7 +329,7 @@ class Perfect_Woocommerce_Brands{
                   "heading"     => __( "Items", "perfect-woocommerce-brands" ),
                   "param_name"  => "items",
                   "value"       => "10",
-                  "description" => __( "Number of items to load", "perfect-woocommerce-brands" )
+                  "description" => __( "Number of items to load (or 'featured')", "perfect-woocommerce-brands" )
               ),
               array(
                   "type"        => "textfield",
@@ -539,7 +539,7 @@ class Perfect_Woocommerce_Brands{
 
       wp_enqueue_style(
           'pwb_frontend_styles',
-          PWB_PLUGIN . '/assets/css/styles-frontend.css',
+          PWB_PLUGIN . '/assets/css/styles-frontend.min.css',
           array('pwb_slick_lib'),
           PWB_PLUGIN_VERSION,
           'all'
@@ -547,7 +547,7 @@ class Perfect_Woocommerce_Brands{
 
       wp_register_script(
           'pwb_frontend_functions',
-          PWB_PLUGIN . '/assets/js/pwb_frontend_functions.js',
+          PWB_PLUGIN . '/assets/js/pwb_frontend_functions.min.js',
           array('jquery','pwb_slick_lib'),
           PWB_PLUGIN_VERSION,
           true
@@ -559,8 +559,8 @@ class Perfect_Woocommerce_Brands{
   public function register_admin_scripts($hook){
       $screen = get_current_screen();
 
-      wp_register_style('pwb_styles_brands', PWB_PLUGIN . '/assets/css/styles-admin.css', array(), PWB_PLUGIN_VERSION);
-      wp_register_script('pwb_brands_js', PWB_PLUGIN . '/assets/js/pwb_admin_functions.js', array('jquery'), PWB_PLUGIN_VERSION, true);
+      wp_register_style('pwb_styles_brands', PWB_PLUGIN . '/assets/css/styles-admin.min.css', array(), PWB_PLUGIN_VERSION);
+      wp_register_script('pwb_brands_js', PWB_PLUGIN . '/assets/js/pwb_admin_functions.min.js', array('jquery'), PWB_PLUGIN_VERSION, true);
 
       if ($hook == 'edit-tags.php' && $screen->taxonomy == 'pwb-brand' || $hook == 'term.php' && $screen->taxonomy == 'pwb-brand') {
           wp_enqueue_media();
@@ -772,21 +772,17 @@ class Perfect_Woocommerce_Brands{
     /* ·············· /Brand banner link ·············· */
   }
 
-  public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC' ){
+  public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false ){
       $result = array();
 
-      $brands = get_terms('pwb-brand',array(
-          'hide_empty' => $hide_empty,
-          'order_by'   => $order_by,
-          'order'      => $order
-      ));
+      $brands_args = array( 'hide_empty' => $hide_empty, 'order_by' => $order_by, 'order' => $order );
+      if( $only_featured ) $brands_args['meta_query'] = array( array( 'key' => 'pwb_featured_brand', 'value' => true ) );
 
-      if(is_array($brands) && count($brands)>0){
-          $result = $brands;
-      }
+      $brands = get_terms('pwb-brand', $brands_args);
+
+      if( is_array($brands) && count($brands)>0 ) $result = $brands;
 
       return $result;
-
   }
 
   public static function get_brands_array( $is_select = false ){

@@ -95,10 +95,22 @@ jQuery(document).ready(function( $ ) {
       $currentStar.addClass('dashicons-star-filled');
     }
     var data = { 'action': 'pwb_admin_set_featured_brand', 'brand': $currentStar.data('brand-id') };
-    $.post(ajax_object.ajax_url, data, function(response) { $currentStar.removeClass('pwb-blocked'); });
+    $.post(ajax_object.ajax_url, data, function( response ) {
+      $currentStar.removeClass('pwb-blocked');
+      if( response.success ){
+        var $featuredCount = $('.taxonomy-pwb-brand .pwb-featured-count > span');
+        if( response.data.direction == 'up' ){
+          $featuredCount.html( parseInt( $featuredCount.text() ) + 1 );
+        }else{
+          $featuredCount.html( parseInt( $featuredCount.text() ) - 1 );
+        }
+      }else{
+        alert( response.data.error_msg );
+      }
+    });
   });
 
-  $('.taxonomy-pwb-brand #pwb-only-featured-brands').on('change', function(e){
+  $('.taxonomy-pwb-brand #pwb-first-featured-brands').on('change', function(e){
     e.preventDefault();
     $('#screen-options-apply').replaceWith('<img src="'+ajax_object.site_url+'/wp-admin/images/loading.gif">');
     var data = { 'action': 'pwb_admin_save_screen_settings', 'new_val': $(this).is(':checked') };

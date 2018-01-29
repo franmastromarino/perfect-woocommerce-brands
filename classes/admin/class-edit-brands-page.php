@@ -15,6 +15,23 @@ class Edit_Brands_Page {
     add_filter( 'screen_settings', array( $this, 'add_screen_options' ), 10, 2 );
     add_action( 'wp_ajax_pwb_admin_save_screen_settings', array( $this, 'save_screen_options' ) );
     add_action( 'init', function(){ self::$current_user = wp_get_current_user(); } );
+    add_action( 'after-pwb-brand-table', array( $this, 'add_brands_count' ) );
+  }
+
+  public function add_brands_count( $tax_name ){
+    $brands = get_terms(
+      $tax_name,
+      array( 'hide_empty' => false )
+    );
+    $brands_featured = get_terms(
+      $tax_name,
+      array( 'hide_empty' => false, 'meta_query' => array( array( 'key' => 'pwb_featured_brand', 'value' => true ) ) )
+    );
+    printf(
+      '<p class="pwb-featured-count">' . __( '%1$s brands (%2$s featured)','perfect-woocommerce-brands' ) . '</p>',
+      count( $brands ),
+      '<span>' . count( $brands_featured ) . '</span>'
+    );
   }
 
   public function brand_list_admin_filter( $brands, $taxonomies, $args ) {
@@ -22,14 +39,18 @@ class Edit_Brands_Page {
     global $pagenow;
     if( $pagenow == 'edit-tags.php' && isset( $_GET['taxonomy'] ) && $_GET['taxonomy'] == 'pwb-brand' ){
 
-      $featured = get_user_option( 'pwb-only-featured-brands', self::$current_user->ID );
-
+      $featured = get_user_option( 'pwb-first-featured-brands', self::$current_user->ID );
       if( $featured ){
-        $filtered_brands = array();
+        $featured_brands = array();
+        $other_brands    = array();
         foreach( $brands as $brand ) {
-          if( get_term_meta( $brand->term_id, 'pwb_featured_brand', true ) ) $filtered_brands[] = $brand;
+          if( get_term_meta( $brand->term_id, 'pwb_featured_brand', true ) ){
+            $featured_brands[] = $brand;
+          }else{
+            $other_brands[] = $brand;
+          }
         }
-        return $filtered_brands;
+        return array_merge( $featured_brands, $other_brands );
       }
 
     }
@@ -80,27 +101,29 @@ class Edit_Brands_Page {
 
   public function set_featured_brand(){
     if( isset( $_POST['brand'] ) ){
+      $direction = 'up';
       $brand = intval( $_POST['brand'] );
       if( $this->is_featured_brand( $brand ) ){
         update_term_meta( $brand, 'pwb_featured_brand', false );
+        $direction = 'down';
       }else{
         update_term_meta( $brand, 'pwb_featured_brand', true );
       }
-      wp_send_json_success( array( 'success' => true ) );
+      wp_send_json_success( array( 'success' => true, 'direction' => $direction ) );
     }else{
-      wp_send_json_error( array( 'success' => false ) );
+      wp_send_json_error( array( 'success' => false, 'error_msg' => __( 'Error!','perfect-woocommerce-brands' ) ) );
     }
     wp_die();
   }
 
   public function add_screen_options( $status, $args ){
-    $featured = get_user_option( 'pwb-only-featured-brands', self::$current_user->ID );
+    $featured = get_user_option( 'pwb-first-featured-brands', self::$current_user->ID );
     ob_start();
     ?>
     <legend><?php _e('Brands','perfect-woocommerce-brands');?></legend>
     <label>
-      <input id="pwb-only-featured-brands" type="checkbox" <?php checked($featured,true);?>>
-      <?php _e('Show only featured brands','perfect-woocommerce-brands');?>
+      <input id="pwb-first-featured-brands" type="checkbox" <?php checked($featured,true);?>>
+      <?php _e('Show featured brands first','perfect-woocommerce-brands');?>
     </label>
     <?php
     return ob_get_clean();
@@ -109,7 +132,7 @@ class Edit_Brands_Page {
   public function save_screen_options(){
     if( isset( $_POST['new_val'] ) ){
       $new_val = ( $_POST['new_val'] == 'true' ) ? true : false;
-      update_user_option( self::$current_user->ID, 'pwb-only-featured-brands', $new_val );
+      update_user_option( self::$current_user->ID, 'pwb-first-featured-brands', $new_val );
     }
     wp_die();
   }

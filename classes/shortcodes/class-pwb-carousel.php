@@ -42,8 +42,13 @@ class PWB_Carousel_Shortcode{
 
     $brands = array();
     $foreach_i = 0;
-    foreach( \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands() as $brand ){
-        if( $foreach_i >= (int)self::$atts['items'] ) break;
+    if( self::$atts['items'] == 'featured' ){
+      $brands_array = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( false, 'name', 'ASC', true );
+    }else{
+      $brands_array = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands();
+    }
+    foreach( $brands_array as $brand ){
+        if( self::$atts['items'] != 'featured' && $foreach_i >= (int)self::$atts['items'] ) break;
 
         $brand_id = $brand->term_id;
         $brand_link = get_term_link($brand_id);
