@@ -14,7 +14,7 @@ class Edit_Brands_Page {
     add_action( 'wp_ajax_pwb_admin_set_featured_brand', array( $this, 'set_featured_brand' ) );
     add_filter( 'screen_settings', array( $this, 'add_screen_options' ), 10, 2 );
     add_action( 'wp_ajax_pwb_admin_save_screen_settings', array( $this, 'save_screen_options' ) );
-    add_action( 'init', function(){ self::$current_user = wp_get_current_user(); } );
+    add_action( 'plugins_loaded', function(){ self::$current_user = wp_get_current_user(); } );
     add_action( 'after-pwb-brand-table', array( $this, 'add_brands_count' ) );
   }
 
