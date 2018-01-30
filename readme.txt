@@ -80,6 +80,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 == Changelog ==
 = 1.6.1 =
 * Feature: Favorite brands
+* Fix: Brand logo full size option for single product
 * Fix: Coupons brands restriction (thanks @josk79)
 * Fix: Import products fixes
 * Fix: PHP7 warning on 'class-perfect-woocommerce-brands.php'
