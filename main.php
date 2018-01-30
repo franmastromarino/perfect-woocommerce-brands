@@ -1,31 +1,30 @@
 <?php
-/*
-Plugin Name: Perfect WooCommerce Brands
-Plugin URI: https://wordpress.org/plugins/perfect-woocommerce-brands/
-Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
-Version: 1.6.1
-Author: Alberto de Vera Sevilla
-Author URI: https://profiles.wordpress.org/titodevera/
-Text Domain: perfect-woocommerce-brands
-Domain Path: /lang
-License: GPL3
-
-    Perfect WooCommerce Brands version 1.6.1, Copyright (C) 2016 Alberto de Vera Sevilla
-
-    Perfect WooCommerce Brands is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    Perfect WooCommerce Brands is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with Perfect WooCommerce Brands.  If not, see <http://www.gnu.org/licenses/>.
-
-*/
+/**
+ *  Plugin Name: Perfect WooCommerce Brands
+ *  Plugin URI: https://wordpress.org/plugins/perfect-woocommerce-brands/
+ *  Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
+ *  Version: 1.6.1
+ *  Author: Alberto de Vera Sevilla
+ *  Author URI: https://profiles.wordpress.org/titodevera/
+ *  Text Domain: perfect-woocommerce-brands
+ *  Domain Path: /lang
+ *  License: GPL3
+ *      Perfect WooCommerce Brands version 1.6.1, Copyright (C) 2016 Alberto de Vera Sevilla
+ *      Perfect WooCommerce Brands is free software: you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation, either version 3 of the License, or
+ *      (at your option) any later version.
+ *
+ *      Perfect WooCommerce Brands is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      You should have received a copy of the GNU General Public License
+ *      along with Perfect WooCommerce Brands.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *  WC requires at least: 2.4
+ *  WC tested up to: 3.3
+ */
 
 namespace Perfect_Woocommerce_Brands;
 
