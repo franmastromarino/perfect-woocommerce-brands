@@ -43,6 +43,7 @@ With this extension you can add product brands to your WooCommerce site.
 > * WooCommerce REST API support
 > * WooCommerce built-in product importer/exporter support (WooCommerce 3.1.0+)
 > * Brand tab for single product page
+> * Favorite brands
 > * And much more!
 
 
@@ -79,7 +80,9 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 == Changelog ==
 = 1.6.1 =
 * Feature: Favorite brands
+* Fix: Coupons brands restriction (thanks @josk79)
 * Fix: Import products fixes
+* Fix: PHP7 warning on 'class-perfect-woocommerce-brands.php'
 * Enhancement: Filter by brand widget enhancements
 * Enhancement: Carousels enhancements
 * Enhancement: JS and CSS minified

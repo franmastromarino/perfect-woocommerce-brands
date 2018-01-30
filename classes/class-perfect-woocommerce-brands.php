@@ -479,7 +479,7 @@ class Perfect_Woocommerce_Brands{
 
       if( !is_wp_error( $brands ) ){
 
-          if( sizeof( $brands>0 ) ){
+          if( sizeof( $brands ) > 0 ){
 
             $show_as = get_option( 'wc_pwb_admin_tab_brands_in_single' );
 
