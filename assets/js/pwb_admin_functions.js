@@ -116,6 +116,12 @@ jQuery(document).ready(function( $ ) {
     var data = { 'action': 'pwb_admin_save_screen_settings', 'new_val': $(this).is(':checked') };
     $.post(ajax_object.ajax_url, data, function(response) { location.reload(); });
   });
+
+  $('.pwb-edit-brands-bottom > span').on('click', function(e){
+    e.preventDefault();
+    $('.taxonomy-pwb-brand #col-left').toggleClass('pwb-force-full-width');
+    $('.taxonomy-pwb-brand #col-right').toggleClass('pwb-force-full-width');
+  });
   /* ····························· /Edit brands page ····························· */
 
   /* ····························· Settings tab ····························· */

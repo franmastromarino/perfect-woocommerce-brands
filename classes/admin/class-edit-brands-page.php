@@ -18,6 +18,11 @@ class Edit_Brands_Page {
     add_action( 'after-pwb-brand-table', array( $this, 'add_brands_count' ) );
   }
 
+  private static function is_edit_brands_page(){
+    global $pagenow;
+    return ( $pagenow == 'edit-tags.php' && isset( $_GET['taxonomy'] ) && $_GET['taxonomy'] == 'pwb-brand' ) ? true : false;
+  }
+
   public function add_brands_count( $tax_name ){
     $brands = get_terms(
       $tax_name,
@@ -27,17 +32,18 @@ class Edit_Brands_Page {
       $tax_name,
       array( 'hide_empty' => false, 'meta_query' => array( array( 'key' => 'pwb_featured_brand', 'value' => true ) ) )
     );
-    printf(
-      '<p class="pwb-featured-count">' . __( '%1$s brands (%2$s featured)','perfect-woocommerce-brands' ) . '</p>',
-      count( $brands ),
-      '<span>' . count( $brands_featured ) . '</span>'
+
+    \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
+      'edit-brands-bottom',
+      'admin',
+      array( 'featured_count' => count( $brands_featured ), 'text_featured'  => __('featured', 'perfect-woocommerce-brands') )
     );
+
   }
 
   public function brand_list_admin_filter( $brands, $taxonomies, $args ) {
 
-    global $pagenow;
-    if( $pagenow == 'edit-tags.php' && isset( $_GET['taxonomy'] ) && $_GET['taxonomy'] == 'pwb-brand' ){
+    if( self::is_edit_brands_page() ){
 
       $featured = get_user_option( 'pwb-first-featured-brands', self::$current_user->ID );
       if( $featured ){
@@ -60,9 +66,7 @@ class Edit_Brands_Page {
 
   public function brand_taxonomy_columns_head($defaults) {
 
-      global $pagenow;
-
-      if( $pagenow == 'edit-tags.php' ){
+      if( self::is_edit_brands_page() ){
         $defaults['featured'] = '';
 
         $newColumns = array(
@@ -117,16 +121,18 @@ class Edit_Brands_Page {
   }
 
   public function add_screen_options( $status, $args ){
-    $featured = get_user_option( 'pwb-first-featured-brands', self::$current_user->ID );
-    ob_start();
-    ?>
-    <legend><?php _e('Brands','perfect-woocommerce-brands');?></legend>
-    <label>
-      <input id="pwb-first-featured-brands" type="checkbox" <?php checked($featured,true);?>>
-      <?php _e('Show featured brands first','perfect-woocommerce-brands');?>
-    </label>
-    <?php
-    return ob_get_clean();
+    if( self::is_edit_brands_page() ){
+      $featured = get_user_option( 'pwb-first-featured-brands', self::$current_user->ID );
+      ob_start();
+      ?>
+      <legend><?php _e('Brands','perfect-woocommerce-brands');?></legend>
+      <label>
+        <input id="pwb-first-featured-brands" type="checkbox" <?php checked($featured,true);?>>
+        <?php _e('Show featured brands first','perfect-woocommerce-brands');?>
+      </label>
+      <?php
+      return ob_get_clean();
+    }
   }
 
   public function save_screen_options(){
