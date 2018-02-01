@@ -38,6 +38,7 @@ class Perfect_Woocommerce_Brands{
       if( is_tax('pwb-brand') )
         remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
     });
+    add_action( 'woocommerce_product_duplicate', array( $this, 'product_duplicate_save' ), 10, 2 );
   }
 
   public function review_notice(){
@@ -849,6 +850,11 @@ class Perfect_Woocommerce_Brands{
     $template_file = dirname( __DIR__ ) . '/templates/' . $folder . $name . '.php';
     include $template_file;
     echo ob_get_clean();
+  }
+
+  public function product_duplicate_save( $duplicate, $product ){
+    $product_brands = wp_get_object_terms( $product->get_id(), 'pwb-brand', array( 'fields' => 'ids' ) );
+    wp_set_object_terms( $duplicate->get_id(), $product_brands, 'pwb-brand' );
   }
 
 }

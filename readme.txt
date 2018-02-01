@@ -84,6 +84,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 * Fix: Coupons brands restriction (thanks @josk79)
 * Fix: Import products fixes
 * Fix: PHP7 warning on 'class-perfect-woocommerce-brands.php'
+* Fix: Brand not added when Duplicating Product
 * Enhancement: Filter by brand widget enhancements
 * Enhancement: Carousels enhancements
 * Enhancement: JS and CSS minified
