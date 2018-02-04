@@ -7,11 +7,13 @@ jQuery(document).ready(function( $ ) {
     });
 
     $('.pwb-carousel').slick({
+        slide: '.slick-slide',
         infinite: true,
         draggable: false,
         prevArrow: '<div class="slick-prev"><span title="Prev">&lt;</span></div>',
         nextArrow: '<div class="slick-next"><span title="Next">&gt;</span></div>',
         speed: 300,
+        lazyLoad: 'progressive',
         responsive: [
             {
                 breakpoint: 1024,
@@ -41,11 +43,13 @@ jQuery(document).ready(function( $ ) {
     });
 
     $('.pwb-product-carousel').slick({
+        slide: '.slick-slide',
         infinite: true,
         draggable: false,
         prevArrow: '<div class="slick-prev"><span title="Prev">&lt;</span></div>',
         nextArrow: '<div class="slick-next"><span title="Next">&gt;</span></div>',
         speed: 300,
+        lazyLoad: 'progressive',
         responsive: [
             {
                 breakpoint: 1024,

@@ -66,6 +66,7 @@
             foreach($available_image_sizes as $image_size){
                 $available_image_sizes_adapted[$image_size] = $image_size;
             }
+            $available_image_sizes_adapted['full'] = 'full';
 
             $settings = array(
                 'section_title' => array(

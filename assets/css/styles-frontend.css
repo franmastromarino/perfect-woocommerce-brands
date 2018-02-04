@@ -6,7 +6,7 @@
 }
 /* ----------------------- /Global ----------------------- */
 
-/* ----------------------- PWB Carousel ----------------------- */
+/* ----------------------- Carousels ----------------------- */
 .pwb-carousel .slick-slide a{
   display: block;
 }
@@ -22,24 +22,18 @@
 .pwb-carousel .slick-prev, .pwb-carousel .slick-next,
 .pwb-product-carousel .slick-prev, .pwb-product-carousel .slick-next{
     font-size: 0;
-
     position: absolute;
     top: 0;
     bottom: 0;
-
     display: block;
-
     cursor: pointer;
-
     font-size: 22px;
     width: 30px;
     overflow: hidden;
     text-align: center;
-
     color: #aeaeae;
     border: none;
     outline: none;
-
     z-index: 999;
     background: #eee;
     opacity: 0;
@@ -47,7 +41,6 @@
     -webkit-transition: opacity 0.3s ease-in-out;
     -moz-transition: opacity 0.3s ease-in-out;
     -o-transition: opacity 0.3s ease-in-out;
-
 }
 .pwb-carousel .slick-prev > span, .pwb-carousel .slick-next > span,
 .pwb-product-carousel .slick-prev > span, .pwb-product-carousel .slick-next > span{
@@ -86,7 +79,96 @@
   width: 100%;
   margin-bottom: 12px;
 }
-/* ----------------------- /PWB Carousel ----------------------- */
+/* ------ Preloader ------ */
+.pwb-carousel, .pwb-product-carousel{
+  min-height: 30px;
+}
+.pwb-carousel .slick-list,
+.pwb-product-carousel .slick-list {
+  opacity: 0;
+  position: absolute;
+}
+.pwb-carousel.slick-initialized,
+.pwb-product-carousel.slick-initialized {
+  min-height: none;
+}
+.pwb-carousel.slick-initialized .slick-list,
+.pwb-product-carousel.slick-initialized .slick-list {
+  opacity: 1;
+  position: relative;
+  transition: opacity 0.2s ease-in;
+}
+.pwb-carousel.slick-initialized .pwb-carousel-loader,
+.pwb-product-carousel.slick-initialized .pwb-carousel-loader {
+  display: none!important;
+  opacity: 0!important;
+}
+.pwb-carousel-loader{
+  font-size: 10px;
+  margin: 50px auto;
+  text-indent: -9999em;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #525252;
+  background: -moz-linear-gradient(left, #525252 10%, rgba(82,82,82, 0) 42%);
+  background: -webkit-linear-gradient(left, #525252 10%, rgba(82,82,82, 0) 42%);
+  background: -o-linear-gradient(left, #525252 10%, rgba(82,82,82, 0) 42%);
+  background: -ms-linear-gradient(left, #525252 10%, rgba(82,82,82, 0) 42%);
+  background: linear-gradient(to right, #525252 10%, rgba(82,82,82, 0) 42%);
+  position: relative;
+  -webkit-animation: PWBCarouselLoader 1.4s infinite linear;
+  animation: PWBCarouselLoader 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.pwb-carousel-loader:before {
+  width: 50%;
+  height: 50%;
+  background: #525252;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+.pwb-carousel-loader:after {
+  background: #ffffff;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+@-webkit-keyframes PWBCarouselLoader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes PWBCarouselLoader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* ------ /Preloader ------ */
+
+/* ----------------------- /Carousels ----------------------- */
 
 /* ----------------------- PWB All Brands ----------------------- */
 .pwb-brands-cols-outer{

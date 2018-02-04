@@ -4,7 +4,7 @@ Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.6.0
+Stable tag: 1.6.1
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -43,6 +43,7 @@ With this extension you can add product brands to your WooCommerce site.
 > * WooCommerce REST API support
 > * WooCommerce built-in product importer/exporter support (WooCommerce 3.1.0+)
 > * Brand tab for single product page
+> * Favorite brands
 > * And much more!
 
 
@@ -77,6 +78,16 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.6.1 =
+* Feature: Favorite brands
+* Fix: Brand logo full size option for single product
+* Fix: Coupons brands restriction (thanks @josk79)
+* Fix: Import products fixes
+* Fix: PHP7 warning on 'class-perfect-woocommerce-brands.php'
+* Fix: Brand not added when Duplicating Product
+* Enhancement: Filter by brand widget enhancements
+* Enhancement: Carousels enhancements
+* Enhancement: JS and CSS minified
 = 1.6.0 =
 * Feature: Migrate brands from the official WooCommerce Brand's plugin (pull request, thanks Chunkford)
 * Feature: Support for the new WooCommerce product importer/exporter

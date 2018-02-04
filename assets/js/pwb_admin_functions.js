@@ -82,6 +82,47 @@ jQuery(document).ready(function( $ ) {
 
   }
 
+  /* ····························· Edit brands page ····························· */
+  $('.taxonomy-pwb-brand table .column-featured > span').not('pwb-blocked').on('click', function(e){
+    e.preventDefault();
+    var $currentStar = $(this);
+    $currentStar.addClass('pwb-blocked');
+    if( $currentStar.hasClass('dashicons-star-filled') ){
+      $currentStar.removeClass('dashicons-star-filled');
+      $currentStar.addClass('dashicons-star-empty');
+    }else{
+      $currentStar.removeClass('dashicons-star-empty');
+      $currentStar.addClass('dashicons-star-filled');
+    }
+    var data = { 'action': 'pwb_admin_set_featured_brand', 'brand': $currentStar.data('brand-id') };
+    $.post(ajax_object.ajax_url, data, function( response ) {
+      $currentStar.removeClass('pwb-blocked');
+      if( response.success ){
+        var $featuredCount = $('.taxonomy-pwb-brand .pwb-featured-count > span');
+        if( response.data.direction == 'up' ){
+          $featuredCount.html( parseInt( $featuredCount.text() ) + 1 );
+        }else{
+          $featuredCount.html( parseInt( $featuredCount.text() ) - 1 );
+        }
+      }else{
+        alert( response.data.error_msg );
+      }
+    });
+  });
+
+  $('.taxonomy-pwb-brand #pwb-first-featured-brands').on('change', function(e){
+    e.preventDefault();
+    $('#screen-options-apply').replaceWith('<img src="'+ajax_object.site_url+'/wp-admin/images/loading.gif">');
+    var data = { 'action': 'pwb_admin_save_screen_settings', 'new_val': $(this).is(':checked') };
+    $.post(ajax_object.ajax_url, data, function(response) { location.reload(); });
+  });
+
+  $('.pwb-edit-brands-bottom > span').on('click', function(e){
+    e.preventDefault();
+    $('.taxonomy-pwb-brand #col-left').toggleClass('pwb-force-full-width');
+    $('.taxonomy-pwb-brand #col-right').toggleClass('pwb-force-full-width');
+  });
+  /* ····························· /Edit brands page ····························· */
 
   /* ····························· Settings tab ····························· */
 

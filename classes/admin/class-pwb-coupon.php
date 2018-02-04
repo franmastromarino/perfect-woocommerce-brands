@@ -9,6 +9,7 @@
       add_action( 'woocommerce_coupon_options_usage_restriction', array( $this, 'coupon_restriction' ) );
       add_action( 'woocommerce_coupon_options_save',  array( $this, 'coupon_save' ) );
       add_filter( 'woocommerce_coupon_is_valid', array( $this, 'is_valid_coupon' ), 10, 2 );
+      add_filter( 'woocommerce_coupon_is_valid_for_product', array( $this, 'is_valid_for_product_brand' ), 10, 4 );
     }
 
     public function coupon_restriction() {
@@ -54,6 +55,19 @@
         return false;
       }
       return true;
+    }
+
+    public function is_valid_for_product_brand( $valid, $product, $coupon, $values ){
+      if ( !$valid ) return false;
+
+      $coupon_id = is_callable( array( $coupon, 'get_id' ) ) ?  $coupon->get_id() : $coupon->id;
+      $selected_brands = get_post_meta( $coupon_id, '_pwb_coupon_restriction', true );
+      if ( empty( $selected_brands ) ) return;
+
+      $product_id = is_callable( array( $product, 'get_id' ) ) ?  $product->get_id() : $product->id;
+      $product_brands = wp_get_post_terms( $product_id, 'pwb-brand', array( 'fields' => 'ids' ) );
+      $valid_brands = array_intersect( $selected_brands, $product_brands );
+      return !empty( $valid_brands );
     }
 
   }
