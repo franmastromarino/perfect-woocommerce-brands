@@ -7,7 +7,7 @@ jQuery(document).ready(function( $ ) {
     });
 
     $('.pwb-carousel').slick({
-        slide: '.slick-slide',
+        slide: '.pwb-slick-slide',
         infinite: true,
         draggable: false,
         prevArrow: '<div class="slick-prev"><span title="Prev">&lt;</span></div>',
@@ -43,7 +43,7 @@ jQuery(document).ready(function( $ ) {
     });
 
     $('.pwb-product-carousel').slick({
-        slide: '.slick-slide',
+        slide: '.pwb-slick-slide',
         infinite: true,
         draggable: false,
         prevArrow: '<div class="slick-prev"><span title="Prev">&lt;</span></div>',
