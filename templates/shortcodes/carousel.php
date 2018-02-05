@@ -14,7 +14,7 @@
 <div class="pwb-carousel" data-slick="<?php echo $slick_settings; ?>">
 
   <?php foreach( $brands as $brand ): ?>
-    <div class="slick-slide">
+    <div class="pwb-slick-slide">
       <a href="<?php echo $brand['link'];?>" title="<?php _e( 'View brand', 'perfect-woocommerce-brands' ); ?>">
         <?php echo $brand['attachment_html'];?>
       </a>

@@ -16,7 +16,7 @@
   <div class="pwb-product-carousel" data-slick="<?php echo $slick_settings; ?>">
 
     <?php foreach( $products as $product ): ?>
-      <div class="slick-slide">
+      <div class="pwb-slick-slide">
         <a href="<?php echo $product['permalink']; ?>">
           <?php echo $product['thumbnail']; ?>
           <h3><?php echo $product['title']; ?></h3>

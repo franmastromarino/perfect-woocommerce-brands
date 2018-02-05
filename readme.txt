@@ -78,6 +78,8 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.6.2 =
+* Fix: Carousels problems on responsive after the last update
 = 1.6.1 =
 * Feature: Favorite brands
 * Fix: Brand logo full size option for single product
