@@ -62,7 +62,7 @@
 
       $coupon_id = is_callable( array( $coupon, 'get_id' ) ) ?  $coupon->get_id() : $coupon->id;
       $selected_brands = get_post_meta( $coupon_id, '_pwb_coupon_restriction', true );
-      if ( empty( $selected_brands ) ) return;
+      if ( empty( $selected_brands ) ) return $valid;
 
       $product_id = is_callable( array( $product, 'get_id' ) ) ?  $product->get_id() : $product->id;
       $product_brands = wp_get_post_terms( $product_id, 'pwb-brand', array( 'fields' => 'ids' ) );

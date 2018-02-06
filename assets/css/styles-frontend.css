@@ -7,16 +7,16 @@
 /* ----------------------- /Global ----------------------- */
 
 /* ----------------------- Carousels ----------------------- */
-.pwb-carousel .slick-slide a{
+.pwb-carousel .pwb-slick-slide a{
   display: block;
 }
-.pwb-carousel .slick-slide a > img{
+.pwb-carousel .pwb-slick-slide a > img{
   margin: 0 auto;
 }
 .pwb-carousel .slick-loading .slick-list, .pwb-product-carousel .slick-loading .slick-list{
     background: #fff url('./ajax-loader.gif') center center no-repeat;
 }
-.pwb-carousel .slick-slide, .pwb-product-carousel .slick-slide{
+.pwb-carousel .pwb-slick-slide, .pwb-product-carousel .pwb-slick-slide{
     margin: 0 10px;
 }
 .pwb-carousel .slick-prev, .pwb-carousel .slick-next,

@@ -12,11 +12,11 @@ class Perfect_Woocommerce_Brands{
     add_action( 'pwb-brand_edit_form_fields', array( $this, 'add_brands_metafields_form_edit' ) );
     add_action( 'edit_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
     add_action( 'create_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
-    add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ) );
+    add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+    add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
     $this->brand_logo_position();
     add_action( 'woocommerce_before_shop_loop', array( $this, 'archive_page_banner' ), 9);
     add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
-    if( !is_admin() ) add_action( 'init', array( $this, 'register_frontend_scripts' ) );
     $this->add_shortcodes();
     if( is_plugin_active('js_composer/js_composer.php') || is_plugin_active('visual_composer/js_composer.php') ){
       add_action( 'vc_before_init', array( $this,'vc_map_shortcodes' ) );
@@ -519,57 +519,52 @@ class Perfect_Woocommerce_Brands{
 
   }
 
-  public function register_frontend_scripts(){
+  public function enqueue_scripts(){
 
-      wp_register_script(
-          'pwb_slick_lib',
-          PWB_PLUGIN . '/assets/js/slick/slick.min.js',
-          array('jquery'),
-          '1.8.0',
-          true
-      );
-      wp_enqueue_script('pwb_frontend_functions');
-
-      wp_enqueue_style(
-          'pwb_slick_lib',
-          PWB_PLUGIN . '/assets/js/slick/slick.css',
-          array(),
-          '1.8.0',
-          'all'
+      wp_enqueue_script(
+        'pwb-lib-slick',
+        PWB_PLUGIN . '/assets/lib/slick/slick.min.js',
+        array('jquery'),
+        '1.8.0',
+        true
       );
 
       wp_enqueue_style(
-          'pwb_frontend_styles',
-          PWB_PLUGIN . '/assets/css/styles-frontend.min.css',
-          array('pwb_slick_lib'),
-          PWB_PLUGIN_VERSION,
-          'all'
+        'pwb-lib-slick',
+        PWB_PLUGIN . '/assets/lib/slick/slick.css',
+        array(),
+        '1.8.0',
+        'all'
       );
 
-      wp_register_script(
-          'pwb_frontend_functions',
-          PWB_PLUGIN . '/assets/js/pwb_frontend_functions.min.js',
-          array('jquery','pwb_slick_lib'),
-          PWB_PLUGIN_VERSION,
-          true
+      wp_enqueue_style(
+        'pwb-styles-frontend',
+        PWB_PLUGIN . '/assets/css/styles-frontend.min.css',
+        array('pwb-lib-slick'),
+        PWB_PLUGIN_VERSION,
+        'all'
       );
-      wp_enqueue_script('pwb_frontend_functions');
+
+      wp_enqueue_script(
+        'pwb-functions-frontend',
+        PWB_PLUGIN . '/assets/js/functions-frontend.min.js',
+        array('jquery','pwb-lib-slick'),
+        PWB_PLUGIN_VERSION,
+        true
+      );
 
   }
 
-  public function register_admin_scripts($hook){
+  public function admin_enqueue_scripts( $hook ){
       $screen = get_current_screen();
-
-      wp_register_style('pwb_styles_brands', PWB_PLUGIN . '/assets/css/styles-admin.min.css', array(), PWB_PLUGIN_VERSION);
-      wp_register_script('pwb_brands_js', PWB_PLUGIN . '/assets/js/pwb_admin_functions.min.js', array('jquery'), PWB_PLUGIN_VERSION, true);
-
-      if ($hook == 'edit-tags.php' && $screen->taxonomy == 'pwb-brand' || $hook == 'term.php' && $screen->taxonomy == 'pwb-brand') {
-          wp_enqueue_media();
+      if($hook == 'edit-tags.php' && $screen->taxonomy == 'pwb-brand' || $hook == 'term.php' && $screen->taxonomy == 'pwb-brand') {
+        wp_enqueue_media();
       }
 
-      wp_enqueue_style( 'pwb_styles_brands' );
-      wp_enqueue_script( 'pwb_brands_js' );
-      wp_localize_script( 'pwb_brands_js', 'ajax_object', array(
+      wp_enqueue_style('pwb-styles-admin', PWB_PLUGIN . '/assets/css/styles-admin.min.css', array(), PWB_PLUGIN_VERSION);
+
+      wp_register_script('pwb-functions-admin', PWB_PLUGIN . '/assets/js/functions-admin.min.js', array('jquery'), PWB_PLUGIN_VERSION, true);
+      wp_localize_script( 'pwb-functions-admin', 'ajax_object', array(
         'ajax_url'     => admin_url( 'admin-ajax.php' ),
         'site_url'     => site_url(),
         'brands_url'   => admin_url( 'edit-tags.php?taxonomy=pwb-brand&post_type=product' ),
@@ -580,6 +575,7 @@ class Perfect_Woocommerce_Brands{
           'dummy_data'        => __('We are importing the dummy data. ¡Don´t close this window until the process is finished!','perfect-woocommerce-brands')
         )
       ) );
+      wp_enqueue_script( 'pwb-functions-admin' );
 
   }
 
