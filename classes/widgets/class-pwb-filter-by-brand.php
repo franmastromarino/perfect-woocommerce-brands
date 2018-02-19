@@ -117,7 +117,7 @@
 
             $result_brands_ordered = apply_filters( 'pwb_widget_brand_filter', $result_brands_ordered );
 
-            \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
+            echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
               'filter-by-brand',
               'widgets',
               array( 'cate_url' => $cate_url, 'brands' => $result_brands_ordered )

@@ -845,7 +845,7 @@ class Perfect_Woocommerce_Brands{
     if( $folder ) $folder = $folder . '/';
     $template_file = dirname( __DIR__ ) . '/templates/' . $folder . $name . '.php';
     include $template_file;
-    echo ob_get_clean();
+    return ob_get_clean();
   }
 
   public function product_duplicate_save( $duplicate, $product ){

@@ -1,4 +1,9 @@
 == Changelog ==
+= 1.6.3 =
+* Fix: Product carousels shortcode display fixes
+* Fix: Missing .pot file
+* Fix: Coupon codes stopped working since latest update
+* Fix: Carousel preloader is not working
 = 1.6.2 =
 * Fix: Carousels problems on responsive after the last update
 = 1.6.1 =

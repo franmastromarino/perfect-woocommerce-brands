@@ -18,7 +18,7 @@ class PWB_Product_Carousel_Shortcode{
         'arrows'              => "false"
     ), $atts, 'pwb-product-carousel' );
 
-    \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
+    return \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
       'product-carousel',
       'shortcodes',
       array( 'slick_settings' => self::slick_settings(), 'products' => self::products_data() )

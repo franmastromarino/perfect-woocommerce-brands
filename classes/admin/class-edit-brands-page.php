@@ -33,7 +33,7 @@ class Edit_Brands_Page {
       array( 'hide_empty' => false, 'meta_query' => array( array( 'key' => 'pwb_featured_brand', 'value' => true ) ) )
     );
 
-    \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
+    echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
       'edit-brands-bottom',
       'admin',
       array( 'featured_count' => count( $brands_featured ), 'text_featured'  => __('featured', 'perfect-woocommerce-brands') )
