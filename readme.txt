@@ -16,7 +16,7 @@ Is essential to work with product brands for increase sales and generate reliabi
 With this extension you can add product brands to your WooCommerce site.
 
 = Requirements =
-> * PHP 5.3 or higher (tested on PHP7 too)
+> * PHP 5.4 or higher (tested on PHP7 too)
 > * WordPress 4.4 or higher
 > * WooCommerce 2.4.0 or higher
 > * Visual Composer (recommended)
@@ -79,6 +79,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 == Changelog ==
 = 1.6.3 =
+* Requirements: No more longer support for very old php versions (5.4 minimum)
 * Fix: Product carousels shortcode display fixes
 * Fix: Missing .pot file
 * Fix: Coupon codes stopped working since latest update

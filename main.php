@@ -84,9 +84,9 @@ if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
     new Admin\Edit_Brands_Page();
 
     if( defined('PWB_WC_VERSION') && version_compare( PWB_WC_VERSION, '3.1.0', '>=' ) ){
-      require 'classes/class-pwb-importer-support.php';
+      require 'classes/admin/class-pwb-importer-support.php';
       new PWB_Importer_Support();
-      require 'classes/class-pwb-exporter-support.php';
+      require 'classes/admin/class-pwb-exporter-support.php';
       new PWB_Exporter_Support();
     }
 

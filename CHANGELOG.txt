@@ -1,5 +1,6 @@
 == Changelog ==
 = 1.6.3 =
+* Requirements: No more longer support for very old php versions (5.4 minimum)
 * Fix: Product carousels shortcode display fixes
 * Fix: Missing .pot file
 * Fix: Coupon codes stopped working since latest update
