@@ -14,7 +14,7 @@ class Edit_Brands_Page {
     add_action( 'wp_ajax_pwb_admin_set_featured_brand', array( $this, 'set_featured_brand' ) );
     add_filter( 'screen_settings', array( $this, 'add_screen_options' ), 10, 2 );
     add_action( 'wp_ajax_pwb_admin_save_screen_settings', array( $this, 'save_screen_options' ) );
-    add_action( 'plugins_loaded', function(){ self::$current_user = wp_get_current_user(); } );
+    add_action( 'plugins_loaded', function(){ \Perfect_Woocommerce_Brands\Admin\Edit_Brands_Page::$current_user = wp_get_current_user(); } );
     add_action( 'after-pwb-brand-table', array( $this, 'add_brands_count' ) );
   }
 
@@ -33,7 +33,7 @@ class Edit_Brands_Page {
       array( 'hide_empty' => false, 'meta_query' => array( array( 'key' => 'pwb_featured_brand', 'value' => true ) ) )
     );
 
-    \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
+    echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
       'edit-brands-bottom',
       'admin',
       array( 'featured_count' => count( $brands_featured ), 'text_featured'  => __('featured', 'perfect-woocommerce-brands') )

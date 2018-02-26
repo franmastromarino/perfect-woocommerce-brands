@@ -42,9 +42,11 @@ class PWB_Importer_Support{
      * @return WC_Product $object
      */
     public function process_import( $object, $data ) {
-      wp_delete_object_term_relationships( $object->get_id(), 'pwb-brand' );
-      $brands = explode( ',', $data['pwb-brand'] );
-      foreach( $brands as $brand ) wp_set_object_terms( $object->get_id(), $brand, 'pwb-brand', true );
+      if( isset( $data['pwb-brand'] ) ){
+        wp_delete_object_term_relationships( $object->get_id(), 'pwb-brand' );
+        $brands = explode( ',', $data['pwb-brand'] );
+        foreach( $brands as $brand ) wp_set_object_terms( $object->get_id(), $brand, 'pwb-brand', true );
+      }
     	return $object;
     }
 

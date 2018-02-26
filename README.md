@@ -1,4 +1,4 @@
-# Perfect WooCommerce Brands 1.6.2
+# Perfect WooCommerce Brands 1.6.3
 
 [![Perfect WooCommerce Brands](https://cloud.githubusercontent.com/assets/11556124/23825474/a0b13d56-068a-11e7-980e-775e17a79f82.png)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
 
@@ -7,7 +7,7 @@
 Whether we like to admit it or not, we are all influenced by brands. Brands are a guarantee for quality, they assure product recognition in customers. Is essential to work with product brands for increase sales and generate reliability on your e-commerce site. With this extension you can add product brands to your WooCommerce site.
 
 ### Requirements
-- PHP 5.3 or higher (tested on PHP7 too)
+- PHP 5.4 or higher (tested on PHP7 too)
 - WordPress 4.4 or higher
 - WooCommerce 2.4.0 or higher
 - Visual Composer (recommended)
