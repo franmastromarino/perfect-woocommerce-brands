@@ -4,7 +4,7 @@ Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
