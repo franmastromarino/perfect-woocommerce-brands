@@ -221,6 +221,12 @@
 .pwb-columns-4{
   width: 25%;
 }
+.pwb-columns-5{
+  width: 20%;
+}
+.pwb-columns-6{
+  width: 16.66666%;
+}
 .pwb-columns{
   display: inline-block;
   vertical-align:top;
@@ -237,6 +243,9 @@
     .pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3{
         width: 50%;
     }
+    .pwb-columns-5, .pwb-columns-6{
+      width: 25%;
+    }
 }
 @media screen and (max-width: 480px) {
     .pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3{
@@ -246,7 +255,7 @@
     .pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3 > p:first-child{
         height: auto;
     }
-    .pwb-columns-3, .pwb-columns-4{
+    .pwb-columns-3, .pwb-columns-4, .pwb-columns-5, .pwb-columns-6{
       width: 50%;
     }
 }

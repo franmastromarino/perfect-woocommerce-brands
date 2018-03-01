@@ -18,6 +18,7 @@
 
             if( !isset( $display_as ) ) $display_as = 'brand_logo';
             if( !isset( $columns ) ) $columns = '2';
+            $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
             ?>
 
                 <p>
@@ -50,9 +51,21 @@
                           <option value="2" <?php selected( $columns, '2' ); ?>>2</option>
                           <option value="3" <?php selected( $columns, '3' ); ?>>3</option>
                           <option value="4" <?php selected( $columns, '4' ); ?>>4</option>
+                          <option value="5" <?php selected( $columns, '5' ); ?>>5</option>
+                          <option value="6" <?php selected( $columns, '6' ); ?>>6</option>
                       </select>
                   </p>
                 </div>
+                <p>
+                  <input
+                  type="checkbox"
+                  id="<?php echo esc_attr( $this->get_field_id('hide_empty') ); ?>"
+                  name="<?php echo esc_attr( $this->get_field_name('hide_empty') ); ?>"
+                  <?php checked( $hide_empty ); ?>>
+                  <label for="<?php echo esc_attr( $this->get_field_id('hide_empty') ); ?>">
+                    <?php echo __( 'Hide empty', 'perfect-woocommerce-brands' );?>
+                  </label>
+                </p>
 
             <?php
 
@@ -64,23 +77,20 @@
 
             echo $before_widget;
 
-                if( !empty( $title ) ){
-                    echo $before_title . $title . $after_title;
-                }
+                if( !empty( $title ) ) echo $before_title . $title . $after_title;
 
                 if( !isset( $display_as ) ) $display_as = 'brand_logo';
                 if( !isset( $columns ) ) $columns = '2';
-                PWB_List_Widget::get_brands( $display_as, $columns );
+                $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
+                PWB_List_Widget::get_brands( $display_as, $columns, $hide_empty );
 
             echo $after_widget;
 
         }
 
-        private static function get_brands( $display_as, $columns ){
+        private static function get_brands( $display_as, $columns, $hide_empty ){
 
-            $brands = get_terms('pwb-brand',array(
-                'hide_empty' => false
-            ));
+            $brands = get_terms( 'pwb-brand',array( 'hide_empty' => $hide_empty ) );
 
             if(is_array($brands) && count($brands)>0){
                 echo '<ul class="pwb-row">';
