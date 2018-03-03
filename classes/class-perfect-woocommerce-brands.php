@@ -640,6 +640,12 @@ class Perfect_Woocommerce_Brands{
   public function add_brands_metafields_form(){
     ob_start();
     ?>
+
+    <div class="form-field pwb_brand_cont">
+        <label for="pwb_brand_desc"><?php _e( 'Description' ); ?></label>
+        <?php wp_editor( '', 'pwb-brand-description-field', array( 'editor_height' => 120 ) ); ?>
+    </div>
+
     <div class="form-field pwb_brand_cont">
         <label for="pwb_brand_image"><?php _e( 'Brand logo', 'perfect-woocommerce-brands' ); ?></label>
         <input type="text" name="pwb_brand_image" id="pwb_brand_image" value="" >
@@ -672,6 +678,14 @@ class Perfect_Woocommerce_Brands{
     ob_start();
     ?>
     <table class="form-table pwb_brand_cont">
+      <tr class="form-field">
+        <th>
+          <label for="pwb_brand_desc"><?php _e( 'Description' ); ?></label>
+        </th>
+        <td>
+          <?php wp_editor( html_entity_decode( $term->description ), 'pwb-brand-description-field', array( 'editor_height' => 120 ) ); ?>
+        </td>
+      </tr>
       <tr class="form-field">
         <th>
           <label for="pwb_brand_image"><?php _e( 'Brand logo', 'perfect-woocommerce-brands' ); ?></label>
@@ -767,6 +781,26 @@ class Perfect_Woocommerce_Brands{
     else if ( $old_img !== $new_img )
         update_term_meta( $term_id, 'pwb_brand_banner_link', $new_img );
     /* ·············· /Brand banner link ·············· */
+
+    /* ·············· Brand desc ·············· */
+    if( isset( $_POST['pwb-brand-description-field'] ) ){
+      /**
+       *  Avoiding infinite loops because calling wp_update_post that includes the save_post hook
+       *  @link https://codex.wordpress.org/Plugin_API/Action_Reference/save_post#Avoiding_infinite_loops
+       */
+      remove_action( 'edit_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
+      remove_action( 'create_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
+
+      //allows html in brand descriptions
+      foreach ( array( 'pre_term_description' ) as $filter ) remove_filter( $filter, 'wp_filter_kses' );
+      foreach ( array( 'term_description' ) as $filter ) remove_filter( $filter, 'wp_kses_data' );
+
+      wp_update_term( $term_id, 'pwb-brand', array( 'description' => $_POST['pwb-brand-description-field'] ) );
+      add_action( 'edit_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
+      add_action( 'create_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
+    }
+    /* ·············· /Brand desc ·············· */
+
   }
 
   public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false ){
@@ -828,7 +862,7 @@ class Perfect_Woocommerce_Brands{
         //show brand description
         if( $queried_object->description != '' && $show_desc !== 'no' ){
           echo '<div class="pwb-brand-description">';
-          echo $queried_object->description;
+          echo do_shortcode( $queried_object->description );
           echo '</div>';
         }
 

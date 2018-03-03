@@ -78,6 +78,8 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.6.4 =
+* Feature: Visual editor with shortcode support added to brand description
 = 1.6.3 =
 * Requirements: No more longer support for very old php versions (5.4 minimum)
 * Fix: Product carousels shortcode display fixes
