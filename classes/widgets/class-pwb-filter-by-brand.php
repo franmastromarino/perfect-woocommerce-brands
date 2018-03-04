@@ -14,16 +14,31 @@
   		}
 
       public function form( $instance ) {
+        extract($instance);
+
         $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
+        $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
         ?>
         <p>
           <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
           <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
+        <p>
+          <input
+          type="checkbox"
+          id="<?php echo esc_attr( $this->get_field_id('hide_empty') ); ?>"
+          name="<?php echo esc_attr( $this->get_field_name('hide_empty') ); ?>"
+          <?php checked( $hide_empty ); ?>>
+          <label for="<?php echo esc_attr( $this->get_field_id('hide_empty') ); ?>">
+            <?php echo __( 'Hide empty', 'perfect-woocommerce-brands' );?>
+          </label>
+        </p>
         <?php
       }
 
   		public function widget( $args, $instance ) {
+        extract( $args );
+        extract( $instance );
 
         if( !is_tax('pwb-brand') && !is_product()  ){
           $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
@@ -31,16 +46,17 @@
 
           echo $args['before_widget'];
               if ( ! empty( $title ) ) echo $args['before_title'] . $title . $args['after_title'];
-              $this->render_widget();
+              $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
+              $this->render_widget( $hide_empty );
           echo $args['after_widget'];
         }
 
   		}
 
-      public function render_widget(){
+      public function render_widget( $hide_empty ){
 
     		$brands = get_terms('pwb-brand',array(
-    			'hide_empty' => false
+    			'hide_empty' => $hide_empty
     		));
     		$brands_ids = array();
     		foreach ($brands as $brand) {
