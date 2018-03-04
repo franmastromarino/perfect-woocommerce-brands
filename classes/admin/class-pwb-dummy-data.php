@@ -50,9 +50,9 @@
     }
 
     private function build_description(){
-      $desc = 'lorem ipsum dolor sit amet consectetur adipiscing elit etiam mollis faucibus aliquet';
-      $desc.= 'sed risus turpis dapibus vel rhoncus a vestibulum sed lectus in hac habitasse platea dictumst';
-      $desc.= 'suspendisse non luctus felis morbi id volutpat ligula quisque rutrum arcu at erat lobortis';
+      $desc = 'lorem ipsum dolor <strong>sit</strong> amet consectetur adipiscing elit etiam mollis faucibus aliquet';
+      $desc.= 'sed risus turpis dapibus vel <strong>rhoncus</strong> a vestibulum sed lectus in hac habitasse platea dictumst';
+      $desc.= 'suspendisse non luctus felis <strong>morbi</strong> id volutpat ligula quisque rutrum arcu at erat lobortis';
       $exploded_desc = explode( ' ', $desc );
       shuffle( $exploded_desc );
       $desc = implode( ' ', $exploded_desc );

@@ -44,7 +44,7 @@
 .taxonomy-pwb-brand .pwb_brand_cont > div{
   margin-top: 10px;
 }
-#wp-pwb-brand-description-field-wrap{
+#wp-pwb-brand-description-field-wrap, #brand-description-help-text{
   width: 95%;
 }
 .taxonomy-pwb-brand .term-description-wrap{

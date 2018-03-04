@@ -83,6 +83,14 @@
 .pwb-carousel, .pwb-product-carousel{
   min-height: 30px;
 }
+.pwb-carousel .pwb-slick-slide,
+.pwb-product-carousel .pwb-slick-slide{
+  display: none;
+}
+.pwb-carousel.slick-initialized .pwb-slick-slide,
+.pwb-product-carousel.slick-initialized .pwb-slick-slide{
+  display: block;
+}
 .pwb-carousel .slick-list,
 .pwb-product-carousel .slick-list {
   opacity: 0;

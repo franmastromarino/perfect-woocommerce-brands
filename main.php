@@ -82,6 +82,8 @@ if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
     new Admin\PWB_Dummy_Data();
     require 'classes/admin/class-edit-brands-page.php';
     new Admin\Edit_Brands_Page();
+    require 'classes/admin/class-brands-custom-fields.php';
+    new Admin\Brands_Custom_Fields();
 
     if( defined('PWB_WC_VERSION') && version_compare( PWB_WC_VERSION, '3.1.0', '>=' ) ){
       require 'classes/admin/class-pwb-importer-support.php';
