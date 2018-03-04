@@ -11,7 +11,7 @@ class Perfect_Woocommerce_Brands{
     add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
     add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
     $this->brand_logo_position();
-    add_action( 'woocommerce_before_shop_loop', array( $this, 'archive_page_banner' ), 9);
+    $this->brand_desc_position();
     add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
     $this->add_shortcodes();
     if( is_plugin_active('js_composer/js_composer.php') || is_plugin_active('visual_composer/js_composer.php') ){
@@ -240,6 +240,14 @@ class Perfect_Woocommerce_Brands{
     add_action('woocommerce_single_product_summary', array($this,'action_woocommerce_single_product_summary'), $position);
   }
 
+  public function brand_desc_position(){
+    $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
+    if( $show_desc == 'yes' ){
+      add_action( 'woocommerce_before_shop_loop', array( $this, 'archive_page_banner' ), 9);
+    }elseif( $show_desc == 'yes_after_loop' ){
+      add_action( 'woocommerce_after_shop_loop', array( $this, 'archive_page_banner' ), 40);
+    }
+  }
 
   /*
    * Maps shortcode (for visual composer plugin)
