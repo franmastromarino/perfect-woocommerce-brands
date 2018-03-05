@@ -18,7 +18,7 @@ class Brands_Custom_Fields {
 
     <div class="form-field pwb_brand_cont">
         <label for="pwb_brand_desc"><?php _e( 'Description' ); ?></label>
-        <?php wp_editor( '', 'pwb-brand-description-field', array( 'editor_height' => 120 ) ); ?>
+        <textarea id="pwb_brand_description_field" name="pwb_brand_description_field" rows="5" cols="40"></textarea>
         <p id="brand-description-help-text"><?php _e( 'Brand description for the archive pages. You can include some html markup and shortcodes.', 'perfect-woocommerce-brands' ); ?></p>
     </div>
 
@@ -41,7 +41,7 @@ class Brands_Custom_Fields {
         <p><?php _e( 'This link should be relative to site url. Example: product/product-name', 'perfect-woocommerce-brands' ); ?></p>
     </div>
 
-    <?php echo wp_nonce_field( basename( __FILE__ ), 'pwb_nonce' ); ?>
+    <?php wp_nonce_field( basename( __FILE__ ), 'pwb_nonce' ); ?>
 
     <?php
     echo ob_get_clean();
@@ -59,7 +59,7 @@ class Brands_Custom_Fields {
           <label for="pwb_brand_desc"><?php _e( 'Description' ); ?></label>
         </th>
         <td>
-          <?php wp_editor( html_entity_decode( $term->description ), 'pwb-brand-description-field', array( 'editor_height' => 120 ) ); ?>
+          <?php wp_editor( html_entity_decode( $term->description ), 'pwb_brand_description_field', array( 'editor_height' => 120 ) ); ?>
           <p id="brand-description-help-text"><?php _e( 'Brand description for the archive pages. You can include some html markup and shortcodes.', 'perfect-woocommerce-brands' ); ?></p>
         </td>
       </tr>
@@ -115,7 +115,7 @@ class Brands_Custom_Fields {
       </tr>
     </table>
 
-    <?php echo wp_nonce_field( basename( __FILE__ ), 'pwb_nonce' );?>
+    <?php wp_nonce_field( basename( __FILE__ ), 'pwb_nonce' );?>
 
     <?php
     echo ob_get_clean();
@@ -160,9 +160,9 @@ class Brands_Custom_Fields {
     /* ·············· /Brand banner link ·············· */
 
     /* ·············· Brand desc ·············· */
-    if( isset( $_POST['pwb-brand-description-field'] ) ){
+    if( isset( $_POST['pwb_brand_description_field'] ) ){
       $desc = strip_tags(
-        wp_unslash( $_POST['pwb-brand-description-field'] ),
+        wp_unslash( $_POST['pwb_brand_description_field'] ),
         '<p><span><a><ul><ol><li><h1><h2><h3><h4><h5><h6><pre><strong><em><blockquote><del><ins><img><code><hr>'
       );
       global $wpdb;

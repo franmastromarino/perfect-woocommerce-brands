@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-05 00:01+0100\n"
-"PO-Revision-Date: 2018-03-05 00:03+0100\n"
+"PO-Revision-Date: 2018-03-05 20:29+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -348,7 +348,7 @@ msgid ""
 "and shortcodes."
 msgstr ""
 "Descripción de la marca para la página de archivo. Puedes incluir marcado "
-"html y shotcodes."
+"html y shortcodes."
 
 #: classes/admin/class-brands-custom-fields.php:26
 #: classes/admin/class-brands-custom-fields.php:68
