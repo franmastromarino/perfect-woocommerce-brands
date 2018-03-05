@@ -242,7 +242,7 @@ class Perfect_Woocommerce_Brands{
 
   public function brand_desc_position(){
     $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
-    if( $show_desc == 'yes' ){
+    if( !$show_desc || $show_desc == 'yes' ){
       add_action( 'woocommerce_before_shop_loop', array( $this, 'archive_page_banner' ), 9);
     }elseif( $show_desc == 'yes_after_loop' ){
       add_action( 'woocommerce_after_shop_loop', array( $this, 'archive_page_banner' ), 40);

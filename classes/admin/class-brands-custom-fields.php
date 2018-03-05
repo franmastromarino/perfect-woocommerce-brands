@@ -161,20 +161,12 @@ class Brands_Custom_Fields {
 
     /* ·············· Brand desc ·············· */
     if( isset( $_POST['pwb-brand-description-field'] ) ){
-      /**
-       *  Avoiding infinite loops because calling wp_update_post that includes the save_post hook
-       *  @link https://codex.wordpress.org/Plugin_API/Action_Reference/save_post#Avoiding_infinite_loops
-       */
-      remove_action( 'edit_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
-      remove_action( 'create_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
-
-      //allows html in brand descriptions
-      foreach ( array( 'pre_term_description' ) as $filter ) remove_filter( $filter, 'wp_filter_kses' );
-      foreach ( array( 'term_description' ) as $filter ) remove_filter( $filter, 'wp_kses_data' );
-
-      wp_update_term( $term_id, 'pwb-brand', array( 'description' => $_POST['pwb-brand-description-field'] ) );
-      add_action( 'edit_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
-      add_action( 'create_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
+      $desc = strip_tags(
+        wp_unslash( $_POST['pwb-brand-description-field'] ),
+        '<p><span><a><ul><ol><li><h1><h2><h3><h4><h5><h6><pre><strong><em><blockquote><del><ins><img><code><hr>'
+      );
+      global $wpdb;
+      $wpdb->update( $wpdb->term_taxonomy, [ 'description' => $desc ], [ 'term_id' => $term_id ]  );
     }
     /* ·············· /Brand desc ·············· */
 
