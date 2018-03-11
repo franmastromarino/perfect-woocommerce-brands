@@ -676,6 +676,9 @@ class Perfect_Woocommerce_Brands{
   public function archive_page_banner(){
     $queried_object = get_queried_object();
 
+    $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
+    $show_desc_class = ( !$show_desc || $show_desc == 'yes' ) ? 'before-loop' : 'after-loop';
+
     if( is_tax('pwb-brand') ){
 
       $brand_banner = get_term_meta( $queried_object->term_id, 'pwb_brand_banner', true );
@@ -683,7 +686,7 @@ class Perfect_Woocommerce_Brands{
       $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
 
       if( $brand_banner!='' || $queried_object->description != '' && $show_desc !== 'no' ){
-        echo '<div class="pwb-brand-banner-cont">';
+        echo '<div class="pwb-brand-banner-cont '.$show_desc_class.'">';
       }
 
         //pwb-brand archive

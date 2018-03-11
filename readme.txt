@@ -82,6 +82,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 * Feature: Visual editor with shortcode support added to brand description
 * Feature: Hide empty brands in brand widgets
 * Feature: Place brand description before or after product loop
+* Fix: WC import not assigning brands
 * Minor fixes and tweaks
 = 1.6.3 =
 * Requirements: No more longer support for very old php versions (5.4 minimum)
