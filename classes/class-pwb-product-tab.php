@@ -42,7 +42,7 @@ class PWB_Product_Tab{
 
       <div id="tab-pwb_tab-content">
         <h3><?php echo $brand->name;?></h3>
-        <?php if( !empty($brand->description) ) echo '<div>'.$brand->description.'</div>';?>
+        <?php if( !empty($brand->description) ) echo '<div>'.do_shortcode($brand->description).'</div>';?>
         <?php if( !empty($brand_logo) ) echo '<span>'.$brand_logo.'</span>';?>
       </div>
 

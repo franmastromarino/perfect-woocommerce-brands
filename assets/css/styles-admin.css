@@ -41,8 +41,14 @@
 .taxonomy-pwb-brand .pwb_brand_cont #pwb_brand_image, .taxonomy-pwb-brand .pwb_brand_cont #pwb_brand_banner{
   display: none;
 }
-.taxonomy-pwb-brand .pwb_brand_cont div{
+.taxonomy-pwb-brand .pwb_brand_cont > div{
   margin-top: 10px;
+}
+#wp-pwb-brand-description-field-wrap, #brand-description-help-text{
+  width: 95%;
+}
+.taxonomy-pwb-brand .term-description-wrap{
+  display: none!important;
 }
 .taxonomy-pwb-brand #col-right.pwb-force-full-width .pwb-edit-brands-bottom > span{
   -ms-transform: rotate(180deg);

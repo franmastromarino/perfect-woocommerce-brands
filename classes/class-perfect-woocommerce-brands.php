@@ -8,14 +8,10 @@ class Perfect_Woocommerce_Brands{
   function __construct(){
     add_action( 'woocommerce_init', array( $this, 'register_brands_taxonomy' ), 10, 0 );
     add_action( 'init', array( $this, 'add_brands_metafields' ) );
-    add_action( 'pwb-brand_add_form_fields', array( $this, 'add_brands_metafields_form' ) );
-    add_action( 'pwb-brand_edit_form_fields', array( $this, 'add_brands_metafields_form_edit' ) );
-    add_action( 'edit_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
-    add_action( 'create_pwb-brand', array( $this, 'add_brands_metafields_save' ) );
     add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
     add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
     $this->brand_logo_position();
-    add_action( 'woocommerce_before_shop_loop', array( $this, 'archive_page_banner' ), 9);
+    $this->brand_desc_position();
     add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
     $this->add_shortcodes();
     if( is_plugin_active('js_composer/js_composer.php') || is_plugin_active('visual_composer/js_composer.php') ){
@@ -244,6 +240,14 @@ class Perfect_Woocommerce_Brands{
     add_action('woocommerce_single_product_summary', array($this,'action_woocommerce_single_product_summary'), $position);
   }
 
+  public function brand_desc_position(){
+    $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
+    if( !$show_desc || $show_desc == 'yes' ){
+      add_action( 'woocommerce_before_shop_loop', array( $this, 'archive_page_banner' ), 9);
+    }elseif( $show_desc == 'yes_after_loop' ){
+      add_action( 'woocommerce_after_shop_loop', array( $this, 'archive_page_banner' ), 40);
+    }
+  }
 
   /*
    * Maps shortcode (for visual composer plugin)
@@ -637,138 +641,6 @@ class Perfect_Woocommerce_Brands{
       return $brand_img;
   }
 
-  public function add_brands_metafields_form(){
-    ob_start();
-    ?>
-    <div class="form-field pwb_brand_cont">
-        <label for="pwb_brand_image"><?php _e( 'Brand logo', 'perfect-woocommerce-brands' ); ?></label>
-        <input type="text" name="pwb_brand_image" id="pwb_brand_image" value="" >
-        <a href="#" id="pwb_brand_image_select" class="button"><?php _e('Select image','perfect-woocommerce-brands');?></a>
-    </div>
-
-    <div class="form-field pwb_brand_cont">
-        <label for="pwb_brand_banner"><?php _e( 'Brand banner', 'perfect-woocommerce-brands' ); ?></label>
-        <input type="text" name="pwb_brand_banner" id="pwb_brand_banner" value="" >
-        <a href="#" id="pwb_brand_banner_select" class="button"><?php _e('Select image','perfect-woocommerce-brands');?></a>
-        <p><?php _e( 'This image will be shown on brand page', 'perfect-woocommerce-brands' ); ?></p>
-    </div>
-
-    <div class="form-field pwb_brand_cont">
-        <label for="pwb_brand_banner_link"><?php _e( 'Brand banner link', 'perfect-woocommerce-brands' ); ?></label>
-        <input type="text" name="pwb_brand_banner_link" id="pwb_brand_banner_link" value="" >
-        <p><?php _e( 'This link should be relative to site url. Example: product/product-name', 'perfect-woocommerce-brands' ); ?></p>
-    </div>
-
-    <?php echo wp_nonce_field( basename( __FILE__ ), 'pwb_nonce' ); ?>
-
-    <?php
-    echo ob_get_clean();
-  }
-
-  public function add_brands_metafields_form_edit($term){
-    $term_value_image = get_term_meta( $term->term_id, 'pwb_brand_image', true );
-    $term_value_banner = get_term_meta( $term->term_id, 'pwb_brand_banner', true );
-    $term_value_banner_link = get_term_meta( $term->term_id, 'pwb_brand_banner_link', true );
-    ob_start();
-    ?>
-    <table class="form-table pwb_brand_cont">
-      <tr class="form-field">
-        <th>
-          <label for="pwb_brand_image"><?php _e( 'Brand logo', 'perfect-woocommerce-brands' ); ?></label>
-        </th>
-        <td>
-          <input type="text" name="pwb_brand_image" id="pwb_brand_image" value="<?php echo $term_value_image;?>" >
-          <a href="#" id="pwb_brand_image_select" class="button"><?php _e('Select image','perfect-woocommerce-brands');?></a>
-
-          <?php $current_image = wp_get_attachment_image ( $term_value_image, array('90','90'), false ); ?>
-          <?php if( !empty($current_image) ): ?>
-            <div class="pwb_brand_image_selected">
-              <span>
-                <?php echo $current_image;?>
-                <a href="#" class="pwb_brand_image_selected_remove">X</a>
-              </span>
-            </div>
-          <?php endif; ?>
-
-        </td>
-      </tr>
-      <tr class="form-field">
-        <th>
-          <label for="pwb_brand_banner"><?php _e( 'Brand banner', 'perfect-woocommerce-brands' ); ?></label>
-        </th>
-        <td>
-          <input type="text" name="pwb_brand_banner" id="pwb_brand_banner" value="<?php echo $term_value_banner;?>" >
-          <a href="#" id="pwb_brand_banner_select" class="button"><?php _e('Select image','perfect-woocommerce-brands');?></a>
-
-          <?php $current_image = wp_get_attachment_image ( $term_value_banner, array('90','90'), false ); ?>
-          <?php if( !empty($current_image) ): ?>
-            <div class="pwb_brand_image_selected">
-              <span>
-                <?php echo $current_image;?>
-                <a href="#" class="pwb_brand_image_selected_remove">X</a>
-              </span>
-            </div>
-          <?php endif; ?>
-
-        </td>
-      </tr>
-      <tr class="form-field">
-        <th>
-          <label for="pwb_brand_banner_link"><?php _e( 'Brand banner link', 'perfect-woocommerce-brands' ); ?></label>
-        </th>
-        <td>
-          <input type="text" name="pwb_brand_banner_link" id="pwb_brand_banner_link" value="<?php echo $term_value_banner_link;?>" >
-          <p class="description"><?php _e( 'This link should be relative to site url. Example: product/product-name', 'perfect-woocommerce-brands' ); ?></p>
-          <div id="pwb_brand_banner_link_result"><?php echo wp_get_attachment_image ( $term_value_banner_link, array('90','90'), false );?></div>
-        </td>
-      </tr>
-    </table>
-
-    <?php echo wp_nonce_field( basename( __FILE__ ), 'pwb_nonce' );?>
-
-    <?php
-    echo ob_get_clean();
-  }
-
-  public function add_brands_metafields_save( $term_id ){
-
-    if ( ! isset( $_POST['pwb_nonce'] ) || ! wp_verify_nonce( $_POST['pwb_nonce'], basename( __FILE__ ) ) )
-        return;
-
-    /* ·············· Brand image ·············· */
-    $old_img = get_term_meta( $term_id, 'pwb_brand_image', true );
-    $new_img = isset( $_POST['pwb_brand_image'] ) ? $_POST['pwb_brand_image'] : '';
-
-    if ( $old_img && '' === $new_img )
-        delete_term_meta( $term_id, 'pwb_brand_image' );
-
-    else if ( $old_img !== $new_img )
-        update_term_meta( $term_id, 'pwb_brand_image', $new_img );
-    /* ·············· /Brand image ·············· */
-
-    /* ·············· Brand banner ·············· */
-    $old_img = get_term_meta( $term_id, 'pwb_brand_banner', true );
-    $new_img = isset( $_POST['pwb_brand_banner'] ) ? $_POST['pwb_brand_banner'] : '';
-
-    if ( $old_img && '' === $new_img )
-        delete_term_meta( $term_id, 'pwb_brand_banner' );
-
-    else if ( $old_img !== $new_img )
-        update_term_meta( $term_id, 'pwb_brand_banner', $new_img );
-    /* ·············· /Brand banner ·············· */
-
-    /* ·············· Brand banner link ·············· */
-    $old_img = get_term_meta( $term_id, 'pwb_brand_banner_link', true );
-    $new_img = isset( $_POST['pwb_brand_banner_link'] ) ? $_POST['pwb_brand_banner_link'] : '';
-
-    if ( $old_img && '' === $new_img )
-        delete_term_meta( $term_id, 'pwb_brand_banner_link' );
-
-    else if ( $old_img !== $new_img )
-        update_term_meta( $term_id, 'pwb_brand_banner_link', $new_img );
-    /* ·············· /Brand banner link ·············· */
-  }
-
   public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false ){
       $result = array();
 
@@ -804,6 +676,9 @@ class Perfect_Woocommerce_Brands{
   public function archive_page_banner(){
     $queried_object = get_queried_object();
 
+    $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
+    $show_desc_class = ( !$show_desc || $show_desc == 'yes' ) ? 'before-loop' : 'after-loop';
+
     if( is_tax('pwb-brand') ){
 
       $brand_banner = get_term_meta( $queried_object->term_id, 'pwb_brand_banner', true );
@@ -811,7 +686,7 @@ class Perfect_Woocommerce_Brands{
       $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
 
       if( $brand_banner!='' || $queried_object->description != '' && $show_desc !== 'no' ){
-        echo '<div class="pwb-brand-banner-cont">';
+        echo '<div class="pwb-brand-banner-cont '.$show_desc_class.'">';
       }
 
         //pwb-brand archive
@@ -828,7 +703,7 @@ class Perfect_Woocommerce_Brands{
         //show brand description
         if( $queried_object->description != '' && $show_desc !== 'no' ){
           echo '<div class="pwb-brand-description">';
-          echo $queried_object->description;
+          echo do_shortcode( $queried_object->description );
           echo '</div>';
         }
 

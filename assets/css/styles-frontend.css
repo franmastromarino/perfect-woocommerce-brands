@@ -4,6 +4,12 @@
   display: table;
   clear: both;
 }
+.pwb-brand-banner-cont.before-loop{
+  margin-bottom: 1em;
+}
+.pwb-brand-banner-cont.after-loop{
+  margin-top: 1em;
+}
 /* ----------------------- /Global ----------------------- */
 
 /* ----------------------- Carousels ----------------------- */
@@ -82,6 +88,14 @@
 /* ------ Preloader ------ */
 .pwb-carousel, .pwb-product-carousel{
   min-height: 30px;
+}
+.pwb-carousel .pwb-slick-slide,
+.pwb-product-carousel .pwb-slick-slide{
+  display: none;
+}
+.pwb-carousel.slick-initialized .pwb-slick-slide,
+.pwb-product-carousel.slick-initialized .pwb-slick-slide{
+  display: block;
 }
 .pwb-carousel .slick-list,
 .pwb-product-carousel .slick-list {
@@ -221,6 +235,12 @@
 .pwb-columns-4{
   width: 25%;
 }
+.pwb-columns-5{
+  width: 20%;
+}
+.pwb-columns-6{
+  width: 16.66666%;
+}
 .pwb-columns{
   display: inline-block;
   vertical-align:top;
@@ -237,6 +257,9 @@
     .pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3{
         width: 50%;
     }
+    .pwb-columns-5, .pwb-columns-6{
+      width: 25%;
+    }
 }
 @media screen and (max-width: 480px) {
     .pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3{
@@ -246,7 +269,7 @@
     .pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3 > p:first-child{
         height: auto;
     }
-    .pwb-columns-3, .pwb-columns-4{
+    .pwb-columns-3, .pwb-columns-4, .pwb-columns-5, .pwb-columns-6{
       width: 50%;
     }
 }

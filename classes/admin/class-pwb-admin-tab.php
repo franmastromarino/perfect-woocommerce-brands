@@ -85,10 +85,16 @@
                 ),
                 'brand_description' => array(
                     'name'    => __( 'Show brand description', 'perfect-woocommerce-brands' ),
-                    'type'    => 'checkbox',
+                    'type'    => 'select',
+                    'class'  => 'pwb-admin-tab-field',
                     'default' => 'yes',
                     'desc'    => __( 'Show brand description (if is set) on brand archive page', 'perfect-woocommerce-brands' ),
-                    'id'      => 'wc_pwb_admin_tab_brand_desc'
+                    'id'      => 'wc_pwb_admin_tab_brand_desc',
+                    'options' => array(
+                      'yes'              => __( 'Yes, before product loop', 'perfect-woocommerce-brands' ),
+                      'yes_after_loop'   => __( 'Yes, after product loop', 'perfect-woocommerce-brands' ),
+                      'no'               => __( 'No, hide description', 'perfect-woocommerce-brands' )
+                    )
                 ),
                 'brand_single_product_tab' => array(
                     'name'    => __( 'Single product tab', 'perfect-woocommerce-brands' ),
