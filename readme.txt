@@ -4,7 +4,7 @@ Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.6.4
+Stable tag: 1.6.5
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -78,6 +78,10 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.6.5 =
+* Include icon and banner brand image in api response (thanks @qbig)
+* Feature: New option for configure the max number of brands in filter by brand widget
+* Enhancement: Hide filter by brand widget when there are no brands to show
 = 1.6.4 =
 * Feature: Visual editor with shortcode support added to brand description
 * Feature: Hide empty brands in brand widgets
@@ -114,63 +118,3 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 * Fix: Filter by brand widget fixes
 * Fix: Brand description adds description twice
 * Other minor bug fixes and code improvements
-= 1.5.2 =
-* Dev: Adding brands to a products via the REST API + updating namespaces to include v2 (pull request, thanks doekenorg)
-= 1.5.1 =
-* Fix: Fatal error on old php versions (< 5.5)
-= 1.5 =
-* Feature (Tool): Install dummy data (generate generic brands and assigns them to available products randomly)
-* Feature: Restrict coupon by brands
-* Feature: Get system status details for a better plugin support
-* Feature: Import brands from "Ultimate WooCommerce Brands"
-* Dev: 'pwb_before_single_product_brands' and 'pwb_after_single_product_brands' hooks added
-* Dev: Basic WordPress REST API support
-* Enhancement: Better HTML markup for the brand banner and the brand description for the archive product page
-* Enhancement: Brands importer improvements
-* Enhancement: New params for "pwb-all-brands" shortcode
-* Fix: The brand description is appearing twice
-* Fix: Product filter widget does not seems to work in product category page (thanks hassandad)
-* Fix: Support for php 5.3 again
-* Fix: Removed ES6 code from admin for better browser support
-* Other minor bug fixes and code improvements
-= 1.4.5 =
-* Fix carousel shortcodes bugs
-* WooCommerce 2.7 support
-= 1.4.4 =
-* Important improvement of the user experience when assigning images to a brand
-* Feature (Option): Hide brands in single product, show as image or show as link
-* Feature: Hide prev/next arrows on carousel shortcodes
-* Feature: Hide empty brands option for "Display all brands" shortcode
-* Feature: New options for "Display brands as list" widget
-* Fix: Autoplay bug on carousel shortcodes
-* Tested on PHP7
-* Shortcut to the plugin settings added to the plugin list page
-* "Help us" notice added
-* Minor code improvements
-= 1.4.3 =
-* Feature (Widget): Filter products by brand
-* Feature (Option): Show brand logo in product loop
-* Feature: Brand microdata added to product page
-* Feature (Tool): Migrate brands from "YITH WooCommerce Brands Add-on"
-= 1.4.2 =
-* Fix: Table collapses in "Admin > Products > Brands" (thanks eljkmw)
-* Fix: "pwb-brand" shortcode does not display the brand when it has not a logo assigned
-= 1.4.1 =
-* Feature (Option): Hide brand's description in archive page
-* Fix: "pwb-all-brands" and "pwb-brand" show the content before they should
-* Clean database on uninstallation
-* Minor code improvements and fixes
-= 1.4 =
-* Feature: Product carousel by brand added
-* Minor bug fixes
-= 1.3 =
-* Feature: If is set, show brand description in brand page
-* Feature: Change brands position in single product
-= 1.2 =
-* Feature: Associate a banner and a link to each brand
-* Minor tweaks
-* Fully tested on WooCommerce 2.6
-= 1.1 =
-* Minor bug fixes
-= 1.0 =
-* Initial release
