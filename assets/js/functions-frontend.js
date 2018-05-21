@@ -1,6 +1,5 @@
-jQuery.noConflict();
-
-jQuery(document).ready(function( $ ) {
+jQuery( function ( $ ) {
+  
     $('.pwb-dropdown-widget').on('change',function(){
         var href = $(this).find(":selected").val();
         location.href = href;

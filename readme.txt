@@ -82,6 +82,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 * Include icon and banner brand image in api response (thanks @qbig)
 * Feature: New option for configure the max number of brands in filter by brand widget
 * Enhancement: Hide filter by brand widget when there are no brands to show
+* Fix: "Dokan Multivendor Marketplace" JavaScript conflict in admin
 = 1.6.4 =
 * Feature: Visual editor with shortcode support added to brand description
 * Feature: Hide empty brands in brand widgets
