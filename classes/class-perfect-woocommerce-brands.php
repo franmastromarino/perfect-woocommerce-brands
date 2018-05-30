@@ -641,7 +641,7 @@ class Perfect_Woocommerce_Brands{
       return $brand_img;
   }
 
-  public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false ){
+  public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false, $pwb_term = false ){
       $result = array();
 
       $brands_args = array( 'hide_empty' => $hide_empty, 'order_by' => $order_by, 'order' => $order );
@@ -649,11 +649,17 @@ class Perfect_Woocommerce_Brands{
 
       $brands = get_terms('pwb-brand', $brands_args);
 
-      foreach ($brands as $brand) {
-        $brand_image_id = get_term_meta($brand->term_id, 'pwb_brand_image', true);
-        $brand_banner_id = get_term_meta($brand->term_id, 'pwb_brand_banner', true);
-        $brand->brand_image = wp_get_attachment_image_src($brand_image_id);
-        $brand->brand_banner = wp_get_attachment_image_src($brand_banner_id);
+      foreach( $brands as $key => $brand ){
+
+        if( $pwb_term ){
+          $brands[$key] = new PWB_Term( $brand );
+        }else{
+          $brand_image_id = get_term_meta($brand->term_id, 'pwb_brand_image', true);
+          $brand_banner_id = get_term_meta($brand->term_id, 'pwb_brand_banner', true);
+          $brand->brand_image = wp_get_attachment_image_src($brand_image_id);
+          $brand->brand_banner = wp_get_attachment_image_src($brand_banner_id);
+        }
+
       }
 
       if( is_array($brands) && count($brands)>0 ) $result = $brands;

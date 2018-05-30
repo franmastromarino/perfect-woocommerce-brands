@@ -80,8 +80,10 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 == Changelog ==
 = 1.6.5 =
 * Include icon and banner brand image in api response (thanks @qbig)
+* Feature: New option for show only favorite brands in the dropdown widget and the list widget
 * Feature: New option for configure the max number of brands in filter by brand widget
-* Enhancement: Hide filter by brand widget when there are no brands to show
+* Feature: New option for randomize brand logos in the list widget
+* Enhancement: Hide widgets when there are no results to show
 * Fix: "Dokan Multivendor Marketplace" JavaScript conflict in admin
 = 1.6.4 =
 * Feature: Visual editor with shortcode support added to brand description

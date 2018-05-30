@@ -23,7 +23,7 @@
  *      along with Perfect WooCommerce Brands.  If not, see <http://www.gnu.org/licenses/>.
  *
  *  WC requires at least: 2.4
- *  WC tested up to: 3.3
+ *  WC tested up to: 3.4
  */
 
 namespace Perfect_Woocommerce_Brands;
@@ -55,6 +55,7 @@ add_action( 'plugins_loaded', function(){
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
 
+  require 'classes/class-pwb-term.php';
   require 'classes/widgets/class-pwb-dropdown.php';
   require 'classes/widgets/class-pwb-list.php';
   require 'classes/widgets/class-pwb-filter-by-brand.php';

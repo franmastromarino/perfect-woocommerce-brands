@@ -242,8 +242,7 @@
   width: 16.66666%;
 }
 .pwb-columns{
-  display: inline-block;
-  vertical-align:top;
+  float: left;
 }
 /* ----------------------- /Columns ----------------------- */
 
