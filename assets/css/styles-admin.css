@@ -129,6 +129,9 @@ select.pwb-admin-tab-field, input[type="text"].pwb-admin-tab-field{
 }
 /* ----------------------- /Settings page ----------------------- */
 
+table.wp-list-table .column-taxonomy-pwb-brand{
+  width: 11%!important;
+}
 .pwb-display-as-logo{
   display: none;
 }

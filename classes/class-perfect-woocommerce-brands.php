@@ -74,7 +74,7 @@ class Perfect_Woocommerce_Brands{
   */
   public function plugin_action_links( $links ) {
     $settings_url = esc_url( admin_url( 'admin.php?page=wc-settings&tab=pwb_admin_tab' ) );
-    $links[] = '<a href="'. $settings_url .'">'.__('Settings','perfect-woocommerce-brands').'</a>';
+    array_unshift( $links, '<a href="'. $settings_url .'">'.__('Settings','perfect-woocommerce-brands').'</a>' );
     return $links;
   }
 
