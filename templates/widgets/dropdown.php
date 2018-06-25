@@ -15,8 +15,8 @@
 <select class="pwb-dropdown-widget">
   <option selected="true" disabled="disabled"><?php _e( 'Brands', 'perfect-woocommerce-brands' ); ?></option>
   <?php foreach( $brands as $brand ): ?>
-    <option value="<?php echo $brand['link'];?>" <?php echo $brand['selected'];?>>
-      <?php echo $brand['name'];?>
+    <option value="<?php echo $brand->get('link');?>" <?php selected( $data['selected'], $brand->get('id') );?>>
+      <?php echo $brand->get('name');?>
     </option>
   <?php endforeach; ?>
 </select>

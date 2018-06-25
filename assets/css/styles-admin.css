@@ -107,12 +107,6 @@
 }
 /* ----------------------- /Taxonomy pwb-brand ----------------------- */
 
-/* ----------------------- Widgets page ----------------------- */
-.widgets-php .widget[id*="_pwb_"] .widget-title{
-  border-left: 2px solid #cda000;
-}
-/* ----------------------- /Widgets page ----------------------- */
-
 /* ----------------------- Settings page ----------------------- */
 #wc_pwb_admin_status_result{
   display: none;
@@ -129,6 +123,9 @@ select.pwb-admin-tab-field, input[type="text"].pwb-admin-tab-field{
 }
 /* ----------------------- /Settings page ----------------------- */
 
+table.wp-list-table .column-taxonomy-pwb-brand{
+  width: 11%!important;
+}
 .pwb-display-as-logo{
   display: none;
 }

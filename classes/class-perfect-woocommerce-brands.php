@@ -74,7 +74,7 @@ class Perfect_Woocommerce_Brands{
   */
   public function plugin_action_links( $links ) {
     $settings_url = esc_url( admin_url( 'admin.php?page=wc-settings&tab=pwb_admin_tab' ) );
-    $links[] = '<a href="'. $settings_url .'">'.__('Settings','perfect-woocommerce-brands').'</a>';
+    array_unshift( $links, '<a href="'. $settings_url .'">'.__('Settings','perfect-woocommerce-brands').'</a>' );
     return $links;
   }
 
@@ -641,13 +641,26 @@ class Perfect_Woocommerce_Brands{
       return $brand_img;
   }
 
-  public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false ){
+  public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false, $pwb_term = false ){
       $result = array();
 
       $brands_args = array( 'hide_empty' => $hide_empty, 'order_by' => $order_by, 'order' => $order );
       if( $only_featured ) $brands_args['meta_query'] = array( array( 'key' => 'pwb_featured_brand', 'value' => true ) );
 
       $brands = get_terms('pwb-brand', $brands_args);
+
+      foreach( $brands as $key => $brand ){
+
+        if( $pwb_term ){
+          $brands[$key] = new PWB_Term( $brand );
+        }else{
+          $brand_image_id = get_term_meta($brand->term_id, 'pwb_brand_image', true);
+          $brand_banner_id = get_term_meta($brand->term_id, 'pwb_brand_banner', true);
+          $brand->brand_image = wp_get_attachment_image_src($brand_image_id);
+          $brand->brand_banner = wp_get_attachment_image_src($brand_banner_id);
+        }
+
+      }
 
       if( is_array($brands) && count($brands)>0 ) $result = $brands;
 

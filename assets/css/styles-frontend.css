@@ -220,6 +220,15 @@
 }
 /* ----------------------- /PWB All Brands ----------------------- */
 
+/* ----------------------- Filter products widget ----------------------- */
+.pwb-filter-products input[type="checkbox"]{
+  margin-right: 10px;
+}
+.pwb-filter-products li{
+  margin-bottom: 5px;
+}
+/* ----------------------- /Filter products widget ----------------------- */
+
 /* ----------------------- Columns ----------------------- */
 .pwb-row:after{
   content: "";
@@ -242,8 +251,7 @@
   width: 16.66666%;
 }
 .pwb-columns{
-  display: inline-block;
-  vertical-align:top;
+  float: left;
 }
 /* ----------------------- /Columns ----------------------- */
 
