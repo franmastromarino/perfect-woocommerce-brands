@@ -8,7 +8,7 @@ class PWB_List_Widget extends \WP_Widget {
   function __construct(){
     $params = array(
       'description' => __( 'Adds a brands list to your site', 'perfect-woocommerce-brands' ),
-      'name'        => 'PWB: '.__( 'Brands list', 'perfect-woocommerce-brands' )
+      'name'        => __( 'Brands list', 'perfect-woocommerce-brands' )
     );
     parent::__construct('PWB_List_Widget', '', $params);
   }
@@ -16,6 +16,7 @@ class PWB_List_Widget extends \WP_Widget {
   public function form($instance){
     extract($instance);
 
+    $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
     if( !isset( $display_as ) ) $display_as = 'brand_logo';
     if( !isset( $columns ) ) $columns = '2';
     $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;

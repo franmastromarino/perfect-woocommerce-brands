@@ -1,5 +1,5 @@
 jQuery( function ( $ ) {
-  
+
     $('.pwb-dropdown-widget').on('change',function(){
         var href = $(this).find(":selected").val();
         location.href = href;
@@ -80,9 +80,7 @@ jQuery( function ( $ ) {
 
     /* ··························· Filter by brand widget ··························· */
 
-    var brands = PWBgetUrlParameter('pwb-brand-filter');
-
-    $('.pwb-filter-products button').on( 'click', function(){
+    var PWBFilterByBrand = function(){
 
       var currentUrl = window.location.href;
 
@@ -110,7 +108,12 @@ jQuery( function ( $ ) {
       }
       location.href = currentUrl;
 
-    });
+    }
+
+    $('.pwb-filter-products button').on( 'click', function(){ PWBFilterByBrand(); } );
+    $('.pwb-filter-products.pwb-hide-submit-btn input').on( 'change', function(){ PWBFilterByBrand(); } );
+
+    var brands = PWBgetUrlParameter('pwb-brand-filter');
 
   	if(brands!=null){
   		var brands_array = brands.split(',');

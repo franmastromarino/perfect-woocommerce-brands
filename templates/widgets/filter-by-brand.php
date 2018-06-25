@@ -11,7 +11,7 @@
  extract( $data );
 ?>
 
-<div class="pwb-filter-products" data-cat-url="<?php echo $cate_url;?>">
+<div class="pwb-filter-products<?php if( $hide_submit_btn ) echo ' pwb-hide-submit-btn'; ?>" data-cat-url="<?php echo $cate_url;?>">
   <ul>
     <?php foreach( $brands as $brand ): ?>
       <li>
@@ -21,5 +21,7 @@
       </li>
     <?php endforeach; ?>
   </ul>
-  <button><?php _e('Apply filter','perfect-woocommerce-brands') ?></button>
+  <?php if( !$hide_submit_btn ): ?>
+    <button><?php _e('Apply filter','perfect-woocommerce-brands') ?></button>
+  <?php endif;?>
 </div>

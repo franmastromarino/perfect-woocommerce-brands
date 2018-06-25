@@ -8,7 +8,7 @@ class PWB_Dropdown_Widget extends \WP_Widget {
   function __construct(){
     $params = array(
       'description' => __( 'Adds a brands dropdown to your site', 'perfect-woocommerce-brands' ),
-      'name'        => 'PWB: '.__( 'Brands dropdown', 'perfect-woocommerce-brands' )
+      'name'        => __( 'Brands dropdown', 'perfect-woocommerce-brands' )
     );
     parent::__construct('PWB_Dropdown_Widget', '', $params);
   }
@@ -16,6 +16,7 @@ class PWB_Dropdown_Widget extends \WP_Widget {
   public function form($instance){
     extract($instance);
 
+    $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
     $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
     $only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
     ?>

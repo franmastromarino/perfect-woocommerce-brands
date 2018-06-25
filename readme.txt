@@ -82,6 +82,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 * Include icon and banner brand image in api response (thanks @qbig)
 * Feature: New option for show only favorite brands in the dropdown widget and the list widget
 * Feature: New option for configure the max number of brands in filter by brand widget
+* Feature: Filter by brand without submit button
 * Feature: New option for randomize brand logos in the list widget
 * Feature: Hide empty brands in brand carousel
 * Enhancement: Hide widgets when there are no results to show

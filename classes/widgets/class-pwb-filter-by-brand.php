@@ -9,7 +9,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 	function __construct() {
     $params = array(
       'description' => __( 'Recommended for product categories or shop page', 'perfect-woocommerce-brands' ),
-      'name'        => 'PWB: '.__( 'Filter products by brand', 'perfect-woocommerce-brands' )
+      'name'        => __( 'Filter products by brand', 'perfect-woocommerce-brands' )
     );
     parent::__construct('PWB_Filter_By_Brand_Widget', '', $params);
 	}
@@ -20,6 +20,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
     $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
     $limit = ( isset( $instance[ 'limit' ] ) ) ? $instance[ 'limit' ] : 20;
     $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
+    $hide_submit_btn = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
     ?>
     <p>
       <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -41,6 +42,16 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
         <?php echo __( 'Hide empty', 'perfect-woocommerce-brands' );?>
       </label>
     </p>
+    <p>
+      <input
+      type="checkbox"
+      id="<?php echo esc_attr( $this->get_field_id('hide_submit_btn') ); ?>"
+      name="<?php echo esc_attr( $this->get_field_name('hide_submit_btn') ); ?>"
+      <?php checked( $hide_submit_btn ); ?>>
+      <label for="<?php echo esc_attr( $this->get_field_id('hide_submit_btn') ); ?>">
+        <?php echo __( 'Hide filter button', 'perfect-woocommerce-brands' );?>
+      </label>
+    </p>
     <?php
   }
 
@@ -49,9 +60,10 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
     $limit = filter_var( $limit, FILTER_VALIDATE_INT, [ 'options' => [ 'min_range' => 1 ] ] );
 
     $instance = array();
-		$instance['title']      = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
-		$instance['limit']      = ( $limit != false ) ? $limit : $old_instance['limit'];
-    $instance['hide_empty'] = $new_instance['hide_empty'];
+		$instance['title']      		 = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['limit']      		 = ( $limit != false ) ? $limit : $old_instance['limit'];
+    $instance['hide_empty'] 		 = $new_instance['hide_empty'];
+    $instance['hide_submit_btn'] = $new_instance['hide_submit_btn'];
     return $instance;
   }
 
@@ -61,6 +73,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
     if( !is_tax('pwb-brand') && !is_product()  ){
 
+      $hide_submit_btn = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
       $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
       $brands = get_terms( 'pwb-brand', array( 'hide_empty' => $hide_empty ) );
   		$brands_ids = array();
@@ -81,7 +94,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
         echo $args['before_widget'];
             if ( ! empty( $title ) ) echo $args['before_title'] . $title . $args['after_title'];
-            $this->render_widget( $current_products_query, $brands_ids, $limit );
+            $this->render_widget( $current_products_query, $brands_ids, $limit, $hide_submit_btn );
         echo $args['after_widget'];
       }
 
@@ -89,7 +102,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
 	}
 
-  public function render_widget( $the_query, $brands_ids, $limit ){
+  public function render_widget( $the_query, $brands_ids, $limit, $hide_submit_btn ){
 
 		if( is_product_category() ){
 
@@ -107,15 +120,13 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 				$cateID = $cate->term_id;
 				$cate_url = get_term_link($cateID);
 
+				if( $limit > 0 ) $result_brands = array_slice( $result_brands, 0, $limit );
+
 			}else{
 				//no product category
 				$cate_url = get_permalink( wc_get_page_id( 'shop' ));
-				shuffle($brands_ids);
-        if( $limit > 0 ){
-          $result_brands = array_slice($brands_ids, 0, $limit);
-        }else{
-          $result_brands = $brands_ids;
-        }
+				$result_brands = $brands_ids;
+				if( $limit > 0 ) $result_brands = array_slice( $brands_ids, 0, $limit );
 			}
 
       global $wp;
@@ -136,7 +147,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
         echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
           'filter-by-brand',
           'widgets',
-          array( 'cate_url' => $cate_url, 'brands' => $result_brands_ordered )
+          array( 'cate_url' => $cate_url, 'brands' => $result_brands_ordered, 'hide_submit_btn' => $hide_submit_btn )
         );
 
       }
