@@ -78,18 +78,18 @@ class PWB_All_Brands_Shortcode{
 
             <?php if( $title_position != 'none' && $title_position != 'after' ): ?>
               <p>
-                <?php echo $brand_name;?>
+                <a href="<?php echo $brand_link;?>"><?php echo $brand_name;?></a>
                 <small>(<?php echo $brand->count;?>)</small>
               </p>
             <?php endif; ?>
 
             <div>
-              <a href="<?php echo $brand_link;?>" title="<?php _e( 'View brand', 'perfect-woocommerce-brands' );?>"><?php echo $attachment_html;?></a>
+              <a href="<?php echo $brand_link;?>" title="<?php echo $brand_name;?>"><?php echo $attachment_html;?></a>
             </div>
 
             <?php if( $title_position != 'none' && $title_position == 'after' ): ?>
               <p>
-                <?php echo $brand_name;?>
+                <a href="<?php echo $brand_link;?>"><?php echo $brand_name;?></a>
                 <small>(<?php echo $brand->count;?>)</small>
               </p>
             <?php endif; ?>
