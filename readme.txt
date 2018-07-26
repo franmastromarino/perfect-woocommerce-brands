@@ -4,7 +4,7 @@ Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.6.5
+Stable tag: 1.7.0
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -78,6 +78,8 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.7.0 =
+* Feature: New brands exporter/importer introduced
 = 1.6.5 =
 * Include icon and banner brand image in api response (thanks @qbig)
 * Feature: New option for show only favorite brands in the dropdown widget and the list widget

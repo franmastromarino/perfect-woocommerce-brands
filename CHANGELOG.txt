@@ -1,4 +1,6 @@
 == Changelog ==
+= 1.7.0 =
+* Feature: New brands exporter/importer introduced
 = 1.6.5 =
 * Include icon and banner brand image in api response (thanks @qbig)
 * Feature: New option for show only favorite brands in the dropdown widget and the list widget
