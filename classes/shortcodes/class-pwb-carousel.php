@@ -57,7 +57,7 @@ class PWB_Carousel_Shortcode{
         $attachment_html = $brand->name;
         if($attachment_id!='') $attachment_html = wp_get_attachment_image( $attachment_id, self::$atts['image_size'] );
 
-        $brands[] = array( 'link' => $brand_link, 'attachment_html' => $attachment_html );
+        $brands[] = array( 'link' => $brand_link, 'attachment_html' => $attachment_html, 'name' => $brand->name );
 
         $foreach_i++;
     }

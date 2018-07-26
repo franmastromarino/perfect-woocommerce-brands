@@ -506,7 +506,7 @@ class Perfect_Woocommerce_Brands{
                   $attachment_html = wp_get_attachment_image($attachment_id,$image_size);
 
                   if( !empty($attachment_html) && $show_as=='brand_image' || !empty($attachment_html) && !$show_as ){
-                    echo '<a href="'.$brand_link.'" title="'.__( 'View brand', 'perfect-woocommerce-brands' ).'">'.$attachment_html.'</a>';
+                    echo '<a href="'.$brand_link.'" title="'.$brand->name.'">'.$attachment_html.'</a>';
                   }else{
                     echo '<a href="'.$brand_link.'" title="'.__( 'View brand', 'perfect-woocommerce-brands' ).'">'.$brand->name.'</a>';
                   }
