@@ -82,30 +82,33 @@ jQuery( function ( $ ) {
 
     var PWBFilterByBrand = function(){
 
+      var baseUrl    = [location.protocol, '//', location.host, location.pathname].join('');
       var currentUrl = window.location.href;
 
-      var marcas = '';
+      var marcas = [];
       $('.pwb-filter-products input[type="checkbox"]').each(function(index){
-        var checked = $(this).prop('checked');
-        if(checked){
-          marcas+=$(this).val();
-          if($('.pwb-filter-products input[type="checkbox"]').length-1 != index){
-            marcas+=',';
-          }
-        }
+        if( $(this).prop('checked') ) marcas.push( $(this).val() );
       });
+      marcas = marcas.join();
 
-      //removes previous "pwb-brand" from url
-      currentUrl = currentUrl.replace(/&?pwb-brand-filter=([^&]$|[^&]*)/i, "");
+      if( marcas ){
 
-      //removes pagination
-      currentUrl = currentUrl.replace(/\/page\/\d*\//i, "");
+        //removes previous "pwb-brand" from url
+        currentUrl = currentUrl.replace(/&?pwb-brand-filter=([^&]$|[^&]*)/i, "");
 
-      if( currentUrl.indexOf("?") === -1 ){
-        currentUrl = currentUrl + '?pwb-brand-filter='+marcas;
+        //removes pagination
+        currentUrl = currentUrl.replace(/\/page\/\d*\//i, "");
+
+        if( currentUrl.indexOf("?") === -1 ){
+          currentUrl = currentUrl + '?pwb-brand-filter='+marcas;
+        }else{
+          currentUrl = currentUrl + '&pwb-brand-filter='+marcas;
+        }
+
       }else{
-        currentUrl = currentUrl + '&pwb-brand-filter='+marcas;
+        currentUrl = baseUrl;
       }
+
       location.href = currentUrl;
 
     }

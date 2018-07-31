@@ -54,14 +54,16 @@ jQuery( function ( $ ) {
   });
 
   //clear custom fields when brand is added
-  jQuery( document ).ajaxSuccess(function( event, xhr, settings ) {
+  if( $('body').hasClass('edit-tags-php') && $('body').hasClass('taxonomy-pwb-brand') ){
+    jQuery( document ).ajaxSuccess(function( event, xhr, settings ) {
       //Check ajax action of request that succeeded
       if( typeof settings != "undefined" && settings.data && ~settings.data.indexOf("action=add-tag") && ~settings.data.indexOf("taxonomy=pwb-brand") ) {
         $('#pwb_brand_image').val('');
         $('#pwb_brand_banner').val('');
         $('.pwb_brand_image_selected').remove();
       }
-  });
+    });
+  }  
 
   function add_delete_link( $imageSelectorScope ){
 

@@ -80,6 +80,10 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 == Changelog ==
 = 1.7.0 =
 * Feature: New brands exporter/importer introduced
+* Fix: Missing some brands to filter
+* Fix: Coupon doesn’t work for product variations (thanks @gekomees)
+* Enhancement: wpautop() for brand descriptions
+* Enhancement: Other filter by brand widget enhancements
 = 1.6.5 =
 * Include icon and banner brand image in api response (thanks @qbig)
 * Feature: New option for show only favorite brands in the dropdown widget and the list widget
