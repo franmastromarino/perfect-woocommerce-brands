@@ -11,7 +11,7 @@ class Perfect_Woocommerce_Brands{
     add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
     add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
     $this->brand_logo_position();
-    $this->brand_desc_position();
+    add_action( 'parse_query', array( $this, 'brand_desc_position' ) );
     add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
     $this->add_shortcodes();
     if( is_plugin_active('js_composer/js_composer.php') || is_plugin_active('visual_composer/js_composer.php') ){
@@ -241,12 +241,18 @@ class Perfect_Woocommerce_Brands{
   }
 
   public function brand_desc_position(){
-    $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
-    if( !$show_desc || $show_desc == 'yes' ){
-      add_action( 'woocommerce_before_shop_loop', array( $this, 'archive_page_banner' ), 9);
-    }elseif( $show_desc == 'yes_after_loop' ){
-      add_action( 'woocommerce_after_shop_loop', array( $this, 'archive_page_banner' ), 40);
+
+    if( is_tax('pwb-brand') ){
+
+      $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
+      if( !$show_desc || $show_desc == 'yes' ){
+        add_action( 'woocommerce_archive_description', array( $this, 'archive_page_banner' ), 15);
+      }elseif( $show_desc == 'yes_after_loop' ){
+        add_action( 'woocommerce_after_main_content', array( $this, 'archive_page_banner' ), 9);
+      }
+
     }
+
   }
 
   /*
@@ -692,38 +698,34 @@ class Perfect_Woocommerce_Brands{
     $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
     $show_desc_class = ( !$show_desc || $show_desc == 'yes' ) ? 'before-loop' : 'after-loop';
 
-    if( is_tax('pwb-brand') ){
+    $brand_banner = get_term_meta( $queried_object->term_id, 'pwb_brand_banner', true );
+    $brand_banner_link = get_term_meta( $queried_object->term_id, 'pwb_brand_banner_link', true );
+    $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
 
-      $brand_banner = get_term_meta( $queried_object->term_id, 'pwb_brand_banner', true );
-      $brand_banner_link = get_term_meta( $queried_object->term_id, 'pwb_brand_banner_link', true );
-      $show_desc = get_option('wc_pwb_admin_tab_brand_desc');
+    if( $brand_banner!='' || $queried_object->description != '' && $show_desc !== 'no' ){
+      echo '<div class="pwb-brand-banner-cont '.$show_desc_class.'">';
+    }
 
-      if( $brand_banner!='' || $queried_object->description != '' && $show_desc !== 'no' ){
-        echo '<div class="pwb-brand-banner-cont '.$show_desc_class.'">';
-      }
-
-        //pwb-brand archive
-        if( $brand_banner!='' ){
-          echo '<div class="pwb-brand-banner pwb-clearfix">';
-          if($brand_banner_link!=''){
-            echo '<a href="'.site_url($brand_banner_link).'">'.wp_get_attachment_image ( $brand_banner, 'full', false ).'</a>';
-          }else{
-            echo wp_get_attachment_image ( $brand_banner, 'full', false );
-          }
-          echo '</div>';
+      //pwb-brand archive
+      if( $brand_banner!='' ){
+        echo '<div class="pwb-brand-banner pwb-clearfix">';
+        if($brand_banner_link!=''){
+          echo '<a href="'.site_url($brand_banner_link).'">'.wp_get_attachment_image ( $brand_banner, 'full', false ).'</a>';
+        }else{
+          echo wp_get_attachment_image ( $brand_banner, 'full', false );
         }
-
-        //show brand description
-        if( $queried_object->description != '' && $show_desc !== 'no' ){
-          echo '<div class="pwb-brand-description">';
-          echo do_shortcode( wpautop( $queried_object->description ) );
-          echo '</div>';
-        }
-
-      if( $brand_banner!='' || $queried_object->description != '' && $show_desc !== 'no' ){
         echo '</div>';
       }
 
+      //show brand description
+      if( $queried_object->description != '' && $show_desc !== 'no' ){
+        echo '<div class="pwb-brand-description">';
+        echo do_shortcode( wpautop( $queried_object->description ) );
+        echo '</div>';
+      }
+
+    if( $brand_banner!='' || $queried_object->description != '' && $show_desc !== 'no' ){
+      echo '</div>';
     }
 
   }

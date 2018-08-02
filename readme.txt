@@ -82,6 +82,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 * Feature: New brands exporter/importer introduced
 * Fix: Missing some brands to filter
 * Fix: Coupon doesn’t work for product variations (thanks @gekomees)
+* Fix: The brand description is not shown if there are no products
 * Enhancement: wpautop() for brand descriptions
 * Enhancement: Other filter by brand widget enhancements
 = 1.6.5 =
