@@ -108,7 +108,7 @@ class Edit_Brands_Page {
       $direction = 'up';
       $brand = intval( $_POST['brand'] );
       if( $this->is_featured_brand( $brand ) ){
-        update_term_meta( $brand, 'pwb_featured_brand', false );
+        delete_term_meta( $brand, 'pwb_featured_brand', true );
         $direction = 'down';
       }else{
         update_term_meta( $brand, 'pwb_featured_brand', true );

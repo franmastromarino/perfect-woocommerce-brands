@@ -85,6 +85,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 * Fix: The brand description is not shown if there are no products
 * Enhancement: wpautop() for brand descriptions
 * Enhancement: Other filter by brand widget enhancements
+* Enhancement: Brands page link in breadcrumbs
 * Dev: New filter pwb_enqueue_slick_lib
 = 1.6.5 =
 * Include icon and banner brand image in api response (thanks @qbig)
