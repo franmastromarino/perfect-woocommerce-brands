@@ -116,8 +116,8 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 				}
 				wp_reset_postdata();
 
-    			    $result_brands = array_unique($result_brands);
-	    		    $cate = get_queried_object();
+    			        $result_brands = array_unique($result_brands);
+	    		        $cate = get_queried_object();
 				$cateID = $cate->term_id;
 				$cate_url = get_term_link($cateID);
 
