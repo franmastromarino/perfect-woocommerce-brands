@@ -106,6 +106,8 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
 		if( is_product_category() ){
 
+			    $result_brands = array();
+
 				if( $the_query->have_posts() ) {
 					while ( $the_query->have_posts() ) {
 						$the_query->the_post();
