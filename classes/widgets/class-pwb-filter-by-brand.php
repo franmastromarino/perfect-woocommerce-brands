@@ -106,6 +106,8 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
 		if( is_product_category() ){
 
+			    $result_brands = array();
+
 				if( $the_query->have_posts() ) {
 					while ( $the_query->have_posts() ) {
 						$the_query->the_post();
@@ -116,7 +118,8 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 				}
 				wp_reset_postdata();
 
-				$cate = get_queried_object();
+    			        $result_brands = array_unique($result_brands);
+	    		        $cate = get_queried_object();
 				$cateID = $cate->term_id;
 				$cate_url = get_term_link($cateID);
 
@@ -134,7 +137,6 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
       if( !empty( $result_brands ) ){
 
-        $result_brands         = array_unique($result_brands);
         $result_brands_ordered = array();
         foreach( $result_brands as $brand ){
           $brand = get_term($brand);
