@@ -533,35 +533,26 @@ class Perfect_Woocommerce_Brands{
 
   public function enqueue_scripts(){
 
-      $enqueue_slick        = apply_filters( 'pwb_enqueue_slick_lib', true );
-      $frontend_style_deps  = array();
-      $frontend_script_deps = array('jquery');
-      if( $enqueue_slick ){
+      wp_register_script(
+        'pwb-lib-slick',
+        PWB_PLUGIN . '/assets/lib/slick/slick.min.js',
+        array('jquery'),
+        '1.8.0',
+        true
+      );
 
-        wp_enqueue_script(
-          'pwb-lib-slick',
-          PWB_PLUGIN . '/assets/lib/slick/slick.min.js',
-          array('jquery'),
-          '1.8.0',
-          true
-        );
-
-        wp_enqueue_style(
-          'pwb-lib-slick',
-          PWB_PLUGIN . '/assets/lib/slick/slick.css',
-          array(),
-          '1.8.0',
-          'all'
-        );
-
-        $frontend_style_deps[]  = 'pwb-lib-slick';
-        $frontend_script_deps[] = 'pwb-lib-slick';
-      }
+      wp_register_style(
+        'pwb-lib-slick',
+        PWB_PLUGIN . '/assets/lib/slick/slick.css',
+        array(),
+        '1.8.0',
+        'all'
+      );
 
       wp_enqueue_style(
         'pwb-styles-frontend',
         PWB_PLUGIN . '/assets/css/styles-frontend.min.css',
-        $frontend_style_deps,
+        array('pwb-lib-slick'),
         PWB_PLUGIN_VERSION,
         'all'
       );
@@ -569,7 +560,7 @@ class Perfect_Woocommerce_Brands{
       wp_enqueue_script(
         'pwb-functions-frontend',
         PWB_PLUGIN . '/assets/js/functions-frontend.min.js',
-        $frontend_script_deps,
+        array('jquery', 'pwb-lib-slick'),
         PWB_PLUGIN_VERSION,
         true
       );

@@ -86,7 +86,8 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 * Enhancement: wpautop() for brand descriptions
 * Enhancement: Other filter by brand widget enhancements
 * Enhancement: Brands page link in breadcrumbs
-* Dev: New filter pwb_enqueue_slick_lib
+* Enhancement: Enqueue the carousel lib conditionally
+* Dev: New filter hook 'pwb_description_allowed_tags'
 = 1.6.5 =
 * Include icon and banner brand image in api response (thanks @qbig)
 * Feature: New option for show only favorite brands in the dropdown widget and the list widget

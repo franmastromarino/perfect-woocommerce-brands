@@ -64,10 +64,10 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
       $hide_submit_btn = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
 
       $show_widget = true;
-      $current_products_query = false;
-      if( is_product_category() ){
-        $current_products_query = $this->current_products_query();
-        if( !$current_products_query->have_posts() ) $show_widget = false;
+      $current_products = false;
+      if( is_product_category() || is_shop() ){
+        $current_products = $this->current_products_query();
+        if( empty( $current_products ) ) $show_widget = false;
       }
 
       if( $show_widget ){
@@ -78,7 +78,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
         echo $args['before_widget'];
             if ( ! empty( $title ) ) echo $args['before_title'] . $title . $args['after_title'];
-            $this->render_widget( $current_products_query, $limit, $hide_submit_btn );
+            $this->render_widget( $current_products, $limit, $hide_submit_btn );
         echo $args['after_widget'];
       }
 
@@ -86,24 +86,26 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
 	}
 
-  public function render_widget( $the_query, $limit, $hide_submit_btn ){
+  public function render_widget( $current_products, $limit, $hide_submit_btn ){
 
-		if( is_product_category() ){
+		if( is_product_category() || is_shop() ){
 
-				if( $the_query->have_posts() ) {
-					while ( $the_query->have_posts() ) {
-						$the_query->the_post();
-
-						$product_brands = wp_get_post_terms(get_the_ID(), 'pwb-brand');
+				if( !empty( $current_products ) ) {
+					$result_brands = array();
+					foreach( $current_products as $product_id ) {
+						$product_brands = wp_get_post_terms($product_id, 'pwb-brand');
 						foreach($product_brands as $brand) $result_brands[] = $brand->term_id;
 					}
 					$result_brands = array_unique($result_brands);
 				}
-				wp_reset_postdata();
 
-				$cate = get_queried_object();
-				$cateID = $cate->term_id;
-				$cate_url = get_term_link($cateID);
+				if( is_shop() ){
+					$cate_url = get_permalink( wc_get_page_id( 'shop' ) );
+				}else{
+					$cate = get_queried_object();
+					$cateID = $cate->term_id;
+					$cate_url = get_term_link($cateID);
+				}
 
 			}else{
 				//no product category
@@ -139,29 +141,43 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
   private function current_products_query(){
 
-    $cat = get_queried_object();
-    $cat_id = $cat->term_taxonomy_id;
-    $cat_id_array = get_term_children( $cat_id, 'product_cat' );
-    $cat_id_array[] = $cat_id;
-
-    $result_brands = array();
     $args = array(
       'posts_per_page' => -1,
       'post_type' => 'product',
       'tax_query' => array(
         array(
-          'taxonomy' => 'product_cat',
-          'field'    => 'term_id',
-          'terms'    => $cat_id_array
-        ),
-        array(
           'taxonomy' => 'pwb-brand',
 					'operator' => 'EXISTS'
         )
-      )
+      ),
+			'fields' => 'ids'
     );
 
-    return new WP_Query($args);
+		$cat = get_queried_object();
+		if( is_a( $cat, 'WP_Term' ) ){
+			$cat_id 				= $cat->term_taxonomy_id;
+			$cat_id_array 	= get_term_children( $cat_id, 'product_cat' );
+			$cat_id_array[] = $cat_id;
+			$args['tax_query'][] = array(
+				'taxonomy' => 'product_cat',
+				'field'    => 'term_id',
+				'terms'    => $cat_id_array
+			);
+		}
+
+		if( get_option('woocommerce_hide_out_of_stock_items') === 'yes' ){
+			$args['meta_query'] = array(
+				array(
+			    'key'     => '_stock_status',
+			    'value'   => 'outofstock',
+			    'compare' => 'NOT IN'
+		    )
+			);
+		}
+
+    $wp_query = new WP_Query($args);
+		wp_reset_postdata();
+		return $wp_query->posts;
 
   }
 

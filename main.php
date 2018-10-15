@@ -22,8 +22,8 @@
  *      You should have received a copy of the GNU General Public License
  *      along with Perfect WooCommerce Brands.  If not, see <http://www.gnu.org/licenses/>.
  *
- *  WC requires at least: 2.4
- *  WC tested up to: 3.4
+ *  WC requires at least: 2.6
+ *  WC tested up to: 3.5
  */
 
 namespace Perfect_Woocommerce_Brands;
@@ -64,13 +64,10 @@ if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
   require 'classes/shortcodes/class-pwb-all-brands.php';
   require 'classes/shortcodes/class-pwb-brand.php';
   require 'classes/class-perfect-woocommerce-brands.php';
-
-  if( defined('PWB_WC_VERSION') && version_compare( PWB_WC_VERSION, '2.6', '>=' ) ){
-    require 'classes/class-pwb-api-support.php';
-    new PWB_API_Support();
-    require 'classes/admin/class-pwb-coupon.php';
-    new Admin\PWB_Coupon();
-  }
+  require 'classes/class-pwb-api-support.php';
+  new PWB_API_Support();
+  require 'classes/admin/class-pwb-coupon.php';
+  new Admin\PWB_Coupon();
 
   if( is_admin() ){
 
