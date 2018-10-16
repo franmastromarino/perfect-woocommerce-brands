@@ -51,7 +51,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
     $instance = array();
 		$instance['title']      		 = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
 		$instance['limit']      		 = ( $limit != false ) ? $limit : $old_instance['limit'];
-    $instance['hide_submit_btn'] = $new_instance['hide_submit_btn'];
+    $instance['hide_submit_btn'] = ( isset( $new_instance['hide_submit_btn'] ) ) ? $new_instance['hide_submit_btn'] : '';
     return $instance;
   }
 

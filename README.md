@@ -35,6 +35,7 @@ Whether we like to admit it or not, we are all influenced by brands. Brands are 
 - WooCommerce built-in product importer/exporter support (WooCommerce 3.1.0+)
 - Brand tab for single product page
 - Favorite brands
+- Brands json import/export
 - And much more!
 
 **Pull request are welcome :)**

@@ -552,7 +552,7 @@ class Perfect_Woocommerce_Brands{
       wp_enqueue_style(
         'pwb-styles-frontend',
         PWB_PLUGIN . '/assets/css/styles-frontend.min.css',
-        array('pwb-lib-slick'),
+        array(),
         PWB_PLUGIN_VERSION,
         'all'
       );
@@ -560,7 +560,7 @@ class Perfect_Woocommerce_Brands{
       wp_enqueue_script(
         'pwb-functions-frontend',
         PWB_PLUGIN . '/assets/js/functions-frontend.min.js',
-        array('jquery', 'pwb-lib-slick'),
+        array('jquery'),
         PWB_PLUGIN_VERSION,
         true
       );

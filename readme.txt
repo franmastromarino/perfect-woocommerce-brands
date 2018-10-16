@@ -16,9 +16,9 @@ Is essential to work with product brands for increase sales and generate reliabi
 With this extension you can add product brands to your WooCommerce site.
 
 = Requirements =
-> * PHP 5.4 or higher (tested on PHP7 too)
+> * PHP 5.4 or higher (PHP7 recommended)
 > * WordPress 4.4 or higher
-> * WooCommerce 2.4.0 or higher
+> * WooCommerce 2.6.0 or higher
 > * Visual Composer (recommended)
 
 = Features =
@@ -44,6 +44,7 @@ With this extension you can add product brands to your WooCommerce site.
 > * WooCommerce built-in product importer/exporter support (WooCommerce 3.1.0+)
 > * Brand tab for single product page
 > * Favorite brands
+> * Brands json import/export
 > * And much more!
 
 
