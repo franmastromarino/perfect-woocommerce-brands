@@ -33,6 +33,7 @@ With this extension you can add product brands to your WooCommerce site.
 > * Shortcode: Display brands carousel
 > * Shortcode: Display product carousel by brand
 > * Shortcode: Display brands for a specific product
+> * Shortcode: A-Z Listing
 > * Widget: Display brands as dropdown
 > * Widget: Display brands as list (brand names or brand logos)
 > * Widget: Filter products by brand
@@ -80,6 +81,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 == Changelog ==
 = 1.7.0 =
+* Feature: A-Z Listing shortcode
 * Feature: New brands exporter/importer introduced
 * Fix: Missing some brands to filter
 * Fix: Coupon doesn’t work for product variations (thanks @gekomees)

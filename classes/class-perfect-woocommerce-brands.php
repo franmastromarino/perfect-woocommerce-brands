@@ -154,6 +154,10 @@ class Perfect_Woocommerce_Brands{
       '\Perfect_Woocommerce_Brands\Shortcodes\PWB_All_Brands_Shortcode',
       'all_brands_shortcode'
     ) );
+    add_shortcode( 'pwb-az-listing', array(
+      '\Perfect_Woocommerce_Brands\Shortcodes\PWB_AZ_Listing_Shortcode',
+      'shortcode'
+    ) );
     add_shortcode( 'pwb-brand', array(
       '\Perfect_Woocommerce_Brands\Shortcodes\PWB_Brand_Shortcode',
       'brand_shortcode'
@@ -454,6 +458,16 @@ class Perfect_Woocommerce_Brands{
           )
 
 
+      ));
+
+      vc_map(array(
+        "name"        => __( "PWB AZ Listing", "perfect-woocommerce-brands" ),
+        "description" => __( "AZ Listing for brands", "perfect-woocommerce-brands" ),
+        "base"        => "pwb-az-listing",
+        "class"       => "",
+        "icon"        => PWB_PLUGIN.'/assets/img/icon_pwb.jpg',
+        "category"    =>  "Woocommerce",
+        "params" => array()
       ));
 
       vc_map(array(

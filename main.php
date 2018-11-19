@@ -62,6 +62,7 @@ if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
   require 'classes/shortcodes/class-pwb-product-carousel.php';
   require 'classes/shortcodes/class-pwb-carousel.php';
   require 'classes/shortcodes/class-pwb-all-brands.php';
+  require 'classes/shortcodes/class-pwb-az-listing.php';
   require 'classes/shortcodes/class-pwb-brand.php';
   require 'classes/class-perfect-woocommerce-brands.php';
   require 'classes/class-pwb-api-support.php';

@@ -220,6 +220,54 @@
 }
 /* ----------------------- /PWB All Brands ----------------------- */
 
+/* ----------------------- PWB AZ Listing ----------------------- */
+.pwb-az-listing-row{
+  margin-bottom: 20px;
+}
+.pwb-az-listing-row-in{
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.pwb-az-listing-col{
+  padding: 5px;
+}
+.pwb-az-listing-col > a{
+  display: block;
+  text-transform: uppercase;
+  white-space:nowrap;
+  overflow:hidden;
+}
+.pwb-az-listing-title{
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+  font-size: 115%;
+  text-transform: uppercase;
+}
+.pwb-az-listing-header{
+  margin-bottom: 30px;
+}
+.pwb-az-listing-header ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-right: -2px;
+  margin-left: -2px;
+}
+.pwb-az-listing-header li{
+  display: inline-block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin: 2px;
+  line-height: 25px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.pwb-az-listing-header a{
+  text-transform: uppercase;
+}
+/* ----------------------- /PWB AZ Listing ----------------------- */
+
 /* ----------------------- Filter products widget ----------------------- */
 .pwb-filter-products input[type="checkbox"]{
   margin-right: 10px;
@@ -280,5 +328,17 @@
     .pwb-columns-3, .pwb-columns-4, .pwb-columns-5, .pwb-columns-6{
       width: 50%;
     }
+}
+
+@media (min-width: 576px) {
+  .pwb-az-listing-col{
+    width: 50%;
+    float: left;
+  }
+}
+@media (min-width: 992px) {
+  .pwb-az-listing-col{
+    width: 25%;
+  }
 }
 /* ----------------------- /Responsive ----------------------- */
