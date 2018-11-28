@@ -4,7 +4,7 @@ Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.6.5
+Stable tag: 1.7.0
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -16,9 +16,9 @@ Is essential to work with product brands for increase sales and generate reliabi
 With this extension you can add product brands to your WooCommerce site.
 
 = Requirements =
-> * PHP 5.4 or higher (tested on PHP7 too)
+> * PHP 5.4 or higher (PHP7 recommended)
 > * WordPress 4.4 or higher
-> * WooCommerce 2.4.0 or higher
+> * WooCommerce 2.6.0 or higher
 > * Visual Composer (recommended)
 
 = Features =
@@ -33,6 +33,7 @@ With this extension you can add product brands to your WooCommerce site.
 > * Shortcode: Display brands carousel
 > * Shortcode: Display product carousel by brand
 > * Shortcode: Display brands for a specific product
+> * Shortcode: A-Z Listing
 > * Widget: Display brands as dropdown
 > * Widget: Display brands as list (brand names or brand logos)
 > * Widget: Filter products by brand
@@ -44,6 +45,7 @@ With this extension you can add product brands to your WooCommerce site.
 > * WooCommerce built-in product importer/exporter support (WooCommerce 3.1.0+)
 > * Brand tab for single product page
 > * Favorite brands
+> * Brands json import/export
 > * And much more!
 
 
@@ -78,6 +80,18 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.7.0 =
+* Feature: A-Z Listing shortcode
+* Feature: New brands exporter/importer introduced
+* Fix: Missing some brands to filter
+* Fix: Coupon doesn’t work for product variations (thanks @gekomees)
+* Fix: The brand description is not shown if there are no products
+* Enhancement: wpautop() for brand descriptions
+* Enhancement: Other filter by brand widget enhancements
+* Enhancement: Brands page link in breadcrumbs
+* Enhancement: Enqueue the carousel lib conditionally
+* Dev: New filter hook 'pwb_description_allowed_tags'
+* Update: WC 3.5 compatibility
 = 1.6.5 =
 * Include icon and banner brand image in api response (thanks @qbig)
 * Feature: New option for show only favorite brands in the dropdown widget and the list widget

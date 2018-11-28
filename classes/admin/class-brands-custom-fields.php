@@ -161,10 +161,11 @@ class Brands_Custom_Fields {
 
     /* ·············· Brand desc ·············· */
     if( isset( $_POST['pwb_brand_description_field'] ) ){
-      $desc = strip_tags(
-        wp_unslash( $_POST['pwb_brand_description_field'] ),
+      $allowed_tags = apply_filters(
+        'pwb_description_allowed_tags',
         '<p><span><a><ul><ol><li><h1><h2><h3><h4><h5><h6><pre><strong><em><blockquote><del><ins><img><code><hr>'
       );
+      $desc = strip_tags( wp_unslash( $_POST['pwb_brand_description_field'] ), $allowed_tags );
       global $wpdb;
       $wpdb->update( $wpdb->term_taxonomy, [ 'description' => $desc ], [ 'term_id' => $term_id ]  );
     }

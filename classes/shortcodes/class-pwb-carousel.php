@@ -19,6 +19,10 @@ class PWB_Carousel_Shortcode{
         'hide_empty'        => false
     ), $atts, 'pwb-carousel' );
 
+    //enqueue deps
+    if( !wp_style_is('pwb-lib-slick') ) wp_enqueue_style('pwb-lib-slick');
+    if( !wp_script_is('pwb-lib-slick') ) wp_enqueue_script('pwb-lib-slick');
+
     return \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
       'carousel',
       'shortcodes',
@@ -57,7 +61,7 @@ class PWB_Carousel_Shortcode{
         $attachment_html = $brand->name;
         if($attachment_id!='') $attachment_html = wp_get_attachment_image( $attachment_id, self::$atts['image_size'] );
 
-        $brands[] = array( 'link' => $brand_link, 'attachment_html' => $attachment_html );
+        $brands[] = array( 'link' => $brand_link, 'attachment_html' => $attachment_html, 'name' => $brand->name );
 
         $foreach_i++;
     }

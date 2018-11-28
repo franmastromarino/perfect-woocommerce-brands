@@ -62,10 +62,7 @@
 
             $available_image_sizes_adapted = array();
             $available_image_sizes = get_intermediate_image_sizes();
-
-            foreach($available_image_sizes as $image_size){
-                $available_image_sizes_adapted[$image_size] = $image_size;
-            }
+            foreach( $available_image_sizes as $image_size ) $available_image_sizes_adapted[$image_size] = $image_size;
             $available_image_sizes_adapted['full'] = 'full';
 
             $settings = array(
@@ -151,6 +148,13 @@
                       'after_meta'        => __( 'After meta', 'perfect-woocommerce-brands' ),
                       'after_sharing'     => __( 'After sharing', 'perfect-woocommerce-brands' )
                     )
+                ),
+                'brands_page_id' => array(
+                    'name'        => __( 'Brands page id', 'perfect-woocommerce-brands' ),
+                    'type'        => 'text',
+                    'class'       => 'pwb-admin-tab-field',
+                    'desc'        => __( 'For linking breadcrumbs', 'perfect-woocommerce-brands' ),
+                    'id'          => 'wc_pwb_admin_tab_brands_page_id'
                 ),
                 'section_end' => array(
                      'type' => 'sectionend',

@@ -18,6 +18,10 @@ class PWB_Product_Carousel_Shortcode{
         'arrows'              => "false"
     ), $atts, 'pwb-product-carousel' );
 
+    //enqueue deps
+    if( !wp_style_is('pwb-lib-slick') ) wp_enqueue_style('pwb-lib-slick');
+    if( !wp_script_is('pwb-lib-slick') ) wp_enqueue_script('pwb-lib-slick');
+    
     return \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
       'product-carousel',
       'shortcodes',

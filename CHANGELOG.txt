@@ -1,4 +1,16 @@
 == Changelog ==
+= 1.7.0 =
+* Feature: A-Z Listing shortcode
+* Feature: New brands exporter/importer introduced
+* Fix: Missing some brands to filter
+* Fix: Coupon doesn’t work for product variations (thanks @gekomees)
+* Fix: The brand description is not shown if there are no products
+* Enhancement: wpautop() for brand descriptions
+* Enhancement: Other filter by brand widget enhancements
+* Enhancement: Brands page link in breadcrumbs
+* Enhancement: Enqueue the carousel lib conditionally
+* Dev: New filter hook 'pwb_description_allowed_tags'
+* Update: WC 3.5 compatibility
 = 1.6.5 =
 * Include icon and banner brand image in api response (thanks @qbig)
 * Feature: New option for show only favorite brands in the dropdown widget and the list widget

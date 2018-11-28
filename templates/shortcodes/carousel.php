@@ -15,7 +15,7 @@
 
   <?php foreach( $brands as $brand ): ?>
     <div class="pwb-slick-slide">
-      <a href="<?php echo $brand['link'];?>" title="<?php _e( 'View brand', 'perfect-woocommerce-brands' ); ?>">
+      <a href="<?php echo $brand['link'];?>" title="<?php echo $brand['name']; ?>">
         <?php echo $brand['attachment_html'];?>
       </a>
     </div>

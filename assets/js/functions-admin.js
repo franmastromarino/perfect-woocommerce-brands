@@ -54,14 +54,16 @@ jQuery( function ( $ ) {
   });
 
   //clear custom fields when brand is added
-  jQuery( document ).ajaxSuccess(function( event, xhr, settings ) {
+  if( $('body').hasClass('edit-tags-php') && $('body').hasClass('taxonomy-pwb-brand') ){
+    jQuery( document ).ajaxSuccess(function( event, xhr, settings ) {
       //Check ajax action of request that succeeded
       if( typeof settings != "undefined" && settings.data && ~settings.data.indexOf("action=add-tag") && ~settings.data.indexOf("taxonomy=pwb-brand") ) {
         $('#pwb_brand_image').val('');
         $('#pwb_brand_banner').val('');
         $('.pwb_brand_image_selected').remove();
       }
-  });
+    });
+  }  
 
   function add_delete_link( $imageSelectorScope ){
 
@@ -270,5 +272,72 @@ jQuery( function ( $ ) {
     });
   }
   /* ····························· /Widgets ····························· */
+
+  /* ····························· Brands exporter ····························· */
+  $('button.pwb-brands-export').on('click', function(e){
+    e.preventDefault();
+
+    var $clickedBtn = $(this);
+    $clickedBtn.addClass('pwb-loading-overlay');
+    $clickedBtn.prop("disabled",true);
+
+    var data = { 'action': 'pwb_brands_export' };
+    $.post(ajax_object.ajax_url, data, function(response) {
+
+      if( response.success ){
+        $clickedBtn.removeClass('pwb-loading-overlay');
+        $clickedBtn.prop("disabled",false);
+
+        //descarga el archivo json de exportación
+        $('#pwb-download-export-file').remove();
+        var link      = document.createElement("a");
+        link.download = 'brands.json';
+        link.id       = 'pwb-download-export-file';
+        link.href     = response.data.export_file_url;
+        $('body').append( link );
+        link.click();
+      }
+
+    });
+
+  });
+
+  $('button.pwb-brands-import').on('click', function(e){
+    e.preventDefault();
+    $('input.pwb-brands-import-file').trigger('click');
+  });
+  $('input.pwb-brands-import-file').on('change', function(e){
+    e.preventDefault();
+
+    var $clickedBtn = $('button.pwb-brands-import');
+    $clickedBtn.addClass('pwb-loading-overlay');
+    $clickedBtn.prop("disabled",true);
+
+    var file = $(this)[0].files[0];
+
+    var reqData = new FormData();
+    reqData.append('action', 'pwb_brands_import');
+    reqData.append('file', file);
+
+    $.ajax({
+      url: ajax_object.ajax_url,
+      type: 'post',
+      cache: false,
+      dataType: 'json',
+      contentType: false,
+      processData: false,
+      data: reqData,
+      success: function( resp ){
+        if( resp.success ){
+          $clickedBtn.removeClass('pwb-loading-overlay');
+          location.reload();
+        }else{
+          alert('Importer error');
+        }
+      }
+    });
+
+  })
+  /* ····························· /Brands exporter ····························· */
 
 });
