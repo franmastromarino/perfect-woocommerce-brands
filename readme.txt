@@ -91,6 +91,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 * Enhancement: Brands page link in breadcrumbs
 * Enhancement: Enqueue the carousel lib conditionally
 * Dev: New filter hook 'pwb_description_allowed_tags'
+* Update: WC 3.5 compatibility
 = 1.6.5 =
 * Include icon and banner brand image in api response (thanks @qbig)
 * Feature: New option for show only favorite brands in the dropdown widget and the list widget

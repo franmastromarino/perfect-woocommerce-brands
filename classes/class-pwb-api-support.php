@@ -7,10 +7,7 @@ defined('ABSPATH') or die('No script kiddies please!');
 
 class PWB_API_Support{
 
-    private $namespaces = array(
-        "wc/v1",
-        "wc/v2",
-    );
+    private $namespaces = array( "wc/v1", "wc/v2", "wc/v3" );
     private $base = 'brands';
 
     function __construct(){
