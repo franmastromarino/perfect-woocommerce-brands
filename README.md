@@ -1,8 +1,8 @@
 # Perfect WooCommerce Brands 1.7.0
 
-🏷️ [![Perfect WooCommerce Brands](https://ps.w.org/perfect-woocommerce-brands/assets/icon-128x128.png)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
+[![Perfect WooCommerce Brands](https://ps.w.org/perfect-woocommerce-brands/assets/icon-128x128.png)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
 
-**Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.**
+**🏷️ Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.**
 
 Whether we like to admit it or not, we are all influenced by brands. Brands are a guarantee for quality, they assure product recognition in customers. Is essential to work with product brands for increase sales and generate reliability on your e-commerce site. With this extension you can add product brands to your WooCommerce site.
 
