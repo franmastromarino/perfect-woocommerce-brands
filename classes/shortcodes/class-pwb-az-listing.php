@@ -49,7 +49,8 @@ class PWB_AZ_Listing_Shortcode{
               <div class="pwb-az-listing-row-in">
                 <?php
                 foreach( $brand_group as $brand ):
-                  if( !empty( self::has_products( $brand->term_id ) ) ):
+                  $has_products = self::has_products( $brand->term_id );
+                  if( !empty( $has_products ) ):
                     ?>
                     <div class="pwb-az-listing-col">
                       <a href="<?php echo get_term_link($brand->term_id);?>"><?php echo $brand->name;?></a>

@@ -80,6 +80,8 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.7.1 =
+* Fix: Fatal error in PHP5.4
 = 1.7.0 =
 * Feature: A-Z Listing shortcode
 * Feature: New brands exporter/importer introduced
