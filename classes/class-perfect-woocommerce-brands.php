@@ -37,6 +37,77 @@ class Perfect_Woocommerce_Brands{
     add_action( 'woocommerce_product_duplicate', array( $this, 'product_duplicate_save' ), 10, 2 );
 
     add_filter( 'woocommerce_get_breadcrumb', array( $this, 'breadcrumbs' ) );
+
+    add_filter( 'shortcode_atts_products', array( $this, 'extend_products_shortcode_atts' ), 10, 4 );
+    add_filter( 'woocommerce_shortcode_products_query', array( $this, 'extend_products_shortcode' ), 10, 3 );
+
+    add_filter( 'manage_edit-product_sortable_columns', array( $this, 'brands_column_sortable' ), 90 );
+    add_action( 'posts_clauses', array( $this, 'brands_column_sortable_posts' ), 10, 2 );
+  }
+
+  public function brands_column_sortable_posts( $clauses, $wp_query ) {
+    global $wpdb;
+
+    if ( isset( $wp_query->query['orderby'] ) && 'taxonomy-pwb-brand' == $wp_query->query['orderby'] ) {
+
+      $clauses['join'] .= "
+      LEFT OUTER JOIN {$wpdb->term_relationships} ON {$wpdb->posts}.ID={$wpdb->term_relationships}.object_id
+      LEFT OUTER JOIN {$wpdb->term_taxonomy} USING (term_taxonomy_id)
+      LEFT OUTER JOIN {$wpdb->terms} USING (term_id)";
+
+      $clauses['where']   .= " AND (taxonomy = 'pwb-brand' OR taxonomy IS NULL)";
+      $clauses['groupby']  = "object_id";
+      $clauses['orderby']  = "GROUP_CONCAT({$wpdb->terms}.name ORDER BY name ASC) ";
+      $clauses['orderby'] .= ( 'ASC' == strtoupper( $wp_query->get('order') ) ) ? 'ASC' : 'DESC';
+    }
+
+    return $clauses;
+  }
+
+  public function brands_column_sortable( $columns ){
+    $columns['taxonomy-pwb-brand'] = 'taxonomy-pwb-brand';
+    return $columns;
+  }
+
+  public function extend_products_shortcode_atts( $out, $pairs, $atts, $shortcode ){
+    if( !empty( $atts['brands'] ) ) $out['brands'] = explode( ',', $atts['brands'] );
+    return $out;
+  }
+
+  public function extend_products_shortcode( $query_args, $atts, $loop_name ){
+
+    if( !empty( $atts['brands'] ) ){
+      global $wpdb;
+
+      $terms         = $atts['brands'];
+      $terms_count   = count( $atts['brands'] );
+      $terms_adapted = '';
+
+      $terms_i = 0;
+      foreach( $terms as $brand ){
+        $terms_adapted .= '"'.$brand.'"';
+        $terms_i++;
+        if( $terms_i < $terms_count ) $terms_adapted .= ',';
+      }
+
+      $ids = $wpdb->get_col( "
+      SELECT DISTINCT tr.object_id
+      FROM {$wpdb->prefix}term_relationships as tr
+      INNER JOIN {$wpdb->prefix}term_taxonomy as tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+      INNER JOIN {$wpdb->prefix}terms as t ON tt.term_id = t.term_id
+      WHERE tt.taxonomy LIKE 'pwb_brand' AND t.slug IN ($terms_adapted)
+      " );
+
+      if ( ! empty( $ids ) ) {
+        if ( 1 === count( $ids ) ) {
+          $query_args['p'] = $ids[0];
+        } else {
+          $query_args['post__in'] = $ids;
+        }
+      }
+    }
+
+    return $query_args;
   }
 
   public function review_notice(){

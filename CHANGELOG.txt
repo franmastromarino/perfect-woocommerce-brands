@@ -1,5 +1,8 @@
 == Changelog ==
 = 1.7.1 =
+* Feature: Extends the [products] shortcode to allow 'brands' attribute
+* Feature: The brands column is sortable now
+* Catalan translation (thanks to Lluisma)
 * Fix: Fatal error in PHP5.4
 = 1.7.0 =
 * Feature: A-Z Listing shortcode
