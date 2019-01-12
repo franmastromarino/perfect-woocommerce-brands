@@ -711,9 +711,10 @@ class Perfect_Woocommerce_Brands{
           'public'            => true,
           'show_admin_column' => true,
           'rewrite'           => array(
-              'slug'      => $new_slug,
-              'hierarchical'  => true,
-              'ep_mask'   => EP_PERMALINK
+            'slug'        => $new_slug,
+            'hierarchical'=> true,
+            'with_front'  => apply_filters( 'pwb_taxonomy_with_front', true ),
+            'ep_mask'     => EP_PERMALINK
           )
       );
 
@@ -833,7 +834,7 @@ class Perfect_Woocommerce_Brands{
   public function breadcrumbs( $crumbs ) {
     if( is_tax('pwb-brand') ){
       $brands_page_id = get_option('wc_pwb_admin_tab_brands_page_id');
-      if( !empty( $brands_page_id ) && isset( $crumbs[count($crumbs)-2][1] ) ){
+      if( !empty( $brands_page_id ) && $brands_page_id != '-' && isset( $crumbs[count($crumbs)-2][1] ) ){
         $crumbs[count($crumbs)-2][1] = get_page_link( $brands_page_id );
       }
     }

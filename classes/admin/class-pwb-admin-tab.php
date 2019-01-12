@@ -65,6 +65,10 @@
             foreach( $available_image_sizes as $image_size ) $available_image_sizes_adapted[$image_size] = $image_size;
             $available_image_sizes_adapted['full'] = 'full';
 
+            $pages_select_adapted = array( '-' => '-' );
+            $pages_select = get_pages();
+            foreach( $pages_select as $page ) $pages_select_adapted[$page->ID] = $page->post_title;
+
             $settings = array(
                 'section_title' => array(
                     'name'  => __( 'Brands settings', 'perfect-woocommerce-brands' ),
@@ -150,11 +154,12 @@
                     )
                 ),
                 'brands_page_id' => array(
-                    'name'        => __( 'Brands page id', 'perfect-woocommerce-brands' ),
-                    'type'        => 'text',
-                    'class'       => 'pwb-admin-tab-field',
-                    'desc'        => __( 'For linking breadcrumbs', 'perfect-woocommerce-brands' ),
-                    'id'          => 'wc_pwb_admin_tab_brands_page_id'
+                    'name'        => __( 'Brands page', 'perfect-woocommerce-brands' ),
+                    'type'        => 'select',
+                    'class'       => 'pwb-admin-tab-field pwb-admin-selectwoo',
+                    'desc'        => '<br>'.__( 'For linking breadcrumbs', 'perfect-woocommerce-brands' ),
+                    'id'          => 'wc_pwb_admin_tab_brands_page_id',
+                    'options'     => $pages_select_adapted
                 ),
                 'section_end' => array(
                      'type' => 'sectionend',

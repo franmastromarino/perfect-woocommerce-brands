@@ -506,7 +506,7 @@ msgid "After sharing"
 msgstr ""
 
 #: classes/admin/class-pwb-admin-tab.php:153
-msgid "Brands page id"
+msgid "Brands page"
 msgstr ""
 
 #: classes/admin/class-pwb-admin-tab.php:156

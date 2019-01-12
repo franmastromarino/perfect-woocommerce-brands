@@ -63,7 +63,7 @@ jQuery( function ( $ ) {
         $('.pwb_brand_image_selected').remove();
       }
     });
-  }  
+  }
 
   function add_delete_link( $imageSelectorScope ){
 
@@ -125,6 +125,10 @@ jQuery( function ( $ ) {
   /* ····························· /Edit brands page ····························· */
 
   /* ····························· Settings tab ····························· */
+
+  if( $('.pwb-admin-selectwoo').length ){
+    $('.pwb-admin-selectwoo').selectWoo();
+  }
 
   // migrate brands
   $('#wc_pwb_admin_tab_tools_migrate').on( 'change', function(){

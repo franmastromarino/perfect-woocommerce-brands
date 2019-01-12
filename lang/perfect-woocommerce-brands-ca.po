@@ -525,8 +525,8 @@ msgid "After sharing"
 msgstr "Després de compartir"
 
 #: classes/admin/class-pwb-admin-tab.php:153
-msgid "Brands page id"
-msgstr "ID de la pàgina de marques"
+msgid "Brands page"
+msgstr "Pàgina de marques"
 
 #: classes/admin/class-pwb-admin-tab.php:156
 msgid "For linking breadcrumbs"
