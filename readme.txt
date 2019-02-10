@@ -3,8 +3,8 @@ Contributors: titodevera
 Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
-Tested up to: 4.9
-Stable tag: 1.7.0
+Tested up to: 5.0
+Stable tag: 1.7.1
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -80,6 +80,15 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.7.1 =
+* Feature: Extends the [products] shortcode to allow 'brands' attribute
+* Feature: The brands column is sortable now
+* Catalan translation (thanks to Lluisma)
+* Enhancement: Easier select brands page link in breadcrumbs
+* Enhancement: Configure the brand banner and the brand description position independently
+* Dev: New filter 'pwb_taxonomy_rewrite' to change the rewrite slug
+* Dev: New filter 'pwb_taxonomy_with_front' to change default "with_front" value
+* Fix: Fatal error in PHP5.4
 = 1.7.0 =
 * Feature: A-Z Listing shortcode
 * Feature: New brands exporter/importer introduced
