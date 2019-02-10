@@ -97,6 +97,19 @@
                       'no'               => __( 'No, hide description', 'perfect-woocommerce-brands' )
                     )
                 ),
+                'brand_banner' => array(
+                    'name'    => __( 'Show brand banner', 'perfect-woocommerce-brands' ),
+                    'type'    => 'select',
+                    'class'  => 'pwb-admin-tab-field',
+                    'default' => 'yes',
+                    'desc'    => __( 'Show brand banner (if is set) on brand archive page', 'perfect-woocommerce-brands' ),
+                    'id'      => 'wc_pwb_admin_tab_brand_banner',
+                    'options' => array(
+                      'yes'              => __( 'Yes, before product loop', 'perfect-woocommerce-brands' ),
+                      'yes_after_loop'   => __( 'Yes, after product loop', 'perfect-woocommerce-brands' ),
+                      'no'               => __( 'No, hide banner', 'perfect-woocommerce-brands' )
+                    )
+                ),
                 'brand_single_product_tab' => array(
                     'name'    => __( 'Single product tab', 'perfect-woocommerce-brands' ),
                     'type'    => 'checkbox',
