@@ -4,7 +4,7 @@ Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.4
 Tested up to: 5.0
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -80,6 +80,8 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 
 == Changelog ==
+= 1.7.2 =
+* Fix: Some php notices and warnings fixed
 = 1.7.1 =
 * Feature: Extends the [products] shortcode to allow 'brands' attribute
 * Feature: The brands column is sortable now

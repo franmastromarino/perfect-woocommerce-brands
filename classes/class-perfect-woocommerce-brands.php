@@ -11,7 +11,7 @@ class Perfect_Woocommerce_Brands{
     add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
     add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
     $this->brand_logo_position();
-    add_action( 'parse_query', array( $this, 'brand_desc_position' ) );
+    add_action( 'wp', array( $this, 'brand_desc_position' ) );
     add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
     $this->add_shortcodes();
     if( is_plugin_active('js_composer/js_composer.php') || is_plugin_active('visual_composer/js_composer.php') ){
@@ -30,7 +30,7 @@ class Perfect_Woocommerce_Brands{
     add_action( 'wp_ajax_dismiss_pwb_notice', array( $this, 'dismiss_pwb_notice' ) );
     add_action( 'admin_notices', array( $this, 'review_notice' ) );
 
-    add_action( 'pre_get_posts', function(){
+    add_action( 'wp', function(){
       if( is_tax('pwb-brand') )
         remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description', 10 );
     });
@@ -39,7 +39,7 @@ class Perfect_Woocommerce_Brands{
     add_filter( 'woocommerce_get_breadcrumb', array( $this, 'breadcrumbs' ) );
 
     add_filter( 'shortcode_atts_products', array( $this, 'extend_products_shortcode_atts' ), 10, 4 );
-    add_filter( 'woocommerce_shortcode_products_query', array( $this, 'extend_products_shortcode' ), 10, 3 );
+    add_filter( 'woocommerce_shortcode_products_query', array( $this, 'extend_products_shortcode' ), 10, 2 );
 
     add_filter( 'manage_edit-product_sortable_columns', array( $this, 'brands_column_sortable' ), 90 );
     add_action( 'posts_clauses', array( $this, 'brands_column_sortable_posts' ), 10, 2 );
@@ -74,7 +74,7 @@ class Perfect_Woocommerce_Brands{
     return $out;
   }
 
-  public function extend_products_shortcode( $query_args, $atts, $loop_name ){
+  public function extend_products_shortcode( $query_args, $atts ){
 
     if( !empty( $atts['brands'] ) ){
       global $wpdb;
