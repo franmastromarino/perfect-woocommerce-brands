@@ -759,7 +759,7 @@ class Perfect_Woocommerce_Brands{
   public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false, $pwb_term = false ){
       $result = array();
 
-      $brands_args = array( 'hide_empty' => $hide_empty, 'order_by' => $order_by, 'order' => $order );
+      $brands_args = array( 'hide_empty' => $hide_empty, 'orderby' => $order_by, 'order' => $order );
       if( $only_featured ) $brands_args['meta_query'] = array( array( 'key' => 'pwb_featured_brand', 'value' => true ) );
 
       $brands = get_terms('pwb-brand', $brands_args);
