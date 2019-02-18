@@ -43,6 +43,17 @@ class Perfect_Woocommerce_Brands{
 
     add_filter( 'manage_edit-product_sortable_columns', array( $this, 'brands_column_sortable' ), 90 );
     add_action( 'posts_clauses', array( $this, 'brands_column_sortable_posts' ), 10, 2 );
+    add_filter( 'post_type_link', array( $this, 'brand_name_in_url' ), 10, 2 );
+  }
+
+  public function brand_name_in_url( $permalink, $post ){
+    if( $post->post_type == 'product' ) {
+      $term   = 'product';
+      $brands = wp_get_post_terms( $post->ID, 'pwb-brand' );
+      if( ! empty( $brands ) && ! is_wp_error( $brands ) ) $term = current( $brands )->slug;
+      $permalink = str_replace( '%pwb-brand%', $term, $permalink );
+    }
+    return $permalink;
   }
 
   public function brands_column_sortable_posts( $clauses, $wp_query ) {

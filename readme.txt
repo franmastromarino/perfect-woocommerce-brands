@@ -81,6 +81,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 
 == Changelog ==
 = 1.7.2 =
+* Feature: Now is possible to use %pwb-brand% in the product URLs
 * Fix: Some php notices and warnings fixed
 * Fix: Don't show brand description/banner on pages
 = 1.7.1 =
