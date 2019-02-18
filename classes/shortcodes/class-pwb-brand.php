@@ -1,43 +1,45 @@
 <?php
-    namespace Perfect_Woocommerce_Brands\Shortcodes;
+namespace Perfect_Woocommerce_Brands\Shortcodes;
 
-    defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-    class PWB_Brand_Shortcode{
+class PWB_Brand_Shortcode{
 
-        public static function brand_shortcode( $atts ) {
-            $atts = shortcode_atts( array(
-                'product_id' => null,
-                'image_size' => 'thumbnail'
-            ), $atts, 'pwb-brand' );
+  public static function brand_shortcode( $atts ) {
+    $atts = shortcode_atts( array(
+      'product_id' => null,
+      'image_size' => 'thumbnail'
+    ), $atts, 'pwb-brand' );
 
-            ob_start();
+    ob_start();
 
-            $brands = wp_get_post_terms( $atts['product_id'], 'pwb-brand');
+    if( !$atts['product_id'] && is_singular('product') ) $atts['product_id'] = get_the_ID();
 
-            if(is_array($brands) && count($brands)>0){
+    $brands = wp_get_post_terms( $atts['product_id'], 'pwb-brand');
 
-              echo '<div class="pwb-brand-shortcode">';
+    if( !is_wp_error($brands) && !empty($brands) ){
 
-              foreach($brands as $brand){
-                  $brand_link = get_term_link ( $brand->term_id, 'pwb-brand' );
-                  $attachment_id = get_term_meta( $brand->term_id, 'pwb_brand_image', 1 );
+      echo '<div class="pwb-brand-shortcode">';
 
-                  $attachment_html = wp_get_attachment_image($attachment_id,$atts['image_size']);
+      foreach( $brands as $brand ){
+        $brand_link = get_term_link ( $brand->term_id, 'pwb-brand' );
+        $attachment_id = get_term_meta( $brand->term_id, 'pwb_brand_image', 1 );
 
-                  if(!empty($attachment_html)){
-                    echo '<a href="'.$brand_link.'" title="'.__( 'View brand', 'perfect-woocommerce-brands' ).'">'.$attachment_html.'</a>';
-                  }else{
-                    echo '<a href="'.$brand_link.'" title="'.__( 'View brand', 'perfect-woocommerce-brands' ).'">'.$brand->name.'</a>';
-                  }
-              }
+        $attachment_html = wp_get_attachment_image($attachment_id,$atts['image_size']);
 
-              echo '</div>';
-
-            }
-
-            return ob_get_clean();
-
+        if(!empty($attachment_html)){
+          echo '<a href="'.$brand_link.'" title="'.__( 'View brand', 'perfect-woocommerce-brands' ).'">'.$attachment_html.'</a>';
+        }else{
+          echo '<a href="'.$brand_link.'" title="'.__( 'View brand', 'perfect-woocommerce-brands' ).'">'.$brand->name.'</a>';
         }
+      }
+
+      echo '</div>';
 
     }
+
+    return ob_get_clean();
+
+  }
+
+}

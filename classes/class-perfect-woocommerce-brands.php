@@ -319,7 +319,7 @@ class Perfect_Woocommerce_Brands{
 
   public function brand_desc_position(){
 
-    if( is_tax('pwb-brand') ){
+    if( is_tax('pwb-brand') && !is_paged() ){
 
       $show_banner = get_option('wc_pwb_admin_tab_brand_banner');
       $show_desc   = get_option('wc_pwb_admin_tab_brand_desc');

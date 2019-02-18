@@ -1,6 +1,7 @@
 == Changelog ==
 = 1.7.2 =
 * Fix: Some php notices and warnings fixed
+* Fix: Don't show brand description/banner on pages
 = 1.7.1 =
 * Feature: Extends the [products] shortcode to allow 'brands' attribute
 * Feature: The brands column is sortable now
