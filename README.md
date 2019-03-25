@@ -7,9 +7,9 @@
 Whether we like to admit it or not, we are all influenced by brands. Brands are a guarantee for quality, they assure product recognition in customers. Is essential to work with product brands for increase sales and generate reliability on your e-commerce site. With this extension you can add product brands to your WooCommerce site.
 
 ### Requirements
-- PHP 5.4 or higher (PHP7 recommended)
-- WordPress 4.4 or higher
-- WooCommerce 2.6.0 or higher
+- PHP 5.6 or higher (PHP7 recommended)
+- WordPress 4.7 or higher
+- WooCommerce 3.1.0 or higher
 - Visual Composer (recommended)
 
 ### Features
