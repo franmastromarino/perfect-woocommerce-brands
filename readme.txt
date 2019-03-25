@@ -2,8 +2,9 @@
 Contributors: titodevera
 Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
-Requires at least: 4.4
-Tested up to: 5.0
+Requires at least: 4.7
+Tested up to: 5.1
+Requires PHP: 5.6
 Stable tag: 1.7.2
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
@@ -16,16 +17,16 @@ Is essential to work with product brands for increase sales and generate reliabi
 With this extension you can add product brands to your WooCommerce site.
 
 = Requirements =
-> * PHP 5.4 or higher (PHP7 recommended)
-> * WordPress 4.4 or higher
-> * WooCommerce 2.6.0 or higher
+> * PHP 5.6 or higher (PHP7 recommended)
+> * WordPress 4.7 or higher
+> * WooCommerce 3.1.0 or higher
 > * Visual Composer (recommended)
 
 = Features =
 > * Very easy to use, 100% free, no ads, no premium version exists
 > * Assign brands to products
 > * Associate a banner and a link to each brand
-> * Translation-ready (English and Spanish included)
+> * Translation-ready
 > * Visual Composer support
 > * Minimalist design and fully responsive
 > * Very lightweight
@@ -42,7 +43,7 @@ With this extension you can add product brands to your WooCommerce site.
 > * Import brands (migrate) from other brands plugins
 > * Dummy data installer (logos by heroturko)
 > * WooCommerce REST API support
-> * WooCommerce built-in product importer/exporter support (WooCommerce 3.1.0+)
+> * WooCommerce built-in product importer/exporter support
 > * Brand tab for single product page
 > * Favorite brands
 > * Brands json import/export
@@ -58,18 +59,18 @@ With this extension you can add product brands to your WooCommerce site.
 = Is Perfect WooCommerce Brands free? =
 Yes, of course. This plugin is 100% free. No ads, no premium version exists.
 
-= Where are plugin settings? =
+= Where are the plugin settings? =
 Go to `WooCommerce/Settings/` and click on `Brands` tab
 
-= How can i use the available shortcodes without Visual Composer? =
-[Click here](https://github.com/titodevera/perfect-woocommerce-brands/wiki/How-can-i-use-the-available-shortcodes-without-Visual-Composer%3F)
+= 404 error on brand pages =
+Go to `Settings/Permalinks` and click on `Save Changes` button to flush the permalinks
 
-= How to import brands from other brands plugin? =
-[Click here](https://github.com/titodevera/perfect-woocommerce-brands/wiki/How-to-import-brands-from-other-brands-plugin)
+= PWB is awesome! Can I contribute? =
+Yes you can! Join in on our [GitHub repository](https://github.com/titodevera/perfect-woocommerce-brands) 🙂
+You can also contribute [translating the plugin](https://translate.wordpress.org/projects/wp-plugins/perfect-woocommerce-brands/)
 
-= REST API docs =
-[Click here](https://github.com/titodevera/perfect-woocommerce-brands/wiki/REST-API-docs)
-
+= Developer Documentation =
+[Click here](https://github.com/titodevera/perfect-woocommerce-brands/wiki)
 
 == Screenshots ==
 1. Brands carousel
@@ -82,8 +83,9 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 == Changelog ==
 = 1.7.2 =
 * Feature: Now is possible to use %pwb-brand% in the product URLs
+* Fix: Fatal error in some themes (like Salient)
 * Fix: Some php notices and warnings fixed
-* Fix: Don't show brand description/banner on pages
+* Fix: Don't show brand description/banner in paged
 = 1.7.1 =
 * Feature: Extends the [products] shortcode to allow 'brands' attribute
 * Feature: The brands column is sortable now

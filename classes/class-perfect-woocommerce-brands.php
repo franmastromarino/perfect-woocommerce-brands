@@ -18,13 +18,7 @@ class Perfect_Woocommerce_Brands{
       add_action( 'vc_before_init', array( $this,'vc_map_shortcodes' ) );
     }
     add_action( 'widgets_init', array( $this, 'register_widgets' ) );
-
-    if( defined('PWB_WC_VERSION') && version_compare( PWB_WC_VERSION, '3.0.0', '>=' ) ){
-      add_filter( 'woocommerce_structured_data_product', array( $this, 'product_microdata' ), 10, 2 );
-    }else{
-      add_action( 'wp_head' , array( $this, 'product_microdata_legacy' ), 40 );
-    }
-
+    add_filter( 'woocommerce_structured_data_product', array( $this, 'product_microdata' ), 10, 2 );
     add_action( 'pre_get_posts', array( $this, 'pwb_brand_filter' ) );
     add_filter( 'plugin_action_links_' . PWB_PLUGIN_BASENAME, array( $this, 'plugin_action_links' ) );
     add_action( 'wp_ajax_dismiss_pwb_notice', array( $this, 'dismiss_pwb_notice' ) );
@@ -385,7 +379,7 @@ class Perfect_Woocommerce_Brands{
           "base"        => "pwb-product-carousel",
           "class"       => "",
           "icon"        => PWB_PLUGIN.'/assets/img/icon_pwb.jpg',
-          "category"    =>  "Woocommerce",
+          "category"    =>  "WooCommerce",
           "params"      => array(
               array(
                   "type"        => "dropdown",
@@ -441,7 +435,7 @@ class Perfect_Woocommerce_Brands{
           "base"        => "pwb-carousel",
           "class"       => "",
           "icon"        => PWB_PLUGIN.'/assets/img/icon_pwb.jpg',
-          "category"    =>  "Woocommerce",
+          "category"    =>  "WooCommerce",
           "params"      => array(
               array(
                   "type"        => "textfield",
@@ -499,7 +493,7 @@ class Perfect_Woocommerce_Brands{
           "base"        => "pwb-all-brands",
           "class"       => "",
           "icon"        => PWB_PLUGIN.'/assets/img/icon_pwb.jpg',
-          "category"    =>  "Woocommerce",
+          "category"    =>  "WooCommerce",
           "params" => array(
               array(
                   "type"        => "textfield",
@@ -569,7 +563,7 @@ class Perfect_Woocommerce_Brands{
         "base"        => "pwb-az-listing",
         "class"       => "",
         "icon"        => PWB_PLUGIN.'/assets/img/icon_pwb.jpg',
-        "category"    =>  "Woocommerce",
+        "category"    =>  "WooCommerce",
         "params" => array()
       ));
 
@@ -579,7 +573,7 @@ class Perfect_Woocommerce_Brands{
           "base"        => "pwb-brand",
           "class"       => "",
           "icon"        => PWB_PLUGIN.'/assets/img/icon_pwb.jpg',
-          "category"    =>  "Woocommerce",
+          "category"    =>  "WooCommerce",
 
           "params" => array(
               array(

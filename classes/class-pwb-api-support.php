@@ -11,15 +11,8 @@ class PWB_API_Support{
     private $base = 'brands';
 
     function __construct(){
-        add_action('rest_api_init', array($this, 'register_endpoints'));
-
-        /**
-         *  register_rest_field() was introduced in WordPress 4.7.0
-         */
-        if (version_compare(PWB_WP_VERSION, '4.7.0', '>=')) {
-            add_action('rest_api_init', array($this, 'register_fields'));
-        }
-
+      add_action('rest_api_init', array($this, 'register_endpoints'));
+      add_action('rest_api_init', array($this, 'register_fields'));
     }
 
     /**

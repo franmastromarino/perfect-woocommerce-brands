@@ -9,7 +9,7 @@
  *  Text Domain: perfect-woocommerce-brands
  *  Domain Path: /lang
  *  License: GPL3
- *      Perfect WooCommerce Brands version 1.7.2, Copyright (C) 2018 Alberto de Vera Sevilla
+ *      Perfect WooCommerce Brands version 1.7.2, Copyright (C) 2019 Alberto de Vera Sevilla
  *      Perfect WooCommerce Brands is free software: you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
  *      the Free Software Foundation, either version 3 of the License, or
@@ -22,8 +22,8 @@
  *      You should have received a copy of the GNU General Public License
  *      along with Perfect WooCommerce Brands.  If not, see <http://www.gnu.org/licenses/>.
  *
- *  WC requires at least: 2.6
- *  WC tested up to: 3.5
+ *  WC requires at least: 3.1.0
+ *  WC tested up to: 3.6
  */
 
 namespace Perfect_Woocommerce_Brands;
@@ -85,13 +85,10 @@ if( is_plugin_active( 'woocommerce/woocommerce.php' ) ){
     new Admin\Brands_Custom_Fields();
     require 'classes/admin/class-brands-exporter.php';
     new Admin\Brands_Exporter();
-
-    if( defined('PWB_WC_VERSION') && version_compare( PWB_WC_VERSION, '3.1.0', '>=' ) ){
-      require 'classes/admin/class-pwb-importer-support.php';
-      new PWB_Importer_Support();
-      require 'classes/admin/class-pwb-exporter-support.php';
-      new PWB_Exporter_Support();
-    }
+    require 'classes/admin/class-pwb-importer-support.php';
+    new PWB_Importer_Support();
+    require 'classes/admin/class-pwb-exporter-support.php';
+    new PWB_Exporter_Support();
 
   }else{
     include_once 'classes/class-pwb-product-tab.php';
