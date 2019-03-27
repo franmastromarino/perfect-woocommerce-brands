@@ -81,6 +81,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 1.7.3 =
+* Enhancement: Performance improvements
 = 1.7.2 =
 * Feature: Now is possible to use %pwb-brand% in the product URLs
 * Fix: Fatal error in some themes (like Salient)

@@ -1,4 +1,4 @@
-# Perfect WooCommerce Brands 1.7.2
+# Perfect WooCommerce Brands 1.7.3
 
 [![Perfect WooCommerce Brands](https://ps.w.org/perfect-woocommerce-brands/assets/icon-128x128.png)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
 
@@ -16,7 +16,7 @@ Whether we like to admit it or not, we are all influenced by brands. Brands are 
 - Very easy to use, 100% free, no ads, no premium version exists
 - Assign brands to products
 - Associate a banner and a link to each brand
-- Translation-ready (English and Spanish included)
+- Translation-ready
 - Visual Composer support
 - Minimalist design and fully responsive
 - Very lightweight
@@ -33,7 +33,7 @@ Whether we like to admit it or not, we are all influenced by brands. Brands are 
 - Import brands (migrate) from other brands plugins
 - Dummy data installer (logos by heroturko)
 - WooCommerce REST API support
-- WooCommerce built-in product importer/exporter support (WooCommerce 3.1.0+)
+- WooCommerce built-in product importer/exporter support
 - Brand tab for single product page
 - Favorite brands
 - Brands json import/export

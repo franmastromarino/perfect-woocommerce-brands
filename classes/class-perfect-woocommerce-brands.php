@@ -41,7 +41,7 @@ class Perfect_Woocommerce_Brands{
   }
 
   public function brand_name_in_url( $permalink, $post ){
-    if( $post->post_type == 'product' ) {
+    if( $post->post_type == 'product' && strpos( $permalink, '%pwb-brand%' ) !== false ) {
       $term   = 'product';
       $brands = wp_get_post_terms( $post->ID, 'pwb-brand' );
       if( ! empty( $brands ) && ! is_wp_error( $brands ) ) $term = current( $brands )->slug;
@@ -188,22 +188,7 @@ class Perfect_Woocommerce_Brands{
   }
 
   /*
-  *   Adds microdata (brands) to single products (WooCommerce < 3.0.0)
-  */
-  public function product_microdata_legacy(){
-    global $post;
-
-    if( isset( $post->post_type ) && $post->post_type==='product' ){
-      $brands = wp_get_post_terms( $post->ID, 'pwb-brand');
-      foreach ($brands as $brand) {
-        echo '<meta itemprop="brand" content="'.$brand->name.'">';
-      }
-    }
-
-  }
-
-  /*
-  *   Adds microdata (brands) to single products (WooCommerce > 3.0.0)
+  *   Adds microdata (brands) to single products
   */
   public function product_microdata( $markup, $product ){
 
