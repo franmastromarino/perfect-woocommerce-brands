@@ -1,6 +1,7 @@
 == Changelog ==
 = 1.7.3 =
 * Enhancement: Performance improvements
+* Fix: Breadcrumbs doesn't take in account pagination
 = 1.7.2 =
 * Feature: Now is possible to use %pwb-brand% in the product URLs
 * Fix: Fatal error in some themes (like Salient)
