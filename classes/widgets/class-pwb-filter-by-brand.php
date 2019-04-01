@@ -88,16 +88,11 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
   public function render_widget( $current_products, $limit, $hide_submit_btn ){
 
+		$result_brands = array();
+
 		if( is_product_category() || is_shop() ){
 
-				if( !empty( $current_products ) ) {
-					$result_brands = array();
-					foreach( $current_products as $product_id ) {
-						$product_brands = wp_get_post_terms($product_id, 'pwb-brand');
-						foreach($product_brands as $brand) $result_brands[] = $brand->term_id;
-					}
-					$result_brands = array_unique($result_brands);
-				}
+				if( !empty( $current_products ) ) $result_brands = $this->get_products_brands( $current_products );
 
 				if( is_shop() ){
 					$cate_url = get_permalink( wc_get_page_id( 'shop' ) );
@@ -180,5 +175,25 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 		return $wp_query->posts;
 
   }
+
+	private function get_products_brands( $product_ids ){
+
+		$product_ids = implode(',', array_map('intval', $product_ids) );
+
+		global $wpdb;
+		$brand_ids = $wpdb->get_col( "SELECT DISTINCT t.term_id
+			FROM {$wpdb->prefix}terms AS t
+			INNER JOIN {$wpdb->prefix}term_taxonomy AS tt
+			ON t.term_id = tt.term_id
+			INNER JOIN {$wpdb->prefix}term_relationships AS tr
+			ON tr.term_taxonomy_id = tt.term_taxonomy_id
+			WHERE tt.taxonomy IN ('pwb-brand')
+			AND tr.object_id IN ($product_ids)
+			ORDER BY t.name ASC
+		" );
+
+		return ( $brand_ids ) ? $brand_ids : false;
+
+	}
 
 }

@@ -41,7 +41,7 @@ class Perfect_Woocommerce_Brands{
   }
 
   public function brand_name_in_url( $permalink, $post ){
-    if( $post->post_type == 'product' ) {
+    if( $post->post_type == 'product' && strpos( $permalink, '%pwb-brand%' ) !== false ) {
       $term   = 'product';
       $brands = wp_get_post_terms( $post->ID, 'pwb-brand' );
       if( ! empty( $brands ) && ! is_wp_error( $brands ) ) $term = current( $brands )->slug;
@@ -188,22 +188,7 @@ class Perfect_Woocommerce_Brands{
   }
 
   /*
-  *   Adds microdata (brands) to single products (WooCommerce < 3.0.0)
-  */
-  public function product_microdata_legacy(){
-    global $post;
-
-    if( isset( $post->post_type ) && $post->post_type==='product' ){
-      $brands = wp_get_post_terms( $post->ID, 'pwb-brand');
-      foreach ($brands as $brand) {
-        echo '<meta itemprop="brand" content="'.$brand->name.'">';
-      }
-    }
-
-  }
-
-  /*
-  *   Adds microdata (brands) to single products (WooCommerce > 3.0.0)
+  *   Adds microdata (brands) to single products
   */
   public function product_microdata( $markup, $product ){
 
@@ -870,11 +855,16 @@ class Perfect_Woocommerce_Brands{
   }
 
   public function breadcrumbs( $crumbs ) {
+
     if( is_tax('pwb-brand') ){
       $brands_page_id = get_option('wc_pwb_admin_tab_brands_page_id');
+
       if( !empty( $brands_page_id ) && $brands_page_id != '-' && isset( $crumbs[count($crumbs)-2][1] ) ){
-        $crumbs[count($crumbs)-2][1] = get_page_link( $brands_page_id );
+        $crumb_index = ( is_paged() ) ? count($crumbs)-3 : count($crumbs)-2;
+        if( isset( $crumb_index ) )
+          $crumbs[$crumb_index][1] = get_page_link( $brands_page_id );
       }
+
     }
     return $crumbs;
   }
