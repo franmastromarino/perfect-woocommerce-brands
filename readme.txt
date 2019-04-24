@@ -84,6 +84,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 = 1.7.4 =
 * Fix: Mismatched columns when a brand is added
 * Tweak: Disable brand tab when product not have brand
+* Dev: New filter hook 'pwb_dropdown_placeholder'
+* Dev: Override templates via a theme
 * Minor fixes and tweaks
 = 1.7.3 =
 * Enhancement: Performance improvements

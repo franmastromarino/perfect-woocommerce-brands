@@ -842,9 +842,18 @@ class Perfect_Woocommerce_Brands{
   }
 
   public static function render_template( $name, $folder = '', $data ){
-    ob_start();
+    //default template
     if( $folder ) $folder = $folder . '/';
     $template_file = dirname( __DIR__ ) . '/templates/' . $folder . $name . '.php';
+
+    //theme overrides
+    $theme_template_path = get_stylesheet_directory() . '/perfect-woocommerce-brands/';
+    if( file_exists( $theme_template_path . $folder . $name . '.php' ) )
+      $template_file = $theme_template_path . $folder . $name . '.php';
+
+    extract($data);
+
+    ob_start();
     include $template_file;
     return ob_get_clean();
   }

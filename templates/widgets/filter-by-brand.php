@@ -4,11 +4,7 @@
  * @version 1.0.0
  */
 
- namespace Perfect_Woocommerce_Brands\Templates;
-
  defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
-
- extract( $data );
 ?>
 
 <div class="pwb-filter-products<?php if( $hide_submit_btn ) echo ' pwb-hide-submit-btn'; ?>" data-cat-url="<?php echo $cate_url;?>">
