@@ -1,6 +1,8 @@
 == Changelog ==
 = 1.7.4 =
+* Fix: Mismatched columns when a brand is added
 * Tweak: Disable brand tab when product not have brand
+* Minor fixes and tweaks
 = 1.7.3 =
 * Enhancement: Performance improvements
 * Fix: Breadcrumbs doesn't take in account pagination

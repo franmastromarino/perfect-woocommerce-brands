@@ -64,39 +64,36 @@ class Edit_Brands_Page {
 
   }
 
-  public function brand_taxonomy_columns_head($defaults) {
+  public function brand_taxonomy_columns_head( $columns ){
+    $new_columns = array();
 
-      if( self::is_edit_brands_page() ){
-        $defaults['featured'] = '';
+    if ( isset( $columns['cb'] ) ) {
+      $new_columns['cb'] = $columns['cb'];
+      unset( $columns['cb'] );
+    }
 
-        $newColumns = array(
-            'cb'   => $defaults['cb'],
-            'logo' => __( 'Logo', 'perfect-woocommerce-brands' )
-        );
+    if( isset( $columns['description'] ) ) unset( $columns['description'] );
 
-        unset( $defaults['description'] );
-        unset( $defaults['cb'] );
+    $new_columns['logo'] = __( 'Logo', 'perfect-woocommerce-brands' );
+    $columns['featured'] = '<span class="pwb-featured-col-title">'.__( 'Featured', 'perfect-woocommerce-brands' ).'</span>';
 
-        return array_merge( $newColumns, $defaults );
-      }
-      return $defaults;
-
+    return array_merge( $new_columns, $columns );
   }
 
   public function brand_taxonomy_columns($c, $column_name, $term_id){
-      switch( $column_name ){
-        case 'logo':
-          $image = wp_get_attachment_image( get_term_meta( $term_id, 'pwb_brand_image', 1 ), array('60','60') );
-          return ( $image ) ? $image : "-";
-          break;
-        case 'featured':
-          $featured_class = ( $this->is_featured_brand( $term_id ) ) ? 'dashicons-star-filled' : 'dashicons-star-empty';
-          printf(
-            '<span class="dashicons %1$s" title="%2$s" data-brand-id="%3$s"></span>',
-            $featured_class, __('Set as featured', 'perfect-woocommerce-brands'), $term_id
-          );
-          break;
-      }
+    switch( $column_name ){
+      case 'logo':
+        $image = wp_get_attachment_image( get_term_meta( $term_id, 'pwb_brand_image', 1 ), array('40','40') );
+        return ( $image ) ? $image : wc_placeholder_img( array('40','40') );
+        break;
+      case 'featured':
+        $featured_class = ( $this->is_featured_brand( $term_id ) ) ? 'dashicons-star-filled' : 'dashicons-star-empty';
+        printf(
+          '<span class="dashicons %1$s" title="%2$s" data-brand-id="%3$s"></span>',
+          $featured_class, __('Set as featured', 'perfect-woocommerce-brands'), $term_id
+        );
+        break;
+    }
   }
 
   private function is_featured_brand( $brand_id ){
