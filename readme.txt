@@ -5,7 +5,7 @@ Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufactu
 Requires at least: 4.7
 Tested up to: 5.1
 Requires PHP: 5.6
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -81,6 +81,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 1.7.4 =
+* Tweak: Disable brand tab when product not have brand
 = 1.7.3 =
 * Enhancement: Performance improvements
 * Fix: Breadcrumbs doesn't take in account pagination

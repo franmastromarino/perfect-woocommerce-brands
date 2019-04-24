@@ -1,4 +1,6 @@
 == Changelog ==
+= 1.7.4 =
+* Tweak: Disable brand tab when product not have brand
 = 1.7.3 =
 * Enhancement: Performance improvements
 * Fix: Breadcrumbs doesn't take in account pagination

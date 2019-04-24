@@ -10,21 +10,27 @@ class PWB_Product_Tab{
     add_filter( 'woocommerce_product_tabs', array( $this, 'product_tab' ) );
   }
 
-  public function product_tab( $tabs ) {
+  public function product_tab( $tabs ){
 
-    $show_brand_tab = get_option( 'wc_pwb_admin_tab_brand_single_product_tab' );
-    if( $show_brand_tab == 'yes' || !$show_brand_tab ){
-      $tabs['pwb_tab'] = array(
-        'title' 	  => __( 'Brand', 'perfect-woocommerce-brands' ),
-        'priority' 	=> 20,
-        'callback' 	=> array( $this, 'product_tab_content' )
-      );
+    global $product;
+    $brands = wp_get_object_terms( $product->get_id(), 'pwb-brand' );
+
+    if( !empty( $brands ) ){
+      $show_brand_tab = get_option( 'wc_pwb_admin_tab_brand_single_product_tab' );
+      if( $show_brand_tab == 'yes' || !$show_brand_tab ){
+        $tabs['pwb_tab'] = array(
+          'title' 	  => __( 'Brand', 'perfect-woocommerce-brands' ),
+          'priority' 	=> 20,
+          'callback' 	=> array( $this, 'product_tab_content' )
+        );
+      }
     }
+
   	return $tabs;
 
   }
 
-  public function product_tab_content() {
+  public function product_tab_content(){
 
     global $product;
     $brands = wp_get_object_terms( $product->get_id(), 'pwb-brand' );
