@@ -6,6 +6,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 class Perfect_Woocommerce_Brands{
 
   function __construct(){
+    add_action( 'plugin_row_meta', array( '\Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands', 'plugin_row_meta' ), 10, 2 );
     add_action( 'woocommerce_init', array( $this, 'register_brands_taxonomy' ), 10, 0 );
     add_action( 'init', array( $this, 'add_brands_metafields' ) );
     add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -38,6 +39,24 @@ class Perfect_Woocommerce_Brands{
     add_filter( 'manage_edit-product_sortable_columns', array( $this, 'brands_column_sortable' ), 90 );
     add_action( 'posts_clauses', array( $this, 'brands_column_sortable_posts' ), 10, 2 );
     add_filter( 'post_type_link', array( $this, 'brand_name_in_url' ), 10, 2 );
+  }
+
+  /**
+  * Show row meta on the plugin screen.
+  *
+  * @param mixed $links Plugin Row Meta.
+  * @param mixed $file  Plugin Base file.
+  *
+  * @return array
+  */
+  public static function plugin_row_meta( $links, $file ) {
+    if( PWB_PLUGIN_BASENAME === $file ){
+      $row_meta = array(
+        'docs' => '<a target="_blank" rel="noopener noferrer" href="https://github.com/titodevera/perfect-woocommerce-brands/wiki">' . esc_html__( 'Developer docs', 'perfect-woocommerce-brands' ) . '</a>',
+      );
+      return array_merge( $links, $row_meta );
+    }
+    return (array)$links;
   }
 
   public function brand_name_in_url( $permalink, $post ){
@@ -637,6 +656,11 @@ class Perfect_Woocommerce_Brands{
         true
       );
 
+      wp_localize_script( 'pwb-lib-slick', 'ajax_object', array(
+        'carousel_prev' => apply_filters('pwb_carousel_prev','&lt;'),
+        'carousel_next' => apply_filters('pwb_carousel_next','&gt;')
+      ) );
+
       wp_register_style(
         'pwb-lib-slick',
         PWB_PLUGIN . '/assets/lib/slick/slick.css',
@@ -841,10 +865,21 @@ class Perfect_Woocommerce_Brands{
 
   }
 
-  public static function render_template( $name, $folder = '', $data ){
-    ob_start();
+  public static function render_template( $name, $folder = '', $data, $private = true ){
+    //default template
     if( $folder ) $folder = $folder . '/';
     $template_file = dirname( __DIR__ ) . '/templates/' . $folder . $name . '.php';
+
+    //theme overrides
+    if( !$private ){
+      $theme_template_path = get_stylesheet_directory() . '/perfect-woocommerce-brands/';
+      if( file_exists( $theme_template_path . $folder . $name . '.php' ) )
+        $template_file = $theme_template_path . $folder . $name . '.php';
+    }
+
+    extract($data);
+
+    ob_start();
     include $template_file;
     return ob_get_clean();
   }

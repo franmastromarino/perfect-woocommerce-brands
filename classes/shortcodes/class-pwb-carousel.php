@@ -26,7 +26,8 @@ class PWB_Carousel_Shortcode{
     return \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
       'carousel',
       'shortcodes',
-      array( 'slick_settings' => self::slick_settings(), 'brands' => self::brands_data() )
+      array( 'slick_settings' => self::slick_settings(), 'brands' => self::brands_data() ),
+      false
     );
 
   }

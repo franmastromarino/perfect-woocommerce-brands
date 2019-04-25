@@ -127,7 +127,8 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
         echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
           'filter-by-brand',
           'widgets',
-          array( 'cate_url' => $cate_url, 'brands' => $result_brands_ordered, 'hide_submit_btn' => $hide_submit_btn )
+          array( 'cate_url' => $cate_url, 'brands' => $result_brands_ordered, 'hide_submit_btn' => $hide_submit_btn ),
+					false
         );
 
       }

@@ -4,16 +4,13 @@
  * @version 1.0.0
  */
 
- namespace Perfect_Woocommerce_Brands\Templates;
-
  defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
-
- extract( $data );
-
 ?>
 
 <select class="pwb-dropdown-widget">
-  <option selected="true" disabled="disabled"><?php _e( 'Brands', 'perfect-woocommerce-brands' ); ?></option>
+  <option selected="true" disabled="disabled">
+    <?php echo apply_filters( 'pwb_dropdown_placeholder', __( 'Brands', 'perfect-woocommerce-brands' ) ); ?>
+  </option>
   <?php foreach( $brands as $brand ): ?>
     <option value="<?php echo $brand->get('link');?>" <?php selected( $data['selected'], $brand->get('id') );?>>
       <?php echo $brand->get('name');?>

@@ -4,11 +4,7 @@
  * @version 1.0.0
  */
 
- namespace Perfect_Woocommerce_Brands\Templates;
-
  defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
-
- extract( $data );
 ?>
 
 <div class="pwb-edit-brands-bottom pwb-clearfix">

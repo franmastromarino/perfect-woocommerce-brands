@@ -57,7 +57,6 @@
 }
 .taxonomy-pwb-brand table.wp-list-table .column-featured{
   width: 48px;
-  text-align: center;
 }
 .taxonomy-pwb-brand .pwb-edit-brands-bottom{
   margin-top: 20px;
@@ -104,6 +103,13 @@
     width: 0!important;
     display: none!important;
   }
+  .taxonomy-pwb-brand table.wp-list-table .column-featured,
+  .taxonomy-pwb-brand .wp-list-table .column-logo{
+    text-align: center;
+  }
+  .taxonomy-pwb-brand .pwb-featured-col-title{
+    display: none;
+  }
 }
 .pwb-brands-exporter{
   margin-top: 20px;
@@ -113,6 +119,10 @@
 }
 .pwb-brands-exporter p{
   font-style: italic;
+}
+.taxonomy-pwb-brand .wp-list-table .column-logo{
+  width: 52px;
+  white-space: nowrap;
 }
 /* ----------------------- /Taxonomy pwb-brand ----------------------- */
 
