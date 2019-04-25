@@ -80,7 +80,8 @@ class PWB_Dropdown_Widget extends \WP_Widget {
         echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
           'dropdown',
           'widgets',
-          array( 'brands' => $brands, 'selected' => $queried_brand_id )
+          array( 'brands' => $brands, 'selected' => $queried_brand_id ),
+          false
         );
 
       echo $after_widget;

@@ -85,6 +85,7 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 * Fix: Mismatched columns when a brand is added
 * Tweak: Disable brand tab when product not have brand
 * Dev: New filter hook 'pwb_dropdown_placeholder'
+* Dev: New filter hooks 'pwb_carousel_prev' and 'pwb_carousel_next' for customize the carousel arrows
 * Dev: Override templates via a theme
 * Minor fixes and tweaks
 = 1.7.3 =

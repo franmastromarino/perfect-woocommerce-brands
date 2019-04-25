@@ -637,6 +637,11 @@ class Perfect_Woocommerce_Brands{
         true
       );
 
+      wp_localize_script( 'pwb-lib-slick', 'ajax_object', array(
+        'carousel_prev' => apply_filters('pwb_carousel_prev','&lt;'),
+        'carousel_next' => apply_filters('pwb_carousel_next','&gt;')
+      ) );
+
       wp_register_style(
         'pwb-lib-slick',
         PWB_PLUGIN . '/assets/lib/slick/slick.css',
@@ -841,15 +846,17 @@ class Perfect_Woocommerce_Brands{
 
   }
 
-  public static function render_template( $name, $folder = '', $data ){
+  public static function render_template( $name, $folder = '', $data, $private = true ){
     //default template
     if( $folder ) $folder = $folder . '/';
     $template_file = dirname( __DIR__ ) . '/templates/' . $folder . $name . '.php';
 
     //theme overrides
-    $theme_template_path = get_stylesheet_directory() . '/perfect-woocommerce-brands/';
-    if( file_exists( $theme_template_path . $folder . $name . '.php' ) )
-      $template_file = $theme_template_path . $folder . $name . '.php';
+    if( !$private ){
+      $theme_template_path = get_stylesheet_directory() . '/perfect-woocommerce-brands/';
+      if( file_exists( $theme_template_path . $folder . $name . '.php' ) )
+        $template_file = $theme_template_path . $folder . $name . '.php';
+    }
 
     extract($data);
 

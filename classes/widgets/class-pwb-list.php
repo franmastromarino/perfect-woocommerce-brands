@@ -116,7 +116,8 @@ class PWB_List_Widget extends \WP_Widget {
         echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
           ( $display_as == 'brand_logo' ) ? 'list-logo' : 'list',
           'widgets',
-          array( 'brands' => $brands, 'li_class' => $li_class, 'title_prefix' => __( 'Go to', 'perfect-woocommerce-brands' ) )
+          array( 'brands' => $brands, 'li_class' => $li_class, 'title_prefix' => __( 'Go to', 'perfect-woocommerce-brands' ) ),
+          false
         );
 
       echo $after_widget;
