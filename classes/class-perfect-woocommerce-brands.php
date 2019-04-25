@@ -656,11 +656,6 @@ class Perfect_Woocommerce_Brands{
         true
       );
 
-      wp_localize_script( 'pwb-lib-slick', 'ajax_object', array(
-        'carousel_prev' => apply_filters('pwb_carousel_prev','&lt;'),
-        'carousel_next' => apply_filters('pwb_carousel_next','&gt;')
-      ) );
-
       wp_register_style(
         'pwb-lib-slick',
         PWB_PLUGIN . '/assets/lib/slick/slick.css',
@@ -677,13 +672,20 @@ class Perfect_Woocommerce_Brands{
         'all'
       );
 
-      wp_enqueue_script(
+      wp_register_script(
         'pwb-functions-frontend',
         PWB_PLUGIN . '/assets/js/functions-frontend.min.js',
         array('jquery'),
         PWB_PLUGIN_VERSION,
         true
       );
+
+      wp_localize_script( 'pwb-functions-frontend', 'ajax_object', array(
+        'carousel_prev' => apply_filters('pwb_carousel_prev','&lt;'),
+        'carousel_next' => apply_filters('pwb_carousel_next','&gt;')
+      ) );
+
+      wp_enqueue_script('pwb-functions-frontend');
 
   }
 
