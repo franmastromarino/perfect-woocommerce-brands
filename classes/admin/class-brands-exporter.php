@@ -12,8 +12,10 @@
     }
 
     public function exporter_button(){
+      $tax_name = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_rename_taxonomy();
+
       echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
-        'brands-exporter', 'admin', array( 'ok' => 'va' )
+        'brands-exporter', 'admin', array( 'tax_name' => $tax_name )
       );
     }
 

@@ -713,25 +713,43 @@ class Perfect_Woocommerce_Brands{
 
   }
 
+  public static function get_rename_taxonomy(){
+    $tax_name        = get_option('wc_pwb_admin_tab_rename_taxonomy');
+    $tax_name_plural = get_option('wc_pwb_admin_tab_rename_taxonomy_plural');
+    if( empty($tax_name) ) $tax_name = __('brand','perfect-woocommerce-brands');
+    if( empty($tax_name_plural) ) $tax_name_plural = __('brands','perfect-woocommerce-brands');
+    $tax_name        = apply_filters( 'pwb_taxonomy_rename', $tax_name );
+    $tax_name_plural = apply_filters( 'pwb_taxonomy_rename_plural', $tax_name_plural );
+    return array(
+      'singular'  => strtolower($tax_name),
+      'singularu' => ucfirst(strtolower($tax_name)),
+      'plural'    => strtolower($tax_name_plural),
+      'pluralu'   => ucfirst(strtolower($tax_name_plural))
+    );
+  }
+
   public function register_brands_taxonomy(){
+
+      $tax_name = self::get_rename_taxonomy();
+
       $labels = array(
-          'name'                       => __( 'Brands', 'perfect-woocommerce-brands' ),
-          'singular_name'              => __( 'Brand', 'perfect-woocommerce-brands' ),
-          'menu_name'                  => __( 'Brands', 'perfect-woocommerce-brands' ),
-          'all_items'                  => __( 'All Brands', 'perfect-woocommerce-brands' ),
-          'edit_item'                  => __( 'Edit Brand', 'perfect-woocommerce-brands' ),
-          'view_item'                  => __( 'View Brand', 'perfect-woocommerce-brands' ),
-          'update_item'                => __( 'Update Brand', 'perfect-woocommerce-brands' ),
-          'add_new_item'               => __( 'Add New Brand', 'perfect-woocommerce-brands' ),
-          'new_item_name'              => __( 'New Brand Name', 'perfect-woocommerce-brands' ),
-          'parent_item'                => __( 'Parent Brand', 'perfect-woocommerce-brands' ),
-          'parent_item_colon'          => __( 'Parent Brand:', 'perfect-woocommerce-brands' ),
-          'search_items'               => __( 'Search Brands', 'perfect-woocommerce-brands' ),
-          'popular_items'              => __( 'Popular Brands', 'perfect-woocommerce-brands' ),
-          'separate_items_with_commas' => __( 'Separate brands with commas', 'perfect-woocommerce-brands' ),
-          'add_or_remove_items'        => __( 'Add or remove brands', 'perfect-woocommerce-brands' ),
-          'choose_from_most_used'      => __( 'Choose from the most used brands', 'perfect-woocommerce-brands' ),
-          'not_found'                  => __( 'No brands found', 'perfect-woocommerce-brands' )
+          'name'                       => $tax_name['pluralu'],
+          'singular_name'              => $tax_name['singularu'],
+          'menu_name'                  => $tax_name['pluralu'],
+          'all_items'                  => sprintf( __( 'All %s', 'perfect-woocommerce-brands' ), $tax_name['plural'] ),
+          'edit_item'                  => sprintf( __( 'Edit %s', 'perfect-woocommerce-brands' ), $tax_name['plural'] ),
+          'view_item'                  => sprintf( __( 'View %s', 'perfect-woocommerce-brands' ), $tax_name['singular'] ),
+          'update_item'                => sprintf( __( 'Update %s', 'perfect-woocommerce-brands' ), $tax_name['singular'] ),
+          'add_new_item'               => sprintf( __( 'Add new %s', 'perfect-woocommerce-brands' ), $tax_name['singular'] ),
+          'new_item_name'              => sprintf( __( 'New %s name', 'perfect-woocommerce-brands' ), $tax_name['singular'] ),
+          'parent_item'                => sprintf( __( 'Parent %s', 'perfect-woocommerce-brands' ), $tax_name['singular'] ),
+          'parent_item_colon'          => sprintf( __( 'Parent %s:', 'perfect-woocommerce-brands' ), $tax_name['singular'] ),
+          'search_items'               => sprintf( __( 'Search %s', 'perfect-woocommerce-brands' ), $tax_name['plural'] ),
+          'popular_items'              => sprintf( __( 'Popular %s', 'perfect-woocommerce-brands' ), $tax_name['plural'] ),
+          'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'perfect-woocommerce-brands' ), $tax_name['plural'] ),
+          'add_or_remove_items'        => sprintf( __( 'Add or remove %s', 'perfect-woocommerce-brands' ), $tax_name['plural'] ),
+          'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', 'perfect-woocommerce-brands' ), $tax_name['plural'] ),
+          'not_found'                  => sprintf( __( 'No %s found', 'perfect-woocommerce-brands' ), $tax_name['plural'] )
       );
 
       $new_slug = get_option('wc_pwb_admin_tab_slug');

@@ -13,6 +13,8 @@ class Brands_Custom_Fields {
   }
 
   public function add_brands_metafields_form(){
+    $tax_name = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_rename_taxonomy();
+
     ob_start();
     ?>
 
@@ -23,20 +25,28 @@ class Brands_Custom_Fields {
     </div>
 
     <div class="form-field pwb_brand_cont">
-        <label for="pwb_brand_image"><?php _e( 'Brand logo', 'perfect-woocommerce-brands' ); ?></label>
+        <label for="pwb_brand_image">
+          <?php printf( __( '%s logo', 'perfect-woocommerce-brands' ), $tax_name['singularu'] ); ?>
+        </label>
         <input type="text" name="pwb_brand_image" id="pwb_brand_image" value="" >
         <a href="#" id="pwb_brand_image_select" class="button"><?php _e('Select image','perfect-woocommerce-brands');?></a>
     </div>
 
     <div class="form-field pwb_brand_cont">
-        <label for="pwb_brand_banner"><?php _e( 'Brand banner', 'perfect-woocommerce-brands' ); ?></label>
+        <label for="pwb_brand_banner">
+          <?php printf( __( '%s banner', 'perfect-woocommerce-brands' ), $tax_name['singularu'] ); ?>
+        </label>
         <input type="text" name="pwb_brand_banner" id="pwb_brand_banner" value="" >
         <a href="#" id="pwb_brand_banner_select" class="button"><?php _e('Select image','perfect-woocommerce-brands');?></a>
-        <p><?php _e( 'This image will be shown on brand page', 'perfect-woocommerce-brands' ); ?></p>
+        <p>
+          <?php printf( __( 'This image will be shown on the %s page', 'perfect-woocommerce-brands' ), $tax_name['singular'] ); ?>
+        </p>
     </div>
 
     <div class="form-field pwb_brand_cont">
-        <label for="pwb_brand_banner_link"><?php _e( 'Brand banner link', 'perfect-woocommerce-brands' ); ?></label>
+        <label for="pwb_brand_banner_link">
+          <?php printf( __( '%s banner link', 'perfect-woocommerce-brands' ), $tax_name['singularu'] ); ?>
+        </label>
         <input type="text" name="pwb_brand_banner_link" id="pwb_brand_banner_link" value="" >
         <p><?php _e( 'This link should be relative to site url. Example: product/product-name', 'perfect-woocommerce-brands' ); ?></p>
     </div>
@@ -48,6 +58,8 @@ class Brands_Custom_Fields {
   }
 
   public function add_brands_metafields_form_edit($term){
+    $tax_name = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_rename_taxonomy();
+
     $term_value_image = get_term_meta( $term->term_id, 'pwb_brand_image', true );
     $term_value_banner = get_term_meta( $term->term_id, 'pwb_brand_banner', true );
     $term_value_banner_link = get_term_meta( $term->term_id, 'pwb_brand_banner_link', true );
@@ -65,7 +77,9 @@ class Brands_Custom_Fields {
       </tr>
       <tr class="form-field">
         <th>
-          <label for="pwb_brand_image"><?php _e( 'Brand logo', 'perfect-woocommerce-brands' ); ?></label>
+          <label for="pwb_brand_image">
+            <?php printf( __( '%s logo', 'perfect-woocommerce-brands' ), $tax_name['singularu'] ); ?>
+          </label>
         </th>
         <td>
           <input type="text" name="pwb_brand_image" id="pwb_brand_image" value="<?php echo $term_value_image;?>" >
@@ -85,7 +99,9 @@ class Brands_Custom_Fields {
       </tr>
       <tr class="form-field">
         <th>
-          <label for="pwb_brand_banner"><?php _e( 'Brand banner', 'perfect-woocommerce-brands' ); ?></label>
+          <label for="pwb_brand_banner">
+            <?php printf( __( '%s banner', 'perfect-woocommerce-brands' ), $tax_name['singularu'] ); ?>
+          </label>
         </th>
         <td>
           <input type="text" name="pwb_brand_banner" id="pwb_brand_banner" value="<?php echo $term_value_banner;?>" >
@@ -105,7 +121,9 @@ class Brands_Custom_Fields {
       </tr>
       <tr class="form-field">
         <th>
-          <label for="pwb_brand_banner_link"><?php _e( 'Brand banner link', 'perfect-woocommerce-brands' ); ?></label>
+          <label for="pwb_brand_banner_link">
+            <?php printf( __( '%s banner link', 'perfect-woocommerce-brands' ), $tax_name['singularu'] ); ?>
+          </label>
         </th>
         <td>
           <input type="text" name="pwb_brand_banner_link" id="pwb_brand_banner_link" value="<?php echo $term_value_banner_link;?>" >

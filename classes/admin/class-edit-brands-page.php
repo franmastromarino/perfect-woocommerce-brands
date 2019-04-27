@@ -118,14 +118,16 @@ class Edit_Brands_Page {
   }
 
   public function add_screen_options( $status, $args ){
+    $tax_name = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_rename_taxonomy();
+
     if( self::is_edit_brands_page() ){
       $featured = get_user_option( 'pwb-first-featured-brands', self::$current_user->ID );
       ob_start();
       ?>
-      <legend><?php _e('Brands','perfect-woocommerce-brands');?></legend>
+      <legend><?php echo $tax_name['pluralu'];?></legend>
       <label>
         <input id="pwb-first-featured-brands" type="checkbox" <?php checked($featured,true);?>>
-        <?php _e('Show featured brands first','perfect-woocommerce-brands');?>
+        <?php printf( __('Show featured %s first','perfect-woocommerce-brands'), $tax_name['plural'] );?>
       </label>
       <?php
       return ob_get_clean();

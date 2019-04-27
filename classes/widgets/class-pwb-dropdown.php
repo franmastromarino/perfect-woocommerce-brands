@@ -15,8 +15,9 @@ class PWB_Dropdown_Widget extends \WP_Widget {
 
   public function form($instance){
     extract($instance);
+    $tax_name = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_rename_taxonomy();
 
-    $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
+    $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : $tax_name['pluralu'];
     $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
     $only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
     ?>
@@ -77,10 +78,13 @@ class PWB_Dropdown_Widget extends \WP_Widget {
 
         if( !empty( $title ) ) echo $before_title . $title . $after_title;
 
+        $tax_name    = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_rename_taxonomy();
+        $placeholder = apply_filters( 'pwb_dropdown_placeholder', $tax_name['pluralu'] );
+
         echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
           'dropdown',
           'widgets',
-          array( 'brands' => $brands, 'selected' => $queried_brand_id ),
+          array( 'brands' => $brands, 'selected' => $queried_brand_id, 'placeholder' => $placeholder ),
           false
         );
 

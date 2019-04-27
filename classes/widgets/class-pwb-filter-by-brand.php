@@ -16,8 +16,9 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
   public function form( $instance ) {
     extract($instance);
+		$tax_name = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_rename_taxonomy();
 
-    $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
+    $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : $tax_name['pluralu'];
     $limit = ( isset( $instance[ 'limit' ] ) ) ? $instance[ 'limit' ] : 20;
     $hide_submit_btn = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
     ?>

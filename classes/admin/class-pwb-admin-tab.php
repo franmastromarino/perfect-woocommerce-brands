@@ -18,7 +18,9 @@
          * @return array $settings_tabs Array of WooCommerce setting tabs & their labels, including the Subscription tab.
          */
         public static function add_settings_tab( $settings_tabs ) {
-            $settings_tabs['pwb_admin_tab'] = __( 'Brands', 'perfect-woocommerce-brands' );
+            $tax_name = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_rename_taxonomy();
+
+            $settings_tabs['pwb_admin_tab'] = $tax_name['pluralu'];
             return $settings_tabs;
         }
 
@@ -83,6 +85,22 @@
                     'desc'        => __( 'Brands taxonomy slug', 'perfect-woocommerce-brands' ),
                     'id'          => 'wc_pwb_admin_tab_slug',
                     'placeholder' => get_taxonomy('pwb-brand')->rewrite['slug']
+                ),
+                'rename_taxonomy' => array(
+                    'name'        => __( 'Rename taxonomy', 'perfect-woocommerce-brands' ),
+                    'type'        => 'text',
+                    'class'       => 'pwb-admin-tab-field',
+                    'desc'        => __( 'Rename the brands taxonomy to something else (like authors, manufacturers...)', 'perfect-woocommerce-brands' ),
+                    'id'          => 'wc_pwb_admin_tab_rename_taxonomy',
+                    'placeholder' => __('brand', 'perfect-woocommerce-brands')
+                ),
+                'rename_taxonomy_plural' => array(
+                    'name'        => __( 'Rename taxonomy (plural)', 'perfect-woocommerce-brands' ),
+                    'type'        => 'text',
+                    'class'       => 'pwb-admin-tab-field',
+                    'desc'        => __( 'Rename the brands taxonomy to something else (like authors, manufacturers...), plural', 'perfect-woocommerce-brands' ),
+                    'id'          => 'wc_pwb_admin_tab_rename_taxonomy_plural',
+                    'placeholder' => __('brands', 'perfect-woocommerce-brands')
                 ),
                 'brand_description' => array(
                     'name'    => __( 'Show brand description', 'perfect-woocommerce-brands' ),
@@ -204,9 +222,9 @@
                   'id'      => 'wc_pwb_admin_tab_tools_migrate',
                   'options' => array(
                     '-'         => __( '-', 'perfect-woocommerce-brands' ),
+                    'woobrands' => __( 'WooCommerce Brands', 'perfect-woocommerce-brands' ),
                     'yith'      => __( 'YITH WooCommerce Brands Add-On', 'perfect-woocommerce-brands' ),
                     'ultimate'  => __( 'Ultimate WooCommerce Brands', 'perfect-woocommerce-brands' ),
-                    'woobrands'  => __( 'Offical WooCommerce Brands', 'perfect-woocommerce-brands' )
                   )
               ),
               'brand_dummy_data' => array(
