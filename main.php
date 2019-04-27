@@ -6,8 +6,6 @@
  *  Version: 1.8.0
  *  Author: Alberto de Vera Sevilla
  *  Author URI: https://profiles.wordpress.org/titodevera/
- *  Text Domain: perfect-woocommerce-brands
- *  Domain Path: /lang
  *  License: GPL3
  *      Perfect WooCommerce Brands version 1.8.0, Copyright (C) 2019 Alberto de Vera Sevilla
  *      Perfect WooCommerce Brands is free software: you can redistribute it and/or modify
@@ -45,11 +43,6 @@ register_activation_hook( __FILE__, function(){
 //clean brands slug on plugin deactivation
 register_deactivation_hook( __FILE__, function(){
   update_option( 'old_wc_pwb_admin_tab_slug', 'null' );
-} );
-
-//loads textdomain for the translations
-add_action( 'plugins_loaded', function(){
-  load_plugin_textdomain( 'perfect-woocommerce-brands', false, PWB_PLUGIN_PATH . '/lang' );
 } );
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
