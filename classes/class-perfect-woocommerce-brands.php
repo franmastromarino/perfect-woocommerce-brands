@@ -680,7 +680,7 @@ class Perfect_Woocommerce_Brands{
         true
       );
 
-      wp_localize_script( 'pwb-functions-frontend', 'ajax_object', array(
+      wp_localize_script( 'pwb-functions-frontend', 'pwb_ajax_object', array(
         'carousel_prev' => apply_filters('pwb_carousel_prev','&lt;'),
         'carousel_next' => apply_filters('pwb_carousel_next','&gt;')
       ) );
@@ -698,7 +698,7 @@ class Perfect_Woocommerce_Brands{
       wp_enqueue_style('pwb-styles-admin', PWB_PLUGIN . '/assets/css/styles-admin.min.css', array(), PWB_PLUGIN_VERSION);
 
       wp_register_script('pwb-functions-admin', PWB_PLUGIN . '/assets/js/functions-admin.min.js', array('jquery'), PWB_PLUGIN_VERSION, true);
-      wp_localize_script( 'pwb-functions-admin', 'ajax_object', array(
+      wp_localize_script( 'pwb-functions-admin', 'pwb_ajax_object_admin', array(
         'ajax_url'     => admin_url( 'admin-ajax.php' ),
         'site_url'     => site_url(),
         'brands_url'   => admin_url( 'edit-tags.php?taxonomy=pwb-brand&post_type=product' ),

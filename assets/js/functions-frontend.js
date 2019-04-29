@@ -11,8 +11,8 @@ jQuery( function ( $ ) {
           slide: '.pwb-slick-slide',
           infinite: true,
           draggable: false,
-          prevArrow: '<div class="slick-prev"><span>'+ajax_object.carousel_prev+'</span></div>',
-          nextArrow: '<div class="slick-next"><span>'+ajax_object.carousel_next+'</span></div>',
+          prevArrow: '<div class="slick-prev"><span>'+pwb_ajax_object.carousel_prev+'</span></div>',
+          nextArrow: '<div class="slick-next"><span>'+pwb_ajax_object.carousel_next+'</span></div>',
           speed: 300,
           lazyLoad: 'progressive',
           responsive: [
@@ -47,8 +47,8 @@ jQuery( function ( $ ) {
           slide: '.pwb-slick-slide',
           infinite: true,
           draggable: false,
-          prevArrow: '<div class="slick-prev"><span>'+ajax_object.carousel_prev+'</span></div>',
-          nextArrow: '<div class="slick-next"><span>'+ajax_object.carousel_next+'</span></div>',
+          prevArrow: '<div class="slick-prev"><span>'+pwb_ajax_object.carousel_prev+'</span></div>',
+          nextArrow: '<div class="slick-next"><span>'+pwb_ajax_object.carousel_next+'</span></div>',
           speed: 300,
           lazyLoad: 'progressive',
           responsive: [

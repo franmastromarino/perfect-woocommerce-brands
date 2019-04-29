@@ -83,6 +83,11 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 == Changelog ==
 = 1.8.0 =
 * Feature: New option for rename the "Brands" taxonomy to anything else (authors, manufacturers...) ¡Awesome!
+= 1.7.6 =
+* Tested up to, bump
+* Dev: New filter hook "woocommerce_product_brand_heading" for editing the "Brand" tab heading
+* Fix: Some problems with the "Brand" product tab
+* Fix: Avoid a possible JS conflict caused by "wp_localize_script"
 = 1.7.5 =
 * Fix: Stupid JS error introduced in the previous version
 = 1.7.4 =
