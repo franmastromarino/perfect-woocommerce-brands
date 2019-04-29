@@ -13,16 +13,19 @@ class PWB_Product_Tab{
   public function product_tab( $tabs ){
 
     global $product;
-    $brands = wp_get_object_terms( $product->get_id(), 'pwb-brand' );
 
-    if( !empty( $brands ) ){
-      $show_brand_tab = get_option( 'wc_pwb_admin_tab_brand_single_product_tab' );
-      if( $show_brand_tab == 'yes' || !$show_brand_tab ){
-        $tabs['pwb_tab'] = array(
-          'title' 	  => __( 'Brand', 'perfect-woocommerce-brands' ),
-          'priority' 	=> 20,
-          'callback' 	=> array( $this, 'product_tab_content' )
-        );
+    if( isset( $product ) ){
+      $brands = wp_get_object_terms( $product->get_id(), 'pwb-brand' );
+
+      if( !empty( $brands ) ){
+        $show_brand_tab = get_option( 'wc_pwb_admin_tab_brand_single_product_tab' );
+        if( $show_brand_tab == 'yes' || !$show_brand_tab ){
+          $tabs['pwb_tab'] = array(
+            'title' 	  => __( 'Brand', 'perfect-woocommerce-brands' ),
+            'priority' 	=> 20,
+            'callback' 	=> array( $this, 'product_tab_content' )
+          );
+        }
       }
     }
 
@@ -38,7 +41,7 @@ class PWB_Product_Tab{
     ob_start();
     ?>
 
-    <h2><?php echo __('Brand', 'perfect-woocommerce-brands'); ?></h2>
+    <h2><?php echo apply_filters( 'woocommerce_product_brand_heading', __('Brand', 'perfect-woocommerce-brands') ); ?></h2>
     <?php foreach( $brands as $brand ): ?>
 
       <?php

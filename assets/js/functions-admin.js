@@ -95,7 +95,7 @@ jQuery( function ( $ ) {
       $currentStar.addClass('dashicons-star-filled');
     }
     var data = { 'action': 'pwb_admin_set_featured_brand', 'brand': $currentStar.data('brand-id') };
-    $.post(ajax_object.ajax_url, data, function( response ) {
+    $.post(pwb_ajax_object_admin.ajax_url, data, function( response ) {
       $currentStar.removeClass('pwb-blocked');
       if( response.success ){
         var $featuredCount = $('.taxonomy-pwb-brand .pwb-featured-count > span');
@@ -112,9 +112,9 @@ jQuery( function ( $ ) {
 
   $('.taxonomy-pwb-brand #pwb-first-featured-brands').on('change', function(e){
     e.preventDefault();
-    $('#screen-options-apply').replaceWith('<img src="'+ajax_object.site_url+'/wp-admin/images/loading.gif">');
+    $('#screen-options-apply').replaceWith('<img src="'+pwb_ajax_object_admin.site_url+'/wp-admin/images/loading.gif">');
     var data = { 'action': 'pwb_admin_save_screen_settings', 'new_val': $(this).is(':checked') };
-    $.post(ajax_object.ajax_url, data, function(response) { location.reload(); });
+    $.post(pwb_ajax_object_admin.ajax_url, data, function(response) { location.reload(); });
   });
 
   $('.pwb-edit-brands-bottom > span').on('click', function(e){
@@ -135,19 +135,19 @@ jQuery( function ( $ ) {
 
     if( $(this).val() != '-' ){
 
-      if( confirm(ajax_object.translations.migrate_notice) ){
+      if( confirm(pwb_ajax_object_admin.translations.migrate_notice) ){
 
         $('html').append('<div class="pwb-modal"><div class="pwb-modal-inner"></div></div>');
-        $('.pwb-modal-inner').html('<p>'+ajax_object.translations.migrating+'</p>');
+        $('.pwb-modal-inner').html('<p>'+pwb_ajax_object_admin.translations.migrating+'</p>');
 
         var data = {
       		'action': 'pwb_admin_migrate_brands',
       		'from': $(this).val()
       	};
-      	$.post(ajax_object.ajax_url, data, function(response) {
+      	$.post(pwb_ajax_object_admin.ajax_url, data, function(response) {
 
           setTimeout( function(){
-            location.href = ajax_object.brands_url;
+            location.href = pwb_ajax_object_admin.brands_url;
           }, 1000 );
 
       	});
@@ -167,19 +167,19 @@ jQuery( function ( $ ) {
 
     if( $(this).val() != '-' ){
 
-      if( confirm(ajax_object.translations.dummy_data_notice) ){
+      if( confirm(pwb_ajax_object_admin.translations.dummy_data_notice) ){
 
         $('html').append('<div class="pwb-modal"><div class="pwb-modal-inner"></div></div>');
-        $('.pwb-modal-inner').html('<p>'+ajax_object.translations.dummy_data+'</p>');
+        $('.pwb-modal-inner').html('<p>'+pwb_ajax_object_admin.translations.dummy_data+'</p>');
 
         var data = {
       		'action': 'pwb_admin_dummy_data',
       		'from': $(this).val()
       	};
-      	$.post(ajax_object.ajax_url, data, function(response) {
+      	$.post(pwb_ajax_object_admin.ajax_url, data, function(response) {
 
           setTimeout( function(){
-            location.href = ajax_object.brands_url;
+            location.href = pwb_ajax_object_admin.brands_url;
           }, 1000 );
 
       	});
@@ -220,7 +220,7 @@ jQuery( function ( $ ) {
         }
       } );
     }
-    $('#wc_pwb_admin_status_result').html('<img src="'+ajax_object.site_url+'/wp-admin/images/spinner.gif'+'" alt="Loading" height="20" width="20">');
+    $('#wc_pwb_admin_status_result').html('<img src="'+pwb_ajax_object_admin.site_url+'/wp-admin/images/spinner.gif'+'" alt="Loading" height="20" width="20">');
     $('#wc_pwb_admin_status_result').show();
     var data = {
       'action': 'pwb_system_status'
@@ -286,7 +286,7 @@ jQuery( function ( $ ) {
     $clickedBtn.prop("disabled",true);
 
     var data = { 'action': 'pwb_brands_export' };
-    $.post(ajax_object.ajax_url, data, function(response) {
+    $.post(pwb_ajax_object_admin.ajax_url, data, function(response) {
 
       if( response.success ){
         $clickedBtn.removeClass('pwb-loading-overlay');
@@ -324,7 +324,7 @@ jQuery( function ( $ ) {
     reqData.append('file', file);
 
     $.ajax({
-      url: ajax_object.ajax_url,
+      url: pwb_ajax_object_admin.ajax_url,
       type: 'post',
       cache: false,
       dataType: 'json',
