@@ -1,4 +1,9 @@
 == Changelog ==
+= 1.7.6 =
+* Tested up to, bump
+* Dev: New filter hook "woocommerce_product_brand_heading" for editing the "Brand" tab heading
+* Fix: Some problems with the "Brand" product tab
+* Fix: Avoid a possible JS conflict caused by "wp_localize_script"
 = 1.7.5 =
 * Fix: Stupid JS error introduced in the previous version
 = 1.7.4 =
