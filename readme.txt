@@ -83,6 +83,7 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 == Changelog ==
 = 1.8.0 =
 * Feature: New option for rename the "Brands" taxonomy to anything else (authors, manufacturers...) ¡Awesome!
+* Fix: The filter by brand widget displays incorrect brands under certain conditions
 = 1.7.6 =
 * Tested up to, bump
 * Dev: New filter hook "woocommerce_product_brand_heading" for editing the "Brand" tab heading

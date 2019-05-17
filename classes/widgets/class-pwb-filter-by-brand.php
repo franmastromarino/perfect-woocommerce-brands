@@ -152,7 +152,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
 		$cat = get_queried_object();
 		if( is_a( $cat, 'WP_Term' ) ){
-			$cat_id 				= $cat->term_taxonomy_id;
+			$cat_id 				= $cat->term_id;
 			$cat_id_array 	= get_term_children( $cat_id, 'product_cat' );
 			$cat_id_array[] = $cat_id;
 			$args['tax_query'][] = array(
