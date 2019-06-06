@@ -67,10 +67,10 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
       if( is_a( $cat, 'WP_Term' ) ){
         $name_transient = "pwb_brands".md5(json_encode(array("cat" => $cat->term_taxonomy_id)));
       }
-      /*if ( false !== ( $value = get_transient( $name_transient ) ) ) {
+      if ( false !== ( $value = get_transient( $name_transient ) ) ) {
         echo $value;
         return;
-      }*/
+      }
 
       $hide_submit_btn = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
 
