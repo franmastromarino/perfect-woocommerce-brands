@@ -61,16 +61,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
     if( !is_tax('pwb-brand') && !is_product()  ){
 
-      $name_transient = "pwb_brands".md5(json_encode($args));
-
       $cat = get_queried_object();
-      if( is_a( $cat, 'WP_Term' ) ){
-        $name_transient = "pwb_brands".md5(json_encode(array("cat" => $cat->term_taxonomy_id)));
-      }
-      if ( false !== ( $value = get_transient( $name_transient ) ) ) {
-        echo $value;
-        return;
-      }
 
       $hide_submit_btn = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
 
@@ -92,9 +83,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
             if ( ! empty( $title ) ) echo $args['before_title'] . $title . $args['after_title'];
             $this->render_widget( $result_brands, $limit, $hide_submit_btn );
         echo $args['after_widget'];
-        $output = ob_get_clean();
-        set_transient( $name_transient, $output, 48*HOUR_IN_SECONDS );
-        echo $output;
+        return ob_get_clean();
       }
 
     }
