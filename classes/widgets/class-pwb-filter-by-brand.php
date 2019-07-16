@@ -1,6 +1,6 @@
 <?php
 namespace Perfect_Woocommerce_Brands\Widgets;
-use WP_Query;
+use WP_Query, WC_Query, WP_Meta_Query, WP_Tax_Query;
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
@@ -16,9 +16,8 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
   public function form( $instance ) {
     extract($instance);
-		$tax_name = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_rename_taxonomy();
 
-    $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : $tax_name['pluralu'];
+    $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
     $limit = ( isset( $instance[ 'limit' ] ) ) ? $instance[ 'limit' ] : 20;
     $hide_submit_btn = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
     ?>
@@ -62,13 +61,16 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
     if( !is_tax('pwb-brand') && !is_product()  ){
 
+      $cat = get_queried_object();
+
       $hide_submit_btn = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
 
       $show_widget = true;
-      $current_products = false;
+	  $result_brands = array();
+
       if( is_product_category() || is_shop() ){
-        $current_products = $this->current_products_query();
-        if( empty( $current_products ) ) $show_widget = false;
+        $result_brands = $this->get_products_brands();
+        if( empty( $result_brands ) ) $show_widget = false;
       }
 
       if( $show_widget ){
@@ -76,25 +78,21 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
         $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
         $title = apply_filters( 'widget_title', $title );
         $limit = ( isset( $instance[ 'limit' ] ) ) ? $instance[ 'limit' ] : 20;
-
+        ob_start();
         echo $args['before_widget'];
             if ( ! empty( $title ) ) echo $args['before_title'] . $title . $args['after_title'];
-            $this->render_widget( $current_products, $limit, $hide_submit_btn );
+            $this->render_widget( $result_brands, $limit, $hide_submit_btn );
         echo $args['after_widget'];
+        return ob_get_clean();
       }
 
     }
 
 	}
 
-  public function render_widget( $current_products, $limit, $hide_submit_btn ){
-
-		$result_brands = array();
+  public function render_widget( $result_brands, $limit, $hide_submit_btn ){
 
 		if( is_product_category() || is_shop() ){
-
-				if( !empty( $current_products ) ) $result_brands = $this->get_products_brands( $current_products );
-
 				if( is_shop() ){
 					$cate_url = get_permalink( wc_get_page_id( 'shop' ) );
 				}else{
@@ -102,14 +100,12 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 					$cateID = $cate->term_id;
 					$cate_url = get_term_link($cateID);
 				}
-
 			}else{
-				//no product category
 				$cate_url = get_permalink( wc_get_page_id( 'shop' ) );
 				$result_brands =  get_terms( 'pwb-brand', array( 'hide_empty' => true, 'fields' => 'ids' ) );
 			}
 
-			if( $limit > 0 ) $result_brands = array_slice( $result_brands, 0, $limit );
+		if( $limit > 0 ) $result_brands = array_slice( $result_brands, 0, $limit );
 
       global $wp;
       $current_url = home_url(add_query_arg(array(),$wp->request));
@@ -123,6 +119,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
         }
         ksort($result_brands_ordered);
 
+
         $result_brands_ordered = apply_filters( 'pwb_widget_brand_filter', $result_brands_ordered );
 
         echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
@@ -135,54 +132,36 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
       }
 
   }
-
-  private function current_products_query(){
-
-    $args = array(
-      'posts_per_page' => -1,
-      'post_type' => 'product',
-      'tax_query' => array(
-        array(
-          'taxonomy' => 'pwb-brand',
-					'operator' => 'EXISTS'
-        )
-      ),
-			'fields' => 'ids'
-    );
-
-		$cat = get_queried_object();
-		if( is_a( $cat, 'WP_Term' ) ){
-			$cat_id 				= $cat->term_id;
-			$cat_id_array 	= get_term_children( $cat_id, 'product_cat' );
-			$cat_id_array[] = $cat_id;
-			$args['tax_query'][] = array(
-				'taxonomy' => 'product_cat',
-				'field'    => 'term_id',
-				'terms'    => $cat_id_array
-			);
-		}
-
-		if( get_option('woocommerce_hide_out_of_stock_items') === 'yes' ){
-			$args['meta_query'] = array(
-				array(
-			    'key'     => '_stock_status',
-			    'value'   => 'outofstock',
-			    'compare' => 'NOT IN'
-		    )
-			);
-		}
-
-    $wp_query = new WP_Query($args);
-		wp_reset_postdata();
-		return $wp_query->posts;
-
-  }
-
-	private function get_products_brands( $product_ids ){
-
-		$product_ids = implode(',', array_map('intval', $product_ids) );
-
+	private function get_products_brands(){
 		global $wpdb;
+		$category_query = "";
+
+		$args       = WC()->query->get_main_query()->query_vars;
+		$tax_query  = isset( $args['tax_query'] ) ? $args['tax_query'] : array();
+		$meta_query = isset( $args['meta_query'] ) ? $args['meta_query'] : array();
+		if ( ! is_post_type_archive( 'product' ) && ! empty( $args['taxonomy'] ) && ! empty( $args['term'] ) ) {
+			$tax_query[] = array(
+				'taxonomy' => $args['taxonomy'],
+				'terms'    => array( $args['term'] ),
+				'field'    => 'slug',
+			);
+		}
+
+		foreach ( $meta_query + $tax_query as $key => $query ) {
+			if ( ! empty( $query['price_filter'] ) || ! empty( $query['rating_filter'] ) ) {
+				unset( $meta_query[ $key ] );
+			}
+		}
+
+		$meta_query = new WP_Meta_Query( $meta_query );
+		$tax_query  = new WP_Tax_Query( $tax_query );
+		$search     = WC_Query::get_main_search_query_sql();
+
+		$meta_query_sql   = $meta_query->get_sql( 'post', $wpdb->posts, 'ID' );
+		$tax_query_sql    = $tax_query->get_sql( $wpdb->posts, 'ID' );
+		$search_query_sql = $search ? ' AND ' . $search : '';
+
+		
 		$brand_ids = $wpdb->get_col( "SELECT DISTINCT t.term_id
 			FROM {$wpdb->prefix}terms AS t
 			INNER JOIN {$wpdb->prefix}term_taxonomy AS tt
@@ -190,9 +169,14 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 			INNER JOIN {$wpdb->prefix}term_relationships AS tr
 			ON tr.term_taxonomy_id = tt.term_taxonomy_id
 			WHERE tt.taxonomy IN ('pwb-brand')
-			AND tr.object_id IN ($product_ids)
-			ORDER BY t.name ASC
-		" );
+			$category_query
+			and tr.object_id IN (
+				SELECT ID FROM {$wpdb->posts}
+				" . $tax_query_sql['join'] . $meta_query_sql['join'] . "
+				WHERE {$wpdb->posts}.post_type IN ('" . implode( "','", array_map( 'esc_sql', apply_filters( 'woocommerce_price_filter_post_type', array( 'product' ) ) ) ) . "')
+				AND {$wpdb->posts}.post_status = 'publish'
+				" . $tax_query_sql['where'] . $meta_query_sql['where'] . $search_query_sql . '
+			)' );
 
 		return ( $brand_ids ) ? $brand_ids : false;
 
