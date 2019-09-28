@@ -191,14 +191,13 @@ class Perfect_Woocommerce_Brands{
         $filterable_product = true;
 
       if( $filterable_product && $query->is_main_query() ) {
-
-        $query->set('tax_query', array(
-          array (
+        $tax_query = array(
             'taxonomy' => 'pwb-brand',
-            'field'    => 'slug',
-            'terms'    => $terms_array
-          )
-        ));
+              'field'    => 'slug',
+              'terms'    => $terms_array,
+            'operator'=> 'IN' );
+          $query->tax_query->queries[] = $tax_query; 
+          $query->query_vars['tax_query'] = $query->tax_query->queries;
 
       }
 
