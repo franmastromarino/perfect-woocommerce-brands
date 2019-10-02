@@ -109,7 +109,8 @@ jQuery( function ( $ ) {
         }
 
       }else{
-        currentUrl = baseUrl;
+        currentUrl = currentUrl.replace(/&?pwb-brand-filter=([^&]$|[^&]*)/i, "");
+        currentUrl = currentUrl.replace(/\/page\/\d*\//i, "");
       }
 
       location.href = currentUrl;
