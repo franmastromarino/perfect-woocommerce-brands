@@ -187,7 +187,7 @@ class Perfect_Woocommerce_Brands{
       }
 
       $filterable_product = false;
-      if( is_product_category() || is_post_type_archive( 'product' ) )
+      if( is_product_category() || is_post_type_archive( 'product' ) || is_product_tag() )
         $filterable_product = true;
 
       if( $filterable_product && $query->is_main_query() ) {

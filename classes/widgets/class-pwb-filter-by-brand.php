@@ -65,7 +65,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
       $show_widget = true;
       $current_products = false;
-      if( is_product_category() || is_shop() ){
+      if( is_product_category() || is_shop() || is_product_tag() ){
         $current_products = $this->current_products_query();
         if( empty( $current_products ) ) $show_widget = false;
       }
@@ -90,7 +90,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
 		$result_brands = array();
 
-		if( is_product_category() || is_shop() ){
+		if( is_product_category() || is_shop() || is_product_tag() ){
 
 				if( !empty( $current_products ) ) $result_brands = $this->get_products_brands( $current_products );
 
@@ -151,11 +151,11 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
 		$cat = get_queried_object();
 		if( is_a( $cat, 'WP_Term' ) ){
-			$cat_id 				= $cat->term_taxonomy_id;
-			$cat_id_array 	= get_term_children( $cat_id, 'product_cat' );
+			$cat_id 				= $cat->term_id;
+			$cat_id_array 	= get_term_children( $cat_id, $cat->taxonomy );
 			$cat_id_array[] = $cat_id;
 			$args['tax_query'][] = array(
-				'taxonomy' => 'product_cat',
+				'taxonomy' => $cat->taxonomy,
 				'field'    => 'term_id',
 				'terms'    => $cat_id_array
 			);

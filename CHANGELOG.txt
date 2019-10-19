@@ -1,4 +1,7 @@
 == Changelog ==
+= 1.7.7 =
+* Fix: Filter by brand widget shows incorrect brands under certain conditions
+* Update: WC 3.8 compatibility
 = 1.7.6 =
 * Tested up to, bump
 * Dev: New filter hook "woocommerce_product_brand_heading" for editing the "Brand" tab heading

@@ -1,4 +1,4 @@
-# Perfect WooCommerce Brands 1.7.6
+# Perfect WooCommerce Brands 1.7.7
 
 [![Perfect WooCommerce Brands](https://ps.w.org/perfect-woocommerce-brands/assets/icon-128x128.png)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
 
@@ -10,7 +10,6 @@ Whether we like to admit it or not, we are all influenced by brands. Brands are 
 - PHP 5.6 or higher (PHP7 recommended)
 - WordPress 4.7 or higher
 - WooCommerce 3.1.0 or higher
-- Visual Composer (recommended)
 
 ### Features
 - Very easy to use, 100% free, no ads, no premium version exists
