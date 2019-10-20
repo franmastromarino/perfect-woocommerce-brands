@@ -36,6 +36,7 @@ Whether we like to admit it or not, we are all influenced by brands. Brands are 
 - Brand tab for single product page
 - Favorite brands
 - Brands json import/export
+- Brand structured data
 - And much more!
 
 **Pull request are welcome :)**

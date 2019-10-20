@@ -65,7 +65,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
       $show_widget = true;
       $current_products = false;
-      if( is_product_category() || is_shop() || is_product_tag() ){
+      if( is_product_taxonomy() || is_shop() ){
         $current_products = $this->current_products_query();
         if( empty( $current_products ) ) $show_widget = false;
       }
@@ -90,7 +90,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
 		$result_brands = array();
 
-		if( is_product_category() || is_shop() || is_product_tag() ){
+		if( is_product_taxonomy() || is_shop() ){
 
 				if( !empty( $current_products ) ) $result_brands = $this->get_products_brands( $current_products );
 

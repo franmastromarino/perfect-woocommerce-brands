@@ -46,6 +46,7 @@ With this extension you can add product brands to your WooCommerce site.
 > * Brand tab for single product page
 > * Favorite brands
 > * Brands json import/export
+> * Brand structured data
 > * And much more!
 
 
@@ -81,9 +82,13 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 == Changelog ==
 = 1.7.7 =
+* Enhancement: Better support for special characters in "AZ-Listing" shortcode
 * Fix: Filter by brand widget shows incorrect brands under certain conditions
-* Fix: Filter by brands in product tags pages
+* Fix: Filter by brands in product tags pages and other product taxonomies
 * Update: WC 3.8 compatibility
+* Dev: New filter hook "pwb_text_before_brands_links"
+* Dev: New filter hook "pwb_product_tab_brand_logo_size"
+* Dev: "[pwb-az-listing]" and "[pwb-brand]" templates for theme overrides
 = 1.7.6 =
 * Tested up to, bump
 * Dev: New filter hook "woocommerce_product_brand_heading" for editing the "Brand" tab heading

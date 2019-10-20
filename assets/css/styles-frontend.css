@@ -303,6 +303,15 @@
 }
 /* ----------------------- /Columns ----------------------- */
 
+/* ----------------------- Single product ----------------------- */
+.pwb-single-product-brands{
+  padding-top: 1em;
+}
+.pwb-text-before-brands-links{
+  margin-right: 10px;
+}
+/* ----------------------- /Single product ----------------------- */
+
 /* ----------------------- Responsive ----------------------- */
 @media screen and (max-width: 1000px) {
     .pwb-all-brands .pwb-brands-cols-outer .pwb-brands-col3{
