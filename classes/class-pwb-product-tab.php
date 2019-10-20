@@ -46,7 +46,7 @@ class PWB_Product_Tab{
 
       <?php
       $brand_logo = get_term_meta( $brand->term_id, 'pwb_brand_image', true );
-      $brand_logo = wp_get_attachment_image( $brand_logo, 'thumbnail' );
+      $brand_logo = wp_get_attachment_image( $brand_logo, apply_filters( 'pwb_product_tab_brand_logo_size', 'thumbnail' ) );
       ?>
 
       <div id="tab-pwb_tab-content">

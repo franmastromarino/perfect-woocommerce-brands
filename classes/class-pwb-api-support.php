@@ -52,7 +52,7 @@ class PWB_API_Support{
     public function create_brand( $request ){
       $new_brand = wp_insert_term( $request['name'], 'pwb-brand', array( 'slug' => $request['slug'], 'description' => $request['description'] ) );
       if( !is_wp_error( $new_brand ) ){
-        return true;
+        return array('id' => $new_brand['term_id'], 'name' => $request['name'], 'slug' => $request['slug'], 'description' => $request['description']);
       }else{
         return $new_brand;
       }

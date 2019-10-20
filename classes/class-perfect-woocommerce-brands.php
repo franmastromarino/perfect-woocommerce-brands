@@ -177,9 +177,9 @@ class Perfect_Woocommerce_Brands{
 
   public function pwb_brand_filter( $query ){
 
-    if( !empty($_GET['pwb-brand-filter']) ){
+    if( !empty( $_GET['pwb-brand-filter'] ) ){
 
-      $terms_array = explode(',',$_GET['pwb-brand-filter']);
+      $terms_array = explode( ',', $_GET['pwb-brand-filter'] );
 
       //remove invalid terms (security)
       for($i=0; $i < count($terms_array); $i++) {
@@ -187,7 +187,7 @@ class Perfect_Woocommerce_Brands{
       }
 
       $filterable_product = false;
-      if( is_product_category() || is_post_type_archive( 'product' ) )
+      if( is_product_taxonomy() || is_post_type_archive( 'product' ) )
         $filterable_product = true;
 
       if( $filterable_product && $query->is_main_query() ) {
@@ -616,6 +616,13 @@ class Perfect_Woocommerce_Brands{
               do_action( 'pwb_before_single_product_brands', $brands );
 
               echo '<div class="pwb-single-product-brands pwb-clearfix">';
+
+              if( $show_as == 'brand_link' ){
+                echo '<span class="pwb-text-before-brands-links">';
+                  echo apply_filters( 'pwb_text_before_brands_links', __('Brands', 'perfect-woocommerce-brands') );
+                echo ':</span>';
+              }
+
               foreach( $brands as $brand ){
                   $brand_link = get_term_link ( $brand->term_id, 'pwb-brand' );
                   $attachment_id = get_term_meta( $brand->term_id, 'pwb_brand_image', 1 );

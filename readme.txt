@@ -5,7 +5,7 @@ Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufactu
 Requires at least: 4.7
 Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 1.7.6
+Stable tag: 1.7.7
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -20,7 +20,6 @@ With this extension you can add product brands to your WooCommerce site.
 > * PHP 5.6 or higher (PHP7 recommended)
 > * WordPress 4.7 or higher
 > * WooCommerce 3.1.0 or higher
-> * Visual Composer (recommended)
 
 = Features =
 > * Very easy to use, 100% free, no ads, no premium version exists
@@ -47,6 +46,7 @@ With this extension you can add product brands to your WooCommerce site.
 > * Brand tab for single product page
 > * Favorite brands
 > * Brands json import/export
+> * Brand structured data
 > * And much more!
 
 
@@ -81,6 +81,14 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 1.7.7 =
+* Enhancement: Better support for special characters in "AZ-Listing" shortcode
+* Fix: Filter by brand widget shows incorrect brands under certain conditions
+* Fix: Filter by brands in product tags pages and other product taxonomies
+* Update: WC 3.8 compatibility
+* Dev: New filter hook "pwb_text_before_brands_links"
+* Dev: New filter hook "pwb_product_tab_brand_logo_size"
+* Dev: "[pwb-az-listing]" and "[pwb-brand]" templates for theme overrides
 = 1.7.6 =
 * Tested up to, bump
 * Dev: New filter hook "woocommerce_product_brand_heading" for editing the "Brand" tab heading
