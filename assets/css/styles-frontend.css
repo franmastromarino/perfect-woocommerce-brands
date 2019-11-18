@@ -20,7 +20,7 @@
   margin: 0 auto;
 }
 .pwb-carousel .slick-loading .slick-list, .pwb-product-carousel .slick-loading .slick-list{
-    background: #fff url('./ajax-loader.gif') center center no-repeat;
+    background: #fff url('../lib/slick/ajax-loader.gif') center center no-repeat;
 }
 .pwb-carousel .pwb-slick-slide, .pwb-product-carousel .pwb-slick-slide{
     margin: 0 10px;
