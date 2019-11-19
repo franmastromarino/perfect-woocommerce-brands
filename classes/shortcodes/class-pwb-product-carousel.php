@@ -55,20 +55,19 @@ class PWB_Product_Carousel_Shortcode{
     );
 
     if( self::$atts['brand'] != 'all' ){
-        $args['tax_query'] = array(
-            array(
-                'taxonomy' => 'pwb-brand',
-                'field'    => 'slug',
-                'terms'    => self::$atts['brand']
-            )
-        );
+      $args['tax_query'] = array(
+        array(
+          'taxonomy' => 'pwb-brand',
+          'field'    => 'slug',
+          'terms'    => self::$atts['brand']
+        )
+      );
     }
-
     if( self::$atts['category'] != 'all'){
         $woo_category_query =    array(
-                'taxonomy' => 'product_cat',
-                'field'    => 'slug',
-                'terms'    => self::$atts['category']
+            'taxonomy' => 'product_cat',
+            'field'    => 'slug',
+            'terms'    => self::$atts['category']
         );
         if(isset($args['tax_query']) && is_array($args['tax_query'])) {
             $args['tax_query'][] = $woo_category_query;
@@ -77,19 +76,20 @@ class PWB_Product_Carousel_Shortcode{
         }
     }
 
-    $loop = new \WP_Query( $args );
-    if( $loop->have_posts() ) {
-        while ( $loop->have_posts() ) : $loop->the_post();
-    $product = wc_get_product( get_the_ID() );
-     $products[] = array(
-      'id'          => get_the_ID(),
-      'permalink'   => get_the_permalink(),
-      'thumbnail'   => woocommerce_get_product_thumbnail(),
-      'title'       => $product->get_title()
-    );
-     endwhile;
-    }
-    wp_reset_postdata();
+		$loop = new \WP_Query( $args );
+		if( $loop->have_posts() ) {
+			while ( $loop->have_posts() ) : $loop->the_post();
+        $product = wc_get_product( get_the_ID() );
+
+        $products[] = array(
+          'id'          => get_the_ID(),
+          'permalink'   => get_the_permalink(),
+          'thumbnail'   => woocommerce_get_product_thumbnail(),
+          'title'       => $product->get_title()
+        );
+			endwhile;
+		}
+		wp_reset_postdata();
 
     return $products;
 
