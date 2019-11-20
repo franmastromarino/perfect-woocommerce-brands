@@ -50,6 +50,7 @@ register_deactivation_hook( __FILE__, function(){
 //loads textdomain for the translations
 add_action( 'plugins_loaded', function(){
   load_plugin_textdomain( 'perfect-woocommerce-brands', false, PWB_PLUGIN_PATH . '/lang' );
+  require 'classes/shortcodes/class-pwb-wc-products.php';
 } );
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );

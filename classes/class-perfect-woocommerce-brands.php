@@ -242,7 +242,12 @@ class Perfect_Woocommerce_Brands{
       '\Perfect_Woocommerce_Brands\Shortcodes\PWB_Brand_Shortcode',
       'brand_shortcode'
     ) );
-  }
+
+    add_shortcode( 'pwb-wc-products', array(
+      '\Perfect_Woocommerce_Brands\Shortcodes\PWB_WC_Products_Shortcode',
+      'render_shortcode'
+    ) );
+}
 
   public function register_widgets(){
     register_widget( '\Perfect_Woocommerce_Brands\Widgets\PWB_List_Widget' );
