@@ -3,9 +3,9 @@ Contributors: titodevera
 Donate link: mailto:hola@albertodevera.es
 Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
-Tested up to: 5.2
+Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 1.7.7
+Stable tag: 1.7.8
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -81,6 +81,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 1.7.8 =
+* Feature: Add the possibility to filter by product category on product carousel shortcode (thanks @lasdou)
 = 1.7.7 =
 * Enhancement: Better support for special characters in "AZ-Listing" shortcode
 * Fix: Filter by brand widget shows incorrect brands under certain conditions
