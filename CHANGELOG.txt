@@ -1,6 +1,7 @@
 == Changelog ==
 = 1.7.8 =
 * Feature: Add the possibility to filter by product category on product carousel shortcode (thanks @lasdou)
+* Dev: New filter hook "pwb_html_before_brands_links"
 = 1.7.7 =
 * Enhancement: Better support for special characters in "AZ-Listing" shortcode
 * Fix: Filter by brand widget shows incorrect brands under certain conditions

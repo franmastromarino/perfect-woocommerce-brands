@@ -617,10 +617,11 @@ class Perfect_Woocommerce_Brands{
 
               echo '<div class="pwb-single-product-brands pwb-clearfix">';
 
-              if( $show_as == 'brand_link' ){
-                echo '<span class="pwb-text-before-brands-links">';
-                  echo apply_filters( 'pwb_text_before_brands_links', __('Brands', 'perfect-woocommerce-brands') );
-                echo ':</span>';
+              if ( $show_as == 'brand_link' ) {
+                $before_brands_links = '<span class="pwb-text-before-brands-links">';
+                $before_brands_links.= apply_filters( 'pwb_text_before_brands_links', __('Brands', 'perfect-woocommerce-brands') );
+                $before_brands_links.= ':</span>';
+                echo apply_filters( 'pwb_html_before_brands_links', $before_brands_links );
               }
 
               foreach( $brands as $brand ){
