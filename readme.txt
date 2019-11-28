@@ -82,6 +82,7 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 == Changelog ==
 = 1.7.8 =
+* Feature: Redirect if the search matches with a brand name. Better product search experience.
 * Feature: Add the possibility to filter by product category on product carousel shortcode (thanks @lasdou)
 * Dev: New filter hook "pwb_html_before_brands_links"
 = 1.7.7 =
