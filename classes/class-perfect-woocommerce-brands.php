@@ -253,6 +253,7 @@ class Perfect_Woocommerce_Brands{
   public function show_brands_in_loop(){
 
     $brands_in_loop = get_option('wc_pwb_admin_tab_brands_in_loop');
+    $image_size_selected = get_option('wc_pwb_admin_tab_brand_logo_size');
 
     if( $brands_in_loop == 'brand_link' || $brands_in_loop == 'brand_image' ){
 
@@ -267,7 +268,7 @@ class Perfect_Woocommerce_Brands{
             $brand_link = get_term_link ( $brand->term_id, 'pwb-brand' );
             $attachment_id = get_term_meta( $brand->term_id, 'pwb_brand_image', 1 );
 
-            $attachment_html = wp_get_attachment_image( $attachment_id, 'thumbnail' );
+            $attachment_html = wp_get_attachment_image( $attachment_id, $image_size_selected );
             if( !empty($attachment_html) && $brands_in_loop == 'brand_image' ){
               echo '<a href="'.$brand_link.'">'.$attachment_html.'</a>';
             }else{
