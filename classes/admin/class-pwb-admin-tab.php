@@ -146,7 +146,6 @@
                     'name'    => __( 'Brand logo size', 'perfect-woocommerce-brands' ),
                     'type'    => 'select',
                     'class'  => 'pwb-admin-tab-field',
-                    'desc'    => __( 'Brand logo size for single product view', 'perfect-woocommerce-brands' ),
                     'id'      => 'wc_pwb_admin_tab_brand_logo_size',
                     'options' => $available_image_sizes_adapted
                 ),
