@@ -254,7 +254,7 @@ class Perfect_Woocommerce_Brands{
   public function show_brands_in_loop(){
 
     $brands_in_loop = get_option('wc_pwb_admin_tab_brands_in_loop');
-    $image_size_selected = get_option('wc_pwb_admin_tab_brand_logo_size');
+    $image_size_selected = get_option('wc_pwb_admin_tab_brand_logo_size', 'thumbnail');
 
     if( $brands_in_loop == 'brand_link' || $brands_in_loop == 'brand_image' ){
 
@@ -631,7 +631,7 @@ class Perfect_Woocommerce_Brands{
                   $attachment_id = get_term_meta( $brand->term_id, 'pwb_brand_image', 1 );
 
                   $image_size = 'thumbnail';
-                  $image_size_selected = get_option('wc_pwb_admin_tab_brand_logo_size');
+                  $image_size_selected = get_option('wc_pwb_admin_tab_brand_logo_size', 'thumbnail');
                   if($image_size_selected!=false){
                       $image_size = $image_size_selected;
                   }

@@ -23,7 +23,7 @@
  *      along with Perfect WooCommerce Brands.  If not, see <http://www.gnu.org/licenses/>.
  *
  *  WC requires at least: 3.1.0
- *  WC tested up to: 3.8
+ *  WC tested up to: 3.9
  */
 
 namespace Perfect_Woocommerce_Brands;
