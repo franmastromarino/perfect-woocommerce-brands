@@ -465,10 +465,6 @@ msgstr ""
 msgid "Show brand logo (or name) in single product"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:132
-msgid "Brand logo size for single product view"
-msgstr ""
-
 #: classes/admin/class-pwb-admin-tab.php:137
 msgid "Brand position"
 msgstr ""

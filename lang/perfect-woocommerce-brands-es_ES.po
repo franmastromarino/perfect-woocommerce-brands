@@ -484,10 +484,6 @@ msgstr "Mostrar marcas en la página del producto"
 msgid "Show brand logo (or name) in single product"
 msgstr "Mostrar el logo de la marca (o el nombre) en la página del producto"
 
-#: classes/admin/class-pwb-admin-tab.php:132
-msgid "Brand logo size for single product view"
-msgstr "Tamaño del logo para la vista individual de producto"
-
 #: classes/admin/class-pwb-admin-tab.php:137
 msgid "Brand position"
 msgstr "Posición de la marca"

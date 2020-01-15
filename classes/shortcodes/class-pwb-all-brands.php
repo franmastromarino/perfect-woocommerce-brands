@@ -28,6 +28,19 @@ class PWB_All_Brands_Shortcode{
       $brands = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( $hide_empty, $atts['order_by'], $atts['order'] );
     }
 
+    //remove residual empty brands
+    foreach ( $brands as $key => $brand ) {
+
+      $count = self::count_visible_products( $brand->term_id );
+
+      if ( ! $count && $hide_empty ){
+        unset( $brands[$key] );
+      } else {
+        $brands[$key]->count_pwb = $count;
+      }
+
+    }
+
     ?>
     <div class="pwb-all-brands">
       <?php static::pagination( $brands, $atts['per_page'], $atts['image_size'], $atts['title_position'] );?>
@@ -35,6 +48,35 @@ class PWB_All_Brands_Shortcode{
     <?php
 
     return ob_get_clean();
+  }
+
+  /**
+   *  WP_Term->count property don´t care about hidden products
+   *  Counts the products in a specific brand
+   */
+  public static function count_visible_products( $brand_id ) {
+
+    $args = array(
+      'posts_per_page' => -1,
+      'post_type'      => 'product',
+      'tax_query'      => array(
+        array(
+          'taxonomy'  => 'pwb-brand',
+          'field'     => 'ID',
+          'terms'     => $brand_id
+        ),
+        array(
+          'taxonomy' => 'product_visibility',
+          'field'    => 'name',
+          'terms'    => 'exclude-from-catalog',
+          'operator' => 'NOT IN',
+        )
+      )
+    );
+    $wc_query = new \WP_Query($args);
+
+    return $wc_query->found_posts;
+
   }
 
   public static function pagination( $display_array, $show_per_page, $image_size, $title_position ) {
@@ -62,15 +104,16 @@ class PWB_All_Brands_Shortcode{
       ?>
       <div class="pwb-brands-cols-outer">
         <?php
-        foreach($outArray as $brand){
-          $brand_id = $brand->term_id;
+        foreach( $outArray as $brand ) {
+
+          $brand_id   = $brand->term_id;
           $brand_name = $brand->name;
           $brand_link = get_term_link($brand_id);
 
           $attachment_id = get_term_meta( $brand_id, 'pwb_brand_image', 1 );
           $attachment_html = $brand_name;
           if($attachment_id!=''){
-            $attachment_html = wp_get_attachment_image($attachment_id,$image_size);
+            $attachment_html = wp_get_attachment_image( $attachment_id, $image_size );
           }
 
           ?>
@@ -79,7 +122,7 @@ class PWB_All_Brands_Shortcode{
             <?php if( $title_position != 'none' && $title_position != 'after' ): ?>
               <p>
                 <a href="<?php echo $brand_link;?>"><?php echo $brand_name;?></a>
-                <small>(<?php echo $brand->count;?>)</small>
+                <small>(<?php echo $brand->count_pwb;?>)</small>
               </p>
             <?php endif; ?>
 
@@ -90,7 +133,7 @@ class PWB_All_Brands_Shortcode{
             <?php if( $title_position != 'none' && $title_position == 'after' ): ?>
               <p>
                 <a href="<?php echo $brand_link;?>"><?php echo $brand_name;?></a>
-                <small>(<?php echo $brand->count;?>)</small>
+                <small>(<?php echo $brand->count_pwb;?>)</small>
               </p>
             <?php endif; ?>
 

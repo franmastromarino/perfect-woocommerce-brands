@@ -11,6 +11,7 @@ class PWB_Product_Carousel_Shortcode{
 
     self::$atts = shortcode_atts( array(
         'brand'               => "all",
+        'category'            => "all",
         'products'            => "10",
         'products_to_show'    => "5",
         'products_to_scroll'  => "1",
@@ -61,6 +62,18 @@ class PWB_Product_Carousel_Shortcode{
           'terms'    => self::$atts['brand']
         )
       );
+    }
+    if( self::$atts['category'] != 'all'){
+        $woo_category_query =    array(
+            'taxonomy' => 'product_cat',
+            'field'    => 'slug',
+            'terms'    => self::$atts['category']
+        );
+        if(isset($args['tax_query']) && is_array($args['tax_query'])) {
+            $args['tax_query'][] = $woo_category_query;
+        } else {
+            $args['tax_query'] = array($woo_category_query);
+        }
     }
 
 		$loop = new \WP_Query( $args );
