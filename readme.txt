@@ -5,7 +5,7 @@ Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufactu
 Requires at least: 4.7
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 1.7.8
+Stable tag: 1.7.9
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -81,6 +81,10 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 1.7.9 =
+* Fix: Ajax search plugins conflict since previous release
+* Feature: New position option "in meta" for brands in the single product page
+* Enhancement: Sections for brands settings tab in admin
 = 1.7.8 =
 * Fix: Hidden products contribute towards product count for "pwb-all-brands" shortcode
 * Enhancement: Replace hardcoded thumbnail size for product loops with selected size (thanks @orjhor)
@@ -139,48 +143,3 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 * Enhancement: Enqueue the carousel lib conditionally
 * Dev: New filter hook 'pwb_description_allowed_tags'
 * Update: WC 3.5 compatibility
-= 1.6.5 =
-* Include icon and banner brand image in api response (thanks @qbig)
-* Feature: New option for show only favorite brands in the dropdown widget and the list widget
-* Feature: New option for configure the max number of brands in filter by brand widget
-* Feature: Filter by brand without submit button
-* Feature: New option for randomize brand logos in the list widget
-* Feature: Hide empty brands in brand carousel
-* Enhancement: Hide widgets when there are no results to show
-* Fix: "Dokan Multivendor Marketplace" JavaScript conflict in admin
-= 1.6.4 =
-* Feature: Visual editor with shortcode support added to brand description
-* Feature: Hide empty brands in brand widgets
-* Feature: Place brand description before or after product loop
-* Fix: WC import not assigning brands
-* Minor fixes and tweaks
-= 1.6.3 =
-* Requirements: No more longer support for very old php versions (5.4 minimum)
-* Fix: Product carousels shortcode display fixes
-* Fix: Missing .pot file
-* Fix: Coupon codes stopped working since latest update
-* Fix: Carousel preloader is not working
-= 1.6.2 =
-* Fix: Carousels problems on responsive after the last update
-= 1.6.1 =
-* Feature: Favorite brands
-* Fix: Brand logo full size option for single product
-* Fix: Coupons brands restriction (thanks @josk79)
-* Fix: Import products fixes
-* Fix: PHP7 warning on 'class-perfect-woocommerce-brands.php'
-* Fix: Brand not added when Duplicating Product
-* Enhancement: Filter by brand widget enhancements
-* Enhancement: Carousels enhancements
-* Enhancement: JS and CSS minified
-= 1.6.0 =
-* Feature: Migrate brands from the official WooCommerce Brand's plugin (pull request, thanks Chunkford)
-* Feature: Support for the new WooCommerce product importer/exporter
-* Feature: Brand tab in single product page
-* Enhancement: Brands dropdown widget selects the current brand if is a brand archive page
-* Enhancement: Hide the brand name in "Display all brands" shortcode (title_position="none")
-* Enhancement: Important enhancements for the REST API
-* Fix: The brand property is not recognized by Google
-* Fix: No shortcode appeared in some Visual Composer versions
-* Fix: Filter by brand widget fixes
-* Fix: Brand description adds description twice
-* Other minor bug fixes and code improvements

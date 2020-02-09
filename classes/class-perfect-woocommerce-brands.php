@@ -299,10 +299,11 @@ class Perfect_Woocommerce_Brands{
   private function brand_logo_position(){
     $position = 41;
     $position_selected = get_option('wc_pwb_admin_tab_brand_single_position');
-    if(!$position_selected){
-      update_option('wc_pwb_admin_tab_brand_single_position','after_meta');
+    if ( ! $position_selected ) {
+      update_option( 'wc_pwb_admin_tab_brand_single_position', 'after_meta' );
     }
-    switch ($position_selected) {
+
+    switch ( $position_selected ) {
       case 'before_title':
         $position = 4;
         break;
@@ -325,7 +326,13 @@ class Perfect_Woocommerce_Brands{
         $position = 51;
         break;
     }
-    add_action('woocommerce_single_product_summary', array($this,'action_woocommerce_single_product_summary'), $position);
+
+    if ( $position_selected == 'meta' ) {
+      add_action( 'woocommerce_product_meta_end', [ $this, 'action_woocommerce_single_product_summary' ] );
+    } else {
+      add_action( 'woocommerce_single_product_summary', [ $this, 'action_woocommerce_single_product_summary' ], $position );
+    }
+
   }
 
   public function brand_desc_position(){
@@ -921,6 +928,8 @@ class Perfect_Woocommerce_Brands{
    *  Better search experience
    */
   public function search_by_brand_name( $query ) {
+
+    if ( wp_doing_ajax() ) return;
 
     if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
 

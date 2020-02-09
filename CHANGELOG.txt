@@ -1,4 +1,8 @@
 == Changelog ==
+= 1.7.9 =
+* Fix: Ajax search plugins conflict since previous release
+* Feature: New position option "in meta" for brands in the single product page
+* Enhancement: Sections for brands settings tab in admin
 = 1.7.8 =
 * Fix: Hidden products contribute towards product count for "pwb-all-brands" shortcode
 * Enhancement: Replace hardcoded thumbnail size for product loops with selected size (thanks @orjhor)
