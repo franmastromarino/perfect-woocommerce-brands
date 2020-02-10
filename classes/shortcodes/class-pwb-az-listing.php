@@ -8,9 +8,13 @@ class PWB_AZ_Listing_Shortcode{
 
   public static function shortcode( $atts ) {
 
-    $atts = shortcode_atts( array(), $atts, 'pwb-az-listing' );
+    $atts = shortcode_atts( array(
+      'only_parents' => false,
+    ), $atts, 'pwb-az-listing' );
 
-    $brands         = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( true, 'name', 'ASC' );
+    $only_parents = filter_var( $atts['only_parents'], FILTER_VALIDATE_BOOLEAN );
+
+    $brands         = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( true, 'name', 'ASC', false, false, $only_parents );
     $grouped_brands = array();
 
     foreach( $brands as $brand ){

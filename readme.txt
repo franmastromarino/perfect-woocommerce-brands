@@ -84,6 +84,7 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 = 1.7.9 =
 * Fix: Ajax search plugins conflict since previous release
 * Feature: New position option "in meta" for brands in the single product page
+* Feature: New param "only_parents" for "pwb-az-listing"
 * Enhancement: Sections for brands settings tab in admin
 = 1.7.8 =
 * Fix: Hidden products contribute towards product count for "pwb-all-brands" shortcode

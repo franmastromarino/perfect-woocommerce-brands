@@ -577,7 +577,15 @@ class Perfect_Woocommerce_Brands{
         "class"       => "",
         "icon"        => PWB_PLUGIN.'/assets/img/icon_pwb.jpg',
         "category"    =>  "WooCommerce",
-        "params" => array()
+        "params" => array(
+          array(
+              "type"        => "dropdown",
+              "heading"     => __( "Only parent brands", "perfect-woocommerce-brands" ),
+              "param_name"  => "only_parents",
+              "admin_label" => true,
+              "value"       => array( __('No') => 'no', __('Yes') => 'yes' ),
+          )
+        )
       ));
 
       vc_map(array(
@@ -789,11 +797,12 @@ class Perfect_Woocommerce_Brands{
       return $brand_img;
   }
 
-  public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false, $pwb_term = false ){
+  public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false, $pwb_term = false, $only_parents = false ){
       $result = array();
 
       $brands_args = array( 'hide_empty' => $hide_empty, 'orderby' => $order_by, 'order' => $order );
       if( $only_featured ) $brands_args['meta_query'] = array( array( 'key' => 'pwb_featured_brand', 'value' => true ) );
+      if( $only_parents ) $brands_args['parent'] = 0;
 
       $brands = get_terms('pwb-brand', $brands_args);
 
