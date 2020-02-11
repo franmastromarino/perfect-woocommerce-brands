@@ -82,6 +82,7 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 == Changelog ==
 = 1.7.9 =
+* Fix: Breadcrumbs issues
 * Fix: Ajax search plugins conflict since previous release
 * Feature: New position option "in meta" for brands in the single product page
 * Feature: New param "only_parents" for "pwb-az-listing"

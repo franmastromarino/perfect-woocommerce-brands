@@ -919,16 +919,25 @@ class Perfect_Woocommerce_Brands{
 
   public function breadcrumbs( $crumbs ) {
 
-    if( is_tax('pwb-brand') ){
+    if ( is_tax('pwb-brand') ) {
+
       $brands_page_id = get_option('wc_pwb_admin_tab_brands_page_id');
 
-      if( !empty( $brands_page_id ) && $brands_page_id != '-' && isset( $crumbs[count($crumbs)-2][1] ) ){
-        $crumb_index = ( is_paged() ) ? count($crumbs)-3 : count($crumbs)-2;
-        if( isset( $crumb_index ) )
-          $crumbs[$crumb_index][1] = get_page_link( $brands_page_id );
+      if ( ! empty( $brands_page_id ) && $brands_page_id != '-' ) {
+
+        $cur_brand = get_queried_object();
+        $brand_ancestors = get_ancestors( $cur_brand->term_id, 'pwb-brand', 'taxonomy' );
+
+        $brand_page_pos = count( $crumbs ) - ( count( $brand_ancestors ) + 2 );
+        if ( is_paged() ) $brand_page_pos -= 1;
+
+        if ( isset( $crumbs[$brand_page_pos][1] ) )
+          $crumbs[$brand_page_pos][1] = get_page_link( $brands_page_id );
+
       }
 
     }
+
     return $crumbs;
   }
 
