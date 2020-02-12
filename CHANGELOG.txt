@@ -5,6 +5,7 @@
 * Feature: New position option "in meta" for brands in the single product page
 * Feature: New param "only_parents" for "pwb-az-listing"
 * Enhancement: Sections for brands settings tab in admin
+* Enhancement: "[pwb-az-listing]" transient for better performance in large sites
 = 1.7.8 =
 * Fix: Hidden products contribute towards product count for "pwb-all-brands" shortcode
 * Enhancement: Replace hardcoded thumbnail size for product loops with selected size (thanks @orjhor)

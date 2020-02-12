@@ -40,6 +40,21 @@ class Perfect_Woocommerce_Brands{
     add_action( 'posts_clauses', array( $this, 'brands_column_sortable_posts' ), 10, 2 );
     add_filter( 'post_type_link', array( $this, 'brand_name_in_url' ), 10, 2 );
     add_action( 'pre_get_posts', array( $this, 'search_by_brand_name' ) );
+
+    //clean caches
+    add_action( 'edited_terms', array( $this, 'clean_caches' ), 10, 2 );
+    add_action( 'created_term', array( $this, 'clean_caches_after_edit_brand' ), 10, 3 );
+    add_action( 'delete_term', array( $this, 'clean_caches_after_edit_brand' ), 10, 3 );
+  }
+
+  public function clean_caches( $term_id, $taxonomy ) {
+    if ( $taxonomy != 'pwb-brand' ) return;
+    delete_transient('pwb_az_listing_cache');
+  }
+
+  public function clean_caches_after_edit_brand( $term_id, $tt_id, $taxonomy ) {
+    if ( $taxonomy != 'pwb-brand' ) return;
+    delete_transient('pwb_az_listing_cache');
   }
 
   /**
