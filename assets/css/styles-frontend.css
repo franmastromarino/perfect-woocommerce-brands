@@ -304,8 +304,11 @@
 .pwb-single-product-brands{
   padding-top: 1em;
 }
+.product_meta .pwb-single-product-brands{
+  padding-top: 0;
+}
 .pwb-text-before-brands-links{
-  margin-right: 10px;
+  margin-right: 4px;
 }
 /* ----------------------- /Single product ----------------------- */
 

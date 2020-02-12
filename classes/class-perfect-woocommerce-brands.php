@@ -40,6 +40,21 @@ class Perfect_Woocommerce_Brands{
     add_action( 'posts_clauses', array( $this, 'brands_column_sortable_posts' ), 10, 2 );
     add_filter( 'post_type_link', array( $this, 'brand_name_in_url' ), 10, 2 );
     add_action( 'pre_get_posts', array( $this, 'search_by_brand_name' ) );
+
+    //clean caches
+    add_action( 'edited_terms', array( $this, 'clean_caches' ), 10, 2 );
+    add_action( 'created_term', array( $this, 'clean_caches_after_edit_brand' ), 10, 3 );
+    add_action( 'delete_term', array( $this, 'clean_caches_after_edit_brand' ), 10, 3 );
+  }
+
+  public function clean_caches( $term_id, $taxonomy ) {
+    if ( $taxonomy != 'pwb-brand' ) return;
+    delete_transient('pwb_az_listing_cache');
+  }
+
+  public function clean_caches_after_edit_brand( $term_id, $tt_id, $taxonomy ) {
+    if ( $taxonomy != 'pwb-brand' ) return;
+    delete_transient('pwb_az_listing_cache');
   }
 
   /**
@@ -299,10 +314,11 @@ class Perfect_Woocommerce_Brands{
   private function brand_logo_position(){
     $position = 41;
     $position_selected = get_option('wc_pwb_admin_tab_brand_single_position');
-    if(!$position_selected){
-      update_option('wc_pwb_admin_tab_brand_single_position','after_meta');
+    if ( ! $position_selected ) {
+      update_option( 'wc_pwb_admin_tab_brand_single_position', 'after_meta' );
     }
-    switch ($position_selected) {
+
+    switch ( $position_selected ) {
       case 'before_title':
         $position = 4;
         break;
@@ -325,7 +341,13 @@ class Perfect_Woocommerce_Brands{
         $position = 51;
         break;
     }
-    add_action('woocommerce_single_product_summary', array($this,'action_woocommerce_single_product_summary'), $position);
+
+    if ( $position_selected == 'meta' ) {
+      add_action( 'woocommerce_product_meta_end', [ $this, 'action_woocommerce_single_product_summary' ] );
+    } else {
+      add_action( 'woocommerce_single_product_summary', [ $this, 'action_woocommerce_single_product_summary' ], $position );
+    }
+
   }
 
   public function brand_desc_position(){
@@ -570,7 +592,15 @@ class Perfect_Woocommerce_Brands{
         "class"       => "",
         "icon"        => PWB_PLUGIN.'/assets/img/icon_pwb.jpg',
         "category"    =>  "WooCommerce",
-        "params" => array()
+        "params" => array(
+          array(
+              "type"        => "dropdown",
+              "heading"     => __( "Only parent brands", "perfect-woocommerce-brands" ),
+              "param_name"  => "only_parents",
+              "admin_label" => true,
+              "value"       => array( __('No') => 'no', __('Yes') => 'yes' ),
+          )
+        )
       ));
 
       vc_map(array(
@@ -782,11 +812,12 @@ class Perfect_Woocommerce_Brands{
       return $brand_img;
   }
 
-  public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false, $pwb_term = false ){
+  public static function get_brands( $hide_empty = false, $order_by = 'name', $order = 'ASC', $only_featured = false, $pwb_term = false, $only_parents = false ){
       $result = array();
 
       $brands_args = array( 'hide_empty' => $hide_empty, 'orderby' => $order_by, 'order' => $order );
       if( $only_featured ) $brands_args['meta_query'] = array( array( 'key' => 'pwb_featured_brand', 'value' => true ) );
+      if( $only_parents ) $brands_args['parent'] = 0;
 
       $brands = get_terms('pwb-brand', $brands_args);
 
@@ -903,16 +934,25 @@ class Perfect_Woocommerce_Brands{
 
   public function breadcrumbs( $crumbs ) {
 
-    if( is_tax('pwb-brand') ){
+    if ( is_tax('pwb-brand') ) {
+
       $brands_page_id = get_option('wc_pwb_admin_tab_brands_page_id');
 
-      if( !empty( $brands_page_id ) && $brands_page_id != '-' && isset( $crumbs[count($crumbs)-2][1] ) ){
-        $crumb_index = ( is_paged() ) ? count($crumbs)-3 : count($crumbs)-2;
-        if( isset( $crumb_index ) )
-          $crumbs[$crumb_index][1] = get_page_link( $brands_page_id );
+      if ( ! empty( $brands_page_id ) && $brands_page_id != '-' ) {
+
+        $cur_brand = get_queried_object();
+        $brand_ancestors = get_ancestors( $cur_brand->term_id, 'pwb-brand', 'taxonomy' );
+
+        $brand_page_pos = count( $crumbs ) - ( count( $brand_ancestors ) + 2 );
+        if ( is_paged() ) $brand_page_pos -= 1;
+
+        if ( isset( $crumbs[$brand_page_pos][1] ) )
+          $crumbs[$brand_page_pos][1] = get_page_link( $brands_page_id );
+
       }
 
     }
+
     return $crumbs;
   }
 
@@ -921,6 +961,8 @@ class Perfect_Woocommerce_Brands{
    *  Better search experience
    */
   public function search_by_brand_name( $query ) {
+
+    if ( wp_doing_ajax() ) return;
 
     if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
 
