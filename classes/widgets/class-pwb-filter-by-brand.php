@@ -19,19 +19,23 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
     $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
     $limit = ( isset( $instance[ 'limit' ] ) ) ? $instance[ 'limit' ] : 20;
-    $hide_submit_btn = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
+    $hide_submit_btn         = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
+    $only_first_level_brands = ( isset( $only_first_level_brands ) && $only_first_level_brands == 'on' ) ? true : false;
     ?>
-    <p>
+
+		<p>
       <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
       <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
     </p>
-    <p>
+
+		<p>
       <label for="<?php echo $this->get_field_id( 'limit' ); ?>">
         <?php echo __( 'Max number of brands', 'perfect-woocommerce-brands' );?>
       </label>
       <input class="widefat" id="<?php echo $this->get_field_id( 'limit' ); ?>" name="<?php echo $this->get_field_name( 'limit' ); ?>" type="text" value="<?php echo esc_attr( $limit ); ?>" />
     </p>
-    <p>
+
+		<p>
       <input
       type="checkbox"
       id="<?php echo esc_attr( $this->get_field_id('hide_submit_btn') ); ?>"
@@ -41,6 +45,18 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
         <?php echo __( 'Hide filter button', 'perfect-woocommerce-brands' );?>
       </label>
     </p>
+
+		<p>
+		  <input
+		  type="checkbox"
+		  id="<?php echo esc_attr( $this->get_field_id('only_first_level_brands') ); ?>"
+		  name="<?php echo esc_attr( $this->get_field_name('only_first_level_brands') ); ?>"
+		  <?php checked( $only_first_level_brands ); ?>>
+		  <label for="<?php echo esc_attr( $this->get_field_id('only_first_level_brands') ); ?>">
+		    <?php echo __( 'Show only first level brands', 'perfect-woocommerce-brands' );?>
+		  </label>
+		</p>
+
     <?php
   }
 
@@ -52,6 +68,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 		$instance['title']      		 = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
 		$instance['limit']      		 = ( $limit != false ) ? $limit : $old_instance['limit'];
     $instance['hide_submit_btn'] = ( isset( $new_instance['hide_submit_btn'] ) ) ? $new_instance['hide_submit_btn'] : '';
+    $instance['only_first_level_brands'] = ( isset( $new_instance['only_first_level_brands'] ) ) ? $new_instance['only_first_level_brands'] : '';
     return $instance;
   }
 
@@ -62,6 +79,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
     if( !is_tax('pwb-brand') && !is_product()  ){
 
       $hide_submit_btn = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
+      $only_first_level_brands = ( isset( $only_first_level_brands ) && $only_first_level_brands == 'on' ) ? true : false;
 
       $show_widget = true;
       $current_products = false;
@@ -78,7 +96,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
         echo $args['before_widget'];
             if ( ! empty( $title ) ) echo $args['before_title'] . $title . $args['after_title'];
-            $this->render_widget( $current_products, $limit, $hide_submit_btn );
+            $this->render_widget( $current_products, $limit, $hide_submit_btn, $only_first_level_brands );
         echo $args['after_widget'];
       }
 
@@ -86,13 +104,19 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
 	}
 
-  public function render_widget( $current_products, $limit, $hide_submit_btn ){
+  public function render_widget( $current_products, $limit, $hide_submit_btn, $only_first_level_brands ) {
 
 		$result_brands = array();
 
-		if( is_product_taxonomy() || is_shop() ){
+		if ( is_product_taxonomy() || is_shop() ) {
 
-				if( !empty( $current_products ) ) $result_brands = $this->get_products_brands( $current_products );
+				//obtains brands ids
+				if ( ! empty( $current_products ) ) $result_brands = $this->get_products_brands( $current_products );
+
+				//excludes the child brands if needed
+				if ( $only_first_level_brands ) {
+					$result_brands = $this->exclude_child_brands( $result_brands );
+				}
 
 				if( is_shop() ){
 					$cate_url = get_permalink( wc_get_page_id( 'shop' ) );
@@ -113,10 +137,10 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
       global $wp;
       $current_url = home_url(add_query_arg(array(),$wp->request));
 
-      if( !empty( $result_brands ) ){
+      if ( ! empty( $result_brands ) ) {
 
         $result_brands_ordered = array();
-        foreach( $result_brands as $brand ){
+        foreach ( $result_brands as $brand ) {
           $brand = get_term($brand);
           $result_brands_ordered[$brand->name] = $brand;
         }
@@ -135,7 +159,32 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
   }
 
-  private function current_products_query(){
+	private function exclude_child_brands( $brands ) {
+
+		//gets parent for all brands
+		foreach ( $brands as $brand_key => $brand ) {
+
+			$brand_o = get_term( $brand, 'pwb-brand' );
+
+			if ( $brand_o->parent ) {
+
+				//exclude this child brand and include the parent
+				unset( $brands[$brand_key] );
+				if ( ! in_array( $brand_o->parent, $brands ) ) $brands[$brand_key] = $brand_o->parent;
+
+			}
+
+		}
+
+		//reset keys
+		$brands = array_values( $brands );
+
+
+		return $brands;
+
+	}
+
+  private function current_products_query() {
 
     $args = array(
       'posts_per_page' => -1,
@@ -146,7 +195,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 					'operator' => 'EXISTS'
         )
       ),
-			'fields' => 'ids'
+			'fields' => 'ids',
     );
 
 		$cat = get_queried_object();
@@ -173,24 +222,25 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
     $wp_query = new WP_Query($args);
 		wp_reset_postdata();
+
 		return $wp_query->posts;
 
   }
 
-	private function get_products_brands( $product_ids ){
+	private function get_products_brands( $product_ids ) {
 
 		$product_ids = implode(',', array_map('intval', $product_ids) );
 
 		global $wpdb;
+
 		$brand_ids = $wpdb->get_col( "SELECT DISTINCT t.term_id
 			FROM {$wpdb->prefix}terms AS t
 			INNER JOIN {$wpdb->prefix}term_taxonomy AS tt
 			ON t.term_id = tt.term_id
 			INNER JOIN {$wpdb->prefix}term_relationships AS tr
 			ON tr.term_taxonomy_id = tt.term_taxonomy_id
-			WHERE tt.taxonomy IN ('pwb-brand')
+			WHERE tt.taxonomy = 'pwb-brand'
 			AND tr.object_id IN ($product_ids)
-			ORDER BY t.name ASC
 		" );
 
 		return ( $brand_ids ) ? $brand_ids : false;

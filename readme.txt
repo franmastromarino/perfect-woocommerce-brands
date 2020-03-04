@@ -5,7 +5,7 @@ Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufactu
 Requires at least: 4.7
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 1.7.9
+Stable tag: 1.8.0
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -81,6 +81,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 1.8.0 =
+* Enhancement: "Show only first level brands" option added for the filter by brand widget
 = 1.7.9 =
 * Fix: Breadcrumbs issues
 * Fix: Ajax search plugins conflict since previous release
