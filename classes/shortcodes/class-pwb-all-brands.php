@@ -62,7 +62,7 @@ class PWB_All_Brands_Shortcode{
       'tax_query'      => array(
         array(
           'taxonomy'  => 'pwb-brand',
-          'field'     => 'ID',
+          'field'     => 'term_id',
           'terms'     => $brand_id
         ),
         array(
