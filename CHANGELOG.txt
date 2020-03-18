@@ -1,5 +1,6 @@
 == Changelog ==
 = 1.8.0 =
+* Enhancement: Main file renamed according to WordPress standards
 * Enhancement: "Show only first level brands" option added for the filter by brand widget
 = 1.7.9 =
 * Fix: Breadcrumbs issues
