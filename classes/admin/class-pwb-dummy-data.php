@@ -64,7 +64,7 @@
       for( $i=1; $i<11; $i++ ) {
         $term_desc = $this->build_description();
         $brand_name = 'brand'.$i;
-        $attachment_id = self::upload_image( false, PWB_PLUGIN . '/assets/img/dummy-data/'.$brand_name.'.png' );
+        $attachment_id = self::upload_image( false, PWB_PLUGIN_URL . '/assets/img/dummy-data/'.$brand_name.'.png' );
         $inserted_brand = wp_insert_term( ucfirst( $brand_name ), 'pwb-brand', array( "description" => $term_desc ) );
         if( !is_wp_error( $inserted_brand ) && isset( $inserted_brand['term_id'] ) ){
           add_term_meta( $inserted_brand['term_id'], 'pwb_brand_image', $attachment_id );

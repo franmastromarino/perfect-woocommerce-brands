@@ -1,9 +1,9 @@
 === Perfect WooCommerce Brands ===
 Contributors: titodevera
-Donate link: mailto:hola@albertodevera.es
-Tags: woocommerce, brands, brand taxonomy, product brands, woocommerce manufacturer, woocommerce supplier, e-commerce
+Donate link: https://quadlayers.com
+Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
-Tested up to: 5.3
+Tested up to: 5.3.2
 Requires PHP: 5.6
 Stable tag: 1.8.0
 License: GPL3
@@ -12,6 +12,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store
 
 == Description ==
+
+[About Us](https://quadlayers.com/) | [Community](https://www.facebook.com/groups/quadlayers/)
+
 Whether we like to admit it or not, we are all influenced by brands. Brands are a guarantee for quality, they assure product recognition in customers.
 Is essential to work with product brands for increase sales and generate reliability on your e-commerce site.
 With this extension you can add product brands to your WooCommerce site.
@@ -66,7 +69,7 @@ Go to `WooCommerce/Settings/` and click on `Brands` tab
 Go to `Settings/Permalinks` and click on `Save Changes` button to flush the permalinks
 
 = PWB is awesome! Can I contribute? =
-Yes you can! Join in on our [GitHub repository](https://github.com/titodevera/perfect-woocommerce-brands) 🙂
+Yes you can! Join in on our [GitHub repository](https://github.com/quadlayers/perfect-woocommerce-brands) 🙂
 You can also contribute [translating the plugin](https://translate.wordpress.org/projects/wp-plugins/perfect-woocommerce-brands/)
 
 = Developer Documentation =
@@ -82,6 +85,7 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 == Changelog ==
 = 1.8.0 =
+* Enhancement: Main file renamed according to WordPress standards
 * Enhancement: "Show only first level brands" option added for the filter by brand widget
 = 1.7.9 =
 * Fix: Breadcrumbs issues
