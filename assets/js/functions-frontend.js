@@ -8,7 +8,6 @@ jQuery( function ( $ ) {
     if( typeof $.fn.slick === 'function' ){
 
       $('.pwb-carousel').slick({
-          slide: '.pwb-slick-slide',
           infinite: true,
           draggable: false,
           prevArrow: '<div class="slick-prev"><span>'+pwb_ajax_object.carousel_prev+'</span></div>',
