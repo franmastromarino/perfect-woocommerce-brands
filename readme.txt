@@ -1,4 +1,4 @@
-=== Perfect WooCommerce Brands ===
+﻿=== Perfect WooCommerce Brands ===
 Contributors: titodevera
 Donate link: https://quadlayers.com
 Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
@@ -13,7 +13,11 @@ Perfect WooCommerce Brands allows you to show product brands in your WooCommerce
 
 == Description ==
 
-[About Us](https://quadlayers.com/) | [Community](https://www.facebook.com/groups/quadlayers/)
+Perfect WooCommerce Brands is a perfect tool to organize your site, highlight the brands you have, and also helps as a filter for your customers at UX exploration. PWB extendes the product's description and presentation at your e-commerce site.
+
+== PRESENTATION ==
+
+[About Us](https://quadlayers.com/) | [Community](https://www.facebook.com/groups/quadlayers/) | [Documentation](https://quadlayers.com/documentation/perfect-woocommerce-brands/)
 
 Whether we like to admit it or not, we are all influenced by brands. Brands are a guarantee for quality, they assure product recognition in customers.
 Is essential to work with product brands for increase sales and generate reliability on your e-commerce site.
