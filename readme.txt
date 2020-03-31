@@ -77,7 +77,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/quadlayers/pe
 You can also contribute [translating the plugin](https://translate.wordpress.org/projects/wp-plugins/perfect-woocommerce-brands/)
 
 = Developer Documentation =
-[Click here](https://github.com/titodevera/perfect-woocommerce-brands/wiki)
+[Click here](https://github.com/quadlayers/perfect-woocommerce-brands/wiki)
 
 == Screenshots ==
 1. Brands carousel
