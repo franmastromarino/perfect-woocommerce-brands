@@ -4,13 +4,13 @@
  *  Plugin Name: Perfect WooCommerce Brands
  *  Plugin URI: https://wordpress.org/plugins/perfect-woocommerce-brands/
  *  Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
- *  Version: 1.8.0
+ *  Version: 1.8.1
  *  Author: QuadLayers
  *  Author URI: https://quadlayers.com
  *  Text Domain: perfect-woocommerce-brands
  *  Domain Path: /lang
  *  License: GPL3
- *      Perfect WooCommerce Brands version 1.8.0, Copyright (C) 2019 QuadLayers
+ *      Perfect WooCommerce Brands version 1.8.1, Copyright (C) 2019 QuadLayers
  *      Perfect WooCommerce Brands is free software: you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
  *      the Free Software Foundation, either version 3 of the License, or
@@ -35,13 +35,13 @@ defined('ABSPATH') or die('No script kiddies please!');
 define('PWB_PLUGIN_URL', plugins_url('', __FILE__));
 define('PWB_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR);
 define('PWB_PLUGIN_BASENAME', plugin_basename(__FILE__));
-define('PWB_PLUGIN_VERSION', '1.8.0');
+define('PWB_PLUGIN_VERSION', '1.8.1');
 define('PWB_PLUGIN_NAME', 'Perfect WooCommerce Brands');
 define('PWB_REVIEW_URL', 'https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?filter=5#new-post');
 define('PWB_DEMO_URL', 'https://quadlayers.com/portfolio/perfect-woocommerce-brands/?utm_source=pwb_admin');
 define('PWB_PURCHASE_URL', PWB_DEMO_URL);
 define('PWB_SUPPORT_URL', 'https://quadlayers.com/account/support/?utm_source=pwb_admin');
-define('PWB_DOCUMENTATION_URL', 'https://github.com/titodevera/perfect-woocommerce-brands/wiki');
+define('PWB_DOCUMENTATION_URL', 'https://quadlayers.com/documentation/perfect-woocommerce-brands/?utm_source=pwb_admin');
 define('PWB_GROUP_URL', 'https://www.facebook.com/groups/quadlayers');
 
 register_activation_hook(__FILE__, function() {

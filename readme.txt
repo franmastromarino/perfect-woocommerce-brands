@@ -5,7 +5,7 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Tested up to: 5.3.2
 Requires PHP: 5.6
-Stable tag: 1.8.0
+Stable tag: 1.8.1
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -88,6 +88,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 1.8.1 =
+* Enhancement: Update documentation link
 = 1.8.0 =
 * Enhancement: Main file renamed according to WordPress standards
 * Enhancement: "Show only first level brands" option added for the filter by brand widget
