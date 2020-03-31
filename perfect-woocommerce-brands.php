@@ -42,6 +42,7 @@ define('PWB_DEMO_URL', 'https://quadlayers.com/portfolio/perfect-woocommerce-bra
 define('PWB_PURCHASE_URL', PWB_DEMO_URL);
 define('PWB_SUPPORT_URL', 'https://quadlayers.com/account/support/?utm_source=pwb_admin');
 define('PWB_DOCUMENTATION_URL', 'https://quadlayers.com/documentation/perfect-woocommerce-brands/?utm_source=pwb_admin');
+define('PWB_GITHUB_URL', 'https://github.com/quadlayers/perfect-woocommerce-brands/');
 define('PWB_GROUP_URL', 'https://www.facebook.com/groups/quadlayers');
 
 register_activation_hook(__FILE__, function() {
