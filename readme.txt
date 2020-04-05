@@ -3,7 +3,7 @@ Contributors: titodevera
 Donate link: https://quadlayers.com
 Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
-Tested up to: 5.3.2
+Tested up to: 5.4.0
 Requires PHP: 5.6
 Stable tag: 1.8.1
 WC requires at least: 3.0
