@@ -70,7 +70,7 @@ class Perfect_Woocommerce_Brands {
   public static function plugin_row_meta($links, $file) {
     if (PWB_PLUGIN_BASENAME === $file) {
       $row_meta = array(
-          'docs' => '<a target="_blank" rel="noopener noferrer" href="' . PWB_DOCUMENTATION_URL . '">' . esc_html__('Developer docs', 'perfect-woocommerce-brands') . '</a>',
+          'docs' => '<a target="_blank" rel="noopener noferrer" href="' . PWB_DOCUMENTATION_URL . '">' . esc_html__('Documentation', 'perfect-woocommerce-brands') . '</a>',
       );
       return array_merge($links, $row_meta);
     }

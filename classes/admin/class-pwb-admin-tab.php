@@ -26,12 +26,35 @@ function pwb_admin_tab() {
 
       $sections = array(
           '' => __('General', 'perfect-woocommerce-brands'),
-          'brand-pages' => __('Brand pages & loop', 'perfect-woocommerce-brands'),
-          'single-product' => __('Single product', 'perfect-woocommerce-brands'),
-          'tools' => __('Developer tools', 'perfect-woocommerce-brands'),
+          'brand-pages' => __('Archives', 'perfect-woocommerce-brands'),
+          'single-product' => __('Products', 'perfect-woocommerce-brands'),
+          'tools' => __('Tools', 'perfect-woocommerce-brands'),
       );
 
       return apply_filters('woocommerce_get_sections_' . $this->id, $sections);
+    }
+
+    public function output_sections() {
+      global $current_section;
+
+      $sections = $this->get_sections();
+
+      if (empty($sections) || 1 === sizeof($sections)) {
+        return;
+      }
+
+      echo '<ul class="subsubsub">';
+
+      $array_keys = array_keys($sections);
+
+      foreach ($sections as $id => $label) {
+        echo '<li><a href="' . admin_url('admin.php?page=wc-settings&tab=' . $this->id . '&section=' . sanitize_title($id)) . '" class="' . ( $current_section == $id ? 'current' : '' ) . '">' . $label . '</a> ' . ( end($array_keys) == $id ? '' : '|' ) . ' </li>';
+      }
+
+      echo ' | <li><a target="_blank" href="' . admin_url('edit-tags.php?taxonomy=pwb-brand&post_type=product') . '">' . __('Brands', 'perfect-woocommerce-brands') . '</a></li>';
+      echo ' | <li><a target="_blank" href="' . PWB_DOCUMENTATION_URL . '">' . __('Documentation', 'perfect-woocommerce-brands') . '</a></li>';
+
+      echo '</ul><br class="clear" />';
     }
 
     public function get_settings($current_section = '') {
@@ -51,13 +74,13 @@ function pwb_admin_tab() {
 
         $settings = apply_filters('wc_pwb_admin_tab_settings', array(
             'section_title' => array(
-                'name' => __('Single product', 'perfect-woocommerce-brands'),
+                'name' => __('Products', 'perfect-woocommerce-brands'),
                 'type' => 'title',
                 'desc' => '',
                 'id' => 'wc_pwb_admin_tab_section_title'
             ),
             'brand_single_product_tab' => array(
-                'name' => __('Single product tab', 'perfect-woocommerce-brands'),
+                'name' => __('Products tab', 'perfect-woocommerce-brands'),
                 'type' => 'checkbox',
                 'default' => 'yes',
                 'desc' => __('Show brand tab in single product page', 'perfect-woocommerce-brands'),
@@ -97,12 +120,12 @@ function pwb_admin_tab() {
                 'type' => 'sectionend',
                 'id' => 'wc_pwb_admin_tab_section_end'
             )
-                ));
+        ));
       } elseif ('brand-pages' == $current_section) {
 
         $settings = apply_filters('wc_pwb_admin_tab_brand_pages_settings', array(
             'section_title' => array(
-                'name' => __('Brand pages & loop', 'perfect-woocommerce-brands'),
+                'name' => __('Archives', 'perfect-woocommerce-brands'),
                 'type' => 'title',
                 'desc' => '',
                 'id' => 'wc_pwb_admin_tab_section_title'
@@ -149,12 +172,12 @@ function pwb_admin_tab() {
                 'type' => 'sectionend',
                 'id' => 'wc_pwb_admin_tab_section_end'
             )
-                ));
+        ));
       } elseif ('tools' == $current_section) {
 
         $settings = apply_filters('wc_pwb_admin_tab_tools_settings', array(
             'section_title' => array(
-                'name' => __('Developer tools', 'perfect-woocommerce-brands'),
+                'name' => __('Tools', 'perfect-woocommerce-brands'),
                 'type' => 'title',
                 'desc' => '',
                 'id' => 'wc_pwb_admin_tab_section_tools_title'
@@ -164,7 +187,7 @@ function pwb_admin_tab() {
                 'type' => 'select',
                 'class' => 'pwb-admin-tab-field',
                 'desc' => sprintf(
-                        __('Import brands from other brand plugin. <a href="%s" target="_blank">Click here for more details</a>', 'perfect-woocommerce-brands'), str_replace('/?','/brands/?',PWB_DOCUMENTATION_URL)
+                        __('Import brands from other brand plugin. <a href="%s" target="_blank">Click here for more details</a>', 'perfect-woocommerce-brands'), str_replace('/?', '/brands/?', PWB_DOCUMENTATION_URL)
                 ),
                 'id' => 'wc_pwb_admin_tab_tools_migrate',
                 'options' => array(
@@ -195,7 +218,7 @@ function pwb_admin_tab() {
                 'type' => 'sectionend',
                 'id' => 'wc_pwb_admin_tab_section_tools_end'
             )
-                ));
+        ));
       } else {
 
         $brands_url = get_option('wc_pwb_admin_tab_slug', __('brands', 'perfect-woocommerce-brands')) . '/' . __('brand-name', 'perfect-woocommerce-brands') . '/';
@@ -240,7 +263,7 @@ function pwb_admin_tab() {
                 'type' => 'sectionend',
                 'id' => 'wc_pwb_admin_tab_section_end'
             )
-                ));
+        ));
       }
 
       return apply_filters('woocommerce_get_settings_' . $this->id, $settings, $current_section);
