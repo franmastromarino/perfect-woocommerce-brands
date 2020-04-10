@@ -52,6 +52,7 @@ function pwb_admin_tab() {
       }
 
       echo ' | <li><a target="_blank" href="' . admin_url('edit-tags.php?taxonomy=pwb-brand&post_type=product') . '">' . __('Brands', 'perfect-woocommerce-brands') . '</a></li>';
+      echo ' | <li><a target="_blank" href="' . admin_url('admin.php?page=pwb_suggestions') . '">' . __('Suggestions', 'perfect-woocommerce-brands') . '</a></li>';
       echo ' | <li><a target="_blank" href="' . PWB_DOCUMENTATION_URL . '">' . __('Documentation', 'perfect-woocommerce-brands') . '</a></li>';
 
       echo '</ul><br class="clear" />';
