@@ -10,6 +10,7 @@ class PWB_Brand_Shortcode{
       'product_id' => null,
       'as_link'    => false,
       'image_size' => 'thumbnail',
+      'description' => false,
     ), $atts, 'pwb-brand' );
 
     if( !$atts['product_id'] && is_singular('product') ) $atts['product_id'] = get_the_ID();
@@ -24,7 +25,7 @@ class PWB_Brand_Shortcode{
     return \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
       'brand',
       'shortcodes',
-      array( 'brands' => $brands, 'as_link' => $atts['as_link'] ),
+      array( 'brands' => $brands, 'as_link' => $atts['as_link'], 'description' => $atts['description'] ),
       false
     );
 
