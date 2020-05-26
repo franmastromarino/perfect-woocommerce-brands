@@ -3,11 +3,11 @@ Contributors: quadlayers, titodevera
 Donate link: https://quadlayers.com
 Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
-Tested up to: 5.4.0
+Tested up to: 5.4.1
 Requires PHP: 5.6
 Stable tag: 1.8.3
 WC requires at least: 3.0
-WC tested up to: 4.0
+WC tested up to: 4.1.1
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 
