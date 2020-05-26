@@ -916,6 +916,8 @@ class Perfect_Woocommerce_Brands {
    *  Better search experience
    */
   public function search_by_brand_name($query) {
+    if (apply_filters('pwb_prevent_brand_redirect', false, $query))
+      return;
 
     if (wp_doing_ajax())
       return;
