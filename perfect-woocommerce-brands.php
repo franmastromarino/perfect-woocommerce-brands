@@ -1,15 +1,15 @@
 <?php
 
 /**
- *  Plugin Name: Perfect WooCommerce Brands
- *  Plugin URI: https://wordpress.org/plugins/perfect-woocommerce-brands/
+ *  Plugin Name: Perfect Brands for WooCommerce
+ *  Plugin URI: https://quadlayers.com/portfolio/perfect-woocommerce-brands/
  *  Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
  *  Version: 1.8.3
  *  Author: QuadLayers
  *  Author URI: https://quadlayers.com
  *  Text Domain: perfect-woocommerce-brands
  *  Domain Path: /lang
- *  License: GPL3
+ *  License: GPLv3
  *      Perfect WooCommerce Brands version 1.8.3, Copyright (C) 2019 QuadLayers
  *      Perfect WooCommerce Brands is free software: you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
  *      along with Perfect WooCommerce Brands.  If not, see <http://www.gnu.org/licenses/>.
  *
  *  WC requires at least: 3.1.0
- *  WC tested up to: 4.1.1
+ *  WC tested up to: 4.2.0
  */
 
 namespace Perfect_Woocommerce_Brands;

@@ -1,17 +1,17 @@
-﻿=== Perfect WooCommerce Brands ===
+﻿=== Perfect Brands for WooCommerce ===
 Contributors: quadlayers, titodevera
 Donate link: https://quadlayers.com
 Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
-Tested up to: 5.4.1
+Tested up to: 5.4.2
 Requires PHP: 5.6
 Stable tag: 1.8.3
 WC requires at least: 3.0
 WC tested up to: 4.1.1
-License: GPL3
-License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store
+Perfect Brands for WooCommerce allows you to show product brands in your WooCommerce based store
 
 == Description ==
 
