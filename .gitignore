@@ -1,3 +1,5 @@
 !.gitignore
 .idea
 .DS_Store
+*.db
+*.db
