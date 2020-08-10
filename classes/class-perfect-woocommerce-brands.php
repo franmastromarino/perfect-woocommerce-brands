@@ -689,7 +689,7 @@ class Perfect_Woocommerce_Brands
       PWB_PLUGIN_URL . '/assets/lib/slick/slick.min.js',
       array('jquery'),
       '1.8.0',
-      true
+      false
     );
 
     wp_register_style(

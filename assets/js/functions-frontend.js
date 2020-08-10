@@ -1,4 +1,4 @@
-(function ($) {
+jQuery(function ($) {
     "use strict";
 
     $('.pwb-dropdown-widget').on('change', function () {
@@ -140,7 +140,7 @@
 
     /* ··························· /Filter by brand widget ··························· */
 
-})(jQuery);
+});
 
 var PWBgetUrlParameter = function PWBgetUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
