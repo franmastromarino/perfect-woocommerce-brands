@@ -36,7 +36,7 @@ class Edit_Brands_Page {
     echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
       'edit-brands-bottom',
       'admin',
-      array( 'featured_count' => count( $brands_featured ), 'text_featured'  => __('featured', 'perfect-woocommerce-brands') )
+      array( 'featured_count' => count( $brands_featured ), 'text_featured'  => esc_html__('featured', 'perfect-woocommerce-brands') )
     );
 
   }
@@ -90,7 +90,7 @@ class Edit_Brands_Page {
         $featured_class = ( $this->is_featured_brand( $term_id ) ) ? 'dashicons-star-filled' : 'dashicons-star-empty';
         printf(
           '<span class="dashicons %1$s" title="%2$s" data-brand-id="%3$s"></span>',
-          $featured_class, __('Set as featured', 'perfect-woocommerce-brands'), $term_id
+          $featured_class, esc_html__('Set as featured', 'perfect-woocommerce-brands'), $term_id
         );
         break;
     }
@@ -122,10 +122,10 @@ class Edit_Brands_Page {
       $featured = get_user_option( 'pwb-first-featured-brands', self::$current_user->ID );
       ob_start();
       ?>
-      <legend><?php _e('Brands','perfect-woocommerce-brands');?></legend>
+      <legend><?php esc_html_e('Brands','perfect-woocommerce-brands');?></legend>
       <label>
         <input id="pwb-first-featured-brands" type="checkbox" <?php checked($featured,true);?>>
-        <?php _e('Show featured brands first','perfect-woocommerce-brands');?>
+        <?php esc_html_e('Show featured brands first','perfect-woocommerce-brands');?>
       </label>
       <?php
       return ob_get_clean();

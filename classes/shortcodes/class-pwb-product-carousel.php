@@ -40,6 +40,7 @@ class PWB_Product_Carousel_Shortcode{
       'autoplay'       => ( self::$atts['autoplay'] === 'true' ) ? true: false,
       'arrows'         => ( self::$atts['arrows'] === 'true' ) ? true: false
     );
+    
     return htmlspecialchars( json_encode( $slick_settings ), ENT_QUOTES, 'UTF-8' );
 
   }

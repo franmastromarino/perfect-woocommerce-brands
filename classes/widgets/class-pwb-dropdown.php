@@ -16,7 +16,7 @@ class PWB_Dropdown_Widget extends \WP_Widget {
   public function form($instance){
     extract($instance);
 
-    $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : __('Brands', 'perfect-woocommerce-brands');
+    $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : esc_html__('Brands', 'perfect-woocommerce-brands');
     $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
     $only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
     ?>

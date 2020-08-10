@@ -12,7 +12,7 @@
   delete_option('wc_pwb_admin_tab_section_end');
   delete_option('wc_pwb_notice_plugin_review');
 
-  //elimina el archivo de marcas exportadas si existe
+  //remove exported brands if exists
   unlink( WP_CONTENT_DIR . '/uploads/pwb-export.json' );
 
   //update permalinks and clean cache

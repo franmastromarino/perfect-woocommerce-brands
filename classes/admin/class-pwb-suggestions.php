@@ -63,7 +63,7 @@ class PWB_Suggestions {
 
   public function add_menu() {
     add_menu_page(PWB_PLUGIN_NAME, PWB_PLUGIN_NAME, 'manage_woocommerce', PWB_PREFIX, array($this, 'add_page'));
-    add_submenu_page(PWB_PREFIX, __('Suggestions', 'perfect-woocommerce-brands'), __('Suggestions', 'perfect-woocommerce-brands'), 'manage_woocommerce', PWB_PREFIX . '_suggestions', array($this, 'add_page'));
+    add_submenu_page(PWB_PREFIX, esc_html__('Suggestions', 'perfect-woocommerce-brands'), esc_html__('Suggestions', 'perfect-woocommerce-brands'), 'manage_woocommerce', PWB_PREFIX . '_suggestions', array($this, 'add_page'));
   }
 
   // fix for activateUrl on install now button

@@ -19,7 +19,7 @@ class PWB_Exporter_Support{
      * @return array $columns
      */
     public function add_export_column( $columns ) {
-    	$columns['pwb-brand'] = __('Brand', 'perfect-woocommerce-brands');
+    	$columns['pwb-brand'] = esc_html__('Brand', 'perfect-woocommerce-brands');
     	return $columns;
     }
 

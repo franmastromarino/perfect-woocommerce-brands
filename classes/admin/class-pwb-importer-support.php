@@ -19,7 +19,7 @@ class PWB_Importer_Support{
      * @return array $options
      */
     public function add_column_to_importer( $options ) {
-      $options['pwb-brand'] = __('Brand', 'perfect-woocommerce-brands');
+      $options['pwb-brand'] = esc_html__('Brand', 'perfect-woocommerce-brands');
     	return $options;
     }
 
@@ -30,7 +30,7 @@ class PWB_Importer_Support{
      * @return array $columns
      */
     public function add_column_to_mapping_screen( $columns ) {
-      $columns[__('Brand', 'perfect-woocommerce-brands')] = 'pwb-brand';
+      $columns[esc_html__('Brand', 'perfect-woocommerce-brands')] = 'pwb-brand';
     	return $columns;
     }
 

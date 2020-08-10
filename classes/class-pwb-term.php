@@ -17,7 +17,7 @@ class PWB_Term{
     if( is_a( $this->term_obj, 'WP_Term' ) ){
       $this->build_pwb_term( $this->term_obj );
     }else{
-      throw new Exception( __('Only WP_Term objects are allowed', 'perfect-woocommerce-brands') );
+      throw new Exception( esc_html__('Only WP_Term objects are allowed', 'perfect-woocommerce-brands') );
     }
   }
 
