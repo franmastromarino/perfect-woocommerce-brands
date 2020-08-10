@@ -80,7 +80,7 @@ class Brands_Custom_Fields
           <?php if (!empty($current_image)) : ?>
             <div class="pwb_brand_image_selected">
               <span>
-                <?php echo esc_html($current_image); ?>
+                <?php echo wp_kses_post($current_image); ?>
                 <a href="#" class="pwb_brand_image_selected_remove">X</a>
               </span>
             </div>
@@ -100,7 +100,7 @@ class Brands_Custom_Fields
           <?php if (!empty($current_image)) : ?>
             <div class="pwb_brand_image_selected">
               <span>
-                <?php echo esc_html($current_image); ?>
+                <?php echo wp_kses_post($current_image); ?>
                 <a href="#" class="pwb_brand_image_selected_remove">X</a>
               </span>
             </div>

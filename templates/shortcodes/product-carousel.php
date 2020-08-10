@@ -15,7 +15,7 @@ defined('ABSPATH') or die('No script kiddies please!');
     <?php foreach ($products as $product) : ?>
       <div class="pwb-slick-slide">
         <a href="<?php echo esc_url($product['permalink']); ?>">
-          <?php echo esc_html($product['thumbnail']); ?>
+          <?php echo wp_kses_post($product['thumbnail']); ?>
           <h3><?php echo esc_html($product['title']); ?></h3>
           <?php echo do_shortcode('[add_to_cart id="' . esc_attr($product['id']) . '" style=""]'); ?>
         </a>
