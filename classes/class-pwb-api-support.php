@@ -1,7 +1,7 @@
 <?php
 
 namespace Perfect_Woocommerce_Brands;
-use WP_REST_Server, WC_REST_Terms_Controller;
+use WP_Error, WP_REST_Server, WC_REST_Terms_Controller;
 
 defined('ABSPATH') or die('No script kiddies please!');
 
@@ -81,6 +81,17 @@ class PWB_API_Support extends WC_REST_Terms_Controller {
                 ),
                 'schema' => array( $this, 'get_public_item_schema' ),
               ) );
+
+            register_rest_route($namespace, '/' . $this->base . '/batch', array(
+                  array(
+                    'methods'             => WP_REST_Server::EDITABLE,
+                    'callback'            => array( $this, 'batch_items' ),
+                    'permission_callback' => array( $this, 'batch_items_permissions_check' ),
+                    'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::EDITABLE ),
+                  ),
+                  'schema' => array( $this, 'get_public_batch_schema' ),
+                )
+              );
         }
     }
 
@@ -148,6 +159,7 @@ class PWB_API_Support extends WC_REST_Terms_Controller {
         'slug'        => $item->slug,
         'term_group'  => $item->term_group,
         'term_taxonomy_id' => $item->term_taxonomy_id,
+        'taxonomy'    => $this->taxonomy,
         'description' => $item->description,
         'parent'      => $item->parent,
         'count'       => (int) $item->count,
@@ -210,7 +222,7 @@ class PWB_API_Support extends WC_REST_Terms_Controller {
     public function get_schema(){
 		
         return array(
-            'description' => __('Product brands', 'perfect-woocommerce-brands'),
+            'description' => __('Product brands.', 'perfect-woocommerce-brands'),
             'type' => 'array',
             'items' => array(
                 "type" => "integer"
