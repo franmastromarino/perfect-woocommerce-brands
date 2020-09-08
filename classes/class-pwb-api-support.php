@@ -73,7 +73,7 @@ class PWB_API_Support extends WC_REST_Terms_Controller {
                   'permission_callback' => array( $this, 'delete_item_permissions_check' ),
                   'args'                => array(
                     'force' => array(
-                      'default'     => false,
+                      'default'     => true,
                       'type'        => 'boolean',
                       'description' => __( 'Whether to bypass trash and force deletion.', 'woocommerce' ),
                     ),
