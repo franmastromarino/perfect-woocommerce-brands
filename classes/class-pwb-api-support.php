@@ -1,20 +1,25 @@
 <?php
 
 namespace Perfect_Woocommerce_Brands;
-use WP_Error, WP_REST_Server, WC_REST_Terms_Controller;
+use WP_Error, WP_REST_Server, WP_REST_Terms_Controller, WP_REST_Term_Meta_Fields;
 
 defined('ABSPATH') or die('No script kiddies please!');
 
-class PWB_API_Support extends WC_REST_Terms_Controller {
+
+
+class PWB_API_Support extends WP_REST_Terms_Controller {
 
     private $namespaces = array( "wc/v1", "wc/v2", "wc/v3" );
-    protected $base = 'brands';
+    protected $base = 'products/brands';
     protected $taxonomy = 'pwb-brand';
 
     function __construct(){
-
+      $this->meta = new WP_REST_Term_Meta_Fields( $this->taxonomy );
+      
       add_action('rest_api_init', array($this, 'register_endpoints'));
       add_action('rest_api_init', array($this, 'register_fields'));
+
+      add_filter("rest_{$this->taxonomy}_collection_params",array($this,'modify_collection_params'),10,2);
 
     }
     
@@ -23,7 +28,7 @@ class PWB_API_Support extends WC_REST_Terms_Controller {
      */
     public function register_endpoints(){
         foreach( $this->namespaces as $namespace ) {
-            register_rest_route($namespace, '/'.$this->base, array(
+            register_rest_route($namespace, $this->base, array(
               array(
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => array( $this, 'get_items' ),
@@ -46,7 +51,7 @@ class PWB_API_Support extends WC_REST_Terms_Controller {
             ) );
 
 
-            register_rest_route($namespace, '/' . $this->base . '/(?P<id>[\d]+)', array(
+            register_rest_route($namespace, $this->base . '/(?P<id>[\d]+)', array(
                 'args' => array(
                   'id' => array(
                     'description' => __( 'Unique identifier for the resource.', 'woocommerce' ),
@@ -82,7 +87,7 @@ class PWB_API_Support extends WC_REST_Terms_Controller {
                 'schema' => array( $this, 'get_public_item_schema' ),
               ) );
 
-            register_rest_route($namespace, '/' . $this->base . '/batch', array(
+            register_rest_route($namespace, $this->base . '/batch', array(
                   array(
                     'methods'             => WP_REST_Server::EDITABLE,
                     'callback'            => array( $this, 'batch_items' ),
@@ -96,54 +101,30 @@ class PWB_API_Support extends WC_REST_Terms_Controller {
     }
 
 
-/**
-	 * Get the Brand schema, conforming to JSON Schema.
-	 *
-	 * @return array
-	 */
-    public function get_item_schema() {
-      $schema = array(
-        '$schema'    => 'http://json-schema.org/draft-04/schema#',
-        'title'      => $this->taxonomy,
-        'type'       => 'object',
-        'properties' => array(
-          'id' => array(
-            'description' => __( 'Unique identifier for the object.', 'woocommerce' ),
-            'type'        => 'integer',
-            'context'     => array( 'view', 'edit' ),
-            'readonly'    => true,
-          ),
-          'name' => array(
-            'description' => __( 'Brand name.', 'woocommerce' ),
-            'type'        => 'string',
-            'context'     => array( 'view', 'edit' ),
-          ),
-          'slug' => array(
-            'description' => __( 'Brand slug.', 'woocommerce' ),
-            'type'        => 'string',
-            'context'     => array( 'view', 'edit' ),
-          ),
-          'description' => array(
-            'description' => __( 'Brand description.', 'woocommerce' ),
-            'type'        => 'string',
-            'context'     => array( 'view', 'edit' ),
-          ),
-          'parent' => array(
-            'description' => __( 'Brand parent.', 'woocommerce' ),
-            'type'        => 'integer',
-            'context'     => array( 'view', 'edit' ),
-          ),
-          'count' => array(
-            'description' => __( 'Number of published products for the brand.', 'woocommerce' ),
-            'type'        => 'integer',
-            'context'     => array( 'view', 'edit' ),
-            'readonly'    => true,
-          ),
-        ),
+    public function modify_collection_params($query_params, $taxonomy) {
+      unset($query_params['post']);
+      unset($query_params['per_page']);
+
+      $query_params['product'] = array(
+        'description' => __( 'Limit result set to terms assigned to a specific product.' ),
+        'type'        => 'integer',
+        'default'     => null,
       );
-  
-      return $this->add_additional_fields_schema( $schema );
+
+      $query_params['per_page'] = array(
+				'description'       => __( 'Maximum number of items to be returned in result set.' ),
+				'type'              => 'integer',
+				'default'           => 1000,
+				'minimum'           => 1,
+				'maximum'           => 1000,
+				'sanitize_callback' => 'absint',
+				'validate_callback' => 'rest_validate_request_arg',
+			);
+
+
+      return $query_params;
     }
+
 
     /**
 	 * Prepare a single brand output for response.
