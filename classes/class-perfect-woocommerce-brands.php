@@ -783,6 +783,7 @@ class Perfect_Woocommerce_Brands
       'query_var' => true,
       'public' => true,
       'show_admin_column' => true,
+      'show_in_rest' => true,
       'rewrite' => array(
         'slug' => apply_filters('pwb_taxonomy_rewrite', $new_slug),
         'hierarchical' => true,
