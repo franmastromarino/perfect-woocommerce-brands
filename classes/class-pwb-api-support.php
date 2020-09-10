@@ -10,7 +10,7 @@ defined('ABSPATH') or die('No script kiddies please!');
 class PWB_API_Support extends WP_REST_Terms_Controller {
 
     private $namespaces = array( "wc/v1", "wc/v2", "wc/v3" );
-    protected $base = 'products/brands';
+    protected $base = 'brands';
     protected $taxonomy = 'pwb-brand';
 
     function __construct(){
