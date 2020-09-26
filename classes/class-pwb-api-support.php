@@ -20,6 +20,7 @@ class PWB_API_Support extends WP_REST_Terms_Controller {
       add_action('rest_api_init', array($this, 'register_fields'));
 
       add_filter("rest_{$this->taxonomy}_collection_params",array($this,'modify_collection_params'),10,2);
+      add_filter( "woocommerce_rest_product_object_query", array( $this, 'brand_query_args' ), 10, 2 );
 
     }
     
@@ -261,6 +262,31 @@ class PWB_API_Support extends WP_REST_Terms_Controller {
      */
     private function add_brands($brands, $product){
         wp_set_post_terms($product->get_id(), $brands, "pwb-brand");
+    }
+
+    /**
+    * Add brands to product query args
+    * @param array $args
+    * @param array $request
+    */
+    public function brand_query_args( $args, $request ) {
+      // Filter product type by slug.
+      $tax_query = array();
+
+      // Filter product type by slug.
+      if ( ! empty( $request['brand'] ) ) {
+        $tax_query[] = array(
+          'taxonomy' => $this->taxonomy,
+          'field'    => 'slug',
+          'terms'    => $request['brand'],
+        );
+      }
+
+      if ( ! empty( $tax_query ) ) {
+        $args['tax_query'] = $tax_query;
+      }
+    
+      return $args;
     }
 
 }
