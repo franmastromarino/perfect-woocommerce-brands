@@ -27,15 +27,22 @@ class PWB_API_Support{
                     return rest_ensure_response(
                         Perfect_Woocommerce_Brands::get_brands()
                     );
-                }
+                },
+                'permission_callback' => '__return_true',
               ),
               array(
                 'methods'  => WP_REST_Server::CREATABLE,
-                'callback'  => array( $this, 'create_brand' )
+                'callback'  => array( $this, 'create_brand' ),
+                'permission_callback' => function() {
+                    return current_user_can( 'manage_options' );
+                },
               ),
               array(
                 'methods'   => WP_REST_Server::DELETABLE,
-                'callback'  => array( $this, 'delete_brand' )
+                'callback'  => array( $this, 'delete_brand' ),
+                'permission_callback' => function() {
+                    return current_user_can( 'manage_options' );
+                },
               )
             ));
         }
