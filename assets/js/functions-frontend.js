@@ -117,7 +117,18 @@ jQuery(function ($) {
 
     }
 
-    $('.pwb-filter-products button').on('click', function () { PWBFilterByBrand(); });
+    var PWBRemoveFilterByBrand = function () {
+        var baseUrl = [location.protocol, '//', location.host, location.pathname].join('');
+        var currentUrl = window.location.href;
+        //removes previous "pwb-brand" from url
+        currentUrl = currentUrl.replace(/&?pwb-brand-filter=([^&]$|[^&]*)/i, "");
+        //removes pagination
+        currentUrl = currentUrl.replace(/\/page\/\d*\//i, "");
+        location.href = currentUrl;
+    }
+
+    $('.pwb-apply-filter').on('click', function () { PWBFilterByBrand(); });
+    $('.pwb-remove-filter').on('click', function () { PWBRemoveFilterByBrand(); });
     $('.pwb-filter-products.pwb-hide-submit-btn input').on('change', function () { PWBFilterByBrand(); });
 
     var brands = PWBgetUrlParameter('pwb-brand-filter');

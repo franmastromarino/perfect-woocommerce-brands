@@ -19,6 +19,9 @@ defined('ABSPATH') or die('No script kiddies please!');
     <?php endforeach; ?>
   </ul>
   <?php if (!$hide_submit_btn) : ?>
-    <button><?php esc_html_e('Apply filter', 'perfect-woocommerce-brands') ?></button>
+    <button class="pwb-apply-filter"><?php esc_html_e('Apply filter', 'perfect-woocommerce-brands') ?></button>
+  <?php endif; ?>
+  <?php if (!$hide_submit_btn && !empty($_GET['pwb-brand-filter'])) : ?>
+    <button class="pwb-remove-filter"><?php esc_html_e('Remove filter', 'perfect-woocommerce-brands') ?></button>
   <?php endif; ?>
 </div>
