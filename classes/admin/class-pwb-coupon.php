@@ -46,7 +46,7 @@
       $selected_brands = get_post_meta( $coupon->get_ID(), '_pwb_coupon_restriction', true );
       if( !empty( $selected_brands ) ){
         global $woocommerce;
-        $products = $woocommerce->cart->get_cart();
+        $products = is_admin() ? wc_get_order($_POST['order_id'])->get_items() : $woocommerce->cart->get_cart();
         foreach( $products as $product ) {
           $product_brands = wp_get_post_terms( $product['product_id'], 'pwb-brand', array( 'fields' => 'ids' ) );
           $valid_brands = array_intersect( $selected_brands, $product_brands );
