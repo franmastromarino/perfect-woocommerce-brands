@@ -48,6 +48,13 @@ class PWB_API_Support
           'permission_callback' => function () {
             return current_user_can('manage_options');
           }
+        ),
+        array(
+          'methods'   => WP_REST_Server::EDITABLE,
+          'callback'  => array($this, 'update_brand'),
+          'permission_callback' => function () {
+            return current_user_can('manage_options');
+          }
         )
       ));
     }
@@ -72,6 +79,16 @@ class PWB_API_Support
     }
   }
 
+  public function update_brand($request)
+  {
+    $update_brand = wp_update_term($request['term_id'], 'pwb-brand', array('name' => $request['name'], 'slug' => $request['slug'], 'description' => $request['description']));
+    if (!is_wp_error($update_brand)) {
+      return array('id' => $update_brand['term_id'], 'name' => $request['name'], 'slug' => $request['slug'], 'description' => $request['description']);
+    } else {
+      return $update_brand;
+    }
+  }
+  
   /**
    * Entry point for all rest field settings
    */
