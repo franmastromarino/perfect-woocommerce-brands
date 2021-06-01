@@ -296,6 +296,12 @@ class Perfect_Woocommerce_Brands
           $attachment_id = get_term_meta($brand->term_id, 'pwb_brand_image', 1);
 
           $attachment_html = wp_get_attachment_image($attachment_id, $image_size_selected);
+	  
+	  /* Separate brand by comma */
+	  if ($brand != $brands[0]) {
+            echo ', ';
+          }
+
           if (!empty($attachment_html) && $brands_in_loop == 'brand_image') {
             echo '<a href="' . $brand_link . '">' . $attachment_html . '</a>';
           } else {
