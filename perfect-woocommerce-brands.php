@@ -4,7 +4,7 @@
  *  Plugin Name: Perfect Brands for WooCommerce
  *  Plugin URI: https://quadlayers.com/portfolio/perfect-woocommerce-brands/
  *  Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
- *  Version: 1.9.1
+ *  Version: 1.9.2
  *  Author: QuadLayers
  *  Author URI: https://quadlayers.com
  *  Text Domain: perfect-woocommerce-brands
@@ -36,7 +36,7 @@ define('PWB_PLUGIN_FILE', __FILE__);
 define('PWB_PLUGIN_URL', plugins_url('', __FILE__));
 define('PWB_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR);
 define('PWB_PLUGIN_BASENAME', plugin_basename(__FILE__));
-define('PWB_PLUGIN_VERSION', '1.9.1');
+define('PWB_PLUGIN_VERSION', '1.9.2');
 define('PWB_PLUGIN_NAME', 'Perfect WooCommerce Brands');
 define('PWB_PREFIX', 'pwb');
 define('PWB_REVIEW_URL', 'https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?filter=5#new-post');
@@ -47,21 +47,26 @@ define('PWB_DOCUMENTATION_URL', 'https://quadlayers.com/documentation/perfect-wo
 define('PWB_GITHUB_URL', 'https://github.com/quadlayers/perfect-woocommerce-brands/');
 define('PWB_GROUP_URL', 'https://www.facebook.com/groups/quadlayers');
 
-register_activation_hook(__FILE__, function() {
+register_activation_hook(__FILE__, function () {
   update_option('pwb_activate_on', time());
 });
 
 //clean brands slug on plugin deactivation
-register_deactivation_hook(__FILE__, function() {
+register_deactivation_hook(__FILE__, function () {
   update_option('old_wc_pwb_admin_tab_slug', 'null');
 });
 
 //loads textdomain for the translations
-add_action('plugins_loaded', function() {
+add_action('plugins_loaded', function () {
   load_plugin_textdomain('perfect-woocommerce-brands', false, PWB_PLUGIN_DIR . '/lang');
 });
 
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+if (!class_exists('QL_Widget')) {
+  include_once(PWB_PLUGIN_DIR . 'includes/quadlayers/widget.php');
+}
+
+include_once(ABSPATH . 'wp-admin/includes/plugin.php');
 if (is_plugin_active('woocommerce/woocommerce.php')) {
 
   require 'classes/class-pwb-term.php';
@@ -109,7 +114,7 @@ if (is_plugin_active('woocommerce/woocommerce.php')) {
   new \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands();
 } elseif (is_admin()) {
 
-  add_action('admin_notices', function() {
+  add_action('admin_notices', function () {
     $message = esc_html__('Perfect WooCommerce Brands needs WooCommerce to run. Please, install and active WooCommerce plugin.', 'perfect-woocommerce-brands');
     printf('<div class="%1$s"><p>%2$s</p></div>', 'notice notice-error', $message);
   });
