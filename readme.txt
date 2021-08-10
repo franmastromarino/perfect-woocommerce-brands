@@ -3,11 +3,11 @@ Contributors: quadlayers, titodevera
 Donate link: https://quadlayers.com
 Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
-Tested up to: 5.6
+Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.8.6
+Stable tag: 1.9.1
 WC requires at least: 3.0
-WC tested up to: 4.9.1
+WC tested up to: 5.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -90,6 +90,16 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 1.9.1 =
+* Fix: WordPress compatibility
+= 1.9.0 =
+* Fix: php 8 compatibility
+= 1.8.9 =
+* Fix: php 8 compatibility
+= 1.8.8 =
+* Fix: WooCommerce compatibility
+= 1.8.7 =
+* Fix: WooCommerce compatibility
 = 1.8.6 =
 * New: remove filters button
 = 1.8.5 =

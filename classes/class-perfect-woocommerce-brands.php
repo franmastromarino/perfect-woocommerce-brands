@@ -910,7 +910,7 @@ class Perfect_Woocommerce_Brands
     }
   }
 
-  public static function render_template($name, $folder = '', $data, $private = true)
+  public static function render_template($name = '', $folder = '', $data = array(), $private = true)
   {
     //default template
     if ($folder)

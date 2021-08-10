@@ -57,6 +57,8 @@ class Brands_Custom_Fields
     $term_value_banner = get_term_meta($term->term_id, 'pwb_brand_banner', true);
     $term_value_banner_link = get_term_meta($term->term_id, 'pwb_brand_banner_link', true);
     ob_start();
+    $image_size_selected = get_option('wc_pwb_admin_tab_brand_logo_size', 'thumbnail');
+
   ?>
     <table class="form-table pwb_brand_cont">
       <tr class="form-field">
@@ -76,7 +78,7 @@ class Brands_Custom_Fields
           <input type="text" name="pwb_brand_image" id="pwb_brand_image" value="<?php echo esc_attr($term_value_image); ?>">
           <a href="#" id="pwb_brand_image_select" class="button"><?php esc_html_e('Select image', 'perfect-woocommerce-brands'); ?></a>
 
-          <?php $current_image = wp_get_attachment_image($term_value_image, array('90', '90'), false); ?>
+          <?php $current_image = wp_get_attachment_image($term_value_image, $image_size_selected, false); ?>
           <?php if (!empty($current_image)) : ?>
             <div class="pwb_brand_image_selected">
               <span>
@@ -96,7 +98,7 @@ class Brands_Custom_Fields
           <input type="text" name="pwb_brand_banner" id="pwb_brand_banner" value="<?php echo esc_html($term_value_banner); ?>">
           <a href="#" id="pwb_brand_banner_select" class="button"><?php esc_html_e('Select image', 'perfect-woocommerce-brands'); ?></a>
 
-          <?php $current_image = wp_get_attachment_image($term_value_banner, array('90', '90'), false); ?>
+          <?php $current_image = wp_get_attachment_image($term_value_banner, 'full', false); ?>
           <?php if (!empty($current_image)) : ?>
             <div class="pwb_brand_image_selected">
               <span>
