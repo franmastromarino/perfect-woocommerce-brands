@@ -4,9 +4,11 @@ namespace Perfect_Woocommerce_Brands\Admin;
 
 defined('ABSPATH') or die('No script kiddies please!');
 
-class PWB_Suggestions {
+class PWB_Suggestions
+{
 
-  public function __construct() {
+  public function __construct()
+  {
     add_action('admin_menu', array($this, 'add_menu'));
     add_action('admin_init', array($this, 'add_redirect'));
     add_action('admin_head', array($this, 'remove_menu'));
@@ -16,9 +18,24 @@ class PWB_Suggestions {
   // Admin
   // -------------------------------------------------------------------------
 
-  public function add_page() {
-    include_once( PWB_PLUGIN_DIR . 'classes/class-pwb-suggestions-list.php' );
-    ?>
+  public function add_page()
+  {
+    include_once(PWB_PLUGIN_DIR . 'classes/class-pwb-suggestions-list.php');
+?>
+    <style>
+      @media screen and (max-width: 2299px) and (min-width: 1600px) {
+
+        #the-list {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .plugin-card {
+          margin: 8px !important;
+          width: calc(50% - 4px - 16px) !important;
+        }
+      }
+    </style>
     <div class="wrap about-wrap full-width-layout">
 
       <h1><?php esc_html_e('Suggestions', 'perfect-woocommerce-brands'); ?></h1>
@@ -26,7 +43,7 @@ class PWB_Suggestions {
       <p class="about-text"><?php printf(esc_html__('Thanks for using our product! We recommend these extensions that will add new features to stand out your business and improve your sales.', 'perfect-woocommerce-brands'), PWB_PLUGIN_NAME); ?></p>
 
       <p class="about-text">
-        <?php printf('<a href="%s" target="_blank">%s</a>', PWB_PURCHASE_URL, esc_html__('Purchase', 'perfect-woocommerce-brands')); ?></a> |  
+        <?php printf('<a href="%s" target="_blank">%s</a>', PWB_PURCHASE_URL, esc_html__('Purchase', 'perfect-woocommerce-brands')); ?></a> |
         <?php printf('<a href="%s" target="_blank">%s</a>', PWB_DOCUMENTATION_URL, esc_html__('Documentation', 'perfect-woocommerce-brands')); ?></a>
       </p>
 
@@ -50,24 +67,26 @@ class PWB_Suggestions {
          position: relative;
          margin: 25px 40px 0 20px;
          max-width: 1200px;">
-         <?php
-         $wp_list_table = new \Perfect_Woocommerce_Brands\PWB_Suggestions_List_Table();
-         $wp_list_table->prepare_items();
-         ?>
+      <?php
+      $wp_list_table = new \Perfect_Woocommerce_Brands\PWB_Suggestions_List_Table();
+      $wp_list_table->prepare_items();
+      ?>
       <form id="plugin-filter" method="post" class="importer-item">
         <?php $wp_list_table->display(); ?>
       </form>
     </div>
-    <?php
+  <?php
   }
 
-  public function add_menu() {
+  public function add_menu()
+  {
     add_menu_page(PWB_PLUGIN_NAME, PWB_PLUGIN_NAME, 'manage_woocommerce', PWB_PREFIX, array($this, 'add_page'));
     add_submenu_page(PWB_PREFIX, esc_html__('Suggestions', 'perfect-woocommerce-brands'), esc_html__('Suggestions', 'perfect-woocommerce-brands'), 'manage_woocommerce', PWB_PREFIX . '_suggestions', array($this, 'add_page'));
   }
 
   // fix for activateUrl on install now button
-  public function network_admin_url($url, $path) {
+  public function network_admin_url($url, $path)
+  {
 
     if (wp_doing_ajax() && !is_network_admin()) {
       if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'install-plugin') {
@@ -80,7 +99,8 @@ class PWB_Suggestions {
     return $url;
   }
 
-  public function add_redirect() {
+  public function add_redirect()
+  {
 
     if (isset($_REQUEST['activate']) && $_REQUEST['activate'] == 'true') {
       if (wp_get_referer() == admin_url('admin.php?page=' . PWB_PREFIX . '_suggestions')) {
@@ -89,16 +109,14 @@ class PWB_Suggestions {
     }
   }
 
-  public function remove_menu() {
-    ?>
+  public function remove_menu()
+  {
+  ?>
     <style>
-
       li.toplevel_page_<?php echo PWB_PREFIX; ?> {
-        display:none;
+        display: none;
       }
-
     </style>
-    <?php
+<?php
   }
-
 }
