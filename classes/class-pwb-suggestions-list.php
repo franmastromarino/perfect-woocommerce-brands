@@ -11,6 +11,7 @@ class PWB_Suggestions_List_Table extends \WP_Plugin_Install_List_Table
     'woocommerce-checkout-manager',
     'woocommerce-direct-checkout',
     'wp-whatsapp-chat',
+    'quadlayers-telegram-chat',
     'wp-tiktok-feed',
     'insta-gallery',
     'quadmenu',
