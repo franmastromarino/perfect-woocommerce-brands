@@ -5,7 +5,7 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 1.9.6
+Stable tag: 1.9.7
 WC requires at least: 3.0
 WC tested up to: 5.5
 License: GPLv3
@@ -90,6 +90,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 1.9.7 =
+* Fix: QuadLayers widget cache
 = 1.9.6 =
 * Fix: WordPress compatibility
 = 1.9.5 =
