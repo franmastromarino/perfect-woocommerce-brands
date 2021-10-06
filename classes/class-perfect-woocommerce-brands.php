@@ -235,11 +235,14 @@ class Perfect_Woocommerce_Brands
 
   public function product_microdata($markup, $product)
   {
-
     $new_markup = array();
     $brands = wp_get_post_terms($product->get_id(), 'pwb-brand');
     foreach ($brands as $brand) {
-      $new_markup['brand'][] = $brand->name;
+      $new_markup['brand'][] = [
+        '@type' => 'Brand',
+        'name' => $brand->name
+      ];
+      // $new_markup['brand'][] = $brand->name;
     }
 
     return array_merge($markup, $new_markup);
