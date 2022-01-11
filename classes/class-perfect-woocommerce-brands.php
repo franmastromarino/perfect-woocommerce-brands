@@ -746,7 +746,11 @@ class Perfect_Woocommerce_Brands
         'migrating' => esc_html__('We are migrating the product brands. ¡Don´t close this window until the process is finished!', 'perfect-woocommerce-brands'),
         'dummy_data_notice' => esc_html__('¿Start loading dummy data?', 'perfect-woocommerce-brands'),
         'dummy_data' => esc_html__('We are importing the dummy data. ¡Don´t close this window until the process is finished!', 'perfect-woocommerce-brands')
-      )
+      ),
+      'nonce' => [
+        'import' => wp_create_nonce('pwb_brands_import'),
+        'export' => wp_create_nonce('pwb_brands_export'),
+      ]
     ));
     wp_enqueue_script('pwb-functions-admin');
   }
