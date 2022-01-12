@@ -25,7 +25,13 @@ class Brands_Exporter
 
   public function export_brands()
   {
-    if (isset($_REQUEST['nonce']) && wp_verify_nonce($_REQUEST['nonce'], 'pwb_brands_export')) {
+    if (
+      isset($_REQUEST['nonce'])
+      &&
+      wp_verify_nonce($_REQUEST['nonce'], 'pwb_brands_export')
+      &&
+      current_user_can('manage_options')
+    ) {
       $this->get_brands();
     } else {
       wp_send_json_error();
@@ -71,7 +77,15 @@ class Brands_Exporter
   public function import_brands()
   {
 
-    if (isset($_FILES['file']) && isset($_REQUEST['nonce']) && wp_verify_nonce($_REQUEST['nonce'], 'pwb_brands_import')) {
+    if (
+      isset($_FILES['file'])
+      &&
+      isset($_REQUEST['nonce'])
+      &&
+      wp_verify_nonce($_REQUEST['nonce'], 'pwb_brands_import')
+      &&
+      current_user_can('manage_options')
+    ) {
 
       $file = $_FILES['file'];
 

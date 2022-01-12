@@ -53,19 +53,17 @@ class Pwb_Admin_Tab
       return;
     }
 
-    echo '<ul class="subsubsub">';
-
-    $array_keys = array_keys($sections);
-
-    foreach ($sections as $id => $label) {
-      echo '<li><a href="' . admin_url('admin.php?page=wc-settings&tab=' . $this->id . '&section=' . sanitize_title($id)) . '" class="' . ($current_section == $id ? 'current' : '') . '">' . $label . '</a> ' . (end($array_keys) == $id ? '' : '|') . ' </li>';
-    }
-
-    echo ' | <li><a target="_blank" href="' . admin_url('edit-tags.php?taxonomy=pwb-brand&post_type=product') . '">' . __('Brands', 'perfect-woocommerce-brands') . '</a></li>';
-    echo ' | <li><a target="_blank" href="' . admin_url('admin.php?page=pwb_suggestions') . '">' . __('Suggestions', 'perfect-woocommerce-brands') . '</a></li>';
-    echo ' | <li><a target="_blank" href="' . PWB_DOCUMENTATION_URL . '">' . __('Documentation', 'perfect-woocommerce-brands') . '</a></li>';
-
-    echo '</ul><br class="clear" />';
+?>
+    <ul class="subsubsub">
+      <?php foreach ($sections as $id => $label) : ?>
+        <li><a href="<?php echo admin_url('admin.php?page=wc-settings&tab=' . $this->id . '&section=' . $id); ?>" class="<?php echo ($current_section == $id ? 'current' : ''); ?>"><?php esc_html_e($label); ?></a></li> | 
+      <?php endforeach; ?>
+      <li><a target="_blank" href="<?php echo admin_url('edit-tags.php?taxonomy=pwb-brand&post_type=product'); ?>"><?php esc_html_e('Brands', 'perfect-woocommerce-brands'); ?></a></li> | 
+      <li><a target="_blank" href="<?php echo admin_url('admin.php?page=pwb_suggestions'); ?>"><?php esc_attr_e('Suggestions', 'perfect-woocommerce-brands'); ?></a></li> | 
+      <li><a target="_blank" href="<?php echo esc_url(PWB_DOCUMENTATION_URL); ?>"><?php esc_html_e('Documentation', 'perfect-woocommerce-brands'); ?></a></li>
+    </ul>
+    <br class="clear" />
+<?php
   }
 
   public function get_settings($current_section = '')

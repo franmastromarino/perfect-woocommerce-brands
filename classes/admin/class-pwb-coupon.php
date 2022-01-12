@@ -38,7 +38,7 @@
     }
 
     public function coupon_save( $post_id ){
-      $_pwb_coupon_restriction = isset( $_POST['_pwb_coupon_restriction'] ) ? $_POST['_pwb_coupon_restriction'] : '';
+      $_pwb_coupon_restriction = isset( $_POST['_pwb_coupon_restriction'] ) ? sanitize_text_field($_POST['_pwb_coupon_restriction']) : '';
       update_post_meta( $post_id, '_pwb_coupon_restriction', $_pwb_coupon_restriction );
     }
 

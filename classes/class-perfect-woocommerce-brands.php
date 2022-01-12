@@ -190,8 +190,12 @@ class Perfect_Woocommerce_Brands
   public function dismiss_pwb_notice()
   {
     $notice_name_whitelist = array('wc_pwb_notice_plugin_review');
+
     if (isset($_POST['notice_name']) && in_array($_POST['notice_name'], $notice_name_whitelist)) {
-      update_option($_POST['notice_name'], 0);
+
+      $notice_key = sanitize_key($_POST['notice_name']);
+
+      update_option($notice_key, 0);
       echo 'ok';
     } else {
       echo 'error';

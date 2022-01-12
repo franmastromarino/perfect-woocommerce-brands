@@ -86,7 +86,7 @@ class PWB_All_Brands_Shortcode
     $page = 1;
 
     if (isset($_GET['pwb-page']) && filter_var($_GET['pwb-page'], FILTER_VALIDATE_INT) == true) {
-      $page = $_GET['pwb-page'];
+      $page = intval($_GET['pwb-page']);
     }
 
     $page = $page < 1 ? 1 : $page;

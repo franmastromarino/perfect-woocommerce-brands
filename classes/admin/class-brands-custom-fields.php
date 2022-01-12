@@ -136,7 +136,7 @@ class Brands_Custom_Fields
 
     /* ·············· Brand image ·············· */
     $old_img = get_term_meta($term_id, 'pwb_brand_image', true);
-    $new_img = isset($_POST['pwb_brand_image']) ? $_POST['pwb_brand_image'] : '';
+    $new_img = isset($_POST['pwb_brand_image']) ? sanitize_text_field($_POST['pwb_brand_image']) : '';
 
     if ($old_img && '' === $new_img)
       delete_term_meta($term_id, 'pwb_brand_image');
@@ -147,7 +147,7 @@ class Brands_Custom_Fields
 
     /* ·············· Brand banner ·············· */
     $old_img = get_term_meta($term_id, 'pwb_brand_banner', true);
-    $new_img = isset($_POST['pwb_brand_banner']) ? $_POST['pwb_brand_banner'] : '';
+    $new_img = isset($_POST['pwb_brand_banner']) ? sanitize_text_field($_POST['pwb_brand_banner']) : '';
 
     if ($old_img && '' === $new_img)
       delete_term_meta($term_id, 'pwb_brand_banner');
@@ -158,7 +158,7 @@ class Brands_Custom_Fields
 
     /* ·············· Brand banner link ·············· */
     $old_img = get_term_meta($term_id, 'pwb_brand_banner_link', true);
-    $new_img = isset($_POST['pwb_brand_banner_link']) ? $_POST['pwb_brand_banner_link'] : '';
+    $new_img = isset($_POST['pwb_brand_banner_link']) ? esc_url_raw($_POST['pwb_brand_banner_link']) : '';
 
     if ($old_img && '' === $new_img)
       delete_term_meta($term_id, 'pwb_brand_banner_link');

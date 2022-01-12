@@ -55,8 +55,12 @@ class PWB_Product_Tab
 
       <div id="tab-pwb_tab-content">
         <h3><?php echo esc_html($brand->name); ?></h3>
-        <?php if (!empty($brand->description)) echo '<div>' . do_shortcode($brand->description) . '</div>'; ?>
-        <?php if (!empty($brand_logo)) echo '<span>' . $brand_logo . '</span>'; ?>
+        <?php if (!empty($brand->description)) : ?>
+          <div><?php echo do_shortcode($brand->description); ?></div>
+        <?php endif; ?>
+        <?php if (!empty($brand_logo)) : ?>
+          <span><?php echo wp_kses_post($brand_logo); ?></span>
+        <?php endif; ?>
       </div>
 
     <?php endforeach; ?>
