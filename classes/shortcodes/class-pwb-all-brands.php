@@ -160,14 +160,14 @@ class PWB_All_Brands_Shortcode
         echo '<a href="' . get_the_permalink() . '" class="pwb-pagination prev" title="' . esc_html__('First page', 'perfect-woocommerce-brands') . '">&laquo;</a>';
       }
       if ($prev > 0) {
-        echo '<a href="' . get_the_permalink() . '?pwb-page=' . $prev . '" class="pwb-pagination last" title="' . esc_html__('Previous page', 'perfect-woocommerce-brands') . '">&lsaquo;</a>';
+        echo '<a href="' . get_the_permalink() . '?pwb-page=' . esc_attr($prev) . '" class="pwb-pagination last" title="' . esc_html__('Previous page', 'perfect-woocommerce-brands') . '">&lsaquo;</a>';
       }
 
       if ($next <= $pages) {
-        echo '<a href="' . get_the_permalink() . '?pwb-page=' . $next . '" class="pwb-pagination first" title="' . esc_html__('Next page', 'perfect-woocommerce-brands') . '">&rsaquo;</a>';
+        echo '<a href="' . get_the_permalink() . '?pwb-page=' . esc_attr($next) . '" class="pwb-pagination first" title="' . esc_html__('Next page', 'perfect-woocommerce-brands') . '">&rsaquo;</a>';
       }
       if ($next < $pages) {
-        echo '<a href="' . get_the_permalink() . '?pwb-page=' . $pages . '" class="pwb-pagination next" title="' . esc_html__('Last page', 'perfect-woocommerce-brands') . '">&raquo;</a>';
+        echo '<a href="' . get_the_permalink() . '?pwb-page=' . esc_attr($pages) . '" class="pwb-pagination next" title="' . esc_html__('Last page', 'perfect-woocommerce-brands') . '">&raquo;</a>';
       }
       echo '</div>';
     } else {

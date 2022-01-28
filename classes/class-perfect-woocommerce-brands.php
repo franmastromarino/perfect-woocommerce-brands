@@ -24,7 +24,7 @@ class Perfect_Woocommerce_Brands
     add_action('widgets_init', array($this, 'register_widgets'));
     add_filter('woocommerce_structured_data_product', array($this, 'product_microdata'), 10, 2);
     add_action('pre_get_posts', array($this, 'pwb_brand_filter'));
-    add_action('wp_ajax_dismiss_pwb_notice', array($this, 'dismiss_pwb_notice'));
+    add_action('wp_ajax_pwb_dismiss_notice', array($this, 'dismiss_notice'));
     add_action('admin_notices', array($this, 'review_notice'));
 
     add_action('wp', function () {
@@ -187,18 +187,28 @@ class Perfect_Woocommerce_Brands
     }
   }
 
-  public function dismiss_pwb_notice()
+  public function dismiss_notice()
   {
-    $notice_name_whitelist = array('wc_pwb_notice_plugin_review');
 
-    if (isset($_POST['notice_name']) && in_array($_POST['notice_name'], $notice_name_whitelist)) {
+    if (
+      isset($_REQUEST['nonce'])
+      &&
+      wp_verify_nonce($_REQUEST['nonce'], 'pwb_dismiss_notice')
+      &&
+      current_user_can('manage_options')
+    ) {
 
-      $notice_key = sanitize_key($_POST['notice_name']);
+      $notice_name_whitelist = array('wc_pwb_notice_plugin_review');
 
-      update_option($notice_key, 0);
-      echo 'ok';
-    } else {
-      echo 'error';
+      if (isset($_POST['notice_name']) && in_array($_POST['notice_name'], $notice_name_whitelist)) {
+
+        $notice_key = sanitize_key($_POST['notice_name']);
+
+        update_option($notice_key, 0);
+        echo 'ok';
+      } else {
+        echo 'error';
+      }
     }
     wp_die();
   }
@@ -208,7 +218,7 @@ class Perfect_Woocommerce_Brands
 
     if (!empty($_GET['pwb-brand-filter'])) {
 
-      $terms_array = explode(',', $_GET['pwb-brand-filter']);
+      $terms_array = explode(',', sanitize_text_field($_GET['pwb-brand-filter']));
 
       //remove invalid terms (security)
       for ($i = 0; $i < count($terms_array); $i++) {
@@ -752,8 +762,14 @@ class Perfect_Woocommerce_Brands
         'dummy_data' => esc_html__('We are importing the dummy data. ¡Don´t close this window until the process is finished!', 'perfect-woocommerce-brands')
       ),
       'nonce' => [
-        'import' => wp_create_nonce('pwb_brands_import'),
-        'export' => wp_create_nonce('pwb_brands_export'),
+        'pwb_brands_export' => wp_create_nonce('pwb_brands_export'), //ok
+        'pwb_brands_import' => wp_create_nonce('pwb_brands_import'), //ok
+        'pwb_dismiss_notice' => wp_create_nonce('pwb_dismiss_notice'), //ok
+        'pwb_admin_set_featured_brand' => wp_create_nonce('pwb_admin_set_featured_brand'), //ok
+        'pwb_admin_save_screen_settings' => wp_create_nonce('pwb_admin_save_screen_settings'), //ok
+        'pwb_admin_dummy_data' => wp_create_nonce('pwb_admin_dummy_data'), //ok
+        'pwb_admin_migrate_brands' => wp_create_nonce('pwb_admin_migrate_brands'),
+        'pwb_system_status' => wp_create_nonce('pwb_system_status')
       ]
     ));
     wp_enqueue_script('pwb-functions-admin');

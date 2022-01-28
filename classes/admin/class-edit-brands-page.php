@@ -14,9 +14,9 @@ class Edit_Brands_Page
     add_filter('get_terms', array($this, 'brand_list_admin_filter'), 10, 3);
     add_filter('manage_edit-pwb-brand_columns', array($this, 'brand_taxonomy_columns_head'));
     add_filter('manage_pwb-brand_custom_column', array($this, 'brand_taxonomy_columns'), 10, 3);
-    add_action('wp_ajax_pwb_admin_set_featured_brand', array($this, 'set_featured_brand'));
+    add_action('wp_ajax_pwb_admin_set_featured_brand', array($this, 'admin_set_featured_brand'));
     add_filter('screen_settings', array($this, 'add_screen_options'), 10, 2);
-    add_action('wp_ajax_pwb_admin_save_screen_settings', array($this, 'save_screen_options'));
+    add_action('wp_ajax_pwb_admin_save_screen_settings', array($this, 'admin_save_screen_settings'));
     add_action('plugins_loaded', function () {
       \Perfect_Woocommerce_Brands\Admin\Edit_Brands_Page::$current_user = wp_get_current_user();
     });
@@ -56,7 +56,7 @@ class Edit_Brands_Page
         $featured_brands = array();
         $other_brands    = array();
         foreach ($brands as $brand) {
-          if (get_term_meta($brand->term_id, 'pwb_featured_brand', true)) {
+          if (isset($brand->term_id) && get_term_meta($brand->term_id, 'pwb_featured_brand', true)) {
             $featured_brands[] = $brand;
           } else {
             $other_brands[] = $brand;
@@ -109,20 +109,29 @@ class Edit_Brands_Page
     return (get_term_meta($brand_id, 'pwb_featured_brand', true));
   }
 
-  public function set_featured_brand()
+  public function admin_set_featured_brand()
   {
-    if (isset($_POST['brand'])) {
-      $direction = 'up';
-      $brand = intval($_POST['brand']);
-      if ($this->is_featured_brand($brand)) {
-        delete_term_meta($brand, 'pwb_featured_brand', true);
-        $direction = 'down';
+    if (
+      isset($_REQUEST['nonce'])
+      &&
+      wp_verify_nonce($_REQUEST['nonce'], 'pwb_admin_set_featured_brand')
+      &&
+      current_user_can('manage_options')
+    ) {
+
+      if (isset($_POST['brand'])) {
+        $direction = 'up';
+        $brand = intval($_POST['brand']);
+        if ($this->is_featured_brand($brand)) {
+          delete_term_meta($brand, 'pwb_featured_brand', true);
+          $direction = 'down';
+        } else {
+          update_term_meta($brand, 'pwb_featured_brand', true);
+        }
+        wp_send_json_success(array('success' => true, 'direction' => $direction));
       } else {
-        update_term_meta($brand, 'pwb_featured_brand', true);
+        wp_send_json_error(array('success' => false, 'error_msg' => __('Error!', 'perfect-woocommerce-brands')));
       }
-      wp_send_json_success(array('success' => true, 'direction' => $direction));
-    } else {
-      wp_send_json_error(array('success' => false, 'error_msg' => __('Error!', 'perfect-woocommerce-brands')));
     }
     wp_die();
   }
@@ -143,11 +152,20 @@ class Edit_Brands_Page
     }
   }
 
-  public function save_screen_options()
+  public function admin_save_screen_settings()
   {
-    if (isset($_POST['new_val'])) {
-      $new_val = ($_POST['new_val'] == 'true') ? true : false;
-      update_user_option(self::$current_user->ID, 'pwb-first-featured-brands', $new_val);
+    if (
+      isset($_REQUEST['nonce'])
+      &&
+      wp_verify_nonce($_REQUEST['nonce'], 'pwb_admin_save_screen_settings')
+      &&
+      current_user_can('manage_options')
+    ) {
+
+      if (isset($_POST['new_val'])) {
+        $new_val = ($_POST['new_val'] == 'true') ? true : false;
+        update_user_option(self::$current_user->ID, 'pwb-first-featured-brands', $new_val);
+      }
     }
     wp_die();
   }

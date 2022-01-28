@@ -10,8 +10,8 @@ class Brands_Exporter
   function __construct()
   {
     add_action('after-pwb-brand-table', array($this, 'exporter_button'));
-    add_action('wp_ajax_pwb_brands_export', array($this, 'export_brands'));
-    add_action('wp_ajax_pwb_brands_import', array($this, 'import_brands'));
+    add_action('wp_ajax_pwb_brands_export', array($this, 'brands_export'));
+    add_action('wp_ajax_pwb_brands_import', array($this, 'brands_import'));
   }
 
   public function exporter_button()
@@ -23,7 +23,7 @@ class Brands_Exporter
     );
   }
 
-  public function export_brands()
+  public function brands_export()
   {
     if (
       isset($_REQUEST['nonce'])
@@ -74,7 +74,7 @@ class Brands_Exporter
     wp_send_json_success($result);
   }
 
-  public function import_brands()
+  public function brands_import()
   {
 
     if (

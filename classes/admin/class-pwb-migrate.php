@@ -9,24 +9,33 @@ class PWB_Migrate
 
   function __construct()
   {
-    add_action('wp_ajax_pwb_admin_migrate_brands', array($this, 'migrate_from'));
+    add_action('wp_ajax_pwb_admin_migrate_brands', array($this, 'admin_migrate_brands'));
   }
 
-  public function migrate_from()
+  public function admin_migrate_brands()
   {
 
-    if (isset($_POST['from'])) {
+    if (
+      isset($_REQUEST['nonce'])
+      &&
+      wp_verify_nonce($_REQUEST['nonce'], 'pwb_admin_migrate_brands')
+      &&
+      current_user_can('manage_options')
+    ) {
 
-      switch ($_POST['from']) {
-        case 'yith':
-          $this->migrate_from_yith();
-          break;
-        case 'ultimate':
-          $this->migrate_from_ultimate();
-          break;
-        case 'woobrands':
-          $this->migrate_from_woobrands();
-          break;
+      if (isset($_POST['from'])) {
+
+        switch ($_POST['from']) {
+          case 'yith':
+            $this->migrate_from_yith();
+            break;
+          case 'ultimate':
+            $this->migrate_from_ultimate();
+            break;
+          case 'woobrands':
+            $this->migrate_from_woobrands();
+            break;
+        }
       }
     }
 

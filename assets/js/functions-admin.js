@@ -95,7 +95,11 @@
             $currentStar.removeClass('dashicons-star-empty');
             $currentStar.addClass('dashicons-star-filled');
         }
-        var data = { 'action': 'pwb_admin_set_featured_brand', 'brand': $currentStar.data('brand-id') };
+        var data = {
+            'action': 'pwb_admin_set_featured_brand',
+            'brand': $currentStar.data('brand-id'),
+            'nonce': pwb_ajax_object_admin.nonce.pwb_admin_set_featured_brand
+        };
         $.post(pwb_ajax_object_admin.ajax_url, data, function (response) {
             $currentStar.removeClass('pwb-blocked');
             if (response.success) {
@@ -114,7 +118,11 @@
     $('.taxonomy-pwb-brand #pwb-first-featured-brands').on('change', function (e) {
         e.preventDefault();
         $('#screen-options-apply').replaceWith('<img src="' + pwb_ajax_object_admin.site_url + '/wp-admin/images/loading.gif">');
-        var data = { 'action': 'pwb_admin_save_screen_settings', 'new_val': $(this).is(':checked') };
+        var data = {
+            'action': 'pwb_admin_save_screen_settings',
+            'new_val': $(this).is(':checked'),
+            'nonce': pwb_ajax_object_admin.nonce.pwb_admin_save_screen_settings
+        };
         $.post(pwb_ajax_object_admin.ajax_url, data, function (response) { location.reload(); });
     });
 
@@ -143,7 +151,8 @@
 
                 var data = {
                     'action': 'pwb_admin_migrate_brands',
-                    'from': $(this).val()
+                    'from': $(this).val(),
+                    'nonce': pwb_ajax_object_admin.nonce.pwb_admin_migrate_brands
                 };
                 $.post(pwb_ajax_object_admin.ajax_url, data, function (response) {
 
@@ -175,7 +184,8 @@
 
                 var data = {
                     'action': 'pwb_admin_dummy_data',
-                    'from': $(this).val()
+                    'from': $(this).val(),
+                    'nonce': pwb_ajax_object_admin.nonce.pwb_admin_dummy_data
                 };
                 $.post(pwb_ajax_object_admin.ajax_url, data, function (response) {
 
@@ -224,7 +234,8 @@
         $('#wc_pwb_admin_status_result').html('<img src="' + pwb_ajax_object_admin.site_url + '/wp-admin/images/spinner.gif' + '" alt="Loading" height="20" width="20">');
         $('#wc_pwb_admin_status_result').show();
         var data = {
-            'action': 'pwb_system_status'
+            'action': 'pwb_system_status',
+            'nonce': pwb_ajax_object_admin.nonce.pwb_system_status
         };
         $.post(ajaxurl, data, function (response) {
             $('#wc_pwb_admin_status_result').html(response);
@@ -243,8 +254,9 @@
         var noticeName = $(this).closest('.pwb-notice-dismissible').data('notice');
 
         var data = {
-            'action': 'dismiss_pwb_notice',
-            'notice_name': noticeName
+            'action': 'pwb_dismiss_notice',
+            'notice_name': noticeName,
+            'nonce': pwb_ajax_object_admin.nonce.pwb_dismiss_notice
         };
         $.post(ajaxurl, data, function (response) {
             //callback
@@ -290,7 +302,7 @@
 
         var data = {
             'action': 'pwb_brands_export',
-            'nonce': pwb_ajax_object_admin.nonce.export
+            'nonce': pwb_ajax_object_admin.nonce.pwb_brands_export
         };
 
 
@@ -331,7 +343,7 @@
         var reqData = new FormData();
         reqData.append('action', 'pwb_brands_import');
         reqData.append('file', file);
-        reqData.append('nonce', pwb_ajax_object_admin.nonce.import);
+        reqData.append('nonce', pwb_ajax_object_admin.nonce.pwb_brands_import);
 
         $.ajax({
             url: pwb_ajax_object_admin.ajax_url,
