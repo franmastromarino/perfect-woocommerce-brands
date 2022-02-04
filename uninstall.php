@@ -1,7 +1,7 @@
 <?php
   namespace Perfect_Woocommerce_Brands;
 
-  defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+  defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
   delete_option('wc_pwb_admin_tab_section_title');
   delete_option('wc_pwb_admin_tab_slug');

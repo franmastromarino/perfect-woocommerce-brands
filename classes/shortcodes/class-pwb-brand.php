@@ -1,7 +1,7 @@
 <?php
 namespace Perfect_Woocommerce_Brands\Shortcodes;
 
-defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class PWB_Brand_Shortcode{
 

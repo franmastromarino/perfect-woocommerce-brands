@@ -1,93 +1,108 @@
 <?php
 namespace Perfect_Woocommerce_Brands\Widgets;
 
-defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class PWB_Dropdown_Widget extends \WP_Widget {
 
-  function __construct(){
-    $params = array(
-      'description' => __( 'Adds a brands dropdown to your site', 'perfect-woocommerce-brands' ),
-      'name'        => __( 'Brands dropdown', 'perfect-woocommerce-brands' )
-    );
-    parent::__construct('PWB_Dropdown_Widget', '', $params);
-  }
+	function __construct() {
+		$params = array(
+			'description' => esc_html__( 'Adds a brands dropdown to your site', 'perfect-woocommerce-brands' ),
+			'name'        => esc_html__( 'Brands dropdown', 'perfect-woocommerce-brands' ),
+		);
+		parent::__construct( 'PWB_Dropdown_Widget', '', $params );
+	}
 
-  public function form($instance){
-    extract($instance);
+	public function form( $instance ) {
+		extract( $instance );
 
-    $title = ( isset( $instance[ 'title' ] ) ) ? $instance[ 'title' ] : esc_html__('Brands', 'perfect-woocommerce-brands');
-    $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
-    $only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
-    ?>
+		$title         = ( isset( $instance['title'] ) ) ? $instance['title'] : esc_html__( 'Brands', 'perfect-woocommerce-brands' );
+		$hide_empty    = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
+		$only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
+		?>
 
-    <p>
-      <label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>">
-        <?php echo __( 'Title', 'perfect-woocommerce-brands' );?>
-      </label>
-      <input
-      class="widefat"
-      type="text"
-      id="<?php echo esc_attr( $this->get_field_id('title') ); ?>"
-      name="<?php echo esc_attr( $this->get_field_name('title') ); ?>"
-      value="<?php if(isset($title)) echo esc_attr($title); ?>">
-    </p>
+	<p>
+	<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
+		<?php esc_html_e( 'Title', 'perfect-woocommerce-brands' ); ?>
+	</label>
+	<input
+	class="widefat"
+	type="text"
+	id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+	name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
+	value="
+		<?php
+		if ( isset( $title ) ) {
+			echo esc_attr( $title );}
+		?>
+		">
+	</p>
 
-    <p>
-      <input
-      type="checkbox"
-      id="<?php echo esc_attr( $this->get_field_id('hide_empty') ); ?>"
-      name="<?php echo esc_attr( $this->get_field_name('hide_empty') ); ?>"
-      <?php checked( $hide_empty ); ?>>
-      <label for="<?php echo esc_attr( $this->get_field_id('hide_empty') ); ?>">
-        <?php echo __( 'Hide empty', 'perfect-woocommerce-brands' );?>
-      </label>
-    </p>
+	<p>
+	<input
+	type="checkbox"
+	id="<?php echo esc_attr( $this->get_field_id( 'hide_empty' ) ); ?>"
+	name="<?php echo esc_attr( $this->get_field_name( 'hide_empty' ) ); ?>"
+		<?php checked( $hide_empty ); ?>>
+	<label for="<?php echo esc_attr( $this->get_field_id( 'hide_empty' ) ); ?>">
+		<?php esc_html_e( 'Hide empty', 'perfect-woocommerce-brands' ); ?>
+	</label>
+	</p>
 
-    <p>
-      <input
-      type="checkbox"
-      id="<?php echo esc_attr( $this->get_field_id('only_featured') ); ?>"
-      name="<?php echo esc_attr( $this->get_field_name('only_featured') ); ?>"
-      <?php checked( $only_featured ); ?>>
-      <label for="<?php echo esc_attr( $this->get_field_id('only_featured') ); ?>">
-        <?php echo __( 'Only favorite brands', 'perfect-woocommerce-brands' );?>
-      </label>
-    </p>
+	<p>
+	<input
+	type="checkbox"
+	id="<?php echo esc_attr( $this->get_field_id( 'only_featured' ) ); ?>"
+	name="<?php echo esc_attr( $this->get_field_name( 'only_featured' ) ); ?>"
+		<?php checked( $only_featured ); ?>>
+	<label for="<?php echo esc_attr( $this->get_field_id( 'only_featured' ) ); ?>">
+		<?php esc_html_e( 'Only favorite brands', 'perfect-woocommerce-brands' ); ?>
+	</label>
+	</p>
 
-    <?php
-  }
+		<?php
+	}
 
-  public function widget( $args, $instance ){
-    extract($args);
-    extract($instance);
+	public function widget( $args, $instance ) {
 
-    $queried_obj = get_queried_object();
-    $queried_brand_id = ( isset( $queried_obj->term_id ) ) ? $queried_obj->term_id : false;
+		extract( $args );
+		extract( $instance );
 
-    $hide_empty = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
-    $only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
-    $brands = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands(
-      $hide_empty, 'name', 'ASC', $only_featured, true
-    );
+		$queried_obj      = get_queried_object();
+		$queried_brand_id = ( isset( $queried_obj->term_id ) ) ? $queried_obj->term_id : false;
 
-    if( is_array( $brands ) && count( $brands ) > 0 ){
+		$hide_empty    = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
+		$only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
+		$brands        = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands(
+			$hide_empty,
+			'name',
+			'ASC',
+			$only_featured,
+			true
+		);
 
-      echo $before_widget;
+		if ( is_array( $brands ) && count( $brands ) > 0 ) {
 
-        if( !empty( $title ) ) echo $before_title . $title . $after_title;
+			echo $before_widget;// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-        echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
-          'dropdown',
-          'widgets',
-          array( 'brands' => $brands, 'selected' => $queried_brand_id ),
-          false
-        );
+			if ( ! empty( $title ) ) {
+				echo $before_title . $title . $after_title;// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
 
-      echo $after_widget;
+			echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				'dropdown',
+				'widgets',
+				array(
+					'brands'   => $brands,
+					'selected' => $queried_brand_id,
+				),
+				false
+			);
 
-    }
+			echo $after_widget;// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-  }
+		}
+
+	}
 
 }
