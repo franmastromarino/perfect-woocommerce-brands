@@ -4,7 +4,7 @@ namespace Perfect_Woocommerce_Brands\Widgets;
 
 use WP_Query;
 
-defined('ABSPATH') or die('No script kiddies please!');
+defined('ABSPATH') || die('No script kiddies please!');
 
 class PWB_Filter_By_Brand_Widget extends \WP_Widget
 {

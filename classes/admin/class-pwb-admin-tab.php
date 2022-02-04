@@ -5,7 +5,7 @@ namespace Perfect_Woocommerce_Brands\Admin;
 use WC_Admin_Settings,
   WC_Settings_Page;
 
-defined('ABSPATH') or die('No script kiddies please!');
+defined('ABSPATH') || die('No script kiddies please!');
 
 class Pwb_Admin_Tab
 {

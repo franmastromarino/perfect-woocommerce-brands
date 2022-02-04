@@ -5,7 +5,7 @@
  * @version 1.0.1
  */
 
-defined('ABSPATH') or die('No script kiddies please!');
+defined('ABSPATH') || die('No script kiddies please!');
 ?>
 
 <?php if (!empty($grouped_brands)) : ?>

@@ -29,7 +29,7 @@
 
 namespace Perfect_Woocommerce_Brands;
 
-defined('ABSPATH') or die('No script kiddies please!');
+defined('ABSPATH') || die('No script kiddies please!');
 
 //plugin constants
 define('PWB_PLUGIN_FILE', __FILE__);

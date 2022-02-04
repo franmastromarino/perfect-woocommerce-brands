@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-defined('ABSPATH') or die('No script kiddies please!');
+defined('ABSPATH') || die('No script kiddies please!');
 ?>
 
 <div class="pwb-filter-products<?php if ($hide_submit_btn) echo ' pwb-hide-submit-btn'; ?>" data-cat-url="<?php echo esc_url($cate_url); ?>">

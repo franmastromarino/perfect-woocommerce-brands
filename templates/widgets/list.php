@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 
-defined('ABSPATH') or die('No script kiddies please!');
+defined('ABSPATH') || die('No script kiddies please!');
 ?>
 
 <ul class="pwb-row">

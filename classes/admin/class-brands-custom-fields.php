@@ -2,7 +2,7 @@
 
 namespace Perfect_Woocommerce_Brands\Admin;
 
-defined('ABSPATH') or die('No script kiddies please!');
+defined('ABSPATH') || die('No script kiddies please!');
 
 class Brands_Custom_Fields
 {

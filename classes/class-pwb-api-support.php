@@ -4,7 +4,7 @@ namespace Perfect_Woocommerce_Brands;
 
 use WP_Error, WP_REST_Server;
 
-defined('ABSPATH') or die('No script kiddies please!');
+defined('ABSPATH') || die('No script kiddies please!');
 
 class PWB_API_Support
 {

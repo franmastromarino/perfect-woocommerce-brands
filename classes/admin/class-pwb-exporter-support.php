@@ -2,7 +2,7 @@
 
 namespace Perfect_Woocommerce_Brands;
 
-defined('ABSPATH') or die('No script kiddies please!');
+defined('ABSPATH') || die('No script kiddies please!');
 
 class PWB_Exporter_Support{
 
