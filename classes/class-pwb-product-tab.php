@@ -1,5 +1,4 @@
 <?php
-
 namespace Perfect_Woocommerce_Brands;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );

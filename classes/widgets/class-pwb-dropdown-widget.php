@@ -1,4 +1,5 @@
 <?php
+
 namespace Perfect_Woocommerce_Brands\Widgets;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );

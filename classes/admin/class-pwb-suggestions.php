@@ -6,7 +6,6 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class PWB_Suggestions {
 
-
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 		add_action( 'admin_init', array( $this, 'add_redirect' ) );
@@ -18,7 +17,7 @@ class PWB_Suggestions {
 	// -------------------------------------------------------------------------
 
 	public function add_page() {
-		include_once PWB_PLUGIN_DIR . 'classes/class-pwb-suggestions-list.php';
+		include_once PWB_PLUGIN_DIR . 'classes/class-pwb-suggestions-list-table.php';
 		?>
 			<style>
 				@media screen and (max-width: 2299px) and (min-width: 1600px) {

@@ -1,4 +1,5 @@
 <?php
+
 namespace Perfect_Woocommerce_Brands\Widgets;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
@@ -29,17 +30,18 @@ class PWB_List_Widget extends \WP_Widget {
 		?>
 
 	<p>
-	  <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'perfect-woocommerce-brands' ); ?></label>
-	  <input
-	  class="widefat"
-	  type="text"
-	  id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
-	  name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
-	  value="
-		<?php
-		if ( isset( $title ) ) {
-			echo esc_attr( $title );}
-		?>
+		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'perfect-woocommerce-brands' ); ?></label>
+		<input
+			class="widefat"
+			type="text"
+			id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
+			name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
+			value="
+			<?php
+			if ( isset( $title ) ) {
+				echo esc_attr( $title );
+			}
+			?>
 		">
 	</p>
 	<p>

@@ -2,13 +2,11 @@
 
 namespace Perfect_Woocommerce_Brands\Admin;
 
-use WC_Admin_Settings,
-  WC_Settings_Page;
+use WC_Admin_Settings, WC_Settings_Page;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Pwb_Admin_Tab {
-
 
 	public function __construct() {
 		$this->id    = 'pwb_admin_tab';
@@ -22,7 +20,6 @@ class Pwb_Admin_Tab {
 
 	public function add_tab( $settings_tabs ) {
 		$settings_tabs[ $this->id ] = $this->label;
-
 		return $settings_tabs;
 	}
 
@@ -52,7 +49,7 @@ class Pwb_Admin_Tab {
 				<li>
 					<a 
 						href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=' . $this->id . '&section=' . $id ) ); ?>" 
-						class="<?php echo ( $current_section === $id ? 'current' : '' ); ?>"><?php esc_html( $label ); ?>
+						class="<?php echo ( $current_section === $id ? 'current' : '' ); ?>"><?php echo esc_html( $label ); ?>
 					</a>
 				</li> | 
 			<?php endforeach; ?>
@@ -299,7 +296,9 @@ class Pwb_Admin_Tab {
 	}
 
 	public function save() {
+
 		update_option( 'old_wc_pwb_admin_tab_slug', get_taxonomy( 'pwb-brand' )->rewrite['slug'] );
+
 		if ( isset( $_POST['wc_pwb_admin_tab_slug'] ) ) {
 			$_POST['wc_pwb_admin_tab_slug'] = sanitize_title( $_POST['wc_pwb_admin_tab_slug'] );
 		}
@@ -307,6 +306,7 @@ class Pwb_Admin_Tab {
 		global $current_section;
 
 		$settings = $this->get_settings( $current_section );
+
 		WC_Admin_Settings::save_fields( $settings );
 	}
 }

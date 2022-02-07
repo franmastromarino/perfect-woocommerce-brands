@@ -1,7 +1,8 @@
 <?php
-  namespace Perfect_Woocommerce_Brands\Admin;
 
-  defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
+namespace Perfect_Woocommerce_Brands\Admin;
+
+defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class PWB_Coupon {
 

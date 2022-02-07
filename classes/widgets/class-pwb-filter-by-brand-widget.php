@@ -8,7 +8,6 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 
-
 	function __construct() {
 		$params = array(
 			'description' => __( 'Recommended for product categories or shop page', 'perfect-woocommerce-brands' ),
@@ -18,7 +17,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 	}
 
 	public function form( $instance ) {
-		 extract( $instance );
+		extract( $instance );
 
 		$title                   = ( isset( $instance['title'] ) ) ? $instance['title'] : esc_html__( 'Brands', 'perfect-woocommerce-brands' );
 		$limit                   = ( isset( $instance['limit'] ) ) ? $instance['limit'] : 20;
@@ -56,7 +55,7 @@ class PWB_Filter_By_Brand_Widget extends \WP_Widget {
 	}
 
 	public function update( $new_instance, $old_instance ) {
-		$limit = trim( strip_tags( $new_instance['limit'] ) );
+		$limit = trim( wp_strip_all_tags( $new_instance['limit'] ) );
 		$limit = filter_var( $limit, FILTER_VALIDATE_INT, array( 'options' => array( 'min_range' => 1 ) ) );
 
 		$instance                            = array();

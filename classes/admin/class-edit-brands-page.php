@@ -6,7 +6,6 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Edit_Brands_Page {
 
-
 	private static $current_user;
 
 	function __construct() {
@@ -25,9 +24,10 @@ class Edit_Brands_Page {
 		add_action( 'after-pwb-brand-table', array( $this, 'add_brands_count' ) );
 	}
 
+	 // phpcs:ignore WordPress.Security.NonceVerification.Missing
 	private static function is_edit_brands_page() {
-		 global $pagenow;
-		return ( $pagenow == 'edit-tags.php' && isset( $_GET['taxonomy'] ) && $_GET['taxonomy'] == 'pwb-brand' ) ? true : false;
+		global $pagenow;
+		return ( $pagenow == 'edit-tags.php' && isset( $_GET['taxonomy'] ) && $_GET['taxonomy'] == 'pwb-brand' ) ? true : false; // phpcs:ignore WordPress.Security.NonceVerification.Missing
 	}
 
 	public function add_brands_count( $tax_name ) {
@@ -130,8 +130,8 @@ class Edit_Brands_Page {
 				$direction = 'up';
 				$brand     = intval( $_POST['brand'] );
 				if ( $this->is_featured_brand( $brand ) ) {
-					  delete_term_meta( $brand, 'pwb_featured_brand', true );
-					  $direction = 'down';
+					delete_term_meta( $brand, 'pwb_featured_brand', true );
+					$direction = 'down';
 				} else {
 					update_term_meta( $brand, 'pwb_featured_brand', true );
 				}
@@ -161,11 +161,11 @@ class Edit_Brands_Page {
 			$featured = get_user_option( 'pwb-first-featured-brands', self::$current_user->ID );
 			ob_start();
 			?>
-	  <legend><?php esc_html_e( 'Brands', 'perfect-woocommerce-brands' ); ?></legend>
-	  <label>
-		<input id="pwb-first-featured-brands" type="checkbox" <?php checked( $featured, true ); ?>>
-			<?php esc_html_e( 'Show featured brands first', 'perfect-woocommerce-brands' ); ?>
-	  </label>
+				<legend><?php esc_html_e( 'Brands', 'perfect-woocommerce-brands' ); ?></legend>
+				<label>
+					<input id="pwb-first-featured-brands" type="checkbox" <?php checked( $featured, true ); ?>>
+						<?php esc_html_e( 'Show featured brands first', 'perfect-woocommerce-brands' ); ?>
+				</label>
 			<?php
 			return ob_get_clean();
 		}

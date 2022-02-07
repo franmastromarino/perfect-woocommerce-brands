@@ -174,14 +174,14 @@ class Perfect_Woocommerce_Brands {
 
 		if ( $show_notice && $date_diff > $one_week ) {
 			?>
-	  <div class="notice notice-info pwb-notice-dismissible is-dismissible" data-notice="wc_pwb_notice_plugin_review">
-		<p><?php echo esc_html__( 'We know that you´re in love with Perfect WooCommerce Brands, you can help us making it a bit better. Thanks a lot!', 'perfect-woocommerce-brands' ); ?><span class="dashicons dashicons-heart"></span></p>
-		<p>
-		  <a href="https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?rate=5#new-post" target="_blank"><?php esc_html_e( 'Leave a review', 'perfect-woocommerce-brands' ); ?></a>
-		  <a href="https://translate.wordpress.org/projects/wp-plugins/perfect-woocommerce-brands" target="_blank"><?php esc_html_e( 'Translate the plugin', 'perfect-woocommerce-brands' ); ?></a>
-		  <a href="<?php echo esc_url( PWB_GITHUB_URL ); ?>" target="_blank"><?php esc_html_e( 'View on GitHub', 'perfect-woocommerce-brands' ); ?></a>
-		</p>
-	  </div>
+				<div class="notice notice-info pwb-notice-dismissible is-dismissible" data-notice="wc_pwb_notice_plugin_review">
+					<p><?php echo esc_html__( 'We know that you´re in love with Perfect WooCommerce Brands, you can help us making it a bit better. Thanks a lot!', 'perfect-woocommerce-brands' ); ?><span class="dashicons dashicons-heart"></span></p>
+					<p>
+					<a href="https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?rate=5#new-post" target="_blank"><?php esc_html_e( 'Leave a review', 'perfect-woocommerce-brands' ); ?></a>
+					<a href="https://translate.wordpress.org/projects/wp-plugins/perfect-woocommerce-brands" target="_blank"><?php esc_html_e( 'Translate the plugin', 'perfect-woocommerce-brands' ); ?></a>
+					<a href="<?php echo esc_url( PWB_GITHUB_URL ); ?>" target="_blank"><?php esc_html_e( 'View on GitHub', 'perfect-woocommerce-brands' ); ?></a>
+					</p>
+				</div>
 			<?php
 		}
 	}
@@ -687,7 +687,7 @@ class Perfect_Woocommerce_Brands {
 						$before_brands_links  = '<span class="pwb-text-before-brands-links">';
 						$before_brands_links .= apply_filters( 'pwb_text_before_brands_links', esc_html__( 'Brands', 'perfect-woocommerce-brands' ) );
 						$before_brands_links .= ':</span>';
-						echo esc_html( apply_filters( 'pwb_html_before_brands_links', $before_brands_links ) );
+						echo wp_kses_post( apply_filters( 'pwb_html_before_brands_links', $before_brands_links ) );
 					}
 
 					foreach ( $brands as $brand ) {
@@ -703,7 +703,7 @@ class Perfect_Woocommerce_Brands {
 						$attachment_html = wp_get_attachment_image( $attachment_id, $image_size );
 
 						if ( ! empty( $attachment_html ) && $show_as == 'brand_image' || ! empty( $attachment_html ) && ! $show_as ) {
-							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_attr( $brand->name ) . '">' . esc_html( $attachment_html ) . '</a>';
+							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_attr( $brand->name ) . '">' . $attachment_html . '</a>';// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						} else {
 							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_html__( 'View brand', 'perfect-woocommerce-brands' ) . '">' . esc_html( $brand->name ) . '</a>';
 						}
