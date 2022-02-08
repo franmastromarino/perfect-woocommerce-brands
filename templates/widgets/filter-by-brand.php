@@ -19,7 +19,8 @@ if ( $hide_submit_btn ) {
 		<?php foreach ( $brands as $brand ) : ?>
 		<li>
 			<label>
-			<input type="checkbox" data-brand="<?php echo esc_attr( $brand->term_id ); ?>" value="<?php echo esc_html( $brand->slug ); ?>"><?php echo esc_html( $brand->name ); ?>
+				<input type="checkbox" data-brand="<?php echo esc_attr( $brand->term_id ); ?>" value="<?php echo esc_html( $brand->slug ); ?>">
+				<span><?php echo esc_html( $brand->name ); ?></span>
 			</label>
 		</li>
 		<?php endforeach; ?>
