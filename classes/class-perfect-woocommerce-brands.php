@@ -211,6 +211,7 @@ class Perfect_Woocommerce_Brands {
 	}
 
 	public function pwb_brand_filter( $query ) {
+
 		if ( ! empty( $_GET['pwb-brand-filter'] ) ) {
 
 			$terms_array = explode( ',', sanitize_text_field( $_GET['pwb-brand-filter'] ) );
@@ -324,7 +325,7 @@ class Perfect_Woocommerce_Brands {
 
 					$attachment_html = wp_get_attachment_image( $attachment_id, $image_size_selected );
 					if ( ! empty( $attachment_html ) && $brands_in_loop == 'brand_image' ) {
-						echo '<a href="' . esc_url( $brand_link ) . '">' . esc_html( $attachment_html ) . '</a>';
+						echo '<a href="' . esc_url( $brand_link ) . '">' . wp_kses_post( $attachment_html ) . '</a>';
 					} else {
 						echo '<a href="' . esc_url( $brand_link ) . '">' . esc_html( $brand->name ) . '</a>';
 					}

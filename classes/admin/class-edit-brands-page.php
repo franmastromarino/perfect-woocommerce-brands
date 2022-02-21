@@ -24,7 +24,7 @@ class Edit_Brands_Page {
 		add_action( 'after-pwb-brand-table', array( $this, 'add_brands_count' ) );
 	}
 
-	 // phpcs:ignore WordPress.Security.NonceVerification.Missing
+	// phpcs:ignore WordPress.Security.NonceVerification.Missing
 	private static function is_edit_brands_page() {
 		global $pagenow;
 		return ( $pagenow == 'edit-tags.php' && isset( $_GET['taxonomy'] ) && $_GET['taxonomy'] == 'pwb-brand' ) ? true : false; // phpcs:ignore WordPress.Security.NonceVerification.Missing
