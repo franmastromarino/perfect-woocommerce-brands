@@ -5,9 +5,9 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 2.0.7
+Stable tag: 2.0.8
 WC requires at least: 3.0
-WC tested up to: 6.1
+WC tested up to: 6.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
