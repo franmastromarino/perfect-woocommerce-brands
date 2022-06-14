@@ -9,8 +9,10 @@ class PWB_Coupon {
 	function __construct() {
 		add_action( 'woocommerce_coupon_options_usage_restriction', array( $this, 'coupon_restriction' ) );
 		add_action( 'woocommerce_coupon_options_save', array( $this, 'coupon_save' ) );
-		add_filter( 'woocommerce_coupon_is_valid', array( $this, 'is_valid_coupon' ), 10, 2 );
-		add_filter( 'woocommerce_coupon_is_valid_for_product', array( $this, 'is_valid_for_product_brand' ), 10, 4 );
+		add_filter( 'woocommerce_coupon_is_valid', array( $this, 'is_valid_for_brand' ), 10, 2 );
+		add_filter( 'woocommerce_coupon_is_valid_for_product', array( $this, 'is_valid_coupon_for_brand' ), 10, 4 );
+		add_filter( 'woocommerce_coupon_is_valid', array( $this, 'is_valid_for_exclude_brand' ), 10, 2 );
+		add_filter( 'woocommerce_coupon_is_valid_for_product', array( $this, 'is_valid_coupon_for_exclude_brand' ), 10, 4 );
 	}
 
 	public function coupon_restriction() {
@@ -18,27 +20,38 @@ class PWB_Coupon {
 
 		$thepostid = empty( $thepostid ) ? $post->get_ID() : $thepostid;
 
-		$selected_brands = get_post_meta( $thepostid, '_pwb_coupon_restriction', true );
-
-		if ( $selected_brands == '' ) {
-			$selected_brands = array();
-		}
+		$product_brands_ids = (array) get_post_meta( $thepostid, '_pwb_coupon_restriction', true );
+		$exclude_brands_ids = (array) get_post_meta( $thepostid, '_pwb_coupon_exclude_brands', true );
 
 		ob_start();
 		?>		
 		<p class="form-field">
-			<label for="_pwb_coupon_restriction"><?php _e( 'Brands restriction', 'perfect-woocommerce-brands' ); ?></label>
+			<label for="_pwb_coupon_restriction"><?php _e( 'Product brands', 'perfect-woocommerce-brands' ); ?></label>
 			<select id="_pwb_coupon_restriction" name="_pwb_coupon_restriction[]" style="width: 50%;"  class="wc-enhanced-select" multiple="multiple" data-placeholder="<?php esc_attr_e( 'Any brand', 'perfect-woocommerce-brands' ); ?>">
 				<?php
 				$categories = get_terms( 'pwb-brand', 'orderby=name&hide_empty=0' );
 				if ( $categories ) {
 					foreach ( $categories as $cat ) {
-						echo '<option value="' . esc_attr( $cat->term_id ) . '"' . wc_selected( $cat->term_id, $selected_brands ) . '>' . esc_html( $cat->name ) . '</option>';
+						echo '<option value="' . esc_attr( $cat->term_id ) . '"' . wc_selected( $cat->term_id, $product_brands_ids ) . '>' . esc_html( $cat->name ) . '</option>';
 					}
 				}
 				?>
 			</select>
-			<?php echo wc_help_tip( esc_html__( 'Coupon will be valid if there are at least one product of this brands in the cart', 'perfect-woocommerce-brands' ) ); ?>
+			<?php echo wc_help_tip( esc_html__( 'Product brands that the coupon will be applied to, or that need to be in the cart in order for the "Fixed cart discount" to be applied.', 'perfect-woocommerce-brands' ) ); ?>
+		</p>		
+		<p class="form-field">
+			<label for="_pwb_coupon_exclude_brands"><?php _e( 'Exclude brands', 'perfect-woocommerce-brands' ); ?></label>
+			<select id="_pwb_coupon_exclude_brands" name="_pwb_coupon_exclude_brands[]" style="width: 50%;"  class="wc-enhanced-select" multiple="multiple" data-placeholder="<?php esc_attr_e( 'Any brand', 'perfect-woocommerce-brands' ); ?>">
+				<?php
+				$categories = get_terms( 'pwb-brand', 'orderby=name&hide_empty=0' );
+				if ( $categories ) {
+					foreach ( $categories as $cat ) {
+						echo '<option value="' . esc_attr( $cat->term_id ) . '"' . wc_selected( $cat->term_id, $exclude_brands_ids ) . '>' . esc_html( $cat->name ) . '</option>';
+					}
+				}
+				?>
+			</select>
+			<?php echo wc_help_tip( esc_html__( 'Product brands that the coupon will not be applied to, or that cannot be in the cart in order for the "Fixed cart discount" to be applied.', 'perfect-woocommerce-brands' ) ); ?>
 		</p>
 		<?php
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -47,25 +60,28 @@ class PWB_Coupon {
 	}
 
 	public function coupon_save( $post_id ) {
-		// phpcs:ignore WordPress.Security
 
-		if ( ! array_key_exists( '_pwb_coupon_restriction', $_POST ) ) {
-			// return;
+		if ( ! array_key_exists( '_pwb_coupon_restriction', $_POST ) ) {// phpcs:ignore WordPress.Security
 			delete_post_meta( $post_id, '_pwb_coupon_restriction' );
-			return;
+		} else {
+			update_post_meta( $post_id, '_pwb_coupon_restriction', array_filter( array_map( 'intval', $_POST['_pwb_coupon_restriction'] ) ) );// phpcs:ignore WordPress.Security
 		}
 
-		update_post_meta( $post_id, '_pwb_coupon_restriction', array_filter( array_map( 'intval', $_POST['_pwb_coupon_restriction'] ) ) );
+		if ( ! array_key_exists( '_pwb_coupon_exclude_brands', $_POST ) ) {// phpcs:ignore WordPress.Security
+			delete_post_meta( $post_id, '_pwb_coupon_exclude_brands' );
+		} else {
+			update_post_meta( $post_id, '_pwb_coupon_exclude_brands', array_filter( array_map( 'intval', $_POST['_pwb_coupon_exclude_brands'] ) ) );// phpcs:ignore WordPress.Security
+		}
 
 	}
 
-	public function is_valid_coupon( $availability, $coupon ) {
+	public function is_valid_for_brand( $availability, $coupon ) {
 
 		$valid = true;
 
-		$selected_brands = get_post_meta( $coupon->get_ID(), '_pwb_coupon_restriction', true );
+		$product_brands_ids = get_post_meta( $coupon->get_ID(), '_pwb_coupon_restriction', true );
 
-		if ( empty( $selected_brands ) ) {
+		if ( empty( $product_brands_ids ) ) {
 			return $valid;
 		}
 
@@ -73,19 +89,22 @@ class PWB_Coupon {
 
 		$products = $woocommerce->cart->get_cart();
 
+		$valid = false;
+
 		foreach ( $products as $product ) {
 
-			$product_invalid_brands = wp_get_post_terms( $product['product_id'], 'pwb-brand', array( 'fields' => 'ids' ) );
-
-			if ( count( array_intersect( $selected_brands, $product_invalid_brands ) ) ) {
-				$valid = false;
+			$product_brands = wp_get_post_terms( $product['product_id'], 'pwb-brand', array( 'fields' => 'ids' ) );
+			// If we find an item with a brand in our allowed cat list, the coupon is valid.
+			if ( count( array_intersect( $product_brands_ids, $product_brands ) ) ) {
+				$valid = true;
+				break;
 			}
 		}
 
 		return $valid;
 	}
 
-	public function is_valid_for_product_brand( $valid, $product, $coupon, $values ) {
+	public function is_valid_coupon_for_brand( $valid, $product, $coupon, $values ) {
 
 		if ( ! $valid ) {
 			return $valid;
@@ -93,9 +112,9 @@ class PWB_Coupon {
 
 		$coupon_id = is_callable( array( $coupon, 'get_id' ) ) ? $coupon->get_id() : $coupon->id;
 
-		$selected_brands = get_post_meta( $coupon_id, '_pwb_coupon_restriction', true );
+		$product_brands_ids = get_post_meta( $coupon_id, '_pwb_coupon_restriction', true );
 
-		if ( empty( $selected_brands ) ) {
+		if ( empty( $product_brands_ids ) ) {
 			return $valid;
 		}
 
@@ -105,10 +124,72 @@ class PWB_Coupon {
 			$product_id = is_callable( array( $product, 'get_id' ) ) ? $product->get_id() : $product->id;
 		}
 
-		$product_invalid_brands = wp_get_post_terms( $product_id, 'pwb-brand', array( 'fields' => 'ids' ) );
+		$product_brands = wp_get_post_terms( $product_id, 'pwb-brand', array( 'fields' => 'ids' ) );
 
-		if ( count( array_intersect( $selected_brands, $product_invalid_brands ) ) ) {
-			$valid = false;
+		$valid = false;
+
+		if ( count( array_intersect( $product_brands_ids, $product_brands ) ) ) {
+			$valid = true;
+		}
+
+		return $valid;
+	}
+
+	public function is_valid_for_exclude_brand( $availability, $coupon ) {
+
+		$valid = true;
+
+		$exclude_brands_ids = get_post_meta( $coupon->get_ID(), '_pwb_coupon_exclude_brands', true );
+
+		if ( empty( $exclude_brands_ids ) ) {
+			return $valid;
+		}
+
+		global $woocommerce;
+
+		$products = $woocommerce->cart->get_cart();
+
+		$valid = false;
+
+		foreach ( $products as $product ) {
+
+			$product_brands = wp_get_post_terms( $product['product_id'], 'pwb-brand', array( 'fields' => 'ids' ) );
+			// If we find an item with a brand in our allowed cat list, the coupon is invalid.
+			if ( ! count( array_intersect( $exclude_brands_ids, $product_brands ) ) ) {
+				$valid = true;
+				break;
+			}
+		}
+
+		return $valid;
+	}
+
+	public function is_valid_coupon_for_exclude_brand( $valid, $product, $coupon, $values ) {
+
+		if ( ! $valid ) {
+			return $valid;
+		}
+
+		$coupon_id = is_callable( array( $coupon, 'get_id' ) ) ? $coupon->get_id() : $coupon->id;
+
+		$exclude_brands_ids = get_post_meta( $coupon_id, '_pwb_coupon_exclude_brands', true );
+
+		if ( empty( $exclude_brands_ids ) ) {
+			return $valid;
+		}
+
+		if ( $product->is_type( 'variation' ) ) {
+			$product_id = $product->get_parent_id();
+		} else {
+			$product_id = is_callable( array( $product, 'get_id' ) ) ? $product->get_id() : $product->id;
+		}
+
+		$product_brands = wp_get_post_terms( $product_id, 'pwb-brand', array( 'fields' => 'ids' ) );
+
+		$valid = false;
+
+		if ( ! count( array_intersect( $exclude_brands_ids, $product_brands ) ) ) {
+			$valid = true;
 		}
 
 		return $valid;
