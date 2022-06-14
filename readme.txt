@@ -3,11 +3,11 @@ Contributors: quadlayers, titodevera
 Donate link: https://quadlayers.com
 Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
-Tested up to: 5.9
+Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 2.0.8
+Stable tag: 2.0.9
 WC requires at least: 3.0
-WC tested up to: 6.4
+WC tested up to: 6.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -90,6 +90,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.0.9 =
+* Fix: Exclude coupons from brands
 = 2.0.7 =
 * Fix: Brand image output sanitization
 = 2.0.6 =
