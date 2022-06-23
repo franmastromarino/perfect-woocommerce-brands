@@ -5,9 +5,9 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 2.0.9
+Stable tag: 2.1.0
 WC requires at least: 3.0
-WC tested up to: 6.5
+WC tested up to: 6.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -90,6 +90,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.1.0 =
+* Fix: Brand description in product tab
 = 2.0.9 =
 * Fix: Exclude coupons from brands
 = 2.0.7 =

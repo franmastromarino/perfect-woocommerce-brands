@@ -48,10 +48,17 @@ class PWB_Product_Tab {
 				<div id="tab-pwb_tab-content">
 					<h3><?php echo esc_html( $brand->name ); ?></h3>
 						<?php if ( ! empty( $brand->description ) ) : ?>
-					<div><?php echo do_shortcode( $brand->description ); ?></div>
+					<div>
+							<?php
+							$content = apply_filters( 'the_content', $brand->description );
+							echo wp_kses_post( $content );
+							?>
+					</div>
 					<?php endif; ?>
 						<?php if ( ! empty( $brand_logo ) ) : ?>
-					<span><?php echo wp_kses_post( $brand_logo ); ?></span>
+					<span>
+							<?php echo wp_kses_post( $brand_logo ); ?>
+					</span>
 					<?php endif; ?>
 				</div>
 		<?php endforeach; ?>
