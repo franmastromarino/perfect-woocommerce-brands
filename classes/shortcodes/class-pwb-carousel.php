@@ -19,6 +19,8 @@ class PWB_Carousel_Shortcode {
 				'autoplay'        => 'false',
 				'arrows'          => 'false',
 				'hide_empty'      => false,
+				'order_by'        => 'name',
+				'order'           => 'ASC',
 			),
 			$atts,
 			'pwb-carousel'
@@ -61,10 +63,13 @@ class PWB_Carousel_Shortcode {
 
 		$brands    = array();
 		$foreach_i = 0;
+
+		$hide_empty = ( self::$atts['hide_empty'] != 'true' ) ? false : true;
+
 		if ( self::$atts['items'] == 'featured' ) {
 			$brands_array = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( self::$atts['items'], 'name', 'ASC', true );
 		} else {
-			$brands_array = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( self::$atts['items'] );
+			$brands_array = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( $hide_empty, self::$atts['order_by'], self::$atts['order'] );
 		}
 		foreach ( $brands_array as $brand ) {
 			if ( self::$atts['items'] != 'featured' && $foreach_i >= (int) self::$atts['items'] ) {
