@@ -90,6 +90,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.1.3 =
+* Fix: Disable search brands in products
 = 2.1.2=
 * Fix: QuadLayers widget cache
 = 2.1.1 =
