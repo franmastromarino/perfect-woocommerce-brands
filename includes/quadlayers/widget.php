@@ -31,7 +31,7 @@ if ( ! class_exists( 'QL_Widget' ) ) {
 					<?php esc_html_e( 'Hi! We are Quadlayers! Welcome to QuadLayers! We’re a team of international people who have been working in the WordPress sphere for the last ten years.', 'perfect-woocommerce-brands' ); ?>
 					<div style="margin-top: 11px; float: left; width: 70%;"><a href="<?php echo admin_url( 'admin.php?page=' . PWB_PREFIX . '_suggestions' ); ?>" target="_blank" class="button button-secondary"><?php esc_html_e( 'More products', 'perfect-woocommerce-brands' ); ?></a></div>
 				</div>
-				<img style="width: 30%;margin-top: 11px;float: right; max-width: 95px;" src="<?php echo plugins_url( '/assets/backend/img/quadlayers.jpg', PWB_PLUGIN_FILE ); ?>" />
+				<img style="width: 30%;margin-top: 11px;float: right; max-width: 95px;" src="<?php echo plugins_url( '/assets/img/quadlayers.jpg', PWB_PLUGIN_FILE ); ?>" />
 			</div>
 			<div style="clear: both;"></div>
 		</div>
