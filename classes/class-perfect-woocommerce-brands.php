@@ -685,8 +685,8 @@ class Perfect_Woocommerce_Brands {
 					echo '<div class="pwb-single-product-brands pwb-clearfix">';
 
 					if ( $show_as == 'brand_link' ) {
-						$before_brands_links  = '<span class="pwb-text-before-brands-links">';
-						$before_brands_links .= apply_filters( 'pwb_text_before_brands_links', esc_html__( 'Brands', 'perfect-woocommerce-brands' ) );
+						$before_brands_links = '<span class="pwb-text-before-brands-links">';
+						$before_brands_links .= apply_filters( 'pwb_text_before_brands_links', esc_html( _n( 'Brand', 'Brands', count( $brands ), 'perfect-woocommerce-brands' ) ), count( $brands ) );
 						$before_brands_links .= ':</span>';
 						echo wp_kses_post( apply_filters( 'pwb_html_before_brands_links', $before_brands_links ) );
 					}
