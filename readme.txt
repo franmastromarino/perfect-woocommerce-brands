@@ -90,6 +90,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.1.9=
+* Fix: WooCommerce compatibility
 = 2.1.8=
 * Fix: WooCommerce compatibility
 = 2.1.7=

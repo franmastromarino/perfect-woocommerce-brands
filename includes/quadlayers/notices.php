@@ -33,7 +33,7 @@ class PWB_Notices {
 		$transient = get_transient( 'pwb-notice-delay' );
 
 		if ( $transient ) {
-			// return;
+			return;
 		}
 
 		?>
