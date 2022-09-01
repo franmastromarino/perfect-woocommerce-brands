@@ -59,7 +59,7 @@ class PWB_Suggestions {
 								width: 140px;
 								" class="wp-badge">%s</div></a>',
 							'https://quadlayers.com/?utm_source=pwb_admin',
-							esc_url( plugins_url( '/assets/img/quadlayers.jpg', PWB_PLUGIN_FILE ) ),
+							esc_url( plugins_url( '/assets/backend/img/quadlayers.jpg', PWB_PLUGIN_FILE ) ),
 							esc_html__( 'QuadLayers', 'perfect-woocommerce-brands' )
 						);
 					?>

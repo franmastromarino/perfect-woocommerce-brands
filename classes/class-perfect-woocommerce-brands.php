@@ -437,7 +437,7 @@ class Perfect_Woocommerce_Brands {
 				'description' => __( 'Product carousel by brand or by category', 'perfect-woocommerce-brands' ),
 				'base'        => 'pwb-product-carousel',
 				'class'       => '',
-				'icon'        => PWB_PLUGIN_URL . '/assets/img/icon_pwb.jpg',
+				'icon'        => PWB_PLUGIN_URL . '/assets/backend/img/logo.jpg',
 				'category'    => 'WooCommerce',
 				'params'      => array(
 					array(
@@ -495,7 +495,7 @@ class Perfect_Woocommerce_Brands {
 				'description' => __( 'Brands carousel', 'perfect-woocommerce-brands' ),
 				'base'        => 'pwb-carousel',
 				'class'       => '',
-				'icon'        => PWB_PLUGIN_URL . '/assets/img/icon_pwb.jpg',
+				'icon'        => PWB_PLUGIN_URL . '/assets/backend/img/logo.jpg',
 				'category'    => 'WooCommerce',
 				'params'      => array(
 					array(
@@ -553,7 +553,7 @@ class Perfect_Woocommerce_Brands {
 				'description' => __( 'Show all brands', 'perfect-woocommerce-brands' ),
 				'base'        => 'pwb-all-brands',
 				'class'       => '',
-				'icon'        => PWB_PLUGIN_URL . '/assets/img/icon_pwb.jpg',
+				'icon'        => PWB_PLUGIN_URL . '/assets/backend/img/logo.jpg',
 				'category'    => 'WooCommerce',
 				'params'      => array(
 					array(
@@ -623,7 +623,7 @@ class Perfect_Woocommerce_Brands {
 				'description' => __( 'AZ Listing for brands', 'perfect-woocommerce-brands' ),
 				'base'        => 'pwb-az-listing',
 				'class'       => '',
-				'icon'        => PWB_PLUGIN_URL . '/assets/img/icon_pwb.jpg',
+				'icon'        => PWB_PLUGIN_URL . '/assets/backend/img/logo.jpg',
 				'category'    => 'WooCommerce',
 				'params'      => array(
 					array(
@@ -646,7 +646,7 @@ class Perfect_Woocommerce_Brands {
 				'description' => __( 'Show brand for a specific product', 'perfect-woocommerce-brands' ),
 				'base'        => 'pwb-brand',
 				'class'       => '',
-				'icon'        => PWB_PLUGIN_URL . '/assets/img/icon_pwb.jpg',
+				'icon'        => PWB_PLUGIN_URL . '/assets/backend/img/logo.jpg',
 				'category'    => 'WooCommerce',
 				'params'      => array(
 					array(

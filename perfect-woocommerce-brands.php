@@ -4,7 +4,7 @@
  *  Plugin Name: Perfect Brands for WooCommerce
  *  Plugin URI: https://quadlayers.com/portfolio/perfect-woocommerce-brands/
  *  Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
- *  Version: 2.1.7
+ *  Version: 2.1.8
  *  Author: QuadLayers
  *  Author URI: https://quadlayers.com
  *  Text Domain: perfect-woocommerce-brands
@@ -36,7 +36,7 @@ define( 'PWB_PLUGIN_FILE', __FILE__ );
 define( 'PWB_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'PWB_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
 define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'PWB_PLUGIN_VERSION', '2.1.7' );
+define( 'PWB_PLUGIN_VERSION', '2.1.8' );
 define( 'PWB_PLUGIN_NAME', 'Perfect WooCommerce Brands' );
 define( 'PWB_PREFIX', 'pwb' );
 define( 'PWB_REVIEW_URL', 'https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?filter=5#new-post' );
@@ -46,6 +46,13 @@ define( 'PWB_SUPPORT_URL', 'https://quadlayers.com/account/support/?utm_source=p
 define( 'PWB_DOCUMENTATION_URL', 'https://quadlayers.com/documentation/perfect-woocommerce-brands/?utm_source=pwb_admin' );
 define( 'PWB_GITHUB_URL', 'https://github.com/quadlayers/perfect-woocommerce-brands/' );
 define( 'PWB_GROUP_URL', 'https://www.facebook.com/groups/quadlayers' );
+
+define( 'PWB_CROSS_INSTALL_SLUG', 'woocommerce-checkout-manager' );
+define( 'PWB_CROSS_SELL_SLUG', 'woocommerce-checkout-manager-pro' );
+define( 'PWB_CROSS_SELL_NAME', ' Checkout Manager' );
+define( 'PWB_CROSS_SELL_DESCRIPTION', esc_html__( 'Checkout Field Manager (Checkout Manager) for WooCommerce allows you to include custom fields to the checkout page, related to billing, Shipping or Additional fields sections.', 'perfect-woocommerce-brands' ) );
+define( 'PWB_CROSS_SELL_URL', 'https://quadlayers.com/portfolio/woocommerce-checkout-manager/?utm_source=aco_admin' );
+
 
 register_activation_hook(
 	__FILE__,
@@ -72,6 +79,8 @@ add_action(
 
 
 require_once PWB_PLUGIN_DIR . 'includes/quadlayers/widget.php';
+require_once PWB_PLUGIN_DIR . 'includes/quadlayers/notices.php';
+require_once PWB_PLUGIN_DIR . 'includes/quadlayers/links.php';
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
@@ -94,8 +103,6 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 	if ( is_admin() ) {
 		require 'classes/admin/class-pwb-suggestions.php';
 		new Admin\PWB_Suggestions();
-		require 'classes/admin/class-pwb-notices.php';
-		new Admin\PWB_Notices();
 		require 'classes/admin/class-pwb-system-status.php';
 		new Admin\PWB_System_Status();
 		require 'classes/admin/class-pwb-admin-tab.php';
