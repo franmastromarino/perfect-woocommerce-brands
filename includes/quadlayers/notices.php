@@ -76,15 +76,15 @@ class PWB_Notices {
 					</div>
 					<div class="notice-content" style="margin-left: 15px;">
 						<p>
-							<?php printf( esc_html__( 'Hello! Thank you for choosing the %s plugin!', 'autocomplete-woocommerce-orders' ), PWB_PLUGIN_NAME ); ?>
+							<?php printf( esc_html__( 'Hello! Thank you for choosing the %s plugin!', 'perfect-woocommerce-brands' ), PWB_PLUGIN_NAME ); ?>
 							<br/>
-							<?php esc_html_e( 'Could you please give it a 5-star rating on WordPress?. Your feedback will boost our motivation and help us promote and continue to improve this product.', 'autocomplete-woocommerce-orders' ); ?>
+							<?php esc_html_e( 'Could you please give it a 5-star rating on WordPress?. Your feedback will boost our motivation and help us promote and continue to improve this product.', 'perfect-woocommerce-brands' ); ?>
 						</p>
 						<a href="<?php echo esc_url( PWB_REVIEW_URL ); ?>" class="button-primary" target="_blank">
-							<?php esc_html_e( 'Yes, of course!', 'autocomplete-woocommerce-orders' ); ?>
+							<?php esc_html_e( 'Yes, of course!', 'perfect-woocommerce-brands' ); ?>
 						</a>
 						<a href="<?php echo esc_url( PWB_SUPPORT_URL ); ?>" class="button-secondary" target="_blank">
-							<?php esc_html_e( 'Report a bug', 'autocomplete-woocommerce-orders' ); ?>
+							<?php esc_html_e( 'Report a bug', 'perfect-woocommerce-brands' ); ?>
 						</a>
 					</div>
 				</div>
@@ -102,17 +102,17 @@ class PWB_Notices {
 					</div>
 					<div class="notice-content" style="margin-left: 15px;">
 						<p>
-						<?php esc_html_e( 'Hello! We have a special gift!', 'autocomplete-woocommerce-orders' ); ?>
+						<?php esc_html_e( 'Hello! We have a special gift!', 'perfect-woocommerce-brands' ); ?>
 							<br />
 						<?php
 						printf(
-							esc_html__( 'Today we want to make you a special gift. Using this coupon before the next 48 hours you can get a 20 percent discount on the premium version of the %s plugin.', 'autocomplete-woocommerce-orders' ),
+							esc_html__( 'Today we want to make you a special gift. Using this coupon before the next 48 hours you can get a 20 percent discount on the premium version of the %s plugin.', 'perfect-woocommerce-brands' ),
 							esc_html( PWB_PREMIUM_SELL_NAME )
 						)
 						?>
 						</p>
 						<a href="<?php echo esc_url( PWB_PREMIUM_SELL_URL ); ?>" class="button-primary" target="_blank">
-							<?php esc_html_e( 'More info', 'autocomplete-woocommerce-orders' ); ?>
+							<?php esc_html_e( 'More info', 'perfect-woocommerce-brands' ); ?>
 						</a>
 						<input style="width:130px" type="text" value="ADMINPANEL20%"/>
 					</div>
@@ -140,7 +140,7 @@ class PWB_Notices {
 					</div>
 					<div class="notice-content" style="margin-left: 15px;">
 						<p>
-						<?php printf( esc_html__( 'Hello! We want to invite you to try our %s plugin!', 'autocomplete-woocommerce-orders' ), esc_html( PWB_CROSS_INSTALL_NAME ) ); ?>
+						<?php printf( esc_html__( 'Hello! We want to invite you to try our %s plugin!', 'perfect-woocommerce-brands' ), esc_html( PWB_CROSS_INSTALL_NAME ) ); ?>
 							<br/>
 						<?php echo esc_html( PWB_CROSS_INSTALL_DESCRIPTION ); ?>
 						</p>
@@ -148,7 +148,7 @@ class PWB_Notices {
 						<?php echo esc_html( $action ); ?>
 						</a>
 						<a href="<?php echo esc_url( PWB_CROSS_INSTALL_URL ); ?>" class="button-secondary" target="_blank">
-						<?php esc_html_e( 'More info', 'autocomplete-woocommerce-orders' ); ?>
+						<?php esc_html_e( 'More info', 'perfect-woocommerce-brands' ); ?>
 						</a>
 					</div>
 				</div>
@@ -182,7 +182,7 @@ class PWB_Notices {
 			}
 
 			return array(
-				esc_html__( 'Activate', 'autocomplete-woocommerce-orders' ),
+				esc_html__( 'Activate', 'perfect-woocommerce-brands' ),
 				wp_nonce_url( "plugins.php?action=activate&amp;plugin={$plugin_file}&amp;plugin_status=all&amp;paged=1", "activate-plugin_{$plugin_file}" ),
 			);
 
@@ -193,7 +193,7 @@ class PWB_Notices {
 		}
 
 		return array(
-			esc_html__( 'Install', 'autocomplete-woocommerce-orders' ),
+			esc_html__( 'Install', 'perfect-woocommerce-brands' ),
 			wp_nonce_url( self_admin_url( "update.php?action=install-plugin&plugin={$plugin_slug}" ), "install-plugin_{$plugin_slug}" ),
 		);
 

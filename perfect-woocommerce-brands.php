@@ -4,7 +4,7 @@
  *  Plugin Name: Perfect Brands for WooCommerce
  *  Plugin URI: https://quadlayers.com/portfolio/perfect-woocommerce-brands/
  *  Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
- *  Version: 2.2.0
+ *  Version: 2.2.1
  *  Author: QuadLayers
  *  Author URI: https://quadlayers.com
  *  Text Domain: perfect-woocommerce-brands
@@ -36,7 +36,7 @@ define( 'PWB_PLUGIN_FILE', __FILE__ );
 define( 'PWB_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'PWB_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
 define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'PWB_PLUGIN_VERSION', '2.2.0' );
+define( 'PWB_PLUGIN_VERSION', '2.2.1' );
 define( 'PWB_PLUGIN_NAME', 'Perfect WooCommerce Brands' );
 define( 'PWB_PREFIX', 'pwb' );
 define( 'PWB_REVIEW_URL', 'https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?filter=5#new-post' );
@@ -54,9 +54,7 @@ define( 'PWB_PREMIUM_SELL_URL', 'https://quadlayers.com/portfolio/woocommerce-di
 define( 'PWB_CROSS_INSTALL_SLUG', 'woocommerce-checkout-manager' );
 define( 'PWB_CROSS_INSTALL_NAME', 'Checkout Manager' );
 define( 'PWB_CROSS_INSTALL_DESCRIPTION', esc_html__( 'Checkout Field Manager( Checkout Manager ) for WooCommerce allows you to add custom fields to the checkout page, related to billing, Shipping or Additional fields sections.', 'perfect-woocommerce-brands' ) );
-define( 'PWB_CROSS_INSTALL_URL', 'https:// quadlayers.com/portfolio/woocommerce-checkout-manager/?utm_source=pwb_admin' );
-
-
+define( 'PWB_CROSS_INSTALL_URL', 'https://quadlayers.com/portfolio/woocommerce-checkout-manager/?utm_source=pwb_admin' );
 
 register_activation_hook(
 	__FILE__,
@@ -80,7 +78,6 @@ add_action(
 		load_plugin_textdomain( 'perfect-woocommerce-brands', false, PWB_PLUGIN_DIR . '/lang' );
 	}
 );
-
 
 require_once PWB_PLUGIN_DIR . 'includes/quadlayers/widget.php';
 require_once PWB_PLUGIN_DIR . 'includes/quadlayers/notices.php';
