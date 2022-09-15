@@ -18,7 +18,7 @@ class PWB_Coupon {
 	public function coupon_restriction() {
 		global $thepostid, $post;
 
-		$thepostid = empty( $thepostid ) ? $post->get_ID() : $thepostid;
+		$thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 
 		$product_brands_ids = (array) get_post_meta( $thepostid, '_pwb_coupon_restriction', true );
 		$exclude_brands_ids = (array) get_post_meta( $thepostid, '_pwb_coupon_exclude_brands', true );
