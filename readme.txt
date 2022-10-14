@@ -5,9 +5,9 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 2.2.4
+Stable tag: 2.2.5
 WC requires at least: 3.0
-WC tested up to: 6.9
+WC tested up to: 7.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -90,6 +90,9 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.2.5=
+* Fix: WooCommerce compatibility
+* Fix: brand description
 = 2.2.4=
 * Fix: rating notification
 = 2.2.3=

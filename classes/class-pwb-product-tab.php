@@ -50,8 +50,8 @@ class PWB_Product_Tab {
 						<?php if ( ! empty( $brand->description ) ) : ?>
 					<div>
 							<?php
-							$content = apply_filters( 'the_content', $brand->description );
-							echo wp_kses_post( $content );
+							/* $content = apply_filters( 'the_content', $brand->description ); */
+							echo wp_kses_post( $brand->description );
 							?>
 					</div>
 					<?php endif; ?>
