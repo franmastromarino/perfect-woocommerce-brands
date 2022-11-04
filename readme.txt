@@ -3,9 +3,9 @@ Contributors: quadlayers, titodevera
 Donate link: https://quadlayers.com
 Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
-Tested up to: 6.0
+Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 2.2.5
+Stable tag: 2.2.6
 WC requires at least: 3.0
 WC tested up to: 7.0
 License: GPLv3
@@ -90,6 +90,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.2.6=
+* Fix: WooCommerce compatibility
 = 2.2.5=
 * Fix: WooCommerce compatibility
 * Fix: brand description
