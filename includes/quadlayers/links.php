@@ -13,6 +13,7 @@ class PWB_Admin_Links {
 	}
 
 	public function add_action_links( $links ) {
+		$links[] = '<a target="_blank" href="' . PWB_PURCHASE_URL . '">' . esc_html__( 'Premium', 'perfect-woocommerce-brands' ) . '</a>';
 		$links[] = '<a target="_blank" href="' . PWB_DOCUMENTATION_URL . '">' . esc_html__( 'Documentation', 'perfect-woocommerce-brands' ) . '</a>';
 		$links[] = '<a href="' . esc_url( admin_url( 'admin.php?page=wc-settings&tab=pwb_admin_tab' ) ) . '">' . esc_html__( 'Settings', 'perfect-woocommerce-brands' ) . '</a>';
 		return $links;
