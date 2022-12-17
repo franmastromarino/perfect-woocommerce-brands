@@ -43,7 +43,6 @@ class Perfect_Woocommerce_Brands {
 		add_filter( 'manage_edit-product_sortable_columns', array( $this, 'brands_column_sortable' ), 90 );
 		add_action( 'posts_clauses', array( $this, 'brands_column_sortable_posts' ), 10, 2 );
 		add_filter( 'post_type_link', array( $this, 'brand_name_in_url' ), 10, 2 );
-		// add_action( 'pre_get_posts', array( $this, 'search_by_brand_name' ) );
 
 		// clean caches
 		add_action( 'edited_terms', array( $this, 'clean_caches' ), 10, 2 );
@@ -1018,31 +1017,5 @@ class Perfect_Woocommerce_Brands {
 		}
 
 		return $crumbs;
-	}
-
-	/**
-	 *  Redirect if the search matches with a brand's name
-	 *  Better search experience
-	 */
-	public function search_by_brand_name( $query ) {
-		if ( wp_doing_ajax() ) {
-			return;
-		}
-
-		if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
-
-			$brands = get_terms(
-				array(
-					'taxonomy' => 'pwb-brand',
-					'fields'   => 'id=>name',
-				)
-			);
-
-			if ( $match = array_search( strtolower( trim( $query->get( 's' ) ) ), array_map( 'strtolower', $brands ) ) ) {
-
-				wp_redirect( get_term_link( $match, 'pwb-brand' ) );
-				exit;
-			}
-		}
 	}
 }
