@@ -3,11 +3,11 @@ Contributors: quadlayers, titodevera
 Donate link: https://quadlayers.com
 Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
-Tested up to: 5.4.2
+Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 1.8.3
+Stable tag: 2.2.8
 WC requires at least: 3.0
-WC tested up to: 4.1.1
+WC tested up to: 7.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -90,6 +90,94 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.2.8=
+* Fix: Settings link
+= 2.2.7=
+* Fix: WooCommerce compatibility
+= 2.2.5=
+* Fix: WooCommerce compatibility
+* Fix: brand description
+= 2.2.4=
+* Fix: rating notification
+= 2.2.3=
+* Fix: php error
+= 2.2.2=
+* Fix: WooCommerce compatibility
+= 2.2.1=
+* Fix: WooCommerce compatibility
+= 2.2.0=
+* Fix: WooCommerce compatibility
+= 2.1.9=
+* Fix: WooCommerce compatibility
+= 2.1.8=
+* Fix: WooCommerce compatibility
+= 2.1.7=
+* Fix: small css issues
+= 2.1.6=
+* Fix: WooCommerce compatibility
+= 2.1.5=
+* Fix: WooCommerce Product Brands translation plural
+= 2.1.4=
+* Fix: QuadLayers widget image
+= 2.1.3 =
+* Fix: Disable search brands in products
+= 2.1.2=
+* Fix: QuadLayers widget cache
+= 2.1.1 =
+* Fix: WooCommerce Brands carousel 
+= 2.1.0 =
+* Fix: Brand description in product tab
+= 2.0.9 =
+* Fix: Exclude coupons from brands
+= 2.0.7 =
+* Fix: Brand image output sanitization
+= 2.0.6 =
+* Fix: Output sanitization
+= 2.0.5 =
+* Fix: Security fix
+* Fix: WooCommerce compatibility
+= 2.0.4 =
+* Fix: Security fix
+= 2.0.3 =
+* Fix: Security fix
+= 2.0.2 =
+* Fix: WooCommerce compatibility
+= 2.0.1 =
+* Fix: QuadLayers widget cache
+= 2.0.0 =
+* Fix: WordPress compatibility
+= 1.9.9 =
+* Fix: WordPress compatibility
+= 1.9.8 =
+* Fix: Google code snippet
+= 1.9.7 =
+* Fix: QuadLayers widget cache
+= 1.9.6 =
+* Fix: WordPress compatibility
+= 1.9.5 =
+* Fix: WordPress compatibility
+= 1.9.4 =
+* New. Telegram add to suggestions tab
+= 1.9.3 =
+* Fix: php error
+= 1.9.2 =
+* Add: QuadLayers dashboard widget
+= 1.9.1 =
+* Fix: WordPress compatibility
+= 1.9.0 =
+* Fix: php 8 compatibility
+= 1.8.9 =
+* Fix: php 8 compatibility
+= 1.8.8 =
+* Fix: WooCommerce compatibility
+= 1.8.7 =
+* Fix: WooCommerce compatibility
+= 1.8.6 =
+* New: remove filters button
+= 1.8.5 =
+* Fix: security issues
+= 1.8.4 =
+* Enhancement: dynamic data escaped 
 = 1.8.3 =
 * Enhancement: Update suggestions
 = 1.8.2 =
