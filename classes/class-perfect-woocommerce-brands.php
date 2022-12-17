@@ -1021,7 +1021,7 @@ class Perfect_Woocommerce_Brands {
 	}
 
 	/**
-	 *  Redirect if the search matchs with a brands name
+	 *  Redirect if the search matches with a brand's name
 	 *  Better search experience
 	 */
 	public function search_by_brand_name( $query ) {
@@ -1040,7 +1040,7 @@ class Perfect_Woocommerce_Brands {
 
 			if ( $match = array_search( strtolower( trim( $query->get( 's' ) ) ), array_map( 'strtolower', $brands ) ) ) {
 
-				wp_redirect( get_term_link( $match ) );
+				wp_redirect( get_term_link( $match, 'pwb-brand' ) );
 				exit;
 			}
 		}
