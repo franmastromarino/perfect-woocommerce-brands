@@ -5,7 +5,7 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 2.2.8
+Stable tag: 2.2.9
 WC requires at least: 3.0
 WC tested up to: 7.1
 License: GPLv3
@@ -90,6 +90,9 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.2.9=
+* Fix: Separate brands by comma
+* Fix: Add span to brands filter
 = 2.2.8=
 * Fix: Settings link
 = 2.2.7=
