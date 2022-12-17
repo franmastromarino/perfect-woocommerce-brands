@@ -39,7 +39,7 @@ class Brands_Custom_Fields {
 	<div class="form-field pwb_brand_cont">
 	<label for="pwb_brand_banner_link"><?php esc_html_e( 'Brand banner link', 'perfect-woocommerce-brands' ); ?></label>
 	<input type="text" name="pwb_brand_banner_link" id="pwb_brand_banner_link" value="">
-	<p><?php esc_html_e( 'This link should be relative to site url. Example: product/product-name', 'perfect-woocommerce-brands' ); ?></p>
+	<p><?php esc_html_e( 'This link should be relative to site url. Example: "/product/product-name"', 'perfect-woocommerce-brands' ); ?></p>
 	</div>
 
 		<?php wp_nonce_field( basename( __FILE__ ), 'pwb_nonce' ); ?>
@@ -113,7 +113,7 @@ class Brands_Custom_Fields {
 		</th>
 		<td>
 		<input type="text" name="pwb_brand_banner_link" id="pwb_brand_banner_link" value="<?php echo esc_html( $term_value_banner_link ); ?>">
-		<p class="description"><?php esc_html_e( 'This link should be relative to site url. Example: product/product-name', 'perfect-woocommerce-brands' ); ?></p>
+		<p class="description"><?php esc_html_e( 'This link should be relative to site url. Example: "/product/product-name"', 'perfect-woocommerce-brands' ); ?></p>
 		<div id="pwb_brand_banner_link_result"><?php echo wp_get_attachment_image( $term_value_banner_link, array( '90', '90' ), false ); ?></div>
 		</td>
 	</tr>
