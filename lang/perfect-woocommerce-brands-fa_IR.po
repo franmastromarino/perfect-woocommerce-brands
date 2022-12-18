@@ -1,0 +1,881 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Perfect WooCommerce Brands\n"
+"POT-Creation-Date: 2020-04-18 18:37+0430\n"
+"PO-Revision-Date: 2020-04-18 19:29+0430\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: perfect-woocommerce-brands.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: classes/admin/class-brands-custom-fields.php:20
+#: classes/admin/class-brands-custom-fields.php:59
+msgid "Description"
+msgstr "توضیحات"
+
+#: classes/admin/class-brands-custom-fields.php:22
+#: classes/admin/class-brands-custom-fields.php:63
+msgid ""
+"Brand description for the archive pages. You can include some html markup "
+"and shortcodes."
+msgstr ""
+"توضیحات جهت نمایش در صفحه برند ها. میتوانید از کد html و شورت کد نیز استفاده "
+"کنید."
+
+#: classes/admin/class-brands-custom-fields.php:26
+#: classes/admin/class-brands-custom-fields.php:68
+#: classes/widgets/class-pwb-list.php:43
+msgid "Brand logo"
+msgstr "لوگوی برند"
+
+#: classes/admin/class-brands-custom-fields.php:28
+#: classes/admin/class-brands-custom-fields.php:34
+#: classes/admin/class-brands-custom-fields.php:72
+#: classes/admin/class-brands-custom-fields.php:92
+msgid "Select image"
+msgstr "انتخاب تصویر"
+
+#: classes/admin/class-brands-custom-fields.php:32
+#: classes/admin/class-brands-custom-fields.php:88
+msgid "Brand banner"
+msgstr "بنر برند"
+
+#: classes/admin/class-brands-custom-fields.php:35
+msgid "This image will be shown on brand page"
+msgstr "این تصویر در صفحه برند به نمایش در خواهد آمد"
+
+#: classes/admin/class-brands-custom-fields.php:39
+#: classes/admin/class-brands-custom-fields.php:108
+msgid "Brand banner link"
+msgstr "لینک بنر برند"
+
+#: classes/admin/class-brands-custom-fields.php:41
+#: classes/admin/class-brands-custom-fields.php:112
+msgid "This link should be relative to site url. Example: product/product-name"
+msgstr "یک لینک relative به آدرس سایت. برای مثال: product/product-name"
+
+#: classes/admin/class-edit-brands-page.php:39
+msgid "featured"
+msgstr "ویژه"
+
+#: classes/admin/class-edit-brands-page.php:77
+msgid "Logo"
+msgstr "لوگو"
+
+#: classes/admin/class-edit-brands-page.php:78
+msgid "Featured"
+msgstr "ویژه"
+
+#: classes/admin/class-edit-brands-page.php:93
+msgid "Set as featured"
+msgstr "انتخاب بعنوان ویژه"
+
+#: classes/admin/class-edit-brands-page.php:115
+msgid "Error!"
+msgstr "خط!"
+
+#: classes/admin/class-edit-brands-page.php:125
+#: classes/admin/class-pwb-admin-tab.php:17
+#: classes/admin/class-pwb-admin-tab.php:54
+#: classes/class-perfect-woocommerce-brands.php:632
+#: classes/class-perfect-woocommerce-brands.php:714
+#: classes/class-perfect-woocommerce-brands.php:716
+#: classes/widgets/class-pwb-dropdown.php:19
+#: classes/widgets/class-pwb-filter-by-brand.php:20
+#: classes/widgets/class-pwb-filter-by-brand.php:93
+#: classes/widgets/class-pwb-list.php:19 templates/widgets/dropdown.php:12
+msgid "Brands"
+msgstr "برند ها"
+
+#: classes/admin/class-edit-brands-page.php:128
+msgid "Show featured brands first"
+msgstr "نمایش برند های ویژه در ابتدا"
+
+#: classes/admin/class-pwb-admin-tab.php:28
+#: classes/admin/class-pwb-admin-tab.php:229
+msgid "General"
+msgstr "عمومی"
+
+#: classes/admin/class-pwb-admin-tab.php:29
+#: classes/admin/class-pwb-admin-tab.php:129
+msgid "Archives"
+msgstr "آرشیو ها"
+
+#: classes/admin/class-pwb-admin-tab.php:30
+#: classes/admin/class-pwb-admin-tab.php:78
+#: classes/class-perfect-woocommerce-brands.php:408
+msgid "Products"
+msgstr "محصولات"
+
+#: classes/admin/class-pwb-admin-tab.php:31
+#: classes/admin/class-pwb-admin-tab.php:181
+msgid "Tools"
+msgstr "ابزارها"
+
+#: classes/admin/class-pwb-admin-tab.php:55
+#: classes/admin/class-pwb-suggestions.php:24
+#: classes/admin/class-pwb-suggestions.php:66
+msgid "Suggestions"
+msgstr "پیشنهادات"
+
+#: classes/admin/class-pwb-admin-tab.php:56
+#: classes/admin/class-pwb-suggestions.php:30
+#: classes/class-perfect-woocommerce-brands.php:73
+msgid "Documentation"
+msgstr "مستندات"
+
+#: classes/admin/class-pwb-admin-tab.php:84
+msgid "Products tab"
+msgstr "برگ محصولات"
+
+#: classes/admin/class-pwb-admin-tab.php:87
+msgid "Show brand tab in single product page"
+msgstr "نمایش برگه برند در صفحه محصول"
+
+#: classes/admin/class-pwb-admin-tab.php:91
+msgid "Show brands in single product"
+msgstr "نمابش بند در یک محصول"
+
+#: classes/admin/class-pwb-admin-tab.php:94
+msgid "Show brand logo (or name) in single product"
+msgstr "نمایش لوگو و یا نام برند در یک محصول"
+
+#: classes/admin/class-pwb-admin-tab.php:98
+#: classes/admin/class-pwb-admin-tab.php:167
+#: classes/class-perfect-woocommerce-brands.php:583
+msgid "No"
+msgstr "خیر"
+
+#: classes/admin/class-pwb-admin-tab.php:99
+#: classes/admin/class-pwb-admin-tab.php:168
+msgid "Show brand link"
+msgstr "نمایش لینک برند"
+
+#: classes/admin/class-pwb-admin-tab.php:100
+#: classes/admin/class-pwb-admin-tab.php:169
+msgid "Show brand image (if is set)"
+msgstr "نمایش تصویر برند (در صورت وجود)"
+
+#: classes/admin/class-pwb-admin-tab.php:104
+msgid "Brand position"
+msgstr "موقعیت برند"
+
+#: classes/admin/class-pwb-admin-tab.php:107
+msgid "For single product"
+msgstr "برای یک محصول"
+
+#: classes/admin/class-pwb-admin-tab.php:110
+msgid "Before title"
+msgstr "قبل از عنوان"
+
+#: classes/admin/class-pwb-admin-tab.php:111
+msgid "After title"
+msgstr "بعد از عنوان"
+
+#: classes/admin/class-pwb-admin-tab.php:112
+msgid "After price"
+msgstr "بعد از قیمت"
+
+#: classes/admin/class-pwb-admin-tab.php:113
+msgid "After excerpt"
+msgstr "بعد از توضیحات کوتاه"
+
+#: classes/admin/class-pwb-admin-tab.php:114
+msgid "After add to cart"
+msgstr "بعد از افزودن به سبد"
+
+#: classes/admin/class-pwb-admin-tab.php:115
+msgid "In meta"
+msgstr "در بخش متا"
+
+#: classes/admin/class-pwb-admin-tab.php:116
+msgid "After meta"
+msgstr "بعد از متا"
+
+#: classes/admin/class-pwb-admin-tab.php:117
+msgid "After sharing"
+msgstr "بعد از اشتراک گذاری"
+
+#: classes/admin/class-pwb-admin-tab.php:135
+msgid "Show brand description"
+msgstr "نمایش توضیحات برند"
+
+#: classes/admin/class-pwb-admin-tab.php:139
+msgid "Show brand description (if is set) on brand archive page"
+msgstr "نمایش توضیحات برند در صفحه برند (درصورت وجود)"
+
+#: classes/admin/class-pwb-admin-tab.php:142
+#: classes/admin/class-pwb-admin-tab.php:155
+msgid "Yes, before product loop"
+msgstr "بله قبل از حلقه محصولات"
+
+#: classes/admin/class-pwb-admin-tab.php:143
+#: classes/admin/class-pwb-admin-tab.php:156
+msgid "Yes, after product loop"
+msgstr "بله بعد از حلقه محصولات"
+
+#: classes/admin/class-pwb-admin-tab.php:144
+msgid "No, hide description"
+msgstr "خیر، توضیحات را نمایش نده"
+
+#: classes/admin/class-pwb-admin-tab.php:148
+msgid "Show brand banner"
+msgstr "نمایش بنر برند"
+
+#: classes/admin/class-pwb-admin-tab.php:152
+msgid "Show brand banner (if is set) on brand archive page"
+msgstr "نمایش بنر برند در صفحه برند (درصورت وجود)"
+
+#: classes/admin/class-pwb-admin-tab.php:157
+msgid "No, hide banner"
+msgstr "خیر، بنر را نمایش نده"
+
+#: classes/admin/class-pwb-admin-tab.php:161
+msgid "Show brands in loop"
+msgstr "نمایش برند ها در حلقه تکرار"
+
+#: classes/admin/class-pwb-admin-tab.php:164
+msgid "Show brand logo (or name) in product loop"
+msgstr "نمایش لوگو و یا نام برند در حلقه تکرار محصولات"
+
+#: classes/admin/class-pwb-admin-tab.php:187
+#: templates/admin/brands-exporter.php:12
+msgid "Import brands"
+msgstr "وارد سازی برند ها"
+
+#: classes/admin/class-pwb-admin-tab.php:191
+#, php-format
+msgid ""
+"Import brands from other brand plugin. <a href=\"%s\" target=\"_blank"
+"\">Click here for more details</a>"
+msgstr ""
+"وارد سازی برند ها از سایر افزونه های برند.  <a href=\"%s\" target=\"_blank"
+"\">جهت توضیحات بیشتر اینجا کلیک نمایید.</a>"
+
+#: classes/admin/class-pwb-admin-tab.php:195
+#: classes/admin/class-pwb-admin-tab.php:208
+msgid "-"
+msgstr "-"
+
+#: classes/admin/class-pwb-admin-tab.php:196
+msgid "YITH WooCommerce Brands Add-On"
+msgstr "YITH WooCommerce Brands Add-On"
+
+#: classes/admin/class-pwb-admin-tab.php:197
+msgid "Ultimate WooCommerce Brands"
+msgstr "Ultimate WooCommerce Brands"
+
+#: classes/admin/class-pwb-admin-tab.php:198
+msgid "Offical WooCommerce Brands"
+msgstr "Offical WooCommerce Brands"
+
+#: classes/admin/class-pwb-admin-tab.php:202
+msgid "Dummy data"
+msgstr "داده های ساختگی"
+
+#: classes/admin/class-pwb-admin-tab.php:205
+msgid "Import generic brands and assign it to products randomly"
+msgstr "وارد سازی برند های معروف و تایین آنها در محصولات به صورت تصادفی"
+
+#: classes/admin/class-pwb-admin-tab.php:209
+msgid "Start import"
+msgstr "شروع وارد سازی"
+
+#: classes/admin/class-pwb-admin-tab.php:213
+msgid "System status"
+msgstr "وضعیت سیستم"
+
+#: classes/admin/class-pwb-admin-tab.php:215
+msgid "Show system status"
+msgstr "نمایش وضعیت سیستم"
+
+#: classes/admin/class-pwb-admin-tab.php:225
+msgid "brands"
+msgstr "برند ها"
+
+#: classes/admin/class-pwb-admin-tab.php:225
+msgid "brand-name"
+msgstr "نام-برند"
+
+#: classes/admin/class-pwb-admin-tab.php:235
+msgid "Slug"
+msgstr "نامک"
+
+#: classes/admin/class-pwb-admin-tab.php:238
+msgid "Brands taxonomy slug"
+msgstr "نامک دسته بندی برندها"
+
+#: classes/admin/class-pwb-admin-tab.php:240
+#, php-format
+msgid "Your brands URLs will look like \"%s\""
+msgstr "نامک برند ها در آدرس سایت به این صورت نمایش داده خواهد شد \"%s\""
+
+#: classes/admin/class-pwb-admin-tab.php:246
+#: classes/class-perfect-woocommerce-brands.php:494
+#: classes/class-perfect-woocommerce-brands.php:520
+#: classes/class-perfect-woocommerce-brands.php:606
+msgid "Brand logo size"
+msgstr "اندازه لوگوی برند"
+
+#: classes/admin/class-pwb-admin-tab.php:249
+msgid "Select the size for the brand logo image around the site"
+msgstr "اندازه لوگوی برند را جهت نمایش در بخش های مختلف سایت انتخاب نمایید"
+
+#: classes/admin/class-pwb-admin-tab.php:250
+msgid ""
+"The default image sizes can be configured under \"Settings > Media\". You "
+"can also define your own image sizes"
+msgstr ""
+"اندازه پیشفرض تصاویر در بخش \"تنظیمات>رسانه\" قابل تنظیم است. همچنین "
+"میتوانید اندازه سفارشی برای تصویر را تعریف کنید"
+
+#: classes/admin/class-pwb-admin-tab.php:255
+msgid "Brands page"
+msgstr "صفحه برندها"
+
+#: classes/admin/class-pwb-admin-tab.php:258
+msgid "For linking breadcrumbs"
+msgstr "برای ادغام بنچمارک ها"
+
+#: classes/admin/class-pwb-admin-tab.php:259
+msgid ""
+"Select your \"Brands\" page (if you have one), it will be linked in the "
+"breadcrumbs."
+msgstr ""
+"صفحه \"برند ها\" را انتخاب نمایید (درصورت موجود بودن)، این گزینه برای لینک "
+"کردن بنچمارک ها میباشد."
+
+#: classes/admin/class-pwb-coupon.php:24
+msgid "Brands restriction"
+msgstr "محدودیت برند ها"
+
+#: classes/admin/class-pwb-coupon.php:25
+msgid "Any brand"
+msgstr "هر برندی"
+
+#: classes/admin/class-pwb-coupon.php:34
+msgid ""
+"Coupon will be valid if there are at least one product of this brands in the "
+"cart"
+msgstr ""
+"کوپن درصورتی که حداقل یک محصول از این برند در سبد موجود باشد معتبر خواهد بود"
+
+#: classes/admin/class-pwb-exporter-support.php:22
+#: classes/admin/class-pwb-importer-support.php:22
+#: classes/admin/class-pwb-importer-support.php:33
+#: classes/class-perfect-woocommerce-brands.php:400
+#: classes/class-perfect-woocommerce-brands.php:715
+#: classes/class-pwb-product-tab.php:24 classes/class-pwb-product-tab.php:44
+msgid "Brand"
+msgstr "برند"
+
+#: classes/admin/class-pwb-notices.php:42
+#, php-format
+msgid "Hello! Thank you for choosing the %s plugin!"
+msgstr "سلام ممنون جهت انتخاب افزونه %s ترجمه شده توسط سجاد ثروت جو!"
+
+#: classes/admin/class-pwb-notices.php:44
+msgid ""
+"Could you please give it a 5-star rating on WordPress? We know its a big "
+"favor, but we've worked very much and very hard to release this great "
+"product. Your feedback will boost our motivation and help us promote and "
+"continue to improve this product."
+msgstr ""
+"در صورت امکان امتیاز 5 ستاره را در سایت وردپرس برای این افزونه بدهید. این "
+"لطف بزرگی برای سازنده این افزونه می باشد."
+
+#: classes/admin/class-pwb-notices.php:47
+msgid "Yes, of course!"
+msgstr "بله حتما!"
+
+#: classes/admin/class-pwb-notices.php:50
+msgid "Report a bug"
+msgstr "گزارش خرابی"
+
+#: classes/admin/class-pwb-notices.php:81
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: classes/admin/class-pwb-suggestions.php:26
+msgid ""
+"Thanks for using our product! We recommend these extensions that will add "
+"new features to stand out your business and improve your sales."
+msgstr ""
+"ممنون که از محصول ما استفاده میکنید! ما چند افرونه را که به فروش در کسب و "
+"کار شما کمک میکند را به شما پیشنهاد میدهیم."
+
+#: classes/admin/class-pwb-suggestions.php:29
+msgid "Purchase"
+msgstr "خرید"
+
+#. Author of the plugin/theme
+#: classes/admin/class-pwb-suggestions.php:46
+msgid "QuadLayers"
+msgstr "QuadLayers"
+
+#: classes/class-perfect-woocommerce-brands.php:168
+msgid ""
+"We know that you´re in love with Perfect WooCommerce Brands, you can help us "
+"making it a bit better. Thanks a lot!"
+msgstr ""
+"ما میدانیم که شما افرونه برند های ووکامرس را دوست دارید. شما میتوانید به "
+"بهبود کارایی این افزونه کمک کنید!"
+
+#: classes/class-perfect-woocommerce-brands.php:170
+msgid ""
+"<a href=\"https://wordpress.org/support/plugin/perfect-woocommerce-brands/"
+"reviews/?rate=5#new-post\" target=\"_blank\">Leave a review</a>"
+msgstr ""
+"<a href=\"https://wordpress.org/support/plugin/perfect-woocommerce-brands/"
+"reviews/?rate=5#new-post\" target=\"_blank\">بازخورد خود را بنویسید</a>"
+
+#: classes/class-perfect-woocommerce-brands.php:171
+msgid ""
+"<a href=\"https://translate.wordpress.org/projects/wp-plugins/perfect-"
+"woocommerce-brands\" target=\"_blank\">Translate the plugin</a>"
+msgstr ""
+"<a href=\"https://translate.wordpress.org/projects/wp-plugins/perfect-"
+"woocommerce-brands\" target=\"_blank\">این افزونه را ترجمه کنید</a>"
+
+#: classes/class-perfect-woocommerce-brands.php:172
+msgid "<a href=\""
+msgstr "<a href=\""
+
+#: classes/class-perfect-woocommerce-brands.php:391
+msgid "PWB Product carousel"
+msgstr "PWB Product carousel"
+
+#: classes/class-perfect-woocommerce-brands.php:392
+msgid "Product carousel by brand or by category"
+msgstr "کاروسل محصولات بر اساس برند یا دسته بندی"
+
+#: classes/class-perfect-woocommerce-brands.php:411
+msgid "Number of products to load"
+msgstr "تعداد محصولات بارگذاری شده"
+
+#: classes/class-perfect-woocommerce-brands.php:416
+msgid "Products to show"
+msgstr "تعداد محصولات نمایش داده شده"
+
+#: classes/class-perfect-woocommerce-brands.php:419
+msgid "Number of products to show"
+msgstr "تعداد محصولات جهت نمایش"
+
+#: classes/class-perfect-woocommerce-brands.php:424
+msgid "Products to scroll"
+msgstr "محصولات برای اسکرول"
+
+#: classes/class-perfect-woocommerce-brands.php:427
+msgid "Number of products to scroll"
+msgstr "تعداد محصولات جهت اسکرول"
+
+#: classes/class-perfect-woocommerce-brands.php:432
+#: classes/class-perfect-woocommerce-brands.php:481
+msgid "Autoplay"
+msgstr "نمایش خودکار"
+
+#: classes/class-perfect-woocommerce-brands.php:434
+#: classes/class-perfect-woocommerce-brands.php:483
+msgid "Autoplay carousel"
+msgstr "نمایس خودکار کاروسل"
+
+#: classes/class-perfect-woocommerce-brands.php:439
+#: classes/class-perfect-woocommerce-brands.php:488
+msgid "Arrows"
+msgstr "فلش ها"
+
+#: classes/class-perfect-woocommerce-brands.php:441
+#: classes/class-perfect-woocommerce-brands.php:490
+msgid "Display prev and next arrows"
+msgstr "نمایش فلش های قبلی و بعدی"
+
+#: classes/class-perfect-woocommerce-brands.php:447
+msgid "PWB Brands carousel"
+msgstr "PWB Brands carousel"
+
+#: classes/class-perfect-woocommerce-brands.php:448
+msgid "Brands carousel"
+msgstr "کاروسل برند ها"
+
+#: classes/class-perfect-woocommerce-brands.php:457
+msgid "Items"
+msgstr "موارد"
+
+#: classes/class-perfect-woocommerce-brands.php:460
+msgid "Number of items to load (or 'featured')"
+msgstr "تعداد محصولات جهت لود"
+
+#: classes/class-perfect-woocommerce-brands.php:465
+msgid "Items to show"
+msgstr "موارد جهت نمایش"
+
+#: classes/class-perfect-woocommerce-brands.php:468
+msgid "Number of items to show"
+msgstr "تعداد موارد جهت نمایش"
+
+#: classes/class-perfect-woocommerce-brands.php:473
+msgid "Items to scroll"
+msgstr "موراد جهت اسکرول"
+
+#: classes/class-perfect-woocommerce-brands.php:476
+msgid "Number of items to scroll"
+msgstr "تعداد موارد جهت اسکرول"
+
+#: classes/class-perfect-woocommerce-brands.php:503
+msgid "PWB All brands"
+msgstr "PWB All brands"
+
+#: classes/class-perfect-woocommerce-brands.php:504
+msgid "Show all brands"
+msgstr "نمایش همه برند ها"
+
+#: classes/class-perfect-woocommerce-brands.php:513
+msgid "Brands per page"
+msgstr "تعداد برند در هر صفحه"
+
+#: classes/class-perfect-woocommerce-brands.php:516
+msgid "Show x brands per page"
+msgstr "نمایش x برند در هر صفحه"
+
+#: classes/class-perfect-woocommerce-brands.php:527
+msgid "Order by"
+msgstr "مرتب سازی بر اساس"
+
+#: classes/class-perfect-woocommerce-brands.php:541
+msgid "Order"
+msgstr "مرتب سازی"
+
+#: classes/class-perfect-woocommerce-brands.php:551
+msgid "Title position"
+msgstr "موقعیت عنوان"
+
+#: classes/class-perfect-woocommerce-brands.php:555
+msgid "Before image"
+msgstr "قبل از تصویر"
+
+#: classes/class-perfect-woocommerce-brands.php:556
+msgid "After image"
+msgstr "بعد از تصویر"
+
+#: classes/class-perfect-woocommerce-brands.php:557
+msgid "Hide"
+msgstr "مخفی"
+
+#: classes/class-perfect-woocommerce-brands.php:563
+#: classes/widgets/class-pwb-dropdown.php:43
+#: classes/widgets/class-pwb-list.php:67
+msgid "Hide empty"
+msgstr "مخفی کردن خالی ها"
+
+#: classes/class-perfect-woocommerce-brands.php:565
+msgid "Hide brands that have not been assigned to any product"
+msgstr "برند هایی را که محصولی از آنها در سایت وارد نشده است نمایش نده"
+
+#: classes/class-perfect-woocommerce-brands.php:571
+msgid "PWB AZ Listing"
+msgstr "PWB AZ Listing"
+
+#: classes/class-perfect-woocommerce-brands.php:572
+msgid "AZ Listing for brands"
+msgstr "AZ Listing for brands"
+
+#: classes/class-perfect-woocommerce-brands.php:580
+msgid "Only parent brands"
+msgstr "فقط برند های اصلی"
+
+#: classes/class-perfect-woocommerce-brands.php:583
+msgid "Yes"
+msgstr "بلع"
+
+#: classes/class-perfect-woocommerce-brands.php:589
+msgid "PWB brand"
+msgstr "PWB brand"
+
+#: classes/class-perfect-woocommerce-brands.php:590
+msgid "Show brand for a specific product"
+msgstr "نمایش برند برای محصول خاص"
+
+#: classes/class-perfect-woocommerce-brands.php:599
+msgid "Product id"
+msgstr "شناسه محصول"
+
+#: classes/class-perfect-woocommerce-brands.php:602
+msgid "Product id (post id)"
+msgstr "شناسه محصول (شناسه پست)"
+
+#: classes/class-perfect-woocommerce-brands.php:652
+#: templates/shortcodes/brand.php:16
+msgid "View brand"
+msgstr "نمایش برند"
+
+#: classes/class-perfect-woocommerce-brands.php:703
+msgid "¿Start migration?"
+msgstr "شروع ایجاد ساختار؟"
+
+#: classes/class-perfect-woocommerce-brands.php:704
+msgid ""
+"We are migrating the product brands. ¡Don´t close this window until the "
+"process is finished!"
+msgstr ""
+"ما در حال ایجاد ساختار برند های هستیم لطفا تا اتمام عملیات این پنجره را "
+"نبندید!"
+
+#: classes/class-perfect-woocommerce-brands.php:705
+msgid "¿Start loading dummy data?"
+msgstr "شروع دریافت اطلاعات ساختگی؟"
+
+#: classes/class-perfect-woocommerce-brands.php:706
+msgid ""
+"We are importing the dummy data. ¡Don´t close this window until the process "
+"is finished!"
+msgstr ""
+"ما در حال دریافت اطلاعات ساختگی هستیم. لطفا تا اتمام این عملیات پنجره مرورگر "
+"خود را نبندید!"
+
+#: classes/class-perfect-woocommerce-brands.php:717
+msgid "All Brands"
+msgstr "همه برندها"
+
+#: classes/class-perfect-woocommerce-brands.php:718
+msgid "Edit Brand"
+msgstr "ویرایش برند"
+
+#: classes/class-perfect-woocommerce-brands.php:719
+msgid "View Brand"
+msgstr "نمایش برند"
+
+#: classes/class-perfect-woocommerce-brands.php:720
+msgid "Update Brand"
+msgstr "به روز رسانی برند"
+
+#: classes/class-perfect-woocommerce-brands.php:721
+msgid "Add New Brand"
+msgstr "افزودن برند جدید"
+
+#: classes/class-perfect-woocommerce-brands.php:722
+msgid "New Brand Name"
+msgstr "نام برند جدید"
+
+#: classes/class-perfect-woocommerce-brands.php:723
+msgid "Parent Brand"
+msgstr "برند والد"
+
+#: classes/class-perfect-woocommerce-brands.php:724
+msgid "Parent Brand:"
+msgstr "برند والد:"
+
+#: classes/class-perfect-woocommerce-brands.php:725
+msgid "Search Brands"
+msgstr "جستجوی برند"
+
+#: classes/class-perfect-woocommerce-brands.php:726
+msgid "Popular Brands"
+msgstr "برند های پر استفاده"
+
+#: classes/class-perfect-woocommerce-brands.php:727
+msgid "Separate brands with commas"
+msgstr "برند ها را با کاما از هم جدا کنید"
+
+#: classes/class-perfect-woocommerce-brands.php:728
+msgid "Add or remove brands"
+msgstr "افزودن و یا جذف برندها"
+
+#: classes/class-perfect-woocommerce-brands.php:729
+msgid "Choose from the most used brands"
+msgstr "انتخاب از برند های پراستفاده"
+
+#: classes/class-perfect-woocommerce-brands.php:730
+msgid "No brands found"
+msgstr "برندی یافت نشد"
+
+#: classes/class-perfect-woocommerce-brands.php:804
+msgid "All"
+msgstr "همه"
+
+#: classes/class-pwb-api-support.php:80
+msgid "Product brands"
+msgstr "برند های محصول"
+
+#: classes/class-pwb-suggestions-list.php:113
+msgid "Search Results"
+msgstr "نتیجه جستجو"
+
+#: classes/class-pwb-suggestions-list.php:116
+msgctxt "Plugin Installer"
+msgid "Beta Testing"
+msgstr "تست بتا"
+
+#: classes/class-pwb-suggestions-list.php:118
+msgctxt "Plugin Installer"
+msgid "Featured"
+msgstr "ویژه"
+
+#: classes/class-pwb-suggestions-list.php:119
+msgctxt "Plugin Installer"
+msgid "Popular"
+msgstr "محبوب"
+
+#: classes/class-pwb-suggestions-list.php:120
+msgctxt "Plugin Installer"
+msgid "Recommended"
+msgstr "پیشنهادی"
+
+#: classes/class-pwb-suggestions-list.php:121
+msgctxt "Plugin Installer"
+msgid "Favorites"
+msgstr "مورد علاقه"
+
+#: classes/class-pwb-term.php:20
+msgid "Only WP_Term objects are allowed"
+msgstr "فقط شی WP_Term مورد قبول است"
+
+#: classes/shortcodes/class-pwb-all-brands.php:151
+msgid "First page"
+msgstr "برگه  اول"
+
+#: classes/shortcodes/class-pwb-all-brands.php:154
+msgid "Previous page"
+msgstr "برگه قبلی"
+
+#: classes/shortcodes/class-pwb-all-brands.php:158
+msgid "Next page"
+msgstr "برگه بعدی"
+
+#: classes/shortcodes/class-pwb-all-brands.php:161
+msgid "Last page"
+msgstr "آخرین برگه"
+
+#: classes/shortcodes/class-pwb-all-brands.php:166
+msgid "No results"
+msgstr "موردی یافت نشد"
+
+#: classes/widgets/class-pwb-dropdown.php:10
+msgid "Adds a brands dropdown to your site"
+msgstr "افزودن یک لیست بازشونده از برند ها به سایت شما"
+
+#: classes/widgets/class-pwb-dropdown.php:11
+msgid "Brands dropdown"
+msgstr "لیست بازشونده برندها"
+
+#: classes/widgets/class-pwb-dropdown.php:26
+msgid "Title"
+msgstr "عنوان"
+
+#: classes/widgets/class-pwb-dropdown.php:54
+#: classes/widgets/class-pwb-list.php:77
+msgid "Only favorite brands"
+msgstr "فقط برند های مورد علاقه"
+
+#: classes/widgets/class-pwb-filter-by-brand.php:11
+msgid "Recommended for product categories or shop page"
+msgstr "پیسنهادات برای دسته بندی محصولات و یا برگه خرید"
+
+#: classes/widgets/class-pwb-filter-by-brand.php:12
+msgid "Filter products by brand"
+msgstr "فیلتر کردن محصولات توسط برند"
+
+#: classes/widgets/class-pwb-filter-by-brand.php:27
+#: classes/widgets/class-pwb-list.php:28
+msgid "Title:"
+msgstr "عنوان:"
+
+#: classes/widgets/class-pwb-filter-by-brand.php:33
+msgid "Max number of brands"
+msgstr "بیشترین تعداد برنها"
+
+#: classes/widgets/class-pwb-filter-by-brand.php:45
+msgid "Hide filter button"
+msgstr "مخفی سازی دکمه فیلتر"
+
+#: classes/widgets/class-pwb-filter-by-brand.php:56
+msgid "Show only first level brands"
+msgstr "فقط برند های اصلی را نمایش بده"
+
+#: classes/widgets/class-pwb-list.php:10
+msgid "Adds a brands list to your site"
+msgstr "لیستی از برند ها را در سایت اضافه میکند"
+
+#: classes/widgets/class-pwb-list.php:11
+msgid "Brands list"
+msgstr "لیست برند ها"
+
+#: classes/widgets/class-pwb-list.php:37
+msgid "Display as:"
+msgstr "نمایش به عنوان:"
+
+#: classes/widgets/class-pwb-list.php:42
+msgid "Brand name"
+msgstr "نام برند"
+
+#: classes/widgets/class-pwb-list.php:47
+msgid "Columns:"
+msgstr "ستون ها:"
+
+#: classes/widgets/class-pwb-list.php:87
+msgid "Randomize"
+msgstr "تصادفی"
+
+#: classes/widgets/class-pwb-list.php:119
+msgid "Go to"
+msgstr "برو به"
+
+#: perfect-woocommerce-brands.php:113
+msgid ""
+"Perfect WooCommerce Brands needs WooCommerce to run. Please, install and "
+"active WooCommerce plugin."
+msgstr "جهت اجرای افرونه برندهای باید افزونه ووکامرس را نصب و فعال کنید."
+
+#: templates/admin/brands-exporter.php:11
+msgid "Export brands"
+msgstr "گرفتن خروجی از برند ها"
+
+#: templates/admin/brands-exporter.php:14
+msgid ""
+"This tool allows you to export and import the brands between different sites "
+"using PWB."
+msgstr "این ابزار به شما اجازه گرفتن خروجی و یا وارد سازی برنها را میدهد."
+
+#: templates/shortcodes/carousel.php:20
+#: templates/shortcodes/product-carousel.php:24
+msgid "Loading"
+msgstr "درحال بارگذاری"
+
+#: templates/shortcodes/product-carousel.php:30
+msgid "Nothing found"
+msgstr "موردی یافت نشد"
+
+#: templates/widgets/filter-by-brand.php:21
+msgid "Apply filter"
+msgstr "اعمال فیلتر"
+
+#. Plugin Name of the plugin/theme
+msgid "Perfect WooCommerce Brands"
+msgstr "برند های ووکامرس"
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/perfect-woocommerce-brands/"
+msgstr "https://wordpress.org/plugins/perfect-woocommerce-brands/"
+
+#. Description of the plugin/theme
+msgid ""
+"Perfect WooCommerce Brands allows you to show product brands in your "
+"WooCommerce based store."
+msgstr ""
+"برند های ووکامرس به شما اجازه نمایش برند محصول را در فروشگاه تان میدهد."
+
+#. Author URI of the plugin/theme
+msgid "https://quadlayers.com"
+msgstr "https://quadlayers.com"
