@@ -7,11 +7,13 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 class PWB_Brand_Shortcode {
 
 	public static function brand_shortcode( $atts ) {
+
 		$atts = shortcode_atts(
 			array(
-				'product_id' => null,
-				'as_link'    => false,
-				'image_size' => 'thumbnail',
+				'product_id'  => null,
+				'as_link'     => false,
+				'image_size'  => 'thumbnail',
+				'description' => false,
 			),
 			$atts,
 			'pwb-brand'
@@ -32,8 +34,9 @@ class PWB_Brand_Shortcode {
 			'brand',
 			'shortcodes',
 			array(
-				'brands'  => $brands,
-				'as_link' => $atts['as_link'],
+				'brands'      => $brands,
+				'as_link'     => $atts['as_link'],
+				'description' => $atts['description'],
 			),
 			false
 		);

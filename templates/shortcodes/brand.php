@@ -28,6 +28,11 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 		<?php endif; ?>
 
 	</a>
+		<?php if ( $description && ! empty( $brand->description ) ) : ?>
+			<div>
+				<?php echo wp_kses_post( $brand->description ); ?>
+			</div>
+		<?php endif; ?>
 
 	<?php endforeach; ?>
 
