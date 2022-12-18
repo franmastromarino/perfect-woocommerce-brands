@@ -54,14 +54,14 @@ class Perfect_Woocommerce_Brands {
 		if ( $taxonomy != 'pwb-brand' ) {
 			return;
 		}
-		delete_transient( 'pwb_az_listing_cache' );
+		delete_transient( 'pwb_az_listing_cache_' . get_locale() );
 	}
 
 	public function clean_caches_after_edit_brand( $term_id, $tt_id, $taxonomy ) {
 		if ( $taxonomy != 'pwb-brand' ) {
 			return;
 		}
-		delete_transient( 'pwb_az_listing_cache' );
+		delete_transient( 'pwb_az_listing_cache_' . get_locale() );
 	}
 
 	/**

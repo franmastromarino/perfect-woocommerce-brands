@@ -10,7 +10,7 @@ class PWB_AZ_Listing_Shortcode {
 
 	public static function shortcode( $atts ) {
 
-		$grouped_brands = get_transient( 'pwb_az_listing_cache' );
+		$grouped_brands = get_transient( 'pwb_az_listing_cache_' . get_locale() );
 
 		if ( ! $grouped_brands ) {
 
@@ -38,7 +38,7 @@ class PWB_AZ_Listing_Shortcode {
 				}
 			}
 
-			set_transient( 'pwb_az_listing_cache', $grouped_brands, 43200 );// 12 hours
+			set_transient( 'pwb_az_listing_cache_' . get_locale(), $grouped_brands, 43200 );// 12 hours
 
 		}
 
