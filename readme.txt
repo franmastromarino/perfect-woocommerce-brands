@@ -5,7 +5,7 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 WC requires at least: 3.0
 WC tested up to: 7.1
 License: GPLv3
@@ -90,6 +90,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.4.2=
+* Fix: Carousel shortcode
 = 2.4.1=
 * New: Load scrips & styles from build folder
 = 2.4.0=
