@@ -22,8 +22,6 @@ class Perfect_Woocommerce_Brands {
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 		add_filter( 'woocommerce_structured_data_product', array( $this, 'product_microdata' ), 10, 2 );
 		add_action( 'pre_get_posts', array( $this, 'pwb_brand_filter' ) );
-		// add_action( 'wp_ajax_pwb_dismiss_notice', array( $this, 'dismiss_notice' ) );
-		// add_action( 'admin_notices', array( $this, 'review_notice' ) );
 
 		add_action(
 			'wp',
@@ -163,53 +161,6 @@ class Perfect_Woocommerce_Brands {
 
 		return $query_args;
 	}
-
-	/*
-	  public function review_notice() {
-		$show_notice = get_option( 'wc_pwb_notice_plugin_review', true );
-		$activate_on = get_option( 'pwb_activate_on', time() );
-		$now         = time();
-		$one_week    = 604800;
-		$date_diff   = $now - $activate_on;
-
-		if ( $show_notice && $date_diff > $one_week ) {
-			?>
-				<div class="notice notice-info pwb-notice-dismissible is-dismissible" data-notice="wc_pwb_notice_plugin_review">
-					<p><?php echo esc_html__( 'We know that you´re in love with Perfect WooCommerce Brands, you can help us making it a bit better. Thanks a lot!', 'perfect-woocommerce-brands' ); ?><span class="dashicons dashicons-heart"></span></p>
-					<p>
-					<a href="https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?rate=5#new-post" target="_blank"><?php esc_html_e( 'Leave a review', 'perfect-woocommerce-brands' ); ?></a>
-					<a href="https://translate.wordpress.org/projects/wp-plugins/perfect-woocommerce-brands" target="_blank"><?php esc_html_e( 'Translate the plugin', 'perfect-woocommerce-brands' ); ?></a>
-					<a href="<?php echo esc_url( PWB_GITHUB_URL ); ?>" target="_blank"><?php esc_html_e( 'View on GitHub', 'perfect-woocommerce-brands' ); ?></a>
-					</p>
-				</div>
-			<?php
-		}
-	} */
-
-	/*
-	  public function dismiss_notice() {
-		if (
-		isset( $_REQUEST['nonce'] )
-		&&
-		wp_verify_nonce( $_REQUEST['nonce'], 'pwb_dismiss_notice' )
-		&&
-		current_user_can( 'manage_options' )
-		) {
-
-			$notice_name_whitelist = array( 'wc_pwb_notice_plugin_review' );
-
-			if ( isset( $_POST['notice_name'] ) && in_array( $_POST['notice_name'], $notice_name_whitelist ) ) {
-
-				$notice_key = sanitize_key( $_POST['notice_name'] );
-
-				update_option( $notice_key, 0 );
-				echo 'ok';
-			} else {
-				echo 'error';
-			}
-		}
-		wp_die();
-	} */
 
 	public function pwb_brand_filter( $query ) {
 
