@@ -1,5 +1,6 @@
 .delete
 .developer/node_modules
+/build/
 !.gitignore
 .idea
 .DS_Store
