@@ -127,16 +127,4 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 	}
 
 	new \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands();
-} elseif ( is_admin() ) {
-
-	add_action(
-		'admin_notices',
-		function () {
-			printf(
-				'<div class="%1$s"><p>%2$s</p></div>',
-				'notice notice-error',
-				esc_html__( 'Perfect WooCommerce Brands needs WooCommerce to run. Please, install and active WooCommerce plugin.', 'perfect-woocommerce-brands' )
-			);
-		}
-	);
 }
