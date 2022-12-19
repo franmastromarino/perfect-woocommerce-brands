@@ -92,6 +92,7 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 == Changelog ==
 = 2.4.0=
 * New: Align rest api to WC standard functionality
+* Fix: Rollback separate brands by comma
 = 2.3.0=
 * Fix: i18n az listing shortcode cache transient
 * Fix: Shortcode brand description attribute

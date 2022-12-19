@@ -326,10 +326,10 @@ class Perfect_Woocommerce_Brands {
 					if ( ! empty( $attachment_html ) && $brands_in_loop == 'brand_image' ) {
 						echo '<a href="' . esc_url( $brand_link ) . '">' . wp_kses_post( $attachment_html ) . '</a>';
 					} else {
-						/* Separate brand by comma */
+						/* Separate brand by comma
 						if ( $brand !== $product_brands[0] ) {
 							echo ', ';
-						}
+						} */
 						echo '<a href="' . esc_url( $brand_link ) . '">' . esc_html( $brand->name ) . '</a>';
 					}
 					echo '</span>';
@@ -709,10 +709,10 @@ class Perfect_Woocommerce_Brands {
 						if ( ! empty( $attachment_html ) && $show_as == 'brand_image' || ! empty( $attachment_html ) && ! $show_as ) {
 							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_attr( $brand->name ) . '">' . $attachment_html . '</a>';// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						} else {
-							/* Separate brand by comma */
+							/* Separate brand by comma
 							if ( $brand !== $brands[0] ) {
 								echo ', ';
-							}
+							} */
 							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_html__( 'View brand', 'perfect-woocommerce-brands' ) . '">' . esc_html( $brand->name ) . '</a>';
 						}
 					}
