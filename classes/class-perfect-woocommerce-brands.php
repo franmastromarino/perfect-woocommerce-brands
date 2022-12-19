@@ -164,7 +164,8 @@ class Perfect_Woocommerce_Brands {
 		return $query_args;
 	}
 
-/* 	public function review_notice() {
+	/*
+	  public function review_notice() {
 		$show_notice = get_option( 'wc_pwb_notice_plugin_review', true );
 		$activate_on = get_option( 'pwb_activate_on', time() );
 		$now         = time();
@@ -185,7 +186,8 @@ class Perfect_Woocommerce_Brands {
 		}
 	} */
 
-/* 	public function dismiss_notice() {
+	/*
+	  public function dismiss_notice() {
 		if (
 		isset( $_REQUEST['nonce'] )
 		&&
@@ -326,7 +328,8 @@ class Perfect_Woocommerce_Brands {
 					if ( ! empty( $attachment_html ) && $brands_in_loop == 'brand_image' ) {
 						echo '<a href="' . esc_url( $brand_link ) . '">' . wp_kses_post( $attachment_html ) . '</a>';
 					} else {
-						/* Separate brand by comma
+						/*
+						 Separate brand by comma
 						if ( $brand !== $product_brands[0] ) {
 							echo ', ';
 						} */
@@ -709,7 +712,8 @@ class Perfect_Woocommerce_Brands {
 						if ( ! empty( $attachment_html ) && $show_as == 'brand_image' || ! empty( $attachment_html ) && ! $show_as ) {
 							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_attr( $brand->name ) . '">' . $attachment_html . '</a>';// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						} else {
-							/* Separate brand by comma
+							/*
+							 Separate brand by comma
 							if ( $brand !== $brands[0] ) {
 								echo ', ';
 							} */
@@ -725,6 +729,7 @@ class Perfect_Woocommerce_Brands {
 	}
 
 	public function enqueue_scripts() {
+		
 		wp_register_script(
 			'pwb-lib-slick',
 			PWB_PLUGIN_URL . '/assets/lib/slick/slick.min.js',
@@ -741,9 +746,11 @@ class Perfect_Woocommerce_Brands {
 			'all'
 		);
 
+		$frontend = include PWB_PLUGIN_DIR . 'build/frontend/js/index.asset.php';
+
 		wp_enqueue_style(
 			'pwb-styles-frontend',
-			PWB_PLUGIN_URL . '/assets/css/styles-frontend.min.css',
+			plugins_url( '/build/frontend/css/style.css', PWB_PLUGIN_FILE ),
 			array(),
 			PWB_PLUGIN_VERSION,
 			'all'
@@ -751,9 +758,9 @@ class Perfect_Woocommerce_Brands {
 
 		wp_register_script(
 			'pwb-functions-frontend',
-			PWB_PLUGIN_URL . '/assets/js/functions-frontend.min.js',
-			array( 'jquery' ),
-			PWB_PLUGIN_VERSION,
+			plugins_url( '/build/frontend/js/index.js', PWB_PLUGIN_FILE ),
+			$frontend['dependencies'],
+			$frontend['version'],
 			true
 		);
 
@@ -771,13 +778,28 @@ class Perfect_Woocommerce_Brands {
 
 	public function admin_enqueue_scripts( $hook ) {
 		$screen = get_current_screen();
+
 		if ( $hook == 'edit-tags.php' && $screen->taxonomy == 'pwb-brand' || $hook == 'term.php' && $screen->taxonomy == 'pwb-brand' ) {
 			wp_enqueue_media();
 		}
 
-		wp_enqueue_style( 'pwb-styles-admin', PWB_PLUGIN_URL . '/assets/css/styles-admin.min.css', array(), PWB_PLUGIN_VERSION );
+		$backend = include PWB_PLUGIN_DIR . 'build/backend/js/index.asset.php';
 
-		wp_register_script( 'pwb-functions-admin', PWB_PLUGIN_URL . '/assets/js/functions-admin.min.js', array( 'jquery' ), PWB_PLUGIN_VERSION, true );
+		wp_enqueue_style(
+			'pwb-styles-admin',
+			plugins_url( '/build/backend/css/style.css', PWB_PLUGIN_FILE ),
+			array(),
+			PWB_PLUGIN_VERSION
+		);
+
+		wp_enqueue_script(
+			'pwb-functions-admin',
+			plugins_url( '/build/backend/js/index.js', PWB_PLUGIN_FILE ),
+			$backend['dependencies'],
+			$backend['version'],
+			true
+		);
+
 		wp_localize_script(
 			'pwb-functions-admin',
 			'pwb_ajax_object_admin',
@@ -792,12 +814,11 @@ class Perfect_Woocommerce_Brands {
 					'dummy_data'        => esc_html__( 'We are importing the dummy data. ¡Don´t close this window until the process is finished!', 'perfect-woocommerce-brands' ),
 				),
 				'nonce'        => array(
-					'pwb_brands_export'              => wp_create_nonce( 'pwb_brands_export' ), // ok
-					'pwb_brands_import'              => wp_create_nonce( 'pwb_brands_import' ), // ok
-					// 'pwb_dismiss_notice'             => wp_create_nonce( 'pwb_dismiss_notice' ), // ok
-					'pwb_admin_set_featured_brand'   => wp_create_nonce( 'pwb_admin_set_featured_brand' ), // ok
-					'pwb_admin_save_screen_settings' => wp_create_nonce( 'pwb_admin_save_screen_settings' ), // ok
-					'pwb_admin_dummy_data'           => wp_create_nonce( 'pwb_admin_dummy_data' ), // ok
+					'pwb_brands_export'              => wp_create_nonce( 'pwb_brands_export' ),
+					'pwb_brands_import'              => wp_create_nonce( 'pwb_brands_import' ),
+					'pwb_admin_set_featured_brand'   => wp_create_nonce( 'pwb_admin_set_featured_brand' ),
+					'pwb_admin_save_screen_settings' => wp_create_nonce( 'pwb_admin_save_screen_settings' ),
+					'pwb_admin_dummy_data'           => wp_create_nonce( 'pwb_admin_dummy_data' ),
 					'pwb_admin_migrate_brands'       => wp_create_nonce( 'pwb_admin_migrate_brands' ),
 					'pwb_system_status'              => wp_create_nonce( 'pwb_system_status' ),
 				),
