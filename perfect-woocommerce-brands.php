@@ -102,8 +102,8 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 	new Admin\PWB_Coupon();
 
 	if ( is_admin() ) {
-		require 'classes/admin/class-pwb-suggestions.php';
-		new Admin\PWB_Suggestions();
+		// require 'classes/admin/class-pwb-suggestions.php';
+		// new Admin\PWB_Suggestions();
 		require 'classes/admin/class-pwb-system-status.php';
 		new Admin\PWB_System_Status();
 		require 'classes/admin/class-pwb-admin-tab.php';
