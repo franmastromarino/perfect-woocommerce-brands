@@ -8,7 +8,7 @@ class Perfect_Woocommerce_Brands {
 
 	function __construct() {
 		add_action( 'plugin_row_meta', array( '\Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands', 'plugin_row_meta' ), 10, 2 );
-		add_action( 'woocommerce_init', array( $this, 'register_brands_taxonomy' ), 10, 0 );
+		$this->register_brands_taxonomy();
 		add_action( 'init', array( $this, 'add_brands_metafields' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );

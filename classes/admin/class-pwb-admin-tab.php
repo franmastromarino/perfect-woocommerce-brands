@@ -49,7 +49,7 @@ class Pwb_Admin_Tab {
 			''               => __( 'General', 'perfect-woocommerce-brands' ),
 			'archives'       => __( 'Shop & Categories', 'perfect-woocommerce-brands' ),
 			'archives-brand' => __( 'Brands', 'perfect-woocommerce-brands' ),
-			'producs' => __( 'Products', 'perfect-woocommerce-brands' ),
+			'producs'        => __( 'Products', 'perfect-woocommerce-brands' ),
 			'tools'          => __( 'Tools', 'perfect-woocommerce-brands' ),
 		);
 
@@ -158,6 +158,19 @@ class Pwb_Admin_Tab {
 							'type' => 'title',
 							'desc' => '',
 							'id'   => 'wc_pwb_admin_tab_section_title',
+						),
+						array(
+							'name'    => __( 'Show brand title', 'perfect-woocommerce-brands' ),
+							'type'    => 'select',
+							'class'   => 'pwb-admin-tab-field pwb-premium-field',
+							'default' => 'yes',
+							'desc'    => __( 'Show brand title (if is set) on brand archive page', 'perfect-woocommerce-brands' ),
+							'id'      => 'wc_pwb_admin_tab_brand_title',
+							'options' => array(
+								'yes'            => __( 'Yes, before product loop', 'perfect-woocommerce-brands' ),
+								'yes_after_loop' => __( 'Yes, after product loop', 'perfect-woocommerce-brands' ),
+								'no'             => __( 'No, hide description', 'perfect-woocommerce-brands' ),
+							),
 						),
 						array(
 							'name'    => __( 'Show brand description', 'perfect-woocommerce-brands' ),
@@ -361,13 +374,13 @@ class Pwb_Admin_Tab {
 				$settings = apply_filters(
 					'wc_pwb_admin_tab_product_settings',
 					array(
-						'section_title'          => array(
+						'section_title' => array(
 							'name' => __( 'General', 'perfect-woocommerce-brands' ),
 							'type' => 'title',
 							'desc' => '',
 							'id'   => 'wc_pwb_admin_tab_section_title',
 						),
-						'slug'                   => array(
+						array(
 							'name'        => __( 'Slug', 'perfect-woocommerce-brands' ),
 							'type'        => 'text',
 							'class'       => 'pwb-admin-tab-field',
@@ -379,7 +392,7 @@ class Pwb_Admin_Tab {
 							'id'          => 'wc_pwb_admin_tab_slug',
 							'placeholder' => get_taxonomy( 'pwb-brand' )->rewrite['slug'],
 						),
-						'brand_logo_size'        => array(
+						array(
 							'name'     => __( 'Brand logo size', 'perfect-woocommerce-brands' ),
 							'type'     => 'select',
 							'class'    => 'pwb-admin-tab-field',
@@ -388,7 +401,7 @@ class Pwb_Admin_Tab {
 							'id'       => 'wc_pwb_admin_tab_brand_logo_size',
 							'options'  => $available_image_sizes_adapted,
 						),
-						'brands_page_id'         => array(
+						array(
 							'name'     => __( 'Brands page', 'perfect-woocommerce-brands' ),
 							'type'     => 'select',
 							'class'    => 'pwb-admin-tab-field pwb-admin-selectwoo',
@@ -397,16 +410,31 @@ class Pwb_Admin_Tab {
 							'id'       => 'wc_pwb_admin_tab_brands_page_id',
 							'options'  => $pages_select_adapted,
 						),
-						'brands_search_redirect' => array(
+						array(
 							'name'     => __( 'Brands search', 'perfect-woocommerce-brands' ),
 							'type'     => 'select',
 							'class'    => 'pwb-admin-tab-field pwb-premium-field',
 							'desc'     => __( 'Better search experience', 'perfect-woocommerce-brands' ),
 							'desc_tip' => __( 'Redirect if the search matchs with a brands name.', 'perfect-woocommerce-brands' ),
 							'id'       => 'wc_pwb_admin_tab_brands_search',
-							'options'  => $pages_select_adapted,
+							'options'  => array(
+								'no'  => __( 'No', 'perfect-woocommerce-brands' ),
+								'yes' => __( 'Yes', 'perfect-woocommerce-brands' ),
+							),
 						),
-						'section_end'            => array(
+						array(
+							'name'    => __( 'Brands breadcrumb', 'perfect-woocommerce-brands' ),
+							'type'    => 'select',
+							'class'   => 'pwb-admin-tab-field pwb-premium-field',
+							'desc'    => __( 'Include brand in product breadcrumb', 'perfect-woocommerce-brands' ),
+							'id'      => 'wc_pwb_admin_tab_brands_breadcrumb',
+							'options' => array(
+								'no'      => __( 'No', 'perfect-woocommerce-brands' ),
+								'yes'     => __( 'Yes', 'perfect-woocommerce-brands' ),
+								'replace' => __( 'Replace category', 'perfect-woocommerce-brands' ),
+							),
+						),
+						'section_end'   => array(
 							'type' => 'sectionend',
 							'id'   => 'wc_pwb_admin_tab_section_end',
 						),
