@@ -48,7 +48,7 @@ class Pwb_Admin_Tab {
 		$sections = array(
 			''               => __( 'General', 'perfect-woocommerce-brands' ),
 			'archives'       => __( 'Shop & Categories', 'perfect-woocommerce-brands' ),
-			'brand-pages'    => __( 'Brand Page', 'perfect-woocommerce-brands' ),
+			'archives-brand' => __( 'Brands', 'perfect-woocommerce-brands' ),
 			'single-product' => __( 'Products', 'perfect-woocommerce-brands' ),
 			'tools'          => __( 'Tools', 'perfect-woocommerce-brands' ),
 		);
@@ -66,18 +66,17 @@ class Pwb_Admin_Tab {
 		}
 
 		?>
-		<ul class="subsubsub">
-			<?php foreach ( $sections as $id => $label ) : ?>
-				<li>
-					<a 
-						href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=' . $this->id . '&section=' . $id ) ); ?>" 
-						class="<?php echo ( $current_section === $id ? 'current' : '' ); ?>"><?php echo esc_html( $label ); ?>
-					</a>
-				</li> | 
-			<?php endforeach; ?>
-			<li><a target="_blank" href="<?php echo esc_url( admin_url( 'edit-tags.php?taxonomy=pwb-brand&post_type=product' ) ); ?>"><?php esc_html_e( 'Brands', 'perfect-woocommerce-brands' ); ?></a></li> | 
-			<li><a target="_blank" href="<?php echo esc_url( admin_url( 'admin.php?page=pwb_suggestions' ) ); ?>"><?php esc_attr_e( 'Suggestions', 'perfect-woocommerce-brands' ); ?></a></li> | 
-			<li><a target="_blank" href="<?php echo esc_url( PWB_DOCUMENTATION_URL ); ?>"><?php esc_html_e( 'Documentation', 'perfect-woocommerce-brands' ); ?></a></li>
+			<ul class="subsubsub">
+				<?php foreach ( $sections as $id => $label ) : ?>
+					<li>
+						<a 
+							href="<?php echo esc_url( admin_url( 'admin.php?page=wc-settings&tab=' . $this->id . '&section=' . $id ) ); ?>" 
+							class="<?php echo ( $current_section === $id ? 'current' : '' ); ?>"><?php echo esc_html( $label ); ?>
+						</a>
+					</li> | 
+				<?php endforeach; ?>
+				<li><a target="_blank" href="<?php echo esc_url( admin_url( 'admin.php?page=pwb_suggestions' ) ); ?>"><?php esc_attr_e( 'Suggestions', 'perfect-woocommerce-brands' ); ?></a></li> | 
+				<li><a target="_blank" href="<?php echo esc_url( PWB_DOCUMENTATION_URL ); ?>"><?php esc_html_e( 'Documentation', 'perfect-woocommerce-brands' ); ?></a></li>
 			</ul>
 			<br class="clear" />
 		<?php
@@ -102,13 +101,13 @@ class Pwb_Admin_Tab {
 				$settings = apply_filters(
 					'wc_pwb_admin_tab_archives_settings',
 					array(
-						'section_title'                => array(
+						'section_title' => array(
 							'name' => __( 'Shop & Categories', 'perfect-woocommerce-brands' ),
 							'type' => 'title',
 							'desc' => '',
 							'id'   => 'wc_pwb_admin_tab_section_title',
 						),
-						'show_brand_on_loop'           => array(
+						array(
 							'name'    => __( 'Show brands in loop', 'perfect-woocommerce-brands' ),
 							'type'    => 'select',
 							'class'   => 'pwb-admin-tab-field',
@@ -120,31 +119,46 @@ class Pwb_Admin_Tab {
 								'brand_image' => __( 'Show brand image (if is set)', 'perfect-woocommerce-brands' ),
 							),
 						),
-						'show_brand_on_loop_separator' => array(
+						array(
 							'name'  => __( 'Brands in loop separator', 'perfect-woocommerce-brands' ),
 							'type'  => 'text',
 							'class' => 'pwb-admin-tab-field pwb-premium-field',
 							'desc'  => __( 'Show separator between brands', 'perfect-woocommerce-brands' ),
 							'id'    => 'wc_pwb_admin_tab_brands_in_loop_separator',
 						),
-						'section_end'                  => array(
+						array(
+							'name'    => __( 'Show brands in loop hook', 'perfect-woocommerce-brands' ),
+							'type'    => 'select',
+							'class'   => 'pwb-admin-tab-field pwb-premium-field',
+							'desc'    => __( 'Show brand logo (or name) in product loop hook', 'perfect-woocommerce-brands' ),
+							'id'      => 'wc_pwb_admin_tab_brands_in_loop_hook',
+							'options' => array(
+								'shop_loop_item'  => __( 'Shop loop item', 'perfect-woocommerce-brands' ),
+								'after_shop_loop_item'  => __( 'After shop loop item', 'perfect-woocommerce-brands' ),
+								'after_shop_loop_item_title' => __( 'After shop loop item title', 'perfect-woocommerce-brands' ),
+								'before_shop_loop_item' => __( 'Before shop loop item', 'perfect-woocommerce-brands' ),
+								'before_shop_loop_item_title' => __( 'Before shop loop item title', 'perfect-woocommerce-brands' ),
+							),
+							'default' => 'after_shop_loop_item_title',
+						),
+						'section_end'   => array(
 							'type' => 'sectionend',
 							'id'   => 'wc_pwb_admin_tab_section_end',
 						),
 					)
 				);
 				break;
-			case 'brand-pages':
+			case 'archives-brand':
 				$settings = apply_filters(
 					'wc_pwb_admin_tab_brand_pages_settings',
 					array(
-						'section_title'     => array(
+						'section_title' => array(
 							'name' => __( 'Archives', 'perfect-woocommerce-brands' ),
 							'type' => 'title',
 							'desc' => '',
 							'id'   => 'wc_pwb_admin_tab_section_title',
 						),
-						'brand_description' => array(
+						array(
 							'name'    => __( 'Show brand description', 'perfect-woocommerce-brands' ),
 							'type'    => 'select',
 							'class'   => 'pwb-admin-tab-field',
@@ -157,7 +171,7 @@ class Pwb_Admin_Tab {
 								'no'             => __( 'No, hide description', 'perfect-woocommerce-brands' ),
 							),
 						),
-						'brand_banner'      => array(
+						array(
 							'name'    => __( 'Show brand banner', 'perfect-woocommerce-brands' ),
 							'type'    => 'select',
 							'class'   => 'pwb-admin-tab-field',
@@ -170,7 +184,7 @@ class Pwb_Admin_Tab {
 								'no'             => __( 'No, hide banner', 'perfect-woocommerce-brands' ),
 							),
 						),
-						'brand_columns'     => array(
+						array(
 							'name'    => __( 'Columns', 'perfect-woocommerce-brands' ),
 							'type'    => 'number',
 							'class'   => 'pwb-admin-tab-field pwb-premium-field',
@@ -178,7 +192,43 @@ class Pwb_Admin_Tab {
 							'desc'    => __( 'Number of columns in the brand page', 'perfect-woocommerce-brands' ),
 							'id'      => 'wc_pwb_admin_tab_brand_columns',
 						),
-						'section_end'       => array(
+						array(
+							'name'    => __( 'Show brands in loop', 'perfect-woocommerce-brands' ),
+							'type'    => 'select',
+							'class'   => 'pwb-admin-tab-field pwb-premium-field',
+							'desc'    => __( 'Show brand logo (or name) in product loop', 'perfect-woocommerce-brands' ),
+							'id'      => 'wc_pwb_admin_tab_archives_brand_in_loop',
+							'options' => array(
+								'no'          => __( 'No', 'perfect-woocommerce-brands' ),
+								'brand_link'  => __( 'Show brand link', 'perfect-woocommerce-brands' ),
+								'brand_image' => __( 'Show brand image (if is set)', 'perfect-woocommerce-brands' ),
+							),
+							'default' => get_option( 'wc_pwb_admin_tab_brands_in_loop', 'no' ),
+						),
+						array(
+							'name'    => __( 'Brands in loop separator', 'perfect-woocommerce-brands' ),
+							'type'    => 'text',
+							'class'   => 'pwb-admin-tab-field pwb-premium-field',
+							'desc'    => __( 'Show separator between brands', 'perfect-woocommerce-brands' ),
+							'id'      => 'wc_pwb_admin_tab_archives_brand_in_loop_separator',
+							'default' => get_option( 'wc_pwb_admin_tab_brands_in_loop_separator', '' ),
+						),						
+						array(
+							'name'    => __( 'Show brands in loop hook', 'perfect-woocommerce-brands' ),
+							'type'    => 'select',
+							'class'   => 'pwb-admin-tab-field pwb-premium-field',
+							'desc'    => __( 'Show brand logo (or name) in product loop hook', 'perfect-woocommerce-brands' ),
+							'id'      => 'wc_pwb_admin_tab_archives_brand_in_loop_hook',
+							'options' => array(
+								'shop_loop_item'  => __( 'Shop loop item', 'perfect-woocommerce-brands' ),
+								'after_shop_loop_item'  => __( 'After shop loop item', 'perfect-woocommerce-brands' ),
+								'after_shop_loop_item_title' => __( 'After shop loop item title', 'perfect-woocommerce-brands' ),
+								'before_shop_loop_item' => __( 'Before shop loop item', 'perfect-woocommerce-brands' ),
+								'before_shop_loop_item_title' => __( 'Before shop loop item title', 'perfect-woocommerce-brands' ),
+							),
+							'default' => 'after_shop_loop_item_title',
+						),
+						'section_end'   => array(
 							'type' => 'sectionend',
 							'id'   => 'wc_pwb_admin_tab_section_end',
 						),
@@ -189,20 +239,20 @@ class Pwb_Admin_Tab {
 				$settings = apply_filters(
 					'wc_pwb_admin_tab_settings',
 					array(
-						'section_title'            => array(
+						'section_title' => array(
 							'name' => __( 'Products', 'perfect-woocommerce-brands' ),
 							'type' => 'title',
 							'desc' => '',
 							'id'   => 'wc_pwb_admin_tab_section_title',
 						),
-						'brand_single_product_tab' => array(
+						array(
 							'name'    => __( 'Products tab', 'perfect-woocommerce-brands' ),
 							'type'    => 'checkbox',
 							'default' => 'yes',
 							'desc'    => __( 'Show brand tab in single product page', 'perfect-woocommerce-brands' ),
 							'id'      => 'wc_pwb_admin_tab_brand_single_product_tab',
 						),
-						'show_brand_in_single'     => array(
+						array(
 							'name'    => __( 'Show brands in single product', 'perfect-woocommerce-brands' ),
 							'type'    => 'select',
 							'class'   => 'pwb-admin-tab-field',
@@ -215,7 +265,7 @@ class Pwb_Admin_Tab {
 								'brand_image' => __( 'Show brand image (if is set)', 'perfect-woocommerce-brands' ),
 							),
 						),
-						'brand_single_position'    => array(
+						array(
 							'name'    => __( 'Brand position', 'perfect-woocommerce-brands' ),
 							'type'    => 'select',
 							'class'   => 'pwb-admin-tab-field',
@@ -232,14 +282,14 @@ class Pwb_Admin_Tab {
 								'after_sharing'     => __( 'After sharing', 'perfect-woocommerce-brands' ),
 							),
 						),
-						'brand_single_separator'   => array(
+						array(
 							'name'  => __( 'Brands in single product separator', 'perfect-woocommerce-brands' ),
 							'type'  => 'text',
 							'class' => 'pwb-admin-tab-field pwb-premium-field',
 							'desc'  => __( 'Show separator between brands', 'perfect-woocommerce-brands' ),
 							'id'    => 'wc_pwb_admin_tab_brands_in_single_separator',
 						),
-						'section_end'              => array(
+						'section_end'   => array(
 							'type' => 'sectionend',
 							'id'   => 'wc_pwb_admin_tab_section_end',
 						),
@@ -250,13 +300,13 @@ class Pwb_Admin_Tab {
 						$settings = apply_filters(
 							'wc_pwb_admin_tab_tools_settings',
 							array(
-								'section_title'        => array(
+								'section_title' => array(
 									'name' => __( 'Tools', 'perfect-woocommerce-brands' ),
 									'type' => 'title',
 									'desc' => '',
 									'id'   => 'wc_pwb_admin_tab_section_tools_title',
 								),
-								'brand_import'         => array(
+								array(
 									'name'    => __( 'Import brands', 'perfect-woocommerce-brands' ),
 									'type'    => 'select',
 									'class'   => 'pwb-admin-tab-field',
@@ -272,7 +322,7 @@ class Pwb_Admin_Tab {
 										'woobrands' => __( 'Offical WooCommerce Brands', 'perfect-woocommerce-brands' ),
 									),
 								),
-								'brand_dummy_data'     => array(
+								array(
 									'name'    => __( 'Dummy data', 'perfect-woocommerce-brands' ),
 									'type'    => 'select',
 									'class'   => 'pwb-admin-tab-field',
@@ -283,13 +333,13 @@ class Pwb_Admin_Tab {
 										'start_import' => __( 'Start import', 'perfect-woocommerce-brands' ),
 									),
 								),
-								'brands_system_status' => array(
+								array(
 									'name' => __( 'System status', 'perfect-woocommerce-brands' ),
 									'type' => 'textarea',
 									'desc' => __( 'Show system status', 'perfect-woocommerce-brands' ),
 									'id'   => 'wc_pwb_admin_tab_tools_system_status',
 								),
-								'section_end'          => array(
+								'section_end'   => array(
 									'type' => 'sectionend',
 									'id'   => 'wc_pwb_admin_tab_section_tools_end',
 								),
@@ -363,7 +413,14 @@ class Pwb_Admin_Tab {
 		global $current_section;
 
 		$settings = $this->get_settings( $current_section );
+
 		WC_Admin_Settings::output_fields( $settings );
+
+		if ( 'archives-brand' == $current_section ) {
+			?>
+				<a href="<?php echo admin_url( 'edit-tags.php?taxonomy=pwb-brand&post_type=product' ); ?>" class="page-title-action"><?php esc_html_e( 'Edit brands', 'perfect-woocommerce-brands' ); ?></a>
+			<?php
+		}
 	}
 
 	public function save() {

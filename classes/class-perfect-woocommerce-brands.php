@@ -14,7 +14,14 @@ class Perfect_Woocommerce_Brands {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		$this->brand_logo_position();
 		add_action( 'wp', array( $this, 'brand_desc_position' ) );
+
+		// add_action( 'woocommerce_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
 		add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
+		// add_action( 'woocommerce_after_shop_loop_item', array( $this, 'show_brands_in_loop' ) );
+		// add_action( 'woocommerce_after_loop_subcategory_title', array( $this, 'show_brands_in_loop' ) );
+		// add_action( 'woocommerce_before_shop_loop_item', array( $this, 'show_brands_in_loop' ) );
+		// add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
+		// add_action( 'woocommerce_shop_loop_subcategory_title', array( $this, 'show_brands_in_loop' ) );
 		$this->add_shortcodes();
 		if ( is_plugin_active( 'js_composer/js_composer.php' ) || is_plugin_active( 'visual_composer/js_composer.php' ) ) {
 			add_action( 'vc_before_init', array( $this, 'vc_map_shortcodes' ) );
@@ -642,7 +649,10 @@ class Perfect_Woocommerce_Brands {
 					echo '<div class="pwb-single-product-brands pwb-clearfix">';
 
 					if ( $show_as == 'brand_link' ) {
-						$before_brands_links  = '<span class="pwb-text-before-brands-links">';
+						$before_brands_links = '<span class="pwb-text-before-brands-links">';
+						/**
+						 * TODO: add brand title
+						 */
 						$before_brands_links .= apply_filters( 'pwb_text_before_brands_links', esc_html( _n( 'Brand', 'Brands', count( $brands ), 'perfect-woocommerce-brands' ) ), count( $brands ) );
 						$before_brands_links .= ':</span>';
 						echo wp_kses_post( apply_filters( 'pwb_html_before_brands_links', $before_brands_links ) );
@@ -664,7 +674,7 @@ class Perfect_Woocommerce_Brands {
 							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_attr( $brand->name ) . '">' . $attachment_html . '</a>';// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						} else {
 							/*
-							 Separate brand by comma
+							TODO: Separate brand by comma
 							if ( $brand !== $brands[0] ) {
 								echo ', ';
 							} */
@@ -680,7 +690,7 @@ class Perfect_Woocommerce_Brands {
 	}
 
 	public function enqueue_scripts() {
-		
+
 		wp_register_script(
 			'pwb-lib-slick',
 			PWB_PLUGIN_URL . '/assets/lib/slick/slick.min.js',
@@ -927,7 +937,7 @@ class Perfect_Woocommerce_Brands {
 
 		if ( $queried_object->description != '' && $show_desc !== 'no' ) {
 			echo '<div class="pwb-brand-description ' . esc_attr( $show_desc_class ) . '">';
-			echo do_shortcode( wpautop( $queried_object->description ) );
+			echo do_shortcode( apply_filters( 'the_content', $queried_object->description ) );
 			echo '</div>';
 		}
 	}
