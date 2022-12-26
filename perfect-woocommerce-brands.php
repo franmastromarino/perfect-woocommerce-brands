@@ -47,9 +47,9 @@ define( 'PWB_DOCUMENTATION_URL', 'https://quadlayers.com/documentation/perfect-w
 define( 'PWB_GITHUB_URL', 'https://github.com/quadlayers/perfect-woocommerce-brands/' );
 define( 'PWB_GROUP_URL', 'https://www.facebook.com/groups/quadlayers' );
 
-define( 'PWB_PREMIUM_SELL_SLUG', 'woocommerce-direct-checkout-pro' );
-define( 'PWB_PREMIUM_SELL_NAME', 'WooCommerce Direct Checkout' );
-define( 'PWB_PREMIUM_SELL_URL', 'https://quadlayers.com/portfolio/woocommerce-direct-checkout/?utm_source=pwb_admin' );
+define( 'PWB_PREMIUM_SELL_SLUG', 'perfect-woocommerce-brands-pro' );
+define( 'PWB_PREMIUM_SELL_NAME', 'Perfect WooCommerce Brands' );
+define( 'PWB_PREMIUM_SELL_URL', 'https://quadlayers.com/portfolio/perfect-woocommerce-brands/?utm_source=pwb_admin' );
 
 define( 'PWB_CROSS_INSTALL_SLUG', 'woocommerce-checkout-manager' );
 define( 'PWB_CROSS_INSTALL_NAME', 'Checkout Manager' );
@@ -108,8 +108,6 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 	new Admin\PWB_Coupon();
 
 	if ( is_admin() ) {
-		// require 'classes/admin/class-pwb-suggestions.php';
-		// new Admin\PWB_Suggestions();
 		require 'classes/admin/class-pwb-system-status.php';
 		new Admin\PWB_System_Status();
 		require 'classes/admin/class-pwb-admin-tab.php';
