@@ -8,20 +8,13 @@ class Perfect_Woocommerce_Brands {
 
 	function __construct() {
 		add_action( 'plugin_row_meta', array( '\Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands', 'plugin_row_meta' ), 10, 2 );
-		add_action( 'woocommerce_init', array( $this, 'register_brands_taxonomy' ), 10, 0 );
+		$this->register_brands_taxonomy();
 		add_action( 'init', array( $this, 'add_brands_metafields' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		$this->brand_logo_position();
 		add_action( 'wp', array( $this, 'brand_desc_position' ) );
-
-		// add_action( 'woocommerce_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
-		add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
-		// add_action( 'woocommerce_after_shop_loop_item', array( $this, 'show_brands_in_loop' ) );
-		// add_action( 'woocommerce_after_loop_subcategory_title', array( $this, 'show_brands_in_loop' ) );
-		// add_action( 'woocommerce_before_shop_loop_item', array( $this, 'show_brands_in_loop' ) );
-		// add_action( 'woocommerce_before_shop_loop_item_title', array( $this, 'show_brands_in_loop' ) );
-		// add_action( 'woocommerce_shop_loop_subcategory_title', array( $this, 'show_brands_in_loop' ) );
+		add_action( 'woocommerce_after_shop_loop_item_title', array( self::class, 'show_brands_in_loop' ) );
 		$this->add_shortcodes();
 		if ( is_plugin_active( 'js_composer/js_composer.php' ) || is_plugin_active( 'visual_composer/js_composer.php' ) ) {
 			add_action( 'vc_before_init', array( $this, 'vc_map_shortcodes' ) );
@@ -265,7 +258,7 @@ class Perfect_Woocommerce_Brands {
 		register_widget( '\Perfect_Woocommerce_Brands\Widgets\PWB_Filter_By_Brand_Widget' );
 	}
 
-	public function show_brands_in_loop() {
+	public static function show_brands_in_loop() {
 		$brands_in_loop      = get_option( 'wc_pwb_admin_tab_brands_in_loop' );
 		$image_size_selected = get_option( 'wc_pwb_admin_tab_brand_logo_size', 'thumbnail' );
 
@@ -286,11 +279,9 @@ class Perfect_Woocommerce_Brands {
 					if ( ! empty( $attachment_html ) && $brands_in_loop == 'brand_image' ) {
 						echo '<a href="' . esc_url( $brand_link ) . '">' . wp_kses_post( $attachment_html ) . '</a>';
 					} else {
-						/*
-						 Separate brand by comma
 						if ( $brand !== $product_brands[0] ) {
-							echo ', ';
-						} */
+							echo wp_kses_post( get_option( 'wc_pwb_admin_tab_brands_in_loop_separator', '' ) );
+						}
 						echo '<a href="' . esc_url( $brand_link ) . '">' . esc_html( $brand->name ) . '</a>';
 					}
 					echo '</span>';
@@ -649,13 +640,13 @@ class Perfect_Woocommerce_Brands {
 					echo '<div class="pwb-single-product-brands pwb-clearfix">';
 
 					if ( $show_as == 'brand_link' ) {
-						$before_brands_links = '<span class="pwb-text-before-brands-links">';
-						/**
-						 * TODO: add brand title
-						 */
-						$before_brands_links .= apply_filters( 'pwb_text_before_brands_links', esc_html( _n( 'Brand', 'Brands', count( $brands ), 'perfect-woocommerce-brands' ) ), count( $brands ) );
-						$before_brands_links .= ':</span>';
-						echo wp_kses_post( apply_filters( 'pwb_html_before_brands_links', $before_brands_links ) );
+						$label = apply_filters( 'pwb_text_before_brands_links', esc_html( _n( 'Brand', 'Brands', count( $brands ), 'perfect-woocommerce-brands' ) ), count( $brands ) );
+						if ( $label ) {
+							$before_brands_links  = '<span class="pwb-text-before-brands-links">';
+							$before_brands_links .= $label;
+							$before_brands_links .= ':</span>';
+							echo wp_kses_post( apply_filters( 'pwb_html_before_brands_links', $before_brands_links ) );
+						}
 					}
 
 					foreach ( $brands as $brand ) {
@@ -673,11 +664,9 @@ class Perfect_Woocommerce_Brands {
 						if ( ! empty( $attachment_html ) && $show_as == 'brand_image' || ! empty( $attachment_html ) && ! $show_as ) {
 							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_attr( $brand->name ) . '">' . $attachment_html . '</a>';// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						} else {
-							/*
-							TODO: Separate brand by comma
-							if ( $brand !== $brands[0] ) {
-								echo ', ';
-							} */
+							if ( $brand !== $product_brands[0] ) {
+								echo wp_kses_post( get_option( 'wc_pwb_admin_tab_brands_in_loop_separator', '' ) );
+							}
 							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_html__( 'View brand', 'perfect-woocommerce-brands' ) . '">' . esc_html( $brand->name ) . '</a>';
 						}
 					}
