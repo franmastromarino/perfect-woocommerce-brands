@@ -2,19 +2,17 @@
 
 namespace Perfect_Woocommerce_Brands;
 
-use WP_Error, WP_REST_Server, WP_REST_Terms_Controller, WP_REST_Term_Meta_Fields;
+use WP_Error, WP_REST_Server, WC_REST_Terms_Controller;
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-class PWB_API_Support extends WP_REST_Terms_Controller {
+class PWB_API_Support extends WC_REST_Terms_Controller {
 
 	private $namespaces = array( 'wc/v1', 'wc/v2', 'wc/v3' );
 	protected $base     = 'brands';
 	protected $taxonomy = 'pwb-brand';
 
 	function __construct() {
-		$this->meta = new WP_REST_Term_Meta_Fields( $this->taxonomy );
-
 		add_action( 'rest_api_init', array( $this, 'register_endpoints' ) );
 		add_action( 'rest_api_init', array( $this, 'register_fields' ) );
 

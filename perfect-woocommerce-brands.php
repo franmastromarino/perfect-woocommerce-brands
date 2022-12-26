@@ -4,7 +4,7 @@
  *  Plugin Name: Perfect Brands for WooCommerce
  *  Plugin URI: https://quadlayers.com/portfolio/perfect-woocommerce-brands/
  *  Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
- *  Version: 2.4.3
+ *  Version: 2.4.4
  *  Author: QuadLayers
  *  Author URI: https://quadlayers.com
  *  Text Domain: perfect-woocommerce-brands
@@ -36,7 +36,7 @@ define( 'PWB_PLUGIN_FILE', __FILE__ );
 define( 'PWB_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'PWB_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
 define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'PWB_PLUGIN_VERSION', '2.4.3' );
+define( 'PWB_PLUGIN_VERSION', '2.4.4' );
 define( 'PWB_PLUGIN_NAME', 'Perfect WooCommerce Brands' );
 define( 'PWB_PREFIX', 'pwb' );
 define( 'PWB_REVIEW_URL', 'https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?filter=5#new-post' );
@@ -79,6 +79,14 @@ add_action(
 	}
 );
 
+add_action(
+	'woocommerce_init',
+	function () {
+		require 'classes/class-pwb-api-support.php';
+		new PWB_API_Support();
+	}
+);
+
 require_once PWB_PLUGIN_DIR . 'includes/quadlayers/widget.php';
 require_once PWB_PLUGIN_DIR . 'includes/quadlayers/notices.php';
 require_once PWB_PLUGIN_DIR . 'includes/quadlayers/links.php';
@@ -96,8 +104,6 @@ if ( is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 	require 'classes/shortcodes/class-pwb-az-listing.php';
 	require 'classes/shortcodes/class-pwb-brand.php';
 	require 'classes/class-perfect-woocommerce-brands.php';
-	require 'classes/class-pwb-api-support.php';
-	new PWB_API_Support();
 	require 'classes/admin/class-pwb-coupon.php';
 	new Admin\PWB_Coupon();
 
