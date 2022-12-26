@@ -976,7 +976,7 @@ class Perfect_Woocommerce_Brands {
 
 		if ( $queried_object->description != '' && $show_desc !== 'no' ) {
 			echo '<div class="pwb-brand-description ' . esc_attr( $show_desc_class ) . '">';
-			echo do_shortcode( wpautop( $queried_object->description ) );
+			echo do_shortcode( apply_filters( 'the_content', $queried_object->description ) );
 			echo '</div>';
 		}
 	}
