@@ -279,16 +279,9 @@ class Perfect_Woocommerce_Brands {
 					if ( ! empty( $attachment_html ) && $brands_in_loop == 'brand_image' ) {
 						echo '<a href="' . esc_url( $brand_link ) . '">' . wp_kses_post( $attachment_html ) . '</a>';
 					} else {
-						/*
-						TODO: Separate brand by comma
 						if ( $brand !== $product_brands[0] ) {
-							echo ', ';
-						} */
-
-						if ( $brand !== $product_brands[0] ) {
-							echo wp_kses_post( apply_filters( 'pwb_html_brands_links_separator', '' ) );
+							echo wp_kses_post( get_option( 'wc_pwb_admin_tab_brands_in_loop_separator', '' ) );
 						}
-
 						echo '<a href="' . esc_url( $brand_link ) . '">' . esc_html( $brand->name ) . '</a>';
 					}
 					echo '</span>';
@@ -671,16 +664,9 @@ class Perfect_Woocommerce_Brands {
 						if ( ! empty( $attachment_html ) && $show_as == 'brand_image' || ! empty( $attachment_html ) && ! $show_as ) {
 							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_attr( $brand->name ) . '">' . $attachment_html . '</a>';// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						} else {
-							/*
-							TODO: Separate brand by comma
-							if ( $brand !== $brands[0] ) {
-								echo ', ';
-							} */
-
-							if ( $brand !== $brands[0] ) {
-								echo wp_kses_post( apply_filters( 'pwb_html_brands_links_separator', '' ) );
+							if ( $brand !== $product_brands[0] ) {
+								echo wp_kses_post( get_option( 'wc_pwb_admin_tab_brands_in_loop_separator', '' ) );
 							}
-
 							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_html__( 'View brand', 'perfect-woocommerce-brands' ) . '">' . esc_html( $brand->name ) . '</a>';
 						}
 					}
