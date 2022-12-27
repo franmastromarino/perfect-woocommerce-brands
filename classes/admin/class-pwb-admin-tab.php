@@ -273,6 +273,18 @@ class Pwb_Admin_Tab {
 									'desc_tip'    => __( 'Display label for brand links.', 'perfect-woocommerce-brands' ),
 									'id'          => 'wc_pwb_admin_tab_brand_single_label',
 								),
+								array(
+									'name'    => __( 'Brands breadcrumb', 'perfect-woocommerce-brands' ),
+									'type'    => 'select',
+									'class'   => 'pwb-admin-tab-field pwb-premium-field',
+									'desc'    => __( 'Include brand in product breadcrumb', 'perfect-woocommerce-brands' ),
+									'id'      => 'wc_pwb_admin_tab_brand_single_breadcrumbs',
+									'options' => array(
+										'no'      => __( 'No', 'perfect-woocommerce-brands' ),
+										'yes'     => __( 'Yes', 'perfect-woocommerce-brands' ),
+										'replace' => __( 'Replace category', 'perfect-woocommerce-brands' ),
+									),
+								),
 								'section_end'   => array(
 									'type' => 'sectionend',
 									'id'   => 'wc_pwb_admin_tab_section_end',
@@ -382,18 +394,6 @@ class Pwb_Admin_Tab {
 									'options'  => array(
 										'no'  => __( 'No', 'perfect-woocommerce-brands' ),
 										'yes' => __( 'Yes', 'perfect-woocommerce-brands' ),
-									),
-								),
-								array(
-									'name'    => __( 'Brands breadcrumb', 'perfect-woocommerce-brands' ),
-									'type'    => 'select',
-									'class'   => 'pwb-admin-tab-field pwb-premium-field',
-									'desc'    => __( 'Include brand in product breadcrumb', 'perfect-woocommerce-brands' ),
-									'id'      => 'wc_pwb_admin_tab_brands_breadcrumb',
-									'options' => array(
-										'no'      => __( 'No', 'perfect-woocommerce-brands' ),
-										'yes'     => __( 'Yes', 'perfect-woocommerce-brands' ),
-										'replace' => __( 'Replace category', 'perfect-woocommerce-brands' ),
 									),
 								),
 								'section_end'   => array(
