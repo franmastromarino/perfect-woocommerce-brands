@@ -14,7 +14,7 @@ class Pwb_Admin_Tab {
 
 		add_filter( 'woocommerce_settings_tabs_array', array( $this, 'add_tab' ), 200 );
 		add_action( 'woocommerce_settings_' . $this->id, array( $this, 'output' ) );
-		add_action( 'woocommerce_sections_' . $this->id, array( $this, 'output_sections' ) );
+		add_action( 'woocommerce_sections_' . $this->id, array( __CLASS__, 'output_sections' ) );
 		add_action( 'woocommerce_settings_save_' . $this->id, array( $this, 'save' ) );
 		add_action( 'admin_footer', array( __CLASS__, 'add_premium_css' ) );
 	}
@@ -56,7 +56,7 @@ class Pwb_Admin_Tab {
 		return apply_filters( 'woocommerce_get_sections_' . $this->id, $sections );
 	}
 
-	public function output_sections() {
+	public static function output_sections() {
 		global $current_section;
 
 		$sections = $this->get_sections();
@@ -166,8 +166,8 @@ class Pwb_Admin_Tab {
 							'desc'    => __( 'Show brand title (if is set) on brand archive page', 'perfect-woocommerce-brands' ),
 							'id'      => 'wc_pwb_admin_tab_brand_title',
 							'options' => array(
-								'yes'            => __( 'Yes, before product loop', 'perfect-woocommerce-brands' ),
-								'no'             => __( 'No, hide title', 'perfect-woocommerce-brands' ),
+								'yes' => __( 'Yes, before product loop', 'perfect-woocommerce-brands' ),
+								'no'  => __( 'No, hide title', 'perfect-woocommerce-brands' ),
 							),
 						),
 						array(
@@ -306,6 +306,7 @@ class Pwb_Admin_Tab {
 							'class'       => 'pwb-admin-tab-field pwb-premium-field',
 							'placeholder' => esc_html__( 'Brands', 'perfect-woocommerce-brands' ),
 							'desc'        => __( 'Change or disable the brands label in the single products page.', 'perfect-woocommerce-brands' ),
+							'desc_tip'    => __( 'Display label for brand links.', 'perfect-woocommerce-brands' ),
 							'id'          => 'wc_pwb_admin_tab_brand_single_label',
 						),
 						'section_end'   => array(
