@@ -439,7 +439,7 @@ class Pwb_Admin_Tab {
 				}
 			}
 
-			echo '<li><a target="' . esc_url( $target ) . '" href="' . esc_url( $href ) . '" class="' . ( $current_section === $id ? 'current' : '' ) . '">' . esc_attr( $title ) . '</a> ' . ( end( $array_keys ) === $id ? '' : '|' ) . ' </li>';
+			echo '<li><a target="' . esc_attr( $target ) . '" href="' . esc_url( $href ) . '" class="' . ( $current_section === $id ? 'current' : '' ) . '">' . esc_attr( $title ) . '</a> ' . ( end( $array_keys ) === $id ? '' : '|' ) . ' </li>';
 		}
 
 		echo '</ul><br class="clear" />';
