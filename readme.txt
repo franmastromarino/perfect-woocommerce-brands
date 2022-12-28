@@ -5,7 +5,7 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 2.5.0
+Stable tag: 2.5.1
 WC requires at least: 3.0
 WC tested up to: 7.2
 License: GPLv3
@@ -90,6 +90,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.5.1=
+* New: PHP error
 = 2.5.0=
 * New: Premium compatibility
 = 2.4.5=
@@ -121,7 +123,7 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 = 2.2.4=
 * Fix: rating notification
 = 2.2.3=
-* Fix: php error
+* Fix: PHP error
 = 2.2.2=
 * Fix: WooCommerce compatibility
 = 2.2.1=
@@ -180,15 +182,15 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 = 1.9.4 =
 * New. Telegram add to suggestions tab
 = 1.9.3 =
-* Fix: php error
+* Fix: PHP error
 = 1.9.2 =
 * Add: QuadLayers dashboard widget
 = 1.9.1 =
 * Fix: WordPress compatibility
 = 1.9.0 =
-* Fix: php 8 compatibility
+* Fix: PHP 8 compatibility
 = 1.8.9 =
-* Fix: php 8 compatibility
+* Fix: PHP 8 compatibility
 = 1.8.8 =
 * Fix: WooCommerce compatibility
 = 1.8.7 =
@@ -250,7 +252,7 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 = 1.7.2 =
 * Feature: Now is possible to use %pwb-brand% in the product URLs
 * Fix: Fatal error in some themes (like Salient)
-* Fix: Some php notices and warnings fixed
+* Fix: Some PHP notices and warnings fixed
 * Fix: Don't show brand description/banner in paged
 = 1.7.1 =
 * Feature: Extends the [products] shortcode to allow 'brands' attribute

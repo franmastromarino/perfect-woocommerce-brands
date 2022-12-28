@@ -664,7 +664,7 @@ class Perfect_Woocommerce_Brands {
 						if ( ! empty( $attachment_html ) && $show_as == 'brand_image' || ! empty( $attachment_html ) && ! $show_as ) {
 							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_attr( $brand->name ) . '">' . $attachment_html . '</a>';// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						} else {
-							if ( $brand !== $product_brands[0] ) {
+							if ( $brand !== $brands[0] ) {
 								echo wp_kses_post( get_option( 'wc_pwb_admin_tab_brands_in_loop_separator', '' ) );
 							}
 							echo '<a href="' . esc_url( $brand_link ) . '" title="' . esc_html__( 'View brand', 'perfect-woocommerce-brands' ) . '">' . esc_html( $brand->name ) . '</a>';
