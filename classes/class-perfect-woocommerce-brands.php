@@ -14,7 +14,10 @@ class Perfect_Woocommerce_Brands {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		$this->brand_logo_position();
 		add_action( 'wp', array( $this, 'brand_desc_position' ) );
-		add_action( 'woocommerce_after_shop_loop_item_title', array( self::class, 'show_brands_in_loop' ) );
+		/**
+		 * Add brands to product loop before price and after sale flash
+		 */
+		add_action( 'woocommerce_after_shop_loop_item_title', array( self::class, 'show_brands_in_loop' ), 9 );
 		$this->add_shortcodes();
 		if ( is_plugin_active( 'js_composer/js_composer.php' ) || is_plugin_active( 'visual_composer/js_composer.php' ) ) {
 			add_action( 'vc_before_init', array( $this, 'vc_map_shortcodes' ) );
