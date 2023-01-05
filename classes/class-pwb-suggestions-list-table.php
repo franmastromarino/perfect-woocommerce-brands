@@ -91,7 +91,7 @@ class PWB_Suggestions_List_Table extends \WP_Plugin_Install_List_Table {
 	}
 
 	public function prepare_items() {
-		include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+		require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 
 		global $tabs, $tab;
 

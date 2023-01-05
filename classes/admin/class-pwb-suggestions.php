@@ -17,7 +17,7 @@ class PWB_Suggestions {
 	// -------------------------------------------------------------------------
 
 	public function add_page() {
-		include_once PWB_PLUGIN_DIR . 'classes/class-pwb-suggestions-list-table.php';
+		require_once PWB_PLUGIN_DIR . 'classes/class-pwb-suggestions-list-table.php';
 		?>
 			<style>
 				@media screen and (max-width: 2299px) and (min-width: 1600px) {

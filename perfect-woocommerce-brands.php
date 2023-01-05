@@ -4,7 +4,7 @@
  *  Plugin Name: Perfect Brands for WooCommerce
  *  Plugin URI: https://quadlayers.com/portfolio/perfect-woocommerce-brands/
  *  Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
- *  Version: 2.5.2
+ *  Version: 2.5.3
  *  Author: QuadLayers
  *  Author URI: https://quadlayers.com
  *  Text Domain: perfect-woocommerce-brands
@@ -36,7 +36,7 @@ define( 'PWB_PLUGIN_FILE', __FILE__ );
 define( 'PWB_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'PWB_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
 define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'PWB_PLUGIN_VERSION', '2.5.2' );
+define( 'PWB_PLUGIN_VERSION', '2.5.3' );
 define( 'PWB_PLUGIN_NAME', 'Perfect WooCommerce Brands' );
 define( 'PWB_PREFIX', 'pwb' );
 define( 'PWB_REVIEW_URL', 'https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?filter=5#new-post' );
@@ -83,45 +83,45 @@ add_action(
 	'woocommerce_init',
 	function () {
 
-		require 'classes/class-pwb-term.php';
-		require 'classes/widgets/class-pwb-dropdown-widget.php';
-		require 'classes/widgets/class-pwb-list-widget.php';
-		require 'classes/widgets/class-pwb-filter-by-brand-widget.php';
-		require 'classes/shortcodes/class-pwb-product-carousel.php';
-		require 'classes/shortcodes/class-pwb-carousel.php';
-		require 'classes/shortcodes/class-pwb-all-brands.php';
-		require 'classes/shortcodes/class-pwb-az-listing.php';
-		require 'classes/shortcodes/class-pwb-brand.php';
+		require_once 'classes/class-pwb-term.php';
+		require_once 'classes/widgets/class-pwb-dropdown-widget.php';
+		require_once 'classes/widgets/class-pwb-list-widget.php';
+		require_once 'classes/widgets/class-pwb-filter-by-brand-widget.php';
+		require_once 'classes/shortcodes/class-pwb-product-carousel.php';
+		require_once 'classes/shortcodes/class-pwb-carousel.php';
+		require_once 'classes/shortcodes/class-pwb-all-brands.php';
+		require_once 'classes/shortcodes/class-pwb-az-listing.php';
+		require_once 'classes/shortcodes/class-pwb-brand.php';
 
-		require 'classes/class-pwb-api-support.php';
+		require_once 'classes/class-pwb-api-support.php';
 		new PWB_API_Support();
-		require 'classes/admin/class-pwb-coupon.php';
+		require_once 'classes/admin/class-pwb-coupon.php';
 		new Admin\PWB_Coupon();
 		if ( is_admin() ) {
-			require 'classes/admin/class-pwb-suggestions.php';
+			require_once 'classes/admin/class-pwb-suggestions.php';
 			new Admin\PWB_Suggestions();
-			require 'classes/admin/class-pwb-system-status.php';
+			require_once 'classes/admin/class-pwb-system-status.php';
 			new Admin\PWB_System_Status();
-			require 'classes/admin/class-pwb-admin-tab.php';
-			require 'classes/admin/class-pwb-migrate.php';
+			require_once 'classes/admin/class-pwb-admin-tab.php';
+			require_once 'classes/admin/class-pwb-migrate.php';
 			new Admin\PWB_Migrate();
-			require 'classes/admin/class-pwb-dummy-data.php';
+			require_once 'classes/admin/class-pwb-dummy-data.php';
 			new Admin\PWB_Dummy_Data();
-			require 'classes/admin/class-edit-brands-page.php';
+			require_once 'classes/admin/class-edit-brands-page.php';
 			new Admin\Edit_Brands_Page();
-			require 'classes/admin/class-brands-custom-fields.php';
+			require_once 'classes/admin/class-brands-custom-fields.php';
 			new Admin\Brands_Custom_Fields();
-			require 'classes/admin/class-brands-exporter.php';
+			require_once 'classes/admin/class-brands-exporter.php';
 			new Admin\Brands_Exporter();
-			require 'classes/admin/class-pwb-importer-support.php';
+			require_once 'classes/admin/class-pwb-importer-support.php';
 			new PWB_Importer_Support();
-			require 'classes/admin/class-pwb-exporter-support.php';
+			require_once 'classes/admin/class-pwb-exporter-support.php';
 			new PWB_Exporter_Support();
 		} else {
-			include_once 'classes/class-pwb-product-tab.php';
+			require_once 'classes/class-pwb-product-tab.php';
 			new PWB_Product_Tab();
 		}
-		require 'classes/class-perfect-woocommerce-brands.php';
+		require_once 'classes/class-perfect-woocommerce-brands.php';
 		new \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands();
 		do_action( 'pwb_init' );
 	}
