@@ -17,18 +17,13 @@ Perfect Brands for WooCommerce allows you to show product brands in your WooComm
 
 Perfect WooCommerce Brands is a perfect tool to organize your site, highlight the brands you have, and also helps as a filter for your customers at UX exploration. PWB extendes the product's description and presentation at your e-commerce site.
 
-== PRESENTATION ==
+== Presentation ==
 
-[About Us](https://quadlayers.com/) | [Community](https://www.facebook.com/groups/quadlayers/) | [Documentation](https://quadlayers.com/documentation/perfect-woocommerce-brands/)
+[Premium](https://quadlayers.com/portfolio/perfect-woocommerce-brands/) | [Community](https://www.facebook.com/groups/quadlayers/) | [Documentation](https://quadlayers.com/documentation/perfect-woocommerce-brands/)
 
 Whether we like to admit it or not, we are all influenced by brands. Brands are a guarantee for quality, they assure product recognition in customers.
 Is essential to work with product brands for increase sales and generate reliability on your e-commerce site.
 With this extension you can add product brands to your WooCommerce site.
-
-= Requirements =
-> * PHP 5.6 or higher (PHP7 recommended)
-> * WordPress 4.7 or higher
-> * WooCommerce 3.1.0 or higher
 
 = Features =
 > * Very easy to use, 100% free, no ads, no premium version exists
@@ -58,15 +53,24 @@ With this extension you can add product brands to your WooCommerce site.
 > * Brand structured data
 > * And much more!
 
-
 == Installation ==
 1. Upload the plugin to the '/wp-content/plugins/' directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
+== Perfect WooCommerce Brands Premium ==
+
+The premium version of Perfect WooCommerce Brands plugin offer you a wide range of extra features that allows a full controll of the brands pages.
+
+> * Improve brand search experience by redirecting users to brand page
+> * Include brands separator in brands pages
+> * Change columns in the brands pages
+> * Change the place of your brands list in brands pages and shop
+> * Include brands separator in products pages
+> * Include breadcrumbs in products pages
 
 == Frequently Asked Questions ==
 = Is Perfect WooCommerce Brands free? =
-Yes, of course. This plugin is 100% free. No ads, no premium version exists.
+Yes, of course. This plugin is 100% free.
 
 = Where are the plugin settings? =
 Go to `WooCommerce/Settings/` and click on `Brands` tab
