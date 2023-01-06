@@ -5,7 +5,7 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 2.5.3
+Stable tag: 2.5.4
 WC requires at least: 3.0
 WC tested up to: 7.2
 License: GPLv3
@@ -19,7 +19,7 @@ Perfect WooCommerce Brands is a perfect tool to organize your site, highlight th
 
 == Presentation ==
 
-[Premium](https://quadlayers.com/portfolio/perfect-woocommerce-brands/) | [Community](https://www.facebook.com/groups/quadlayers/) | [Documentation](https://quadlayers.com/documentation/perfect-woocommerce-brands/)
+[Premium](https://quadlayers.com/portfolio/perfect-woocommerce-brands/) | [Demo](https://quadlayers.com/perfect-woocommerce-brands/) | [Community](https://www.facebook.com/groups/quadlayers/) | [Documentation](https://quadlayers.com/documentation/perfect-woocommerce-brands/)
 
 Whether we like to admit it or not, we are all influenced by brands. Brands are a guarantee for quality, they assure product recognition in customers.
 Is essential to work with product brands for increase sales and generate reliability on your e-commerce site.
@@ -94,6 +94,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.5.4=
+* Fix: Readme update
 = 2.5.3=
 * Fix: PHP error
 = 2.5.2=
