@@ -5,7 +5,7 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Tested up to: 6.1
 Requires PHP: 5.6
-Stable tag: 2.5.4
+Stable tag: 2.5.5
 WC requires at least: 3.0
 WC tested up to: 7.2
 License: GPLv3
@@ -94,6 +94,9 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 2.5.5=
+* Fix: AZ listing shortcode hide empty
+* Fix:Remove duplicated documentation link
 = 2.5.4=
 * Fix: Readme update
 = 2.5.3=
