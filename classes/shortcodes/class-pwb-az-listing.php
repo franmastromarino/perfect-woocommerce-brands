@@ -17,19 +17,21 @@ class PWB_AZ_Listing_Shortcode {
 			$atts = shortcode_atts(
 				array(
 					'only_parents' => false,
+					'hide_empty'   => true,
 				),
 				$atts,
 				'pwb-az-listing'
 			);
 
 			$only_parents = filter_var( $atts['only_parents'], FILTER_VALIDATE_BOOLEAN );
+			$hide_empty   = filter_var( $atts['hide_empty'], FILTER_VALIDATE_BOOLEAN );
 
-			$brands         = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( true, 'name', 'ASC', false, false, $only_parents );
+			$brands         = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( $hide_empty, 'name', 'ASC', false, false, $only_parents );
 			$grouped_brands = array();
 
 			foreach ( $brands as $brand ) {
 
-				if ( self::has_products( $brand->term_id ) ) {
+				if ( ! $hide_empty || ( $hide_empty && self::has_products( $brand->term_id ) ) ) {
 
 					$letter                      = mb_substr( htmlspecialchars_decode( $brand->name ), 0, 1 );
 					$letter                      = strtolower( $letter );
