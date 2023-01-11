@@ -7,7 +7,6 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 class Perfect_Woocommerce_Brands {
 
 	function __construct() {
-		add_action( 'plugin_row_meta', array( '\Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands', 'plugin_row_meta' ), 10, 2 );
 		$this->register_brands_taxonomy();
 		add_action( 'init', array( $this, 'add_brands_metafields' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -63,24 +62,6 @@ class Perfect_Woocommerce_Brands {
 			return;
 		}
 		delete_transient( 'pwb_az_listing_cache_' . get_locale() );
-	}
-
-	/**
-	 * Show row meta on the plugin screen.
-	 *
-	 * @param mixed $links Plugin Row Meta.
-	 * @param mixed $file  Plugin Base file.
-	 *
-	 * @return array
-	 */
-	public static function plugin_row_meta( $links, $file ) {
-		if ( PWB_PLUGIN_BASENAME === $file ) {
-			$row_meta = array(
-				'docs' => '<a target="_blank" rel="noopener noferrer" href="' . PWB_DOCUMENTATION_URL . '">' . esc_html__( 'Documentation', 'perfect-woocommerce-brands' ) . '</a>',
-			);
-			return array_merge( $links, $row_meta );
-		}
-		return (array) $links;
 	}
 
 	public function brand_name_in_url( $permalink, $post ) {
