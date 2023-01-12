@@ -30,7 +30,7 @@
 		"test": "npm run test:unit & npm run test:e2e",
 		"docker": "wp-env",
 		"start:js": "npm run delete:build && wp-scripts start",
-		"start:php": "composer dump-autoload",
+		"start:php": "composer install && composer dump-autoload",
 		"start": "npm run start:js && npm run start:php",
 		"phpcs:report:csv": "php ./vendor/bin/phpcs --warning-severity=0 --extensions=php --report=csv --report-file=./phpcs_error.csv ./lib",
 		"phpcs:report:txt": "php ./vendor/bin/phpcs --warning-severity=0 --extensions=php --report-file=./phpcs_error.txt ./lib",
