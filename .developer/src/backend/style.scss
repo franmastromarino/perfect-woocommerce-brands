@@ -2,61 +2,63 @@
 .pwb-clearfix:after {
 	content: "";
 	display: table;
-	clear  : both;
+	clear: both;
 }
 
 .pwb-blocked {
-	opacity: .6;
+	opacity: 0.6;
 }
 
 /* ----------------------- /Global ----------------------- */
 /* ----------------------- Taxonomy pwb-brand ----------------------- */
 .taxonomy-pwb-brand .pwb_brand_image_selected_remove {
-	color          : #FF3030;
-	font-family    : Arial, Helvetica, sans-serif;
+	color: #ff3030;
+	font-family: Arial, Helvetica, sans-serif;
 	text-decoration: none;
-	font-size      : 20px;
-	font-weight    : bold;
-	position       : absolute;
-	top            : 50%;
-	right          : 50%;
-	margin         : -13px -7px 0 0;
-	opacity        : 0;
+	font-size: 20px;
+	font-weight: bold;
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	margin: -13px -7px 0 0;
+	opacity: 0;
 }
 
 .taxonomy-pwb-brand .pwb_brand_image_selected span::before {
-	content           : '';
-	display           : block;
-	background-color  : rgba(0, 0, 0, 0.5);
-	position          : absolute;
-	opacity           : 0;
-	top               : 0;
-	right             : 0;
-	bottom            : 0;
-	left              : 0;
+	content: "";
+	display: block;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	-webkit-transition: opacity 200ms ease-in-out;
-	-moz-transition   : opacity 200ms ease-in-out;
-	-ms-transition    : opacity 200ms ease-in-out;
-	-o-transition     : opacity 200ms ease-in-out;
-	transition        : opacity 200ms ease-in-out;
-
+	-moz-transition: opacity 200ms ease-in-out;
+	-ms-transition: opacity 200ms ease-in-out;
+	-o-transition: opacity 200ms ease-in-out;
+	transition: opacity 200ms ease-in-out;
 }
 
 .taxonomy-pwb-brand .pwb_brand_image_selected span {
-	display   : inline-block;
-	position  : relative;
+	display: inline-block;
+	position: relative;
 	text-align: center;
-	max-width : 90px;
+	max-width: 90px;
 }
 
 .taxonomy-pwb-brand .pwb_brand_image_selected span img {
-	height    : auto;
-	height    : auto;
-	max-width : 100%;
+	height: auto;
+	height: auto;
+	max-width: 100%;
 	max-height: 100%;
 }
 
-.taxonomy-pwb-brand .pwb_brand_image_selected span:hover .pwb_brand_image_selected_remove,
+.taxonomy-pwb-brand
+	.pwb_brand_image_selected
+	span:hover
+	.pwb_brand_image_selected_remove,
 .taxonomy-pwb-brand .pwb_brand_image_selected span:hover::before {
 	opacity: 1;
 }
@@ -66,7 +68,7 @@
 	display: none;
 }
 
-.taxonomy-pwb-brand .pwb_brand_cont>div {
+.taxonomy-pwb-brand .pwb_brand_cont > div {
 	margin-top: 10px;
 }
 
@@ -79,10 +81,13 @@
 	display: none !important;
 }
 
-.taxonomy-pwb-brand #col-right.pwb-force-full-width .pwb-edit-brands-bottom>span {
-	-ms-transform    : rotate(180deg);
+.taxonomy-pwb-brand
+	#col-right.pwb-force-full-width
+	.pwb-edit-brands-bottom
+	> span {
+	-ms-transform: rotate(180deg);
 	-webkit-transform: rotate(180deg);
-	transform        : rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .taxonomy-pwb-brand table.wp-list-table .column-featured {
@@ -90,39 +95,41 @@
 }
 
 .taxonomy-pwb-brand .pwb-edit-brands-bottom {
-	margin-top      : 20px;
-	margin-bottom   : 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	background-color: #f6f6f6;
-	border-top      : 1px solid #e4e4e4;
-	padding         : 10px;
+	border-top: 1px solid #e4e4e4;
+	padding: 10px;
 }
 
-.taxonomy-pwb-brand .pwb-edit-brands-bottom>span:hover {
+.taxonomy-pwb-brand .pwb-edit-brands-bottom > span:hover {
 	cursor: pointer;
 }
 
-.taxonomy-pwb-brand .pwb-edit-brands-bottom>span {
+.taxonomy-pwb-brand .pwb-edit-brands-bottom > span {
 	float: left;
 }
 
 .taxonomy-pwb-brand .pwb-featured-count {
-	font-style   : italic;
-	float        : right;
-	margin-left  : 12px;
-	margin-top   : 0;
+	font-style: italic;
+	float: right;
+	margin-left: 12px;
+	margin-top: 0;
 	margin-bottom: 0;
 }
 
-.taxonomy-pwb-brand table.wp-list-table .column-featured .dashicons-star-empty:hover:before {
+.taxonomy-pwb-brand
+	table.wp-list-table
+	.column-featured
+	.dashicons-star-empty:hover:before {
 	content: "\f155";
 }
 
-.taxonomy-pwb-brand table .column-featured>span:hover {
+.taxonomy-pwb-brand table .column-featured > span:hover {
 	cursor: pointer;
 }
 
 @media screen and (max-width: 782px) {
-
 	.taxonomy-pwb-brand .wp-list-table thead th.column-logo,
 	.taxonomy-pwb-brand .wp-list-table tfoot th.column-logo {
 		display: none;
@@ -132,7 +139,7 @@
 		content: "" !important;
 	}
 
-	.taxonomy-pwb-brand .pwb-edit-brands-bottom>span {
+	.taxonomy-pwb-brand .pwb-edit-brands-bottom > span {
 		display: none;
 	}
 }
@@ -143,7 +150,7 @@
 	}
 
 	.taxonomy-pwb-brand #col-left.pwb-force-full-width {
-		width  : 0 !important;
+		width: 0 !important;
 		display: none !important;
 	}
 
@@ -158,10 +165,10 @@
 }
 
 .pwb-brands-exporter {
-	margin-top : 20px;
+	margin-top: 20px;
 	padding-top: 20px;
-	border-top : 1px solid #ddd;
-	text-align : right;
+	border-top: 1px solid #ddd;
+	text-align: right;
 }
 
 .pwb-brands-exporter p {
@@ -169,7 +176,7 @@
 }
 
 .taxonomy-pwb-brand .wp-list-table .column-logo {
-	width      : 52px;
+	width: 52px;
 	white-space: nowrap;
 }
 
@@ -177,9 +184,9 @@
 
 /* ----------------------- Settings page ----------------------- */
 #wc_pwb_admin_status_result {
-	display         : none;
+	display: none;
 	background-color: #f6f6f6;
-	padding         : 14px;
+	padding: 14px;
 }
 
 #wc_pwb_admin_tab_tools_system_status {
@@ -189,8 +196,8 @@
 select.pwb-admin-tab-field,
 input[type="text"].pwb-admin-tab-field {
 	min-width: 350px;
-	display  : block;
-	height   : auto;
+	display: block;
+	height: auto;
 }
 
 /* ----------------------- /Settings page ----------------------- */
@@ -212,29 +219,29 @@ table.wp-list-table .column-taxonomy-pwb-brand {
 }
 
 .pwb-notice-dismissible .dashicons-heart {
-	color      : #f188ff;
+	color: #f188ff;
 	margin-left: 3px;
 }
 
 .pwb-modal {
-	position   : fixed;
-	top        : 0;
-	right      : 0;
-	bottom     : 0;
-	left       : 0;
-	z-index    : 99999999999;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99999999999;
 	line-height: 1;
-	background : rgba(0, 0, 0, 0.9);
-	font-size  : 2em;
+	background: rgba(0, 0, 0, 0.9);
+	font-size: 2em;
 	padding-top: 20px;
-	text-align : center;
+	text-align: center;
 }
 
 .pwb-modal-inner {
 	max-width: 70%;
-	margin   : 0 auto;
+	margin: 0 auto;
 	animation: pwbblinkkf 3s linear infinite;
-	color    : #fff;
+	color: #fff;
 }
 
 .pwb-modal-inner p {
@@ -258,31 +265,31 @@ table.wp-list-table .column-taxonomy-pwb-brand {
 }
 
 .pwb-loading-overlay::after {
-	content         : "";
-	position        : absolute;
-	top             : 0;
-	right           : 0;
-	bottom          : 0;
-	left            : 0;
-	background-color: rgba(255, 255, 255, .7);
-	z-index         : 1;
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.7);
+	z-index: 1;
 }
 
 .pwb-loading-overlay::before {
-	content      : "";
-	position     : absolute;
-	box-sizing   : border-box;
-	top          : 50%;
-	left         : 50%;
-	width        : 15px;
-	height       : 15px;
-	margin-top   : -7.5px;
-	margin-left  : -7.5px;
+	content: "";
+	position: absolute;
+	box-sizing: border-box;
+	top: 50%;
+	left: 50%;
+	width: 15px;
+	height: 15px;
+	margin-top: -7.5px;
+	margin-left: -7.5px;
 	border-radius: 50%;
-	border-top   : 2px solid #000;
-	border-right : 2px solid transparent;
-	animation    : PWBLoadingOverlay .6s linear infinite;
-	z-index      : 1;
+	border-top: 2px solid #000;
+	border-right: 2px solid transparent;
+	animation: PWBLoadingOverlay 0.6s linear infinite;
+	z-index: 1;
 }
 
 input.pwb-brands-import-file {
