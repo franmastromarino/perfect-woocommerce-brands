@@ -74,7 +74,7 @@ class Brands_Dropdown extends \WP_Widget {
 
 		$hide_empty    = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
 		$only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
-		$brands        = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands(
+		$brands        = \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::get_brands(
 			$hide_empty,
 			'name',
 			'ASC',
@@ -90,7 +90,7 @@ class Brands_Dropdown extends \WP_Widget {
 				echo $before_title . $title . $after_title;// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
-			echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::render_template(// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				'dropdown',
 				'widgets',
 				array(

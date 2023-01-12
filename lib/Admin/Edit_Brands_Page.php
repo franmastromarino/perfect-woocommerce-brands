@@ -6,8 +6,6 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Edit_Brands_Page {
 
-	private static $current_user;
-
 	function __construct() {
 		add_filter( 'get_terms', array( $this, 'brand_list_admin_filter' ), 10, 3 );
 		add_filter( 'manage_edit-pwb-brand_columns', array( $this, 'brand_taxonomy_columns_head' ) );
@@ -15,12 +13,6 @@ class Edit_Brands_Page {
 		add_action( 'wp_ajax_pwb_admin_set_featured_brand', array( $this, 'admin_set_featured_brand' ) );
 		add_filter( 'screen_settings', array( $this, 'add_screen_options' ), 10, 2 );
 		add_action( 'wp_ajax_pwb_admin_save_screen_settings', array( $this, 'admin_save_screen_settings' ) );
-		add_action(
-			'plugins_loaded',
-			function () {
-				\Perfect_Woocommerce_Brands\Admin\Edit_Brands_Page::$current_user = wp_get_current_user();
-			}
-		);
 		add_action( 'after-pwb-brand-table', array( $this, 'add_brands_count' ) );
 	}
 
@@ -48,7 +40,7 @@ class Edit_Brands_Page {
 			)
 		);
 
-		echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::render_template(// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'edit-brands-bottom',
 			'admin',
 			array(
@@ -59,8 +51,11 @@ class Edit_Brands_Page {
 	}
 
 	public function brand_list_admin_filter( $brands, $taxonomies, $args ) {
-		if ( self::is_edit_brands_page() && ! empty( self::$current_user->ID ) ) {
-			$featured = get_user_option( 'pwb-first-featured-brands', self::$current_user->ID );
+
+		$current_user = wp_get_current_user();
+
+		if ( self::is_edit_brands_page() && ! empty( $current_user->ID ) ) {
+			$featured = get_user_option( 'pwb-first-featured-brands', $current_user->ID );
 			if ( $featured ) {
 				$featured_brands = array();
 				$other_brands    = array();
@@ -158,7 +153,10 @@ class Edit_Brands_Page {
 
 	public function add_screen_options( $status, $args ) {
 		if ( self::is_edit_brands_page() ) {
-			$featured = get_user_option( 'pwb-first-featured-brands', self::$current_user->ID );
+			
+			$current_user = wp_get_current_user();
+
+			$featured = get_user_option( 'pwb-first-featured-brands', $current_user->ID);
 			ob_start();
 			?>
 				<legend><?php esc_html_e( 'Brands', 'perfect-woocommerce-brands' ); ?></legend>
@@ -180,9 +178,11 @@ class Edit_Brands_Page {
 		current_user_can( 'manage_options' )
 		) {
 
+			$current_user = wp_get_current_user();
+
 			if ( isset( $_POST['new_val'] ) ) {
 				$new_val = ( $_POST['new_val'] == 'true' ) ? true : false;
-				update_user_option( self::$current_user->ID, 'pwb-first-featured-brands', $new_val );
+				update_user_option( $current_user->ID, 'pwb-first-featured-brands', $new_val );
 			}
 		}
 		wp_die();

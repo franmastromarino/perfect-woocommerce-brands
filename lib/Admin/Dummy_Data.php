@@ -86,7 +86,7 @@ class Dummy_Data {
 	}
 
 	public function set_brands_randomly() {
-		$brands = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands_array();
+		$brands = \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::get_brands_array();
 
 		$the_query = new \WP_Query(
 			array(

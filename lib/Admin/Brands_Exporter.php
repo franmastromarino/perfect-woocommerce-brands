@@ -13,7 +13,7 @@ class Brands_Exporter {
 	}
 
 	public function exporter_button() {
-		echo \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::render_template(// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'brands-exporter',
 			'admin',
 			array( 'ok' => 'va' )

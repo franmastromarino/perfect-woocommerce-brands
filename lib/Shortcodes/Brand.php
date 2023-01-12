@@ -30,7 +30,7 @@ class PWB_Brand {
 			$brands[ $key ]->image     = wp_get_attachment_image( get_term_meta( $brand->term_id, 'pwb_brand_image', 1 ), $atts['image_size'] );
 		}
 
-		return \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
+		return \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::render_template(
 			'brand',
 			'shortcodes',
 			array(

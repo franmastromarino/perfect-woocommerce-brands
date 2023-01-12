@@ -26,7 +26,7 @@ class AZ_Listing {
 			$only_parents = filter_var( $atts['only_parents'], FILTER_VALIDATE_BOOLEAN );
 			$hide_empty   = filter_var( $atts['hide_empty'], FILTER_VALIDATE_BOOLEAN );
 
-			$brands         = \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::get_brands( $hide_empty, 'name', 'ASC', false, false, $only_parents );
+			$brands         = \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::get_brands( $hide_empty, 'name', 'ASC', false, false, $only_parents );
 			$grouped_brands = array();
 
 			foreach ( $brands as $brand ) {
@@ -44,7 +44,7 @@ class AZ_Listing {
 
 		}
 
-		return \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
+		return \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::render_template(
 			'az-listing',
 			'shortcodes',
 			array( 'grouped_brands' => $grouped_brands ),

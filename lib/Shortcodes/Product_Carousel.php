@@ -33,7 +33,7 @@ class PWB_Product_Carousel {
 			wp_enqueue_script( 'pwb-lib-slick' );
 		}
 
-		return \Perfect_Woocommerce_Brands\Perfect_Woocommerce_Brands::render_template(
+		return \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::render_template(
 			'product-carousel',
 			'shortcodes',
 			array(
