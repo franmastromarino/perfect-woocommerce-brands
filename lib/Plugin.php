@@ -51,7 +51,7 @@ class Plugin {
 
 	public static function get_instance(){
 
-		if( ! self::$instance || self::$instance instanceof self ) {
+		if( ! self::$instance || !self::$instance instanceof self ) {
 			self::$instance = new self();
 		}
 
