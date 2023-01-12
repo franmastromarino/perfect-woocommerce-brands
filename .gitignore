@@ -5,3 +5,23 @@
 .idea
 .DS_Store
 *.db
+# Lock
+package-lock.json
+composer.lock
+# Dependencies
+node_modules
+vendor
+jetpack_vendor
+# Build
+build
+# PhpCs
+phpcs_error.txt
+phpcs_error.csv
+#Test
+artifacts
+/test-results
+playwright-report
+playwright
+#Zip
+*.zip
+/perfect-woocommerce-brands/
