@@ -98,10 +98,10 @@ fs.rm('./' + pluginName, {recursive: true}, (err) => {
 		copyFolderRecursiveSync('./build', './' + pluginName);
 		//Put lib folder in pluginName folder
 		copyFolderRecursiveSync('./lib', './' + pluginName);
-		//Put composer folder in pluginName folder
-		copyFolderRecursiveSync('./composer', './' + pluginName);
 		//Put vendor folder in pluginName folder
 		copyFolderRecursiveSync('./vendor', './' + pluginName);
+		//Put composer folder in pluginName folder
+		copyFolderRecursiveSync('./vendor_packages', './' + pluginName);
 		//Put jetpack_vendor folder in pluginName folder
 		copyFolderRecursiveSync('./jetpack_vendor', './' + pluginName);
 		//Put pluginName.php script into a pluginName folder

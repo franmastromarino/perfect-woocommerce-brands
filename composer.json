@@ -11,30 +11,33 @@
 	"minimum-stability": "stable",
 	"config": {
 		"allow-plugins": {
+			"quadlayers/wp-autoload": true,
 			"automattic/jetpack-composer-plugin": true,
 			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
-	},
-	"autoload": {
-		"psr-4": {
-			"QuadLayers\\Perfect_Woocommerce_Brands\\": "lib/"
-		},
-		"files": [
-			"lib/Plugin.php"
-		]
 	},
 	"require": {
 		"automattic/jetpack-composer-plugin": "*",
 		"automattic/jetpack-assets": "*",
 		"quadlayers/wp-dashboard-widget-news": "*",
 		"quadlayers/wp-notice-plugin-required": "*",
+		"quadlayers/wp-notice-plugin-promote": "*",
 		"quadlayers/wp-plugin-table-links": "*",
 		"quadlayers/wp-plugin-suggestions": "*"
 	},
+	"autoload": {
+		"classmap": [
+			"lib/"
+		]
+	},
 	"extra": {
+		"quadlayers/wp-autoload": {
+			"\\QuadLayers\\Perfect_Woocommerce_Brands\\": "lib/"
+		},
 		"wp-plugin-slug": "perfect-woocommerce-brands"
 	},
 	"require-dev": {
+		"quadlayers/wp-autoload": "*",
 		"woocommerce/woocommerce-sniffs": "^0.1.3",
 		"phpunit/phpunit": "^9.5"
 	},
