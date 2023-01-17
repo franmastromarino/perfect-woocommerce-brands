@@ -25,22 +25,11 @@ define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'PWB_PLUGIN_VERSION', '3.0.0' );
 define( 'PWB_PLUGIN_NAME', 'Perfect WooCommerce Brands' );
 define( 'PWB_PREFIX', 'pwb' );
-define( 'PWB_REVIEW_URL', 'https://wordpress.org/support/plugin/perfect-woocommerce-brands/reviews/?filter=5#new-post' );
-define( 'PWB_DEMO_URL', 'https://quadlayers.com/portfolio/perfect-woocommerce-brands/?utm_source=pwb_admin' );
-define( 'PWB_PURCHASE_URL', PWB_DEMO_URL );
+define( 'PWB_PURCHASE_URL', 'https://quadlayers.com/portfolio/perfect-woocommerce-brands/?utm_source=pwb_admin' );
 define( 'PWB_SUPPORT_URL', 'https://quadlayers.com/account/support/?utm_source=pwb_admin' );
 define( 'PWB_DOCUMENTATION_URL', 'https://quadlayers.com/documentation/perfect-woocommerce-brands/?utm_source=pwb_admin' );
-define( 'PWB_GITHUB_URL', 'https://github.com/quadlayers/perfect-woocommerce-brands/' );
 define( 'PWB_GROUP_URL', 'https://www.facebook.com/groups/quadlayers' );
-
-define( 'PWB_PREMIUM_SELL_SLUG', 'perfect-woocommerce-brands-pro' );
-define( 'PWB_PREMIUM_SELL_NAME', 'Perfect WooCommerce Brands' );
 define( 'PWB_PREMIUM_SELL_URL', 'https://quadlayers.com/portfolio/perfect-woocommerce-brands/?utm_source=pwb_admin' );
-
-define( 'PWB_CROSS_INSTALL_SLUG', 'woocommerce-checkout-manager' );
-define( 'PWB_CROSS_INSTALL_NAME', 'Checkout Manager' );
-define( 'PWB_CROSS_INSTALL_DESCRIPTION', esc_html__( 'Checkout Field Manager( Checkout Manager ) for WooCommerce allows you to add custom fields to the checkout page, related to billing, Shipping or Additional fields sections.', 'perfect-woocommerce-brands' ) );
-define( 'PWB_CROSS_INSTALL_URL', 'https://quadlayers.com/portfolio/woocommerce-checkout-manager/?utm_source=pwb_admin' );
 
 /**
  * Load composer autoload.
@@ -49,10 +38,19 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * Load composer packages.
  */
-require_once __DIR__ . '/composer/wp-i18n-map.php';
-require_once __DIR__ . '/composer/wp-dashboard-widget-news.php';
-require_once __DIR__ . '/composer/wp-notice-plugin-required.php';
-require_once __DIR__ . '/composer/wp-plugin-table-links.php';
+require_once __DIR__ . '/vendor_packages/wp-i18n-map.php';
+require_once __DIR__ . '/vendor_packages/wp-dashboard-widget-news.php';
+require_once __DIR__ . '/vendor_packages/wp-notice-plugin-required.php';
+require_once __DIR__ . '/vendor_packages/wp-notice-plugin-promote.php';
+require_once __DIR__ . '/vendor_packages/wp-plugin-table-links.php';
+/**
+ * Load plugin
+ */
+require_once __DIR__ . '/lib/class-plugin.php';
+require_once __DIR__ . '/autoload-dev.php';
+
+new QuadLayers\Autoload\Autoload( 'QuadLayers\\Perfect_Woocommerce_Brands', __DIR__.'/lib' );
+
 /**
  * Plugin activation hook
  */

@@ -15,23 +15,26 @@
 			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
 	},
-	"autoload": {
-		"psr-4": {
-			"QuadLayers\\Perfect_Woocommerce_Brands\\": "lib/"
-		},
-		"files": [
-			"lib/Plugin.php"
-		]
-	},
 	"require": {
 		"automattic/jetpack-composer-plugin": "*",
 		"automattic/jetpack-assets": "*",
 		"quadlayers/wp-dashboard-widget-news": "*",
 		"quadlayers/wp-notice-plugin-required": "*",
+		"quadlayers/wp-notice-plugin-promote": "*",
 		"quadlayers/wp-plugin-table-links": "*",
 		"quadlayers/wp-plugin-suggestions": "*"
 	},
+	"autoload": {
+		"classmap": [
+			"lib/",
+			"src/"
+		]
+	},
 	"extra": {
+		"quadlayers/autoload": {
+			"\\QuadLayers\\XXX\\": "lib/",
+			"\\QuadLayers\\XXX\\": "src/"
+		},
 		"wp-plugin-slug": "perfect-woocommerce-brands"
 	},
 	"require-dev": {
