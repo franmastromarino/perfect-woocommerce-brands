@@ -47,9 +47,6 @@ require_once __DIR__ . '/vendor_packages/wp-plugin-table-links.php';
  * Load plugin
  */
 require_once __DIR__ . '/lib/class-plugin.php';
-require_once __DIR__ . '/autoload-dev.php';
-
-new QuadLayers\Autoload\Autoload( 'QuadLayers\\Perfect_Woocommerce_Brands', __DIR__.'/lib' );
 
 /**
  * Plugin activation hook

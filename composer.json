@@ -11,6 +11,7 @@
 	"minimum-stability": "stable",
 	"config": {
 		"allow-plugins": {
+			"quadlayers/wp-autoload": true,
 			"automattic/jetpack-composer-plugin": true,
 			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
@@ -26,18 +27,17 @@
 	},
 	"autoload": {
 		"classmap": [
-			"lib/",
-			"src/"
+			"lib/"
 		]
 	},
 	"extra": {
-		"quadlayers/autoload": {
-			"\\QuadLayers\\XXX\\": "lib/",
-			"\\QuadLayers\\XXX\\": "src/"
+		"quadlayers/wp-autoload": {
+			"\\QuadLayers\\Perfect_Woocommerce_Brands\\": "lib/"
 		},
 		"wp-plugin-slug": "perfect-woocommerce-brands"
 	},
 	"require-dev": {
+		"quadlayers/wp-autoload": "*",
 		"woocommerce/woocommerce-sniffs": "^0.1.3",
 		"phpunit/phpunit": "^9.5"
 	},
