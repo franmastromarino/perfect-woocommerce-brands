@@ -4,7 +4,7 @@ namespace QuadLayers\Perfect_Woocommerce_Brands\Shortcodes;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
-class PWB_Carousel {
+class Carousel {
 
 	private static $atts;
 
