@@ -453,7 +453,7 @@ class Admin_Tab {
 
 		if ( 'taxonomy-brand' == $current_section ) {
 			?>
-				<a href="<?php echo admin_url( 'edit-tags.php?taxonomy=pwb-brand&post_type=product' ); ?>" class="page-title-action"><?php esc_html_e( 'Edit brands', 'perfect-woocommerce-brands' ); ?></a>
+				<a href="<?php echo esc_url( admin_url( 'edit-tags.php?taxonomy=pwb-brand&post_type=product' ) ); ?>" class="page-title-action"><?php esc_html_e( 'Edit brands', 'perfect-woocommerce-brands' ); ?></a>
 			<?php
 		}
 	}

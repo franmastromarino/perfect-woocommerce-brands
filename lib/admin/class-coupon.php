@@ -26,7 +26,7 @@ class Coupon {
 		ob_start();
 		?>		
 		<p class="form-field">
-			<label for="_pwb_coupon_restriction"><?php _e( 'Product brands', 'perfect-woocommerce-brands' ); ?></label>
+			<label for="_pwb_coupon_restriction"><?php esc_html_e( 'Product brands', 'perfect-woocommerce-brands' ); ?></label>
 			<select id="_pwb_coupon_restriction" name="_pwb_coupon_restriction[]" style="width: 50%;"  class="wc-enhanced-select" multiple="multiple" data-placeholder="<?php esc_attr_e( 'Any brand', 'perfect-woocommerce-brands' ); ?>">
 				<?php
 				$categories = get_terms( 'pwb-brand', 'orderby=name&hide_empty=0' );
@@ -40,7 +40,7 @@ class Coupon {
 			<?php echo wc_help_tip( esc_html__( 'Product brands that the coupon will be applied to, or that need to be in the cart in order for the "Fixed cart discount" to be applied.', 'perfect-woocommerce-brands' ) ); ?>
 		</p>		
 		<p class="form-field">
-			<label for="_pwb_coupon_exclude_brands"><?php _e( 'Exclude brands', 'perfect-woocommerce-brands' ); ?></label>
+			<label for="_pwb_coupon_exclude_brands"><?php esc_html_e( 'Exclude brands', 'perfect-woocommerce-brands' ); ?></label>
 			<select id="_pwb_coupon_exclude_brands" name="_pwb_coupon_exclude_brands[]" style="width: 50%;"  class="wc-enhanced-select" multiple="multiple" data-placeholder="<?php esc_attr_e( 'Any brand', 'perfect-woocommerce-brands' ); ?>">
 				<?php
 				$categories = get_terms( 'pwb-brand', 'orderby=name&hide_empty=0' );
