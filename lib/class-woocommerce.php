@@ -279,7 +279,7 @@ class WooCommerce {
 
 	/**
 	 * Add brand logo to single product page.
-	 * 
+	 *
 	 * woocommerce_single_product_summary hook.
 	 *
 	 * @hooked woocommerce_template_single_title - 5
