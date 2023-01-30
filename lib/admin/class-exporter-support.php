@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Exporter_Support {
 
-	function __construct() {
+	public function __construct() {
 		add_filter( 'woocommerce_product_export_column_names', array( $this, 'add_export_column' ) );
 		add_filter( 'woocommerce_product_export_product_default_columns', array( $this, 'add_export_column' ) );
 		add_filter( 'woocommerce_product_export_product_column_pwb-brand', array( $this, 'add_export_data' ), 10, 2 );

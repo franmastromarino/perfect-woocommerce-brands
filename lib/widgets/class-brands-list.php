@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Brands_List extends \WP_Widget {
 
-	function __construct() {
+	public function __construct() {
 		$params = array(
 			'description' => __( 'Adds a brands list to your site', 'perfect-woocommerce-brands' ),
 			'name'        => __( 'Brands list', 'perfect-woocommerce-brands' ),

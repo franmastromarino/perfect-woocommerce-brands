@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class System_Status {
 
-	function __construct() {
+	public function __construct() {
 		add_action( 'wp_ajax_pwb_system_status', array( $this, 'system_status' ) );
 	}
 
@@ -30,7 +30,7 @@ class System_Status {
 					'wp_debug_mode'          => ( defined( 'WP_DEBUG' ) && WP_DEBUG ),
 					'wp_cron'                => ! ( defined( 'DISABLE_WP_CRON' ) && DISABLE_WP_CRON ),
 					'language'               => get_locale(),
-					'server_info'            => $_SERVER['SERVER_SOFTWARE'],
+					'server_info'            => isset( $_SERVER['SERVER_SOFTWARE'] ) ? $_SERVER['SERVER_SOFTWARE'] : array(),
 					'php_version'            => phpversion(),
 					'php_post_max_size'      => ini_get( 'post_max_size' ),
 					'php_max_execution_time' => ini_get( 'max_execution_time' ),

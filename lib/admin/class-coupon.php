@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Coupon {
 
-	function __construct() {
+	public function __construct() {
 		add_action( 'woocommerce_coupon_options_usage_restriction', array( $this, 'coupon_restriction' ) );
 		add_action( 'woocommerce_coupon_options_save', array( $this, 'coupon_save' ) );
 		add_filter( 'woocommerce_coupon_is_valid', array( $this, 'is_valid_for_brand' ), 10, 2 );

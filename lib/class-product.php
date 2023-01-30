@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Product {
 
-	function __construct() {
+	public function __construct() {
 		add_filter( 'woocommerce_product_tabs', array( $this, 'product_tab' ) );
 	}
 

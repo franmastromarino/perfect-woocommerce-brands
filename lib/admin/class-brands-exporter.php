@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Brands_Exporter {
 
-	function __construct() {
+	public function __construct() {
 		add_action( 'after-pwb-brand-table', array( $this, 'exporter_button' ) );
 		add_action( 'wp_ajax_pwb_brands_export', array( $this, 'brands_export' ) );
 		add_action( 'wp_ajax_pwb_brands_import', array( $this, 'brands_import' ) );

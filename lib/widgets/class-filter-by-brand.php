@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Filter_By_Brand extends \WP_Widget {
 
-	function __construct() {
+	public function __construct() {
 		$params = array(
 			'description' => __( 'Recommended for product categories or shop page', 'perfect-woocommerce-brands' ),
 			'name'        => __( 'Filter products by brand', 'perfect-woocommerce-brands' ),

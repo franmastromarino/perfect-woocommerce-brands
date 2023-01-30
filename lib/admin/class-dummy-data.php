@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 class Dummy_Data {
 
 
-	function __construct() {
+	public function __construct() {
 		add_action( 'wp_ajax_pwb_admin_dummy_data', array( $this, 'admin_dummy_data' ) );
 	}
 
