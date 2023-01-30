@@ -119,8 +119,8 @@ class Filter_By_Brand extends \WP_Widget {
 				$cate_url = get_permalink( wc_get_page_id( 'shop' ) );
 			} else {
 				$cate     = get_queried_object();
-				$cateID   = $cate->term_id;
-				$cate_url = get_term_link( $cateID );
+				$cate_id  = $cate->term_id;
+				$cate_url = get_term_link( $cate_id );
 			}
 		} else {
 			// no product category
