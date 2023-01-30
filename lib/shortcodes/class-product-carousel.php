@@ -24,7 +24,9 @@ class PWB_Product_Carousel {
 			'pwb-product-carousel'
 		);
 
-		// enqueue deps
+		/**
+		 * Enqueue slick styles and scripts
+		 */
 		if ( ! wp_style_is( 'pwb-lib-slick' ) ) {
 			wp_enqueue_style( 'pwb-lib-slick' );
 		}

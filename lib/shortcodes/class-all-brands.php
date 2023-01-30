@@ -32,7 +32,9 @@ class All_Brands {
 			$brands = \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::get_brands( $hide_empty, $atts['order_by'], $atts['order'] );
 		}
 
-		// remove residual empty brands
+		/**
+		 * Remove residual empty brands
+		 */
 		foreach ( $brands as $key => $brand ) {
 
 			$count = self::count_visible_products( $brand->term_id );
@@ -57,7 +59,6 @@ class All_Brands {
 	 *  WP_Term->count property don´t care about hidden products
 	 *  Counts the products in a specific brand
 	 */
-
 	public static function count_visible_products( $brand_id ) {
 		$args     = array(
 			'posts_per_page' => -1,
@@ -91,14 +92,17 @@ class All_Brands {
 
 		$page = $page < 1 ? 1 : $page;
 
-		// start position in the $display_array
-		// +1 is to account for total values.
+		/**
+		 * Start position in the $display_array
+		 * +1 is to account for total values.
+		 */
 		$start  = ( $page - 1 ) * ( $show_per_page );
 		$offset = $show_per_page;
 
 		$out_array = array_slice( $display_array, $start, $offset );
-
-		// pagination links
+		/**
+		 * Pagination links
+		 */
 		$total_elements = count( $display_array );
 		$pages          = ( (int) $total_elements / (int) $show_per_page );
 		$pages          = ceil( $pages );

@@ -44,7 +44,9 @@ class Migrate {
 
 		foreach ( $terms as $term_id ) {
 
-			// change taxonomy
+			/**
+			 * Change the taxonomy name
+			 */
 			$wpdb->update(
 				$wpdb->prefix . 'term_taxonomy',
 				array(
@@ -55,7 +57,9 @@ class Migrate {
 				)
 			);
 
-			// update term meta
+			/**
+			 * Update term meta
+			 */
 			$wpdb->update(
 				$wpdb->prefix . 'termmeta',
 				array(
@@ -74,8 +78,9 @@ class Migrate {
 		$terms = $wpdb->get_col( 'SELECT term_id FROM ' . $wpdb->prefix . 'term_taxonomy WHERE taxonomy LIKE "product_brand"' );
 
 		foreach ( $terms as $term_id ) {
-
-			// change taxonomy
+			/**
+			 * Change taxonomy
+			 */
 			$wpdb->update(
 				$wpdb->prefix . 'term_taxonomy',
 				array(
@@ -103,8 +108,9 @@ class Migrate {
 		$terms = $wpdb->get_col( 'SELECT term_id FROM ' . $wpdb->prefix . 'term_taxonomy WHERE taxonomy LIKE "product_brand"' );
 
 		foreach ( $terms as $term_id ) {
-
-			// change taxonomy
+			/**
+			 * Change taxonomy
+			 */
 			$wpdb->update(
 				$wpdb->prefix . 'term_taxonomy',
 				array(
@@ -114,8 +120,9 @@ class Migrate {
 					'term_id' => $term_id,
 				)
 			);
-
-			// add the logo id
+			/**
+			 * Add the logo id
+			 */
 			if ( $thumb_id = get_woocommerce_term_meta( $term_id, 'thumbnail_id', true ) ) {
 				add_term_meta( $term_id, 'pwb_brand_image', $thumb_id );
 			}

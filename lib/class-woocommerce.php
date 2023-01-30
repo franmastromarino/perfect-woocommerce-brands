@@ -44,7 +44,9 @@ class WooCommerce {
 		add_action( 'posts_clauses', array( $this, 'brands_column_sortable_posts' ), 10, 2 );
 		add_filter( 'post_type_link', array( $this, 'brand_name_in_url' ), 10, 2 );
 
-		// clean caches
+		/**
+		 * Clean cache after edit brand
+		 */
 		add_action( 'edited_terms', array( $this, 'clean_caches' ), 10, 2 );
 		add_action( 'created_term', array( $this, 'clean_caches_after_edit_brand' ), 10, 3 );
 		add_action( 'delete_term', array( $this, 'clean_caches_after_edit_brand' ), 10, 3 );
@@ -152,7 +154,9 @@ class WooCommerce {
 
 			$terms_array = explode( ',', sanitize_text_field( $_GET['pwb-brand-filter'] ) );
 
-			// remove invalid terms (security)
+			/**
+			 * Remove invalid terms (security)
+			 */
 			for ( $i = 0; $i < count( $terms_array ); $i++ ) {
 				if ( ! term_exists( $terms_array[ $i ], 'pwb-brand' ) ) {
 					unset( $terms_array[ $i ] );
@@ -180,10 +184,9 @@ class WooCommerce {
 		}
 	}
 
-	/*
-	*   Adds microdata (brands) to single products
-	*/
-
+	/**
+	 * Adds microdata (brands) to single products
+	 */
 	public function product_microdata( $markup, $product ) {
 		$new_markup = array();
 		$brands     = wp_get_post_terms( $product->get_id(), 'pwb-brand' );
@@ -192,13 +195,13 @@ class WooCommerce {
 				'@type' => 'Brand',
 				'name'  => $brand->name,
 			);
-			// $new_markup['brand'][] = $brand->name;
 		}
 
 		return array_merge( $markup, $new_markup );
 	}
 
 	public function add_shortcodes() {
+		error_log( 'test' );
 		add_shortcode(
 			'pwb-carousel',
 			array(
@@ -331,14 +334,19 @@ class WooCommerce {
 			$show_desc   = get_option( 'wc_pwb_admin_tab_brand_desc' );
 
 			if ( ( ! $show_banner || $show_banner == 'yes' ) && ( ! $show_desc || $show_desc == 'yes' ) ) {
-				// show banner and description before loop
+				/**
+				 * Show brand banner and description before loop
+				 */
 				add_action( 'woocommerce_archive_description', array( $this, 'print_brand_banner_and_desc' ), 15 );
 			} elseif ( $show_banner == 'yes_after_loop' && $show_desc == 'yes_after_loop' ) {
-				// show banner and description after loop
+				/**
+				 * Show brand banner and description after loop
+				 */
 				add_action( 'woocommerce_after_main_content', array( $this, 'print_brand_banner_and_desc' ), 9 );
 			} else {
-				// show banner and description independently
-
+				/**
+				 * Show banner and description independently
+				 */
 				if ( ! $show_banner || $show_banner == 'yes' ) {
 					add_action( 'woocommerce_archive_description', array( $this, 'print_brand_banner' ), 15 );
 				} elseif ( $show_banner == 'yes_after_loop' ) {
@@ -354,14 +362,13 @@ class WooCommerce {
 		}
 	}
 
-	/*
-	* Maps shortcode (for visual composer plugin)
-	*
-	* @since 1.0
-	* @link https://vc.wpbakery.com/
-	* @return mixed
-	*/
-
+	/**
+	 * Maps shortcode (for visual composer plugin)
+	 *
+	 * @since 1.0
+	 * @link https://vc.wpbakery.com/
+	 * @return mixed
+	 */
 	public function vc_map_shortcodes() {
 		$available_image_sizes_adapted = array();
 		$available_image_sizes         = get_intermediate_image_sizes();
@@ -864,7 +871,9 @@ class WooCommerce {
 	public static function get_brands_array( $is_select = false ) {
 		$result = array();
 
-		// if is for select input adds default value
+		/**
+		 * If is for select input adds default value
+		 */
 		if ( $is_select ) {
 			$result[0] = esc_html__( 'All', 'perfect-woocommerce-brands' );
 		}
@@ -933,13 +942,16 @@ class WooCommerce {
 	}
 
 	public static function render_template( $name = '', $folder = '', $data = array(), $private = true ) {
-		// default template
+		/**
+		 * Default template
+		 */
 		if ( $folder ) {
 			$folder = $folder . '/';
 		}
 		$template_file = dirname( __DIR__ ) . '/templates/' . $folder . $name . '.php';
-
-		// theme overrides
+		/**
+		 * Theme overrides
+		 */
 		if ( ! $private ) {
 			$theme_template_path = get_stylesheet_directory() . '/perfect-woocommerce-brands/';
 			if ( file_exists( $theme_template_path . $folder . $name . '.php' ) ) {
@@ -971,7 +983,7 @@ class WooCommerce {
 
 				$brand_page_pos = count( $crumbs ) - ( count( $brand_ancestors ) + 2 );
 				if ( is_paged() ) {
-					$brand_page_pos -= 1;
+					--$brand_page_pos;
 				}
 
 				if ( isset( $crumbs[ $brand_page_pos ][1] ) ) {
