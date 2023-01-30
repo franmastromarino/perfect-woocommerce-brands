@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Brands_Dropdown extends \WP_Widget {
 
-	function __construct() {
+	public function __construct() {
 		$params = array(
 			'description' => esc_html__( 'Adds a brands dropdown to your site', 'perfect-woocommerce-brands' ),
 			'name'        => esc_html__( 'Brands dropdown', 'perfect-woocommerce-brands' ),

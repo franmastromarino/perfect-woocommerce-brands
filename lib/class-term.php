@@ -6,9 +6,17 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Term {
 
-	protected $term_obj, $id, $name, $link, $image, $banner, $banner_link, $desc, $slug;
+	protected $term_obj;
+	protected $id;
+	protected $name;
+	protected $link;
+	protected $image;
+	protected $banner;
+	protected $banner_link;
+	protected $desc;
+	protected $slug;
 
-	function __construct( $term_obj ) {
+	public function __construct( $term_obj ) {
 		$this->term_obj = $term_obj;
 		$this->is_wp_term();
 	}

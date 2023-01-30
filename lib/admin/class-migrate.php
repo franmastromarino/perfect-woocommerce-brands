@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Migrate {
 
-	function __construct() {
+	public function __construct() {
 		add_action( 'wp_ajax_pwb_admin_migrate_brands', array( $this, 'admin_migrate_brands' ) );
 	}
 

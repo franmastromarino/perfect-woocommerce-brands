@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Edit_Brands_Page {
 
-	function __construct() {
+	public function __construct() {
 		add_filter( 'get_terms', array( $this, 'brand_list_admin_filter' ), 10, 3 );
 		add_filter( 'manage_edit-pwb-brand_columns', array( $this, 'brand_taxonomy_columns_head' ) );
 		add_filter( 'manage_pwb-brand_custom_column', array( $this, 'brand_taxonomy_columns' ), 10, 3 );
@@ -153,10 +153,10 @@ class Edit_Brands_Page {
 
 	public function add_screen_options( $status, $args ) {
 		if ( self::is_edit_brands_page() ) {
-			
+
 			$current_user = wp_get_current_user();
 
-			$featured = get_user_option( 'pwb-first-featured-brands', $current_user->ID);
+			$featured = get_user_option( 'pwb-first-featured-brands', $current_user->ID );
 			ob_start();
 			?>
 				<legend><?php esc_html_e( 'Brands', 'perfect-woocommerce-brands' ); ?></legend>

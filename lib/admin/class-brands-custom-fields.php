@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Brands_Custom_Fields {
 
-	function __construct() {
+	public function __construct() {
 		add_action( 'pwb-brand_add_form_fields', array( $this, 'add_brands_metafields_form' ) );
 		add_action( 'pwb-brand_edit_form_fields', array( $this, 'add_brands_metafields_form_edit' ) );
 		add_action( 'edit_pwb-brand', array( $this, 'add_brands_metafields_save' ) );

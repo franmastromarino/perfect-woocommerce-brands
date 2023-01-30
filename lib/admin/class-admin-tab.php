@@ -448,7 +448,7 @@ class Admin_Tab {
 	public function add_settings() {
 
 		global $current_section;
-
+		//phpcs:ignore:WordPress.Security.NonceVerification
 		woocommerce_admin_fields( $this->get_settings() );
 
 		if ( 'taxonomy-brand' == $current_section ) {
@@ -461,8 +461,9 @@ class Admin_Tab {
 	public function save_settings() {
 		update_option( 'old_wc_pwb_admin_tab_slug', get_taxonomy( 'pwb-brand' )->rewrite['slug'] );
 
+		//phpcs:ignore:WordPress.Security.NonceVerification
 		if ( isset( $_POST['wc_pwb_admin_tab_slug'] ) ) {
-			$_POST['wc_pwb_admin_tab_slug'] = sanitize_title( $_POST['wc_pwb_admin_tab_slug'] );
+			$_POST['wc_pwb_admin_tab_slug'] = sanitize_title( $_POST['wc_pwb_admin_tab_slug'] );//phpcs:ignore:WordPress.Security.NonceVerification		
 		}
 		woocommerce_update_options( $this->get_settings() );
 	}

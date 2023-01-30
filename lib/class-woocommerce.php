@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class WooCommerce {
 
-	function __construct() {
+	public function __construct() {
 		$this->register_brands_taxonomy();
 		add_action( 'init', array( $this, 'add_brands_metafields' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );

@@ -12,7 +12,7 @@ class Rest_Api extends WC_REST_Terms_Controller {
 	protected $base     = 'brands';
 	protected $taxonomy = 'pwb-brand';
 
-	function __construct() {
+	public function __construct() {
 		add_action( 'rest_api_init', array( $this, 'register_endpoints' ) );
 		add_action( 'rest_api_init', array( $this, 'register_fields' ) );
 

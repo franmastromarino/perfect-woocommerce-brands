@@ -5,7 +5,7 @@ namespace QuadLayers\Perfect_Woocommerce_Brands;
 class Plugin {
 
 	protected static $instance;
-	
+
 	/**
 	 * Plugin constructor.
 	 */
@@ -46,12 +46,12 @@ class Plugin {
 				do_action( 'pwb_init' );
 			}
 		);
-		
+
 	}
 
-	public static function get_instance(){
+	public static function get_instance() {
 
-		if( ! self::$instance || !self::$instance instanceof self ) {
+		if ( ! self::$instance || ! self::$instance instanceof self ) {
 			self::$instance = new self();
 		}
 

@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class System_Status {
 
-	function __construct() {
+	public function __construct() {
 		add_action( 'wp_ajax_pwb_system_status', array( $this, 'system_status' ) );
 	}
 

@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Importer_Support {
 
-	function __construct() {
+	public function __construct() {
 		add_filter( 'woocommerce_csv_product_import_mapping_options', array( $this, 'add_column_to_importer' ) );
 		add_filter( 'woocommerce_csv_product_import_mapping_default_columns', array( $this, 'add_column_to_mapping_screen' ) );
 		add_action( 'woocommerce_product_import_inserted_product_object', array( $this, 'process_import' ), 10, 2 );
