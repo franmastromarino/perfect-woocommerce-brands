@@ -104,13 +104,15 @@ class Filter_By_Brand extends \WP_Widget {
 		$result_brands = array();
 
 		if ( is_product_taxonomy() || is_shop() ) {
-
-			// obtains brands ids
+			/**
+			 * Obtains the brands ids from the current products
+			 */
 			if ( ! empty( $current_products ) ) {
 				$result_brands = $this->get_products_brands( $current_products );
 			}
-
-			// excludes the child brands if needed
+			/**
+			 * Excludes the child brands if needed
+			 */
 			if ( $only_first_level_brands ) {
 				$result_brands = $this->exclude_child_brands( $result_brands );
 			}
@@ -123,7 +125,9 @@ class Filter_By_Brand extends \WP_Widget {
 				$cate_url = get_term_link( $cate_id );
 			}
 		} else {
-			// no product category
+			/**
+			 * No product category
+			 */
 			$cate_url      = get_permalink( wc_get_page_id( 'shop' ) );
 			$result_brands = get_terms(
 				'pwb-brand',
@@ -139,6 +143,7 @@ class Filter_By_Brand extends \WP_Widget {
 		}
 
 		global $wp;
+
 		$current_url = home_url( add_query_arg( array(), $wp->request ) );
 
 		if ( ! empty( $result_brands ) ) {
@@ -166,22 +171,26 @@ class Filter_By_Brand extends \WP_Widget {
 	}
 
 	private function exclude_child_brands( $brands ) {
-		// gets parent for all brands
+		/**
+		 * Gets parent for all brands
+		 */
 		foreach ( $brands as $brand_key => $brand ) {
 
 			$brand_o = get_term( $brand, 'pwb-brand' );
 
 			if ( $brand_o->parent ) {
-
-				// exclude this child brand and include the parent
+				/**
+				 * exclude this child brand and include the parent
+				 */
 				unset( $brands[ $brand_key ] );
 				if ( ! in_array( $brand_o->parent, $brands ) ) {
 					$brands[ $brand_key ] = $brand_o->parent;
 				}
 			}
 		}
-
-		// reset keys
+		/**
+		 * Reset keys
+		 */
 		$brands = array_values( $brands );
 
 		return $brands;

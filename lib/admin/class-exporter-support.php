@@ -26,7 +26,7 @@ class Exporter_Support {
 	/**
 	 * Provide the data to be exported for one item in the column.
 	 *
-	 * @param mixed      $value (default: '')
+	 * @param mixed      $value (default: '').
 	 * @param WC_Product $product
 	 * @return mixed $value - Should be in a format that can be output into a text file (string, numeric, etc).
 	 */

@@ -6,7 +6,6 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Dummy_Data {
 
-
 	public function __construct() {
 		add_action( 'wp_ajax_pwb_admin_dummy_data', array( $this, 'admin_dummy_data' ) );
 	}
@@ -30,7 +29,9 @@ class Dummy_Data {
 		require_once ABSPATH . 'wp-admin' . '/includes/file.php';
 		require_once ABSPATH . 'wp-admin' . '/includes/media.php';
 
-		// solves media_sideload_image bug with spaces in filenames
+		/**
+		 *Solves media_sideload_image bug with spaces in filenames
+		 */
 		$parsed_file       = wp_parse_url( $img_url );
 		$path              = $parsed_file['path'];
 		$file_name         = basename( $path );
@@ -44,8 +45,10 @@ class Dummy_Data {
 			$image = media_sideload_image( $img_url, $post_id );
 		}
 
-		// media_sideload_image returns a html image
-		// extract the src value for get the attachment id
+		/**
+		 * Media_sideload_image returns a html image
+		 * Extract the src value for get the attachment id
+		 */
 		$image_src = self::retrieve_img_src( $image );
 		return self::get_attachment_id_from_src( $image_src );
 	}
