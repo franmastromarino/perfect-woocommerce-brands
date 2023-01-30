@@ -30,6 +30,11 @@
 			"lib/"
 		]
 	},
+	"autoload-dev": {
+		"exclude-from-classmap": [
+			"lib/"
+		]
+	},
 	"extra": {
 		"quadlayers/wp-autoload": {
 			"\\QuadLayers\\Perfect_Woocommerce_Brands\\": "lib/"
@@ -37,7 +42,7 @@
 		"wp-plugin-slug": "perfect-woocommerce-brands"
 	},
 	"require-dev": {
-		"quadlayers/wp-autoload": "*",
+		"quadlayers/wp-autoload": "dev-main",
 		"woocommerce/woocommerce-sniffs": "^0.1.3",
 		"phpunit/phpunit": "^9.5"
 	},

@@ -35,7 +35,7 @@
 		"phpcs:report:csv": "php ./vendor/bin/phpcs --warning-severity=0 --extensions=php --report=csv --report-file=./phpcs_error.csv ./lib",
 		"phpcs:report:txt": "php ./vendor/bin/phpcs --warning-severity=0 --extensions=php --report-file=./phpcs_error.txt ./lib",
 		"build:js": "npm run delete:build &&  wp-scripts build",
-		"build:php": "composer install --no-dev && composer dump-autoload -o",
+		"build:php": "composer install --no-dev && composer dump-autoload -o --no-dev",
 		"build": "npm run build:js && npm run build:php",
 		"build:zip": "npm run delete:zip && npm run build && node ./bin/build.js && node ./bin/buildZip.js && composer install"
 	},
