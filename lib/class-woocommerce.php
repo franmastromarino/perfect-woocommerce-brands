@@ -201,7 +201,6 @@ class WooCommerce {
 	}
 
 	public function add_shortcodes() {
-		error_log( 'test' );
 		add_shortcode(
 			'pwb-carousel',
 			array(
