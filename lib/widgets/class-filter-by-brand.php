@@ -180,7 +180,7 @@ class Filter_By_Brand extends \WP_Widget {
 
 			if ( $brand_o->parent ) {
 				/**
-				 * exclude this child brand and include the parent
+				 * Exclude this child brand and include the parent
 				 */
 				unset( $brands[ $brand_key ] );
 				if ( ! in_array( $brand_o->parent, $brands ) ) {
