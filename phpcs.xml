@@ -2,7 +2,7 @@
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Example Project" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
 
 	<description>QuadLayers PHPCS rules</description>
-	
+
 	<!-- Configs -->
 	<config name="minimum_supported_wp_version" value="4.1" />
 	<config name="testVersion" value="5.6-" />

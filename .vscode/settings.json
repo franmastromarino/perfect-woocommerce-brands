@@ -17,6 +17,7 @@
 	"[php]": {
 		"editor.defaultFormatter": "persoderlind.vscode-phpcbf"
 	},
+	"files.eol": "\n",
 	"intelephense.stubs": [
 		"apache",
 		"bcmath",
