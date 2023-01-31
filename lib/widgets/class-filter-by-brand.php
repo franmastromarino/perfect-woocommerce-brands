@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_Woocommerce_Brands\Widgets;
+namespace QuadLayers\Perfect_WooCommerce_Brands\Widgets;
 
 use WP_Query;
 
@@ -157,7 +157,7 @@ class Filter_By_Brand extends \WP_Widget {
 
 			$result_brands_ordered = apply_filters( 'pwb_widget_brand_filter', $result_brands_ordered );
 
-			echo \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::render_template(// phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+			echo \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::render_template(// phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 				'filter-by-brand',
 				'widgets',
 				array(

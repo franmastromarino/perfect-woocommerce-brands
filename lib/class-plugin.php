@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_Woocommerce_Brands;
+namespace QuadLayers\Perfect_WooCommerce_Brands;
 
 class Plugin {
 

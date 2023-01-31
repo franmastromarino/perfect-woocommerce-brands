@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_Woocommerce_Brands\Shortcodes;
+namespace QuadLayers\Perfect_WooCommerce_Brands\Shortcodes;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
@@ -26,10 +26,10 @@ class All_Brands {
 
 		$brands = array();
 		if ( $atts['order_by'] == 'rand' ) {
-			$brands = \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::get_brands( $hide_empty );
+			$brands = \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::get_brands( $hide_empty );
 			shuffle( $brands );
 		} else {
-			$brands = \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::get_brands( $hide_empty, $atts['order_by'], $atts['order'] );
+			$brands = \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::get_brands( $hide_empty, $atts['order_by'], $atts['order'] );
 		}
 
 		/**

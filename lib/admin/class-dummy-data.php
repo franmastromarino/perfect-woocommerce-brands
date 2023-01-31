@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_Woocommerce_Brands\Admin;
+namespace QuadLayers\Perfect_WooCommerce_Brands\Admin;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
@@ -89,7 +89,7 @@ class Dummy_Data {
 	}
 
 	public function set_brands_randomly() {
-		$brands = \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::get_brands_array();
+		$brands = \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::get_brands_array();
 
 		$the_query = new \WP_Query(
 			array(

@@ -1,10 +1,12 @@
 <?php
 
-namespace QuadLayers\Perfect_Woocommerce_Brands\Admin;
+namespace QuadLayers\Perfect_WooCommerce_Brands\Admin;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Admin_Tab {
+
+	protected $id;
 
 	public function __construct() {
 

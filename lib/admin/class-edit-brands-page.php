@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_Woocommerce_Brands\Admin;
+namespace QuadLayers\Perfect_WooCommerce_Brands\Admin;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
@@ -40,7 +40,7 @@ class Edit_Brands_Page {
 			)
 		);
 
-		echo \QuadLayers\Perfect_Woocommerce_Brands\WooCommerce::render_template(// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::render_template(// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'edit-brands-bottom',
 			'admin',
 			array(

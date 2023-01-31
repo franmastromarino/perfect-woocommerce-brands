@@ -37,12 +37,12 @@
 	},
 	"extra": {
 		"quadlayers/wp-autoload": {
-			"\\QuadLayers\\Perfect_Woocommerce_Brands\\": "lib/"
+			"QuadLayers\\Perfect_WooCommerce_Brands": "lib/"
 		},
 		"wp-plugin-slug": "perfect-woocommerce-brands"
 	},
 	"require-dev": {
-		"quadlayers/wp-autoload": "dev-main",
+		"quadlayers/wp-autoload": "*",
 		"woocommerce/woocommerce-sniffs": "^0.1.3",
 		"phpunit/phpunit": "^9.5"
 	},

@@ -12,7 +12,7 @@
 	"phpcbf.enable": true,
 	"phpcbf.executablePath": "./vendor/bin/phpcbf.bat",
 	"phpcbf.documentFormattingProvider": true,
-	"phpcbf.onsave": true,
+	"phpcbf.onsave": false,
 	"phpcbf.standard": "WordPress",
 	"[php]": {
 		"editor.defaultFormatter": "persoderlind.vscode-phpcbf"

@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_Woocommerce_Brands;
+namespace QuadLayers\Perfect_WooCommerce_Brands;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
@@ -204,44 +204,44 @@ class WooCommerce {
 		add_shortcode(
 			'pwb-carousel',
 			array(
-				'\QuadLayers\Perfect_Woocommerce_Brands\Shortcodes\Carousel',
+				'\QuadLayers\Perfect_WooCommerce_Brands\Shortcodes\Carousel',
 				'carousel_shortcode',
 			)
 		);
 		add_shortcode(
 			'pwb-product-carousel',
 			array(
-				'\QuadLayers\Perfect_Woocommerce_Brands\Shortcodes\Product_Carousel',
+				'\QuadLayers\Perfect_WooCommerce_Brands\Shortcodes\Product_Carousel',
 				'product_carousel_shortcode',
 			)
 		);
 		add_shortcode(
 			'pwb-all-brands',
 			array(
-				'\QuadLayers\Perfect_Woocommerce_Brands\Shortcodes\All_Brands',
+				'\QuadLayers\Perfect_WooCommerce_Brands\Shortcodes\All_Brands',
 				'all_brands_shortcode',
 			)
 		);
 		add_shortcode(
 			'pwb-az-listing',
 			array(
-				'\QuadLayers\Perfect_Woocommerce_Brands\Shortcodes\AZ_Listing',
+				'\QuadLayers\Perfect_WooCommerce_Brands\Shortcodes\AZ_Listing',
 				'shortcode',
 			)
 		);
 		add_shortcode(
 			'pwb-brand',
 			array(
-				'\QuadLayers\Perfect_Woocommerce_Brands\Shortcodes\Brand',
+				'\QuadLayers\Perfect_WooCommerce_Brands\Shortcodes\Brand',
 				'brand_shortcode',
 			)
 		);
 	}
 
 	public function register_widgets() {
-		register_widget( '\QuadLayers\Perfect_Woocommerce_Brands\Widgets\Brands_List' );
-		register_widget( '\QuadLayers\Perfect_Woocommerce_Brands\Widgets\Brands_Dropdown' );
-		register_widget( '\QuadLayers\Perfect_Woocommerce_Brands\Widgets\Filter_By_Brand' );
+		register_widget( '\QuadLayers\Perfect_WooCommerce_Brands\Widgets\Brands_List' );
+		register_widget( '\QuadLayers\Perfect_WooCommerce_Brands\Widgets\Brands_Dropdown' );
+		register_widget( '\QuadLayers\Perfect_WooCommerce_Brands\Widgets\Filter_By_Brand' );
 	}
 
 	public static function show_brands_in_loop() {
