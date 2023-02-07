@@ -1,30 +1,20 @@
 <?php
 
 /**
- *  Plugin Name: Perfect Brands for WooCommerce
- *  Plugin URI: https://quadlayers.com/portfolio/perfect-woocommerce-brands/
- *  Description: Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
- *  Version: 2.5.5
- *  Author: QuadLayers
- *  Author URI: https://quadlayers.com
- *  Text Domain: perfect-woocommerce-brands
- *  Domain Path: /lang
- *  License: GPLv3
- *      Perfect WooCommerce Brands version 1.9.0, Copyright (C) 2019 QuadLayers
- *      Perfect WooCommerce Brands is free software: you can redistribute it and/or modify
- *      it under the terms of the GNU General Public License as published by
- *      the Free Software Foundation, either version 3 of the License, or
- *      (at your option) any later version.
- *
- *      Perfect WooCommerce Brands is distributed in the hope that it will be useful,
- *      but WITHOUT ANY WARRANTY; without even the implied warranty of
- *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *      GNU General Public License for more details.
- *      You should have received a copy of the GNU General Public License
- *      along with Perfect WooCommerce Brands.  If not, see <http://www.gnu.org/licenses/>.
- *
- *  WC requires at least: 3.1.0
- *  WC tested up to: 7.2
+ * Plugin Name:             Perfect Brands for WooCommerce
+ * Plugin URI:              https://quadlayers.com/portfolio/woocommerce-license-manager/
+ * Description:             Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
+ * Version:                 2.5.5
+ * Text Domain:             perfect-woocommerce-brands
+ * Author:                  QuadLayers
+ * Author URI:              https://quadlayers.com
+ * License:                 GPLv3
+ * Domain Path:             /languages
+ * Request at least:        4.7.0
+ * Tested up to:            6.1
+ * Requires PHP:            5.6
+ * WC requires at least:    4.0
+ * WC tested up to:         7.3
  */
 
 namespace Perfect_Woocommerce_Brands;
