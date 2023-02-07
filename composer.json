@@ -1,0 +1,52 @@
+{
+	"name": "quadlayers/perfect-woocommerce-brands",
+	"description": "Perfect Brands for WooCommerce",
+	"type": "project",
+	"authors": [
+		{
+			"name": "QuadLayers",
+			"email": "noreply@quadlayers.com"
+		}
+	],
+	"minimum-stability": "stable",
+	"config": {
+		"allow-plugins": {
+			"quadlayers/wp-autoload": true,
+			"automattic/jetpack-composer-plugin": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"require": {
+		"automattic/jetpack-composer-plugin": "*",
+		"automattic/jetpack-assets": "*",
+		"quadlayers/wp-dashboard-widget-news": "*",
+		"quadlayers/wp-notice-plugin-required": "*",
+		"quadlayers/wp-notice-plugin-promote": "*",
+		"quadlayers/wp-plugin-table-links": "*",
+		"quadlayers/wp-plugin-suggestions": "*"
+	},
+	"autoload": {
+		"classmap": [
+			"lib/"
+		]
+	},
+	"autoload-dev": {
+		"exclude-from-classmap": [
+			"lib/"
+		]
+	},
+	"extra": {
+		"quadlayers/wp-autoload": {
+			"QuadLayers\\Perfect_WooCommerce_Brands": "lib/"
+		},
+		"wp-plugin-slug": "perfect-woocommerce-brands"
+	},
+	"require-dev": {
+		"quadlayers/wp-autoload": "*",
+		"woocommerce/woocommerce-sniffs": "^0.1.3",
+		"phpunit/phpunit": "^9.5"
+	},
+	"scripts": {
+		"test:phpunit": "./vendor/bin/phpunit phpunit"
+	}
+}

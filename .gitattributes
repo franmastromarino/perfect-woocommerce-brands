@@ -1,0 +1,9 @@
+# Set the default behavior for all files.
+* text=auto
+
+# Normalized and converts to
+# native line endings on checkout.
+*.php text
+
+# Convert to LF line endings on checkout.
+*.php text eol=lf
