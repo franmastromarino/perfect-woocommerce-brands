@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_WooCommerce_Brands\Widgets;
+namespace QuadLayers\PWB\Widgets;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
@@ -109,7 +109,7 @@ class Brands_List extends \WP_Widget {
 		$hide_empty    = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
 		$only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
 		$randomize     = ( isset( $randomize ) && $randomize == 'on' ) ? true : false;
-		$brands        = \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::get_brands(
+		$brands        = \QuadLayers\PWB\WooCommerce::get_brands(
 			$hide_empty,
 			'name',
 			'ASC',
@@ -136,7 +136,7 @@ class Brands_List extends \WP_Widget {
 			}
 			$li_class = ( $display_as == 'brand_logo' ) ? 'pwb-columns pwb-columns-' . $columns : '';
 
-			echo \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::render_template( // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+			echo \QuadLayers\PWB\WooCommerce::render_template( // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 				( $display_as == 'brand_logo' ) ? 'list-logo' : 'list',
 				'widgets',
 				array(

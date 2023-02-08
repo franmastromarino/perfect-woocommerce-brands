@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_WooCommerce_Brands\Shortcodes;
+namespace QuadLayers\PWB\Shortcodes;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
@@ -30,7 +30,7 @@ class Brand {
 			$brands[ $key ]->image     = wp_get_attachment_image( get_term_meta( $brand->term_id, 'pwb_brand_image', 1 ), $atts['image_size'] );
 		}
 
-		return \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::render_template(
+		return \QuadLayers\PWB\WooCommerce::render_template(
 			'brand',
 			'shortcodes',
 			array(

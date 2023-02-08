@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_WooCommerce_Brands\Shortcodes;
+namespace QuadLayers\PWB\Shortcodes;
 
 use WP_Query;
 
@@ -26,7 +26,7 @@ class AZ_Listing {
 			$only_parents = filter_var( $atts['only_parents'], FILTER_VALIDATE_BOOLEAN );
 			$hide_empty   = filter_var( $atts['hide_empty'], FILTER_VALIDATE_BOOLEAN );
 
-			$brands         = \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::get_brands( $hide_empty, 'name', 'ASC', false, false, $only_parents );
+			$brands         = \QuadLayers\PWB\WooCommerce::get_brands( $hide_empty, 'name', 'ASC', false, false, $only_parents );
 			$grouped_brands = array();
 
 			foreach ( $brands as $brand ) {
@@ -44,7 +44,7 @@ class AZ_Listing {
 
 		}
 
-		return \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::render_template(
+		return \QuadLayers\PWB\WooCommerce::render_template(
 			'az-listing',
 			'shortcodes',
 			array( 'grouped_brands' => $grouped_brands ),

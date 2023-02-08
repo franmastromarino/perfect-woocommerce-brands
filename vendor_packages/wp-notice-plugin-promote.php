@@ -97,7 +97,7 @@ if ( class_exists( 'QuadLayers\\WP_Plugin_Table_Links\\Load' ) ) {
 				),
 			),
 			array(
-				'plugin_slug'        => 'woocommerce-direct-checkout',
+				'plugin_slug'        => PWB_PROMOTE_CROSS_INSTALL_2_SLUG,
 				'notice_delay'       => MONTH_IN_SECONDS * 6,
 				'notice_logo'        => PWB_PROMOTE_LOGO_SRC,
 				'notice_title'       => sprintf(

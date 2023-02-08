@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_WooCommerce_Brands\Shortcodes;
+namespace QuadLayers\PWB\Shortcodes;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
@@ -35,7 +35,7 @@ class Product_Carousel {
 			wp_enqueue_script( 'pwb-lib-slick' );
 		}
 
-		return \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::render_template(
+		return \QuadLayers\PWB\WooCommerce::render_template(
 			'product-carousel',
 			'shortcodes',
 			array(

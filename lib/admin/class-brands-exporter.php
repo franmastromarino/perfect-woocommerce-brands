@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_WooCommerce_Brands\Admin;
+namespace QuadLayers\PWB\Admin;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
@@ -13,7 +13,7 @@ class Brands_Exporter {
 	}
 
 	public function exporter_button() {
-		echo \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::render_template(// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo \QuadLayers\PWB\WooCommerce::render_template(// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'brands-exporter',
 			'admin',
 			array( 'ok' => 'va' )

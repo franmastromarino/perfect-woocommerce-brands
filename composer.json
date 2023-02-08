@@ -10,6 +10,9 @@
 	],
 	"minimum-stability": "stable",
 	"config": {
+		"platform": {
+			"php": "7.3.0"
+		},
 		"allow-plugins": {
 			"quadlayers/wp-autoload": true,
 			"automattic/jetpack-composer-plugin": true,
@@ -17,6 +20,7 @@
 		}
 	},
 	"require": {
+		"php": ">=7.1.0",
 		"automattic/jetpack-composer-plugin": "*",
 		"automattic/jetpack-assets": "*",
 		"quadlayers/wp-dashboard-widget-news": "*",
@@ -37,7 +41,7 @@
 	},
 	"extra": {
 		"quadlayers/wp-autoload": {
-			"QuadLayers\\Perfect_WooCommerce_Brands": "lib/"
+			"QuadLayers\\PWB": "lib/"
 		},
 		"wp-plugin-slug": "perfect-woocommerce-brands"
 	},

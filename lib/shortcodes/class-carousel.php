@@ -1,6 +1,6 @@
 <?php
 
-namespace QuadLayers\Perfect_WooCommerce_Brands\Shortcodes;
+namespace QuadLayers\PWB\Shortcodes;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
@@ -36,7 +36,7 @@ class Carousel {
 			wp_enqueue_script( 'pwb-lib-slick' );
 		}
 
-		return \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::render_template(
+		return \QuadLayers\PWB\WooCommerce::render_template(
 			'carousel',
 			'shortcodes',
 			array(
@@ -69,9 +69,9 @@ class Carousel {
 		$hide_empty = ( self::$atts['hide_empty'] != 'true' ) ? false : true;
 
 		if ( self::$atts['items'] == 'featured' ) {
-			$brands_array = \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::get_brands( self::$atts['items'], 'name', 'ASC', true );
+			$brands_array = \QuadLayers\PWB\WooCommerce::get_brands( self::$atts['items'], 'name', 'ASC', true );
 		} else {
-			$brands_array = \QuadLayers\Perfect_WooCommerce_Brands\WooCommerce::get_brands( $hide_empty, self::$atts['order_by'], self::$atts['order'] );
+			$brands_array = \QuadLayers\PWB\WooCommerce::get_brands( $hide_empty, self::$atts['order_by'], self::$atts['order'] );
 		}
 		foreach ( $brands_array as $brand ) {
 			if ( self::$atts['items'] != 'featured' && $foreach_i >= (int) self::$atts['items'] ) {

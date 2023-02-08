@@ -1,5 +1,5 @@
 <?php
-namespace QuadLayers\Perfect_WooCommerce_Brands;
+namespace QuadLayers\PWB;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
