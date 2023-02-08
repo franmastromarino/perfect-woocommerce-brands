@@ -96,6 +96,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 == Changelog ==
 = 3.0.0=
 * Fix: Refactor
+= 2.5.6=
+* New: WooCommerce compatibility
 = 2.5.5=
 * Fix: AZ listing shortcode hide empty
 * Fix:Remove duplicated documentation link

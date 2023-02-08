@@ -54,16 +54,19 @@ require_once __DIR__ . '/lib/class-plugin.php';
  */
 register_activation_hook(
 	__FILE__,
-	function () {
+	function() {
+		do_action( 'pwb_activation' );
 		update_option( 'pwb_activate_on', time() );
 	}
 );
+
 /**
  * Plugin activation hook
  */
 register_deactivation_hook(
 	__FILE__,
-	function () {
+	function() {
+		do_action( 'pwb_deactivation' );
 		/**
 		 * Clean brands slug
 		 */

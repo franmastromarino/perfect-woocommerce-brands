@@ -2,7 +2,7 @@
 
 namespace QuadLayers\PWB;
 
-class Plugin {
+final class Plugin {
 
 	protected static $instance;
 
@@ -14,15 +14,10 @@ class Plugin {
 		/**
 		 * Load plugin textdomain.
 		 */
-		add_action(
-			'plugins_loaded',
-			function () {
-				load_plugin_textdomain( 'perfect-woocommerce-brands', false, PWB_PLUGIN_DIR . '/languages' );
-			}
-		);
+		load_plugin_textdomain( 'perfect-woocommerce-brands', false, PWB_PLUGIN_DIR . '/languages' );
 
 		/**
-		 * Load plugin files on WooCommerce init
+		 * Load plugin files on woocommerce_init init
 		 */
 		add_action(
 			'woocommerce_init',
@@ -49,14 +44,16 @@ class Plugin {
 
 	}
 
-	public static function get_instance() {
-
-		if ( ! self::$instance || ! self::$instance instanceof self ) {
+	public static function instance() {
+		if ( is_null( self::$instance ) ) {
 			self::$instance = new self();
 		}
-
 		return self::$instance;
 	}
 }
 
-Plugin::get_instance();
+function INIT() {
+	return Plugin::instance();
+}
+
+INIT();
