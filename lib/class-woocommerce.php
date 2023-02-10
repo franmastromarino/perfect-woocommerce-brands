@@ -197,7 +197,7 @@ class WooCommerce {
 			);
 		}
 
-		return array_merge( $markup, $new_markup );
+		return array_merge( (array) $markup, $new_markup );
 	}
 
 	public function add_shortcodes() {

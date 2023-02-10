@@ -17,4 +17,4 @@ playwright-report
 playwright
 #Zip
 *.zip
-/perfect-woocommerce-brands/
+.plugin
