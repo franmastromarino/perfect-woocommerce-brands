@@ -9,23 +9,31 @@
 *.php text eol=lf
 
 # Exclude files from the package.
-.eslintrc  	        export-ignore
+.husky  	        export-ignore
+.design  	        export-ignore
+.ideas  	    	export-ignore
+.vscode  	    	export-ignore
+bin  	    		export-ignore
+node_modules    	export-ignore
+packages 	    	export-ignore
+phpunit  	    	export-ignore
+tests	  	    	export-ignore
+.editorconfig   	export-ignore
+.eslintignore  	    export-ignore
+.eslintrc.json 	    export-ignore
 .gitignore  	    export-ignore
-phpcs.xml  	        export-ignore
-package.json     	export-ignore
-package-lock.json   export-ignore
-webpack.config.js   export-ignore
-src                 export-ignore
-tests               export-ignore
-.github             export-ignore
-.wordpress-org      export-ignore
-.releaserc.yml      export-ignore
-Gruntfile.js        export-ignore
-composer.json 	    export-ignore
-composer.lock 	    export-ignore
-bin 	            export-ignore
-.gitattributes 	    export-ignore
-.distignore         export-ignore
-phpunit.xml         export-ignore
-docker-compose.yml  export-ignore
-grunt               export-ignore
+.gitattributes  	export-ignore
+.lintstagedrc  	    export-ignore
+.prettierignore  	    	export-ignore
+.prettierrc.js  	    	export-ignore
+.stylelintrc.json  	    	export-ignore
+.wp-env.json  	    	export-ignore
+composer.json  	    	export-ignore
+composer.lock  	    	export-ignore
+jest.config.js  	    	export-ignore
+package-lock.json  	    	export-ignore
+package.json  	    	export-ignore
+phpcs_error.txt
+phpcs.xml
+playwright.config.js
+webpack.config.js
