@@ -1,6 +1,6 @@
 # Perfect WooCommerce Brands
 
-[![Perfect WooCommerce Brands](https://ps.w.org/perfect-woocommerce-brands/assets/icon-128x128.png)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
+[![Perfect WooCommerce Brands](https://ps.w.org/perfect-woocommerce-brands/assets/icon-128x128.jpg)](https://es.wordpress.org/plugins/perfect-woocommerce-brands/)
 
 **🏷️ Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.**
 
@@ -8,9 +8,9 @@ Whether we like to admit it or not, we are all influenced by brands. Brands are 
 
 ### Requirements
 
--   PHP 5.6 or higher (PHP7 recommended)
+-   PHP 7.1 or higher
 -   WordPress 4.7 or higher
--   WooCommerce 3.1.0 or higher
+-   WooCommerce 4.0 or higher
 
 ### Features
 
