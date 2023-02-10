@@ -32,6 +32,9 @@
 	"autoload": {
 		"classmap": [
 			"lib/"
+		],
+		"files": [
+			"perfect-woocommerce-brands.php"
 		]
 	},
 	"autoload-dev": {
