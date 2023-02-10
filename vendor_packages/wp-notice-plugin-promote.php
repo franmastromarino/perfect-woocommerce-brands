@@ -114,6 +114,6 @@ if ( class_exists( 'QuadLayers\\WP_Plugin_Table_Links\\Load' ) ) {
 					'perfect-woocommerce-brands'
 				),
 			),
-		),
+		)
 	);
 }
