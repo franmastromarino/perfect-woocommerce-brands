@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Plugin Name:             Perfect Brands for WooCommerce
+ * Plugin Name:             Perfect Brands WooCommerce
  * Plugin URI:              https://quadlayers.com/portfolio/perfect-woocommerce-brands/
  * Description:             Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
- * Version:                 3.0.2
+ * Version:                 3.0.3
  * Text Domain:             perfect-woocommerce-brands
  * Author:                  QuadLayers
  * Author URI:              https://quadlayers.com
@@ -14,7 +14,7 @@
  * Tested up to:            6.1
  * Requires PHP:            5.6
  * WC requires at least:    4.0
- * WC tested up to:         7.3
+ * WC tested up to:         7.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -23,7 +23,7 @@ define( 'PWB_PLUGIN_FILE', __FILE__ );
 define( 'PWB_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'PWB_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
 define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'PWB_PLUGIN_VERSION', '3.0.2' );
+define( 'PWB_PLUGIN_VERSION', '3.0.3' );
 define( 'PWB_PLUGIN_NAME', 'Perfect WooCommerce Brands' );
 define( 'PWB_PREFIX', 'pwb' );
 define( 'PWB_PURCHASE_URL', 'https://quadlayers.com/portfolio/perfect-woocommerce-brands/?utm_source=pwb_admin' );
@@ -42,8 +42,9 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/vendor_packages/wp-i18n-map.php';
 require_once __DIR__ . '/vendor_packages/wp-dashboard-widget-news.php';
 require_once __DIR__ . '/vendor_packages/wp-notice-plugin-required.php';
-require_once __DIR__ . '/vendor_packages/wp-notice-plugin-promote.php';
 require_once __DIR__ . '/vendor_packages/wp-plugin-table-links.php';
+require_once __DIR__ . '/vendor_packages/wp-notice-plugin-promote.php';
+require_once __DIR__ . '/vendor_packages/wp-plugin-suggestions.php';
 /**
  * Load plugin
  */

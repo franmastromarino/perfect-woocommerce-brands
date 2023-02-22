@@ -13,10 +13,17 @@
 	"phpcbf.executablePath": "./vendor/bin/phpcbf.bat",
 	"phpcbf.documentFormattingProvider": true,
 	"phpcbf.onsave": false,
-	"phpcbf.standard": "WordPress",
+	"phpcbf.standard": "./phpcs.xml",
 	"[php]": {
-		"editor.defaultFormatter": "persoderlind.vscode-phpcbf"
+		"editor.defaultFormatter": "valeryanm.vscode-phpsab"
 	},
+	"phpsab.snifferMode": "onSave",
+	"phpsab.snifferShowSources": true,
+	"phpsab.composerJsonPath": "./composer.json",
+	"phpsab.debug": true,
+	"phpsab.standard": "./phpcs.xml",
+	"phpsab.executablePathCS": "./vendor/bin/phpcs.bat",
+	"phpsab.executablePathCBF": "./vendor/bin/phpcbf.bat",
 	"files.eol": "\n",
 	"intelephense.stubs": [
 		"apache",
