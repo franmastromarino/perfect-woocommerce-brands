@@ -38,6 +38,11 @@ class Admin_Tab {
 						'href'   => PWB_PREMIUM_SELL_URL,
 						'target' => '_blank',
 					),
+					array(
+						'title'  => __( 'Suggestions', 'perfect-woocommerce-brands' ),
+						'href'   => admin_url( 'admin.php?page=wc-settings_suggestions'),
+						'target' => '_blank',
+					),
 				);
 
 				return $tabs;

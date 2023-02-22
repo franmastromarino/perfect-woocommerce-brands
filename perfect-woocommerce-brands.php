@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name:             Perfect Brands for WooCommerce
+ * Plugin Name:             Perfect Brands WooCommerce
  * Plugin URI:              https://quadlayers.com/portfolio/perfect-woocommerce-brands/
  * Description:             Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
  * Version:                 3.0.3
@@ -42,8 +42,9 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/vendor_packages/wp-i18n-map.php';
 require_once __DIR__ . '/vendor_packages/wp-dashboard-widget-news.php';
 require_once __DIR__ . '/vendor_packages/wp-notice-plugin-required.php';
-require_once __DIR__ . '/vendor_packages/wp-notice-plugin-promote.php';
 require_once __DIR__ . '/vendor_packages/wp-plugin-table-links.php';
+require_once __DIR__ . '/vendor_packages/wp-notice-plugin-promote.php';
+require_once __DIR__ . '/vendor_packages/wp-plugin-suggestions.php';
 /**
  * Load plugin
  */
