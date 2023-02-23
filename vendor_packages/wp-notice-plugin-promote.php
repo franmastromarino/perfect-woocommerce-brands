@@ -1,6 +1,6 @@
 <?php
 
-if ( class_exists( 'QuadLayers\\WP_Plugin_Table_Links\\Load' ) ) {
+if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 	/**
 	 *  Promote constants
 	 */
@@ -14,6 +14,7 @@ if ( class_exists( 'QuadLayers\\WP_Plugin_Table_Links\\Load' ) ) {
 	 */
 	define( 'PWB_PROMOTE_PREMIUM_SELL_SLUG', 'perfect-woocommerce-brands-pro' );
 	define( 'PWB_PROMOTE_PREMIUM_SELL_NAME', 'Perfect WooCommerce Brands PRO' );
+	define( 'PWB_PROMOTE_PREMIUM_INSTALL_URL', 'https://quadlayers.com/product/perfect-woocommerce-brands/?utm_source=pwb_admin' );
 	define( 'PWB_PROMOTE_PREMIUM_SELL_URL', PWB_PREMIUM_SELL_URL );
 	/**
 	 * Notice cross sell 1
@@ -58,6 +59,11 @@ if ( class_exists( 'QuadLayers\\WP_Plugin_Table_Links\\Load' ) ) {
 			),
 			array(
 				'plugin_slug'        => PWB_PROMOTE_PREMIUM_SELL_SLUG,
+				'plugin_install_link'   => PWB_PROMOTE_PREMIUM_INSTALL_URL,
+				'plugin_install_label'  => esc_html__(
+					'Purchase Now',
+					'perfect-woocommerce-brands'
+				),
 				'notice_delay'       => MONTH_IN_SECONDS,
 				'notice_logo'        => PWB_PROMOTE_LOGO_SRC,
 				'notice_title'       => esc_html__(
