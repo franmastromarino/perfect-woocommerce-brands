@@ -1,8 +1,10 @@
 const fs = require('fs');
+const path = require('path');
+const { zip, COMPRESSION_LEVEL } = require('zip-a-folder');
 
 const myArgs = process.argv;
 
-const { pluginName, pluginFolder, copyFromToArr, consoleError, consoleSuccess, compressFromTo, deleteFromPluginFolder } = require('./helpers');
+const { pluginName, pluginFolder, copyFromToArr, consoleError, consoleSuccess, deleteFromPluginFolder } = require('./helpers');
 
 const PLUGIN_FILES = [
 	{
@@ -17,6 +19,9 @@ const PLUGIN_FILES = [
 	},
 	{
 		source: "uninstall.php",
+	},
+	{
+		source: "wpml-config.xml",
 	},
 	{
 		source: "./lib",
@@ -35,6 +40,9 @@ const PLUGIN_FILES = [
 		required: true,
 	},
 	{
+		source: "./compatibility"
+	},
+	{
 		source: "./build",
 	},
 	{
@@ -48,6 +56,17 @@ const PLUGIN_FILES = [
 	},
 
 ]
+
+/**
+ * Compresses a folder to the specified zip file.
+ * @param {string} folder 
+ * @param {string} filePath 
+ */
+const compressFromTo = async (source, target) => {
+	const sourcePath = path.resolve(source);
+	const targetPath = path.resolve(target);
+	return await zip(sourcePath, targetPath, { compression: COMPRESSION_LEVEL.high });
+};
 
 /**
  * Execute:
