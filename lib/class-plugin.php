@@ -51,7 +51,7 @@ final class Plugin {
 		return self::$instance;
 	}
 }
-
+// phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 function INIT() {
 	return Plugin::instance();
 }

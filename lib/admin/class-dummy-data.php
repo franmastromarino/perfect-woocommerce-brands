@@ -12,8 +12,9 @@ class Dummy_Data {
 
 	private static function get_attachment_id_from_src( $image_src ) {
 		global $wpdb;
-		$query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$image_src'";
-		$id    = $wpdb->get_var( $query );
+		// $query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$image_src'";
+		// $id    = $wpdb->get_var( $query );
+		$id    = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE guid='%1s'", $image_src ) );
 		return $id;
 	}
 
@@ -25,9 +26,9 @@ class Dummy_Data {
 	}
 
 	private static function upload_image( $post_id, $img_url ) {
-		require_once ABSPATH . 'wp-admin' . '/includes/image.php';
-		require_once ABSPATH . 'wp-admin' . '/includes/file.php';
-		require_once ABSPATH . 'wp-admin' . '/includes/media.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/media.php';
 
 		/**
 		 *Solves media_sideload_image bug with spaces in filenames
@@ -64,13 +65,7 @@ class Dummy_Data {
 	}
 
 	public function admin_dummy_data() {
-		if (
-		isset( $_REQUEST['nonce'] )
-		&&
-		wp_verify_nonce( $_REQUEST['nonce'], 'pwb_admin_dummy_data' )
-		&&
-		current_user_can( 'manage_options' )
-		) {
+		if ( isset( $_REQUEST['nonce'] ) && wp_verify_nonce( wc_clean( wp_unslash( $_REQUEST['nonce'] ) ), 'pwb_admin_dummy_data' ) && current_user_can( 'manage_options' ) ) {
 
 			for ( $i = 1; $i < 11; $i++ ) {
 				$term_desc      = $this->build_description();

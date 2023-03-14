@@ -17,7 +17,7 @@ class Product {
 
 			if ( ! empty( $brands ) ) {
 				$show_brand_tab = get_option( 'wc_pwb_admin_tab_brand_single_product_tab' );
-				if ( $show_brand_tab == 'yes' || ! $show_brand_tab ) {
+				if ( 'yes' == $show_brand_tab || ! $show_brand_tab ) {
 					$tabs['pwb_tab'] = array(
 						'title'    => __( 'Brand', 'perfect-woocommerce-brands' ),
 						'priority' => 20,

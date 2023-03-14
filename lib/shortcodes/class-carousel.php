@@ -53,8 +53,8 @@ class Carousel {
 		$slick_settings = array(
 			'slidesToShow'   => (int) self::$atts['items_to_show'],
 			'slidesToScroll' => (int) self::$atts['items_to_scroll'],
-			'autoplay'       => ( self::$atts['autoplay'] === 'true' ) ? true : false,
-			'arrows'         => ( self::$atts['arrows'] === 'true' ) ? true : false,
+			'autoplay'       => ( 'true' === self::$atts['autoplay'] ) ? true : false,
+			'arrows'         => ( 'true' === self::$atts['arrows'] ) ? true : false,
 		);
 
 		return htmlspecialchars( json_encode( $slick_settings ), ENT_QUOTES, 'UTF-8' );
@@ -66,15 +66,15 @@ class Carousel {
 		$brands    = array();
 		$foreach_i = 0;
 
-		$hide_empty = ( self::$atts['hide_empty'] != 'true' ) ? false : true;
+		$hide_empty = ( 'true' != self::$atts['hide_empty'] ) ? false : true;
 
-		if ( self::$atts['items'] == 'featured' ) {
+		if ( 'featured' == self::$atts['items'] ) {
 			$brands_array = \QuadLayers\PWB\WooCommerce::get_brands( self::$atts['items'], 'name', 'ASC', true );
 		} else {
 			$brands_array = \QuadLayers\PWB\WooCommerce::get_brands( $hide_empty, self::$atts['order_by'], self::$atts['order'] );
 		}
 		foreach ( $brands_array as $brand ) {
-			if ( self::$atts['items'] != 'featured' && $foreach_i >= (int) self::$atts['items'] ) {
+			if ( 'featured' != self::$atts['items'] && $foreach_i >= (int) self::$atts['items'] ) {
 				break;
 			}
 
@@ -82,7 +82,7 @@ class Carousel {
 			$brand_link      = get_term_link( $brand_id );
 			$attachment_id   = get_term_meta( $brand_id, 'pwb_brand_image', 1 );
 			$attachment_html = $brand->name;
-			if ( $attachment_id != '' ) {
+			if ( '' != $attachment_id ) {
 				$attachment_html = wp_get_attachment_image( $attachment_id, self::$atts['image_size'] );
 			}
 

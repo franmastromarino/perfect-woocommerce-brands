@@ -15,8 +15,20 @@
 
 	<!-- Include the WordPress-Extra standard. -->
 	<rule ref="WordPress-Extra">
-		<exclude name="WordPress.WP.GlobalVariablesOverride" />
+		<!-- <exclude name="WordPress.WP.GlobalVariablesOverride" /> -->
 		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment"/>
+		<!-- <exclude name="WordPress.PHP.YodaConditions.NotYoda" /> -->
+
+		<!-- New -->
+		<exclude name="Squiz.Commenting.FileComment.Missing" />
+		<exclude name="Squiz.Commenting.ClassComment.Missing" />
+		<exclude name="Squiz.Commenting.VariableComment.Missing" />
+		<exclude name="Squiz.Commenting.FunctionComment.Missing" />
+		<exclude name="Squiz.Commenting.FunctionComment.MissingParamTag" />
+		<exclude name="Squiz.Commenting.FunctionComment.MissingParamName" />
+		<exclude name="Squiz.Commenting.FunctionComment.MissingParamComment" />
+
+		<exclude name="WooCommerce.Commenting.CommentHooks.MissingHookComment" />
 	</rule>
 
 	<!-- Add in some extra rules from other standards. -->
@@ -35,5 +47,7 @@
 	<rule ref="PHPCompatibility">
 		<exclude-pattern>*/tests/*</exclude-pattern>
 	</rule>
+		
+
 
 </ruleset>

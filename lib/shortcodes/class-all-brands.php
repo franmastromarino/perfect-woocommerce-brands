@@ -20,12 +20,12 @@ class All_Brands {
 			'pwb-all-brands'
 		);
 
-		$hide_empty = ( $atts['hide_empty'] != 'true' ) ? false : true;
+		$hide_empty = ( 'true' != $atts['hide_empty'] ) ? false : true;
 
 		ob_start();
 
 		$brands = array();
-		if ( $atts['order_by'] == 'rand' ) {
+		if ( 'rand' == $atts['order_by'] ) {
 			$brands = \QuadLayers\PWB\WooCommerce::get_brands( $hide_empty );
 			shuffle( $brands );
 		} else {
@@ -86,7 +86,7 @@ class All_Brands {
 
 		$page = 1;
 
-		if ( isset( $_GET['pwb-page'] ) && filter_var( $_GET['pwb-page'], FILTER_VALIDATE_INT ) == true ) {
+		if ( isset( $_GET['pwb-page'] ) && true == filter_var( wp_unslash( $_GET['pwb-page'] ), FILTER_VALIDATE_INT ) ) {
 			$page = intval( $_GET['pwb-page'] );
 		}
 
@@ -119,13 +119,13 @@ class All_Brands {
 
 						$attachment_id   = get_term_meta( $brand_id, 'pwb_brand_image', 1 );
 						$attachment_html = $brand_name;
-						if ( $attachment_id != '' ) {
+						if ( '' != $attachment_id ) {
 							$attachment_html = wp_get_attachment_image( $attachment_id, $image_size );
 						}
 
 						?>
 							<div class="pwb-brands-col3">
-								<?php if ( $title_position != 'none' && $title_position != 'after' ) : ?>
+								<?php if ( 'none' != $title_position && 'after' != $title_position ) : ?>
 									<p>
 											<a href="<?php echo esc_url( $brand_link ); ?>">
 												<?php echo esc_html( $brand_name ); ?>
@@ -138,7 +138,7 @@ class All_Brands {
 										<?php echo wp_kses_post( $attachment_html ); ?>
 									</a>
 								</div>
-								<?php if ( $title_position != 'none' && $title_position == 'after' ) : ?>
+								<?php if ( 'none' != $title_position && 'after' == $title_position ) : ?>
 									<p>
 										<a href="<?php echo esc_html( $brand_link ); ?>">
 											<?php echo wp_kses_post( $brand_name ); ?>

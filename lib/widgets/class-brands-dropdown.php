@@ -18,8 +18,8 @@ class Brands_Dropdown extends \WP_Widget {
 		extract( $instance );
 
 		$title         = ( isset( $instance['title'] ) ) ? $instance['title'] : esc_html__( 'Brands', 'perfect-woocommerce-brands' );
-		$hide_empty    = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
-		$only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
+		$hide_empty    = ( isset( $hide_empty ) && 'on' == $hide_empty ) ? true : false;
+		$only_featured = ( isset( $only_featured ) && 'on' == $only_featured ) ? true : false;
 		?>
 
 	<p>
@@ -72,8 +72,8 @@ class Brands_Dropdown extends \WP_Widget {
 		$queried_obj      = get_queried_object();
 		$queried_brand_id = ( isset( $queried_obj->term_id ) ) ? $queried_obj->term_id : false;
 
-		$hide_empty    = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
-		$only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
+		$hide_empty    = ( isset( $hide_empty ) && 'on' == $hide_empty ) ? true : false;
+		$only_featured = ( isset( $only_featured ) && 'on' == $only_featured ) ? true : false;
 		$brands        = \QuadLayers\PWB\WooCommerce::get_brands(
 			$hide_empty,
 			'name',

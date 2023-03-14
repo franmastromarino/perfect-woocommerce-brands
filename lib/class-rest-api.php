@@ -4,7 +4,7 @@ namespace QuadLayers\PWB;
 
 use \WP_Error, WP_REST_Server, \WC_REST_Terms_Controller;
 
-defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class Rest_Api extends WC_REST_Terms_Controller {
 
@@ -171,6 +171,7 @@ class Rest_Api extends WC_REST_Terms_Controller {
 		 * @param WP_REST_Response  $response  The response object.
 		 * @param object            $item      The original term object.
 		 * @param WP_REST_Request   $request   Request used to generate the response.
+		 * @since 2.3.0
 		 */
 		return apply_filters( "woocommerce_rest_prepare_{$this->taxonomy}", $response, $item, $request );
 	}

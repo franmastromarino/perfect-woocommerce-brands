@@ -19,7 +19,7 @@ class Edit_Brands_Page {
 	// phpcs:ignore WordPress.Security.NonceVerification.Missing
 	private static function is_edit_brands_page() {
 		global $pagenow;
-		return ( $pagenow == 'edit-tags.php' && isset( $_GET['taxonomy'] ) && $_GET['taxonomy'] == 'pwb-brand' ) ? true : false; // phpcs:ignore WordPress.Security.NonceVerification.Missing
+		return ( 'edit-tags.php' == $pagenow && isset( $_GET['taxonomy'] ) && 'pwb-brand' == $_GET['taxonomy'] ) ? true : false; // phpcs:ignore WordPress.Security.NonceVerification.Missing
 	}
 
 	public function add_brands_count( $tax_name ) {
@@ -113,13 +113,8 @@ class Edit_Brands_Page {
 	}
 
 	public function admin_set_featured_brand() {
-		if (
-		isset( $_REQUEST['nonce'] )
-		&&
-		wp_verify_nonce( $_REQUEST['nonce'], 'pwb_admin_set_featured_brand' )
-		&&
-		current_user_can( 'manage_options' )
-		) {
+
+		if ( isset( $_REQUEST['nonce'] ) && wp_verify_nonce( wc_clean( wp_unslash( $_REQUEST['nonce'] ) ), 'pwb_admin_set_featured_brand' ) && current_user_can( 'manage_options' ) ) {
 
 			if ( isset( $_POST['brand'] ) ) {
 				$direction = 'up';
@@ -170,18 +165,12 @@ class Edit_Brands_Page {
 	}
 
 	public function admin_save_screen_settings() {
-		if (
-		isset( $_REQUEST['nonce'] )
-		&&
-		wp_verify_nonce( $_REQUEST['nonce'], 'pwb_admin_save_screen_settings' )
-		&&
-		current_user_can( 'manage_options' )
-		) {
+		if ( isset( $_REQUEST['nonce'] ) && wp_verify_nonce( wc_clean( wp_unslash( $_REQUEST['nonce'] ) ), 'pwb_admin_save_screen_settings' ) && current_user_can( 'manage_options' ) ) {
 
 			$current_user = wp_get_current_user();
 
 			if ( isset( $_POST['new_val'] ) ) {
-				$new_val = ( $_POST['new_val'] == 'true' ) ? true : false;
+				$new_val = ( 'true' == $_POST['new_val'] ) ? true : false;
 				update_user_option( $current_user->ID, 'pwb-first-featured-brands', $new_val );
 			}
 		}

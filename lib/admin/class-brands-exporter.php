@@ -21,13 +21,7 @@ class Brands_Exporter {
 	}
 
 	public function brands_export() {
-		if (
-		isset( $_REQUEST['nonce'] )
-		&&
-		wp_verify_nonce( $_REQUEST['nonce'], 'pwb_brands_export' )
-		&&
-		current_user_can( 'manage_options' )
-		) {
+		if ( isset( $_REQUEST['nonce'] ) && wp_verify_nonce( wc_clean( wp_unslash( $_REQUEST['nonce'] ) ), 'pwb_brands_export' ) && current_user_can( 'manage_options' ) ) {
 			$this->get_brands();
 		} else {
 			wp_send_json_error();
@@ -73,16 +67,9 @@ class Brands_Exporter {
 	}
 
 	public function brands_import() {
-		if (
-		isset( $_FILES['file'] )
-		&&
-		isset( $_REQUEST['nonce'] )
-		&&
-		wp_verify_nonce( $_REQUEST['nonce'], 'pwb_brands_import' )
-		&&
-		current_user_can( 'manage_options' )
-		) {
+		if ( isset( $_FILES['file'] ) && isset( $_REQUEST['nonce'] ) && wp_verify_nonce( wc_clean( wp_unslash( $_REQUEST['nonce'] ) ), 'pwb_brands_import' ) && current_user_can( 'manage_options' ) ) {
 
+			// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized,WordPress.Security.ValidatedSanitizedInput.MissingUnslash
 			$file = $_FILES['file'];
 
 			$file_content = json_decode( file_get_contents( $file['tmp_name'] ), true );
@@ -133,7 +120,7 @@ class Brands_Exporter {
 			return false;
 		}
 
-		$mirror = wp_upload_bits( basename( $image_url ), '', wp_remote_retrieve_body( $get ) );
+		$mirror = wp_upload_bits( basename( $image_url ), null, wp_remote_retrieve_body( $get ) );
 
 		$attachment = array(
 			'post_title'     => basename( $image_url ),

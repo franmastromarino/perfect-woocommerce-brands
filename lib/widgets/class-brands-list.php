@@ -24,9 +24,9 @@ class Brands_List extends \WP_Widget {
 		if ( ! isset( $columns ) ) {
 			$columns = '2';
 		}
-		$hide_empty    = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
-		$only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
-		$randomize     = ( isset( $randomize ) && $randomize == 'on' ) ? true : false;
+		$hide_empty    = ( isset( $hide_empty ) && 'on' == $hide_empty ) ? true : false;
+		$only_featured = ( isset( $only_featured ) && 'on' == $only_featured ) ? true : false;
+		$randomize     = ( isset( $randomize ) && 'on' == $randomize ) ? true : false;
 		?>
 
 	<p>
@@ -54,7 +54,7 @@ class Brands_List extends \WP_Widget {
 		<option value="brand_logo" <?php selected( $display_as, 'brand_logo' ); ?>><?php esc_html_e( 'Brand logo', 'perfect-woocommerce-brands' ); ?></option>
 	  </select>
 	</p>
-	<p class="pwb-display-as-logo<?php echo ( $display_as == 'brand_logo' ) ? ' show' : ''; ?>">
+	<p class="pwb-display-as-logo<?php echo ( 'brand_logo' == $display_as ) ? ' show' : ''; ?>">
 	  <label for="<?php echo esc_attr( $this->get_field_id( 'columns' ) ); ?>"><?php esc_html_e( 'Columns:', 'perfect-woocommerce-brands' ); ?></label>
 	  <select
 		class="widefat"
@@ -88,7 +88,7 @@ class Brands_List extends \WP_Widget {
 		<?php esc_html_e( 'Only favorite brands', 'perfect-woocommerce-brands' ); ?>
 	  </label>
 	</p>
-	<p class="pwb-display-as-logo<?php echo ( $display_as == 'brand_logo' ) ? ' show' : ''; ?>">
+	<p class="pwb-display-as-logo<?php echo ( 'brand_logo' == $display_as ) ? ' show' : ''; ?>">
 	  <input
 	  type="checkbox"
 	  id="<?php echo esc_attr( $this->get_field_id( 'randomize' ) ); ?>"
@@ -106,9 +106,9 @@ class Brands_List extends \WP_Widget {
 		extract( $args );
 		extract( $instance );
 
-		$hide_empty    = ( isset( $hide_empty ) && $hide_empty == 'on' ) ? true : false;
-		$only_featured = ( isset( $only_featured ) && $only_featured == 'on' ) ? true : false;
-		$randomize     = ( isset( $randomize ) && $randomize == 'on' ) ? true : false;
+		$hide_empty    = ( isset( $hide_empty ) && 'on' == $hide_empty ) ? true : false;
+		$only_featured = ( isset( $only_featured ) && 'on' == $only_featured ) ? true : false;
+		$randomize     = ( isset( $randomize ) && 'on' == $randomize ) ? true : false;
 		$brands        = \QuadLayers\PWB\WooCommerce::get_brands(
 			$hide_empty,
 			'name',
@@ -116,7 +116,7 @@ class Brands_List extends \WP_Widget {
 			$only_featured,
 			true
 		);
-		if ( isset( $randomize ) && $randomize == 'on' && $display_as == 'brand_logo' ) {
+		if ( isset( $randomize ) && 'on' == $randomize && 'brand_logo' == $display_as ) {
 			shuffle( $brands );
 		}
 
@@ -134,10 +134,10 @@ class Brands_List extends \WP_Widget {
 			if ( ! isset( $columns ) ) {
 				$columns = '2';
 			}
-			$li_class = ( $display_as == 'brand_logo' ) ? 'pwb-columns pwb-columns-' . $columns : '';
+			$li_class = ( 'brand_logo' == $display_as ) ? 'pwb-columns pwb-columns-' . $columns : '';
 
 			echo \QuadLayers\PWB\WooCommerce::render_template( // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
-				( $display_as == 'brand_logo' ) ? 'list-logo' : 'list',
+				( 'brand_logo' == $display_as ) ? 'list-logo' : 'list',
 				'widgets',
 				array(
 					'brands'       => $brands,

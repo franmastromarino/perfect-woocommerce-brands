@@ -11,13 +11,8 @@ class System_Status {
 	}
 
 	public function system_status() {
-		if (
-		isset( $_REQUEST['nonce'] )
-		&&
-		wp_verify_nonce( $_REQUEST['nonce'], 'pwb_system_status' )
-		&&
-		current_user_can( 'manage_options' )
-		) {
+		if ( isset( $_REQUEST['nonce'] ) && wp_verify_nonce( wc_clean( wp_unslash( $_REQUEST['nonce'] ) ), 'pwb_system_status' )
+		&& current_user_can( 'manage_options' ) ) {
 
 			print_r(
 				array(
@@ -30,7 +25,7 @@ class System_Status {
 					'wp_debug_mode'          => ( defined( 'WP_DEBUG' ) && WP_DEBUG ),
 					'wp_cron'                => ! ( defined( 'DISABLE_WP_CRON' ) && DISABLE_WP_CRON ),
 					'language'               => get_locale(),
-					'server_info'            => isset( $_SERVER['SERVER_SOFTWARE'] ) ? $_SERVER['SERVER_SOFTWARE'] : array(),
+					'server_info'            => isset( $_SERVER['SERVER_SOFTWARE'] ) ? wc_clean( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) ) : array(),
 					'php_version'            => phpversion(),
 					'php_post_max_size'      => ini_get( 'post_max_size' ),
 					'php_max_execution_time' => ini_get( 'max_execution_time' ),

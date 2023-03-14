@@ -127,13 +127,13 @@ class Brands_Custom_Fields {
 	}
 
 	public function add_brands_metafields_save( $term_id ) {
-		if ( ! isset( $_POST['pwb_nonce'] ) || ! wp_verify_nonce( $_POST['pwb_nonce'], basename( __FILE__ ) ) ) {
+		if ( ! isset( $_POST['pwb_nonce'] ) || ! wp_verify_nonce( wc_clean( wp_unslash( $_POST['pwb_nonce'] ) ), basename( __FILE__ ) ) ) {
 			return;
 		}
 
 		/* ·············· Brand image ·············· */
 		$old_img = get_term_meta( $term_id, 'pwb_brand_image', true );
-		$new_img = isset( $_POST['pwb_brand_image'] ) ? sanitize_text_field( $_POST['pwb_brand_image'] ) : '';
+		$new_img = isset( $_POST['pwb_brand_image'] ) ? sanitize_text_field( wp_unslash( $_POST['pwb_brand_image'] ) ) : '';
 
 		if ( $old_img && '' === $new_img ) {
 			delete_term_meta( $term_id, 'pwb_brand_image' );

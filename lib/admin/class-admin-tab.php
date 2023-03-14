@@ -40,7 +40,7 @@ class Admin_Tab {
 					),
 					array(
 						'title'  => __( 'Suggestions', 'perfect-woocommerce-brands' ),
-						'href'   => admin_url( 'admin.php?page=wc-settings_suggestions'),
+						'href'   => admin_url( 'admin.php?page=wc-settings_suggestions' ),
 						'target' => '_blank',
 					),
 				);
@@ -470,7 +470,7 @@ class Admin_Tab {
 
 		//phpcs:ignore:WordPress.Security.NonceVerification
 		if ( isset( $_POST['wc_pwb_admin_tab_slug'] ) ) {
-			$_POST['wc_pwb_admin_tab_slug'] = sanitize_title( $_POST['wc_pwb_admin_tab_slug'] );//phpcs:ignore:WordPress.Security.NonceVerification		
+			$_POST['wc_pwb_admin_tab_slug'] = sanitize_title( wp_unslash( $_POST['wc_pwb_admin_tab_slug'] ) );//phpcs:ignore:WordPress.Security.NonceVerification		
 		}
 		woocommerce_update_options( $this->get_settings() );
 	}

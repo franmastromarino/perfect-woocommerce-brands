@@ -11,13 +11,7 @@ class Migrate {
 	}
 
 	public function admin_migrate_brands() {
-		if (
-		isset( $_REQUEST['nonce'] )
-		&&
-		wp_verify_nonce( $_REQUEST['nonce'], 'pwb_admin_migrate_brands' )
-		&&
-		current_user_can( 'manage_options' )
-		) {
+		if ( isset( $_REQUEST['nonce'] ) && wp_verify_nonce( wc_clean( wp_unslash( $_REQUEST['nonce'] ) ), 'pwb_admin_migrate_brands' ) && current_user_can( 'manage_options' ) ) {
 
 			if ( isset( $_POST['from'] ) ) {
 
@@ -123,7 +117,8 @@ class Migrate {
 			/**
 			 * Add the logo id
 			 */
-			if ( $thumb_id = get_woocommerce_term_meta( $term_id, 'thumbnail_id', true ) ) {
+			$thumb_id = get_woocommerce_term_meta( $term_id, 'thumbnail_id', true );
+			if ( $thumb_id ) {
 				add_term_meta( $term_id, 'pwb_brand_image', $thumb_id );
 			}
 		}

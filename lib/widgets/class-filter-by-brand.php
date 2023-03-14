@@ -21,8 +21,8 @@ class Filter_By_Brand extends \WP_Widget {
 
 		$title                   = ( isset( $instance['title'] ) ) ? $instance['title'] : esc_html__( 'Brands', 'perfect-woocommerce-brands' );
 		$limit                   = ( isset( $instance['limit'] ) ) ? $instance['limit'] : 20;
-		$hide_submit_btn         = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
-		$only_first_level_brands = ( isset( $only_first_level_brands ) && $only_first_level_brands == 'on' ) ? true : false;
+		$hide_submit_btn         = ( isset( $hide_submit_btn ) && 'on' == $hide_submit_btn ) ? true : false;
+		$only_first_level_brands = ( isset( $only_first_level_brands ) && 'on' == $only_first_level_brands ) ? true : false;
 		?>
 
 		<p>
@@ -60,7 +60,7 @@ class Filter_By_Brand extends \WP_Widget {
 
 		$instance                            = array();
 		$instance['title']                   = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
-		$instance['limit']                   = ( $limit != false ) ? $limit : $old_instance['limit'];
+		$instance['limit']                   = ( false != $limit ) ? $limit : $old_instance['limit'];
 		$instance['hide_submit_btn']         = ( isset( $new_instance['hide_submit_btn'] ) ) ? $new_instance['hide_submit_btn'] : '';
 		$instance['only_first_level_brands'] = ( isset( $new_instance['only_first_level_brands'] ) ) ? $new_instance['only_first_level_brands'] : '';
 		return $instance;
@@ -72,8 +72,8 @@ class Filter_By_Brand extends \WP_Widget {
 
 		if ( ! is_tax( 'pwb-brand' ) && ! is_product() ) {
 
-			$hide_submit_btn         = ( isset( $hide_submit_btn ) && $hide_submit_btn == 'on' ) ? true : false;
-			$only_first_level_brands = ( isset( $only_first_level_brands ) && $only_first_level_brands == 'on' ) ? true : false;
+			$hide_submit_btn         = ( isset( $hide_submit_btn ) && 'on' == $hide_submit_btn ) ? true : false;
+			$only_first_level_brands = ( isset( $only_first_level_brands ) && 'on' == $only_first_level_brands ) ? true : false;
 
 			$show_widget      = true;
 			$current_products = false;
@@ -102,7 +102,6 @@ class Filter_By_Brand extends \WP_Widget {
 
 	public function render_widget( $current_products, $limit, $hide_submit_btn, $only_first_level_brands ) {
 		$result_brands = array();
-
 		if ( is_product_taxonomy() || is_shop() ) {
 			/**
 			 * Obtains the brands ids from the current products
@@ -238,21 +237,18 @@ class Filter_By_Brand extends \WP_Widget {
 	}
 
 	private function get_products_brands( $product_ids ) {
+
 		$product_ids = implode( ',', array_map( 'intval', $product_ids ) );
 
 		global $wpdb;
 
-		$brand_ids = $wpdb->get_col(
-			"SELECT DISTINCT t.term_id
-			FROM {$wpdb->prefix}terms AS t
-			INNER JOIN {$wpdb->prefix}term_taxonomy AS tt
-			ON t.term_id = tt.term_id
-			INNER JOIN {$wpdb->prefix}term_relationships AS tr
-			ON tr.term_taxonomy_id = tt.term_taxonomy_id
-			WHERE tt.taxonomy = 'pwb-brand'
-			AND tr.object_id IN ($product_ids)
-		"
-		);
+		$in       = sprintf( 'IN(%s)', $product_ids );
+		$from = sprintf( 'FROM %1$sterms AS t INNER JOIN %1$sterm_taxonomy AS tt ON t.term_id = tt.term_id INNER JOIN %1$sterm_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id', $wpdb->prefix );
+
+		$where = sprintf( "WHERE tt.taxonomy = 'pwb-brand' AND tr.object_id %s", $in );
+
+		// phpcs:disable WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+		$brand_ids = $wpdb->get_col( sprintf( 'SELECT DISTINCT t.term_id %s %s', $from, $where ) );
 
 		return ( $brand_ids ) ? $brand_ids : false;
 	}

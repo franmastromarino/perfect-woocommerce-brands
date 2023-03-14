@@ -50,8 +50,8 @@ class Product_Carousel {
 		$slick_settings = array(
 			'slidesToShow'   => (int) self::$atts['products_to_show'],
 			'slidesToScroll' => (int) self::$atts['products_to_scroll'],
-			'autoplay'       => ( self::$atts['autoplay'] === 'true' ) ? true : false,
-			'arrows'         => ( self::$atts['arrows'] === 'true' ) ? true : false,
+			'autoplay'       => ( 'true' === self::$atts['autoplay'] ) ? true : false,
+			'arrows'         => ( 'true' === self::$atts['arrows'] ) ? true : false,
 		);
 
 		return htmlspecialchars( json_encode( $slick_settings ), ENT_QUOTES, 'UTF-8' );
@@ -66,7 +66,7 @@ class Product_Carousel {
 			'paged'          => false,
 		);
 
-		if ( self::$atts['brand'] != 'all' ) {
+		if ( 'all' != self::$atts['brand'] ) {
 			$args['tax_query'] = array(
 				array(
 					'taxonomy' => 'pwb-brand',
@@ -75,7 +75,7 @@ class Product_Carousel {
 				),
 			);
 		}
-		if ( self::$atts['category'] != 'all' ) {
+		if ( 'all' != self::$atts['category'] ) {
 			$woo_category_query = array(
 				'taxonomy' => 'product_cat',
 				'field'    => 'slug',
