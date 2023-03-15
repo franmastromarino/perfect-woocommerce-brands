@@ -14,7 +14,7 @@ class Dummy_Data {
 		global $wpdb;
 		// $query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$image_src'";
 		// $id    = $wpdb->get_var( $query );
-		$id    = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE guid='%1s'", $image_src ) );
+		$id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE guid='%1s'", $image_src ) );
 		return $id;
 	}
 

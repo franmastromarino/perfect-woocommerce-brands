@@ -242,7 +242,7 @@ class Filter_By_Brand extends \WP_Widget {
 
 		global $wpdb;
 
-		$in       = sprintf( 'IN(%s)', $product_ids );
+		$in   = sprintf( 'IN(%s)', $product_ids );
 		$from = sprintf( 'FROM %1$sterms AS t INNER JOIN %1$sterm_taxonomy AS tt ON t.term_id = tt.term_id INNER JOIN %1$sterm_relationships AS tr ON tr.term_taxonomy_id = tt.term_taxonomy_id', $wpdb->prefix );
 
 		$where = sprintf( "WHERE tt.taxonomy = 'pwb-brand' AND tr.object_id %s", $in );

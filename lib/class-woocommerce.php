@@ -116,7 +116,7 @@ class WooCommerce {
 
 			$terms_in = implode( "', '", $atts['brands'] );
 			$in       = sprintf( "IN('%s')", $terms_in );
-			$from = sprintf( 'FROM %1$sterm_relationships as tr INNER JOIN %1$sterm_taxonomy as tt ON tr.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN %1$sterms as t ON tt.term_id = t.term_id', $wpdb->prefix );
+			$from     = sprintf( 'FROM %1$sterm_relationships as tr INNER JOIN %1$sterm_taxonomy as tt ON tr.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN %1$sterms as t ON tt.term_id = t.term_id', $wpdb->prefix );
 
 			$where = sprintf( "WHERE tt.taxonomy LIKE 'pwb_brand' AND t.slug %s", $in );
 
