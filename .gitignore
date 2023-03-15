@@ -1,6 +1,7 @@
 # Lock
 package-lock.json
 composer.lock
+pnpm-lock.yaml
 # Dependencies
 node_modules
 vendor
