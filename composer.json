@@ -46,11 +46,7 @@
 		"wp-plugin-slug": "perfect-woocommerce-brands"
 	},
 	"require-dev": {
-		"quadlayers/wp-autoload": "*",
-		"woocommerce/woocommerce-sniffs": "^0.1.3",
-		"phpunit/phpunit": "^9.5"
+		"quadlayers/wp-autoload": "*"
 	},
-	"scripts": {
-		"test:phpunit": "./vendor/bin/phpunit phpunit"
-	}
+	"scripts": {}
 }

@@ -1,686 +1,936 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Copyright (C) 2023 QuadLayers
+# This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-29 00:11+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Project-Id-Version: Perfect Brands WooCommerce 3.0.4\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/perfect-woocommerce-brands\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-03-15T15:52:45+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: perfect-woocommerce-brands\n"
 
-#: main.php:106
-msgid ""
-"Perfect WooCommerce Brands needs WooCommerce to run. Please, install and "
-"active WooCommerce plugin."
+#. Plugin Name of the plugin
+msgid "Perfect Brands WooCommerce"
 msgstr ""
 
-#: classes/class-perfect-woocommerce-brands.php:52
-msgid ""
-"We know that you´re in love with Perfect WooCommerce Brands, you can help us "
-"making it a bit better. Thanks a lot!"
+#. Plugin URI of the plugin
+msgid "https://quadlayers.com/portfolio/perfect-woocommerce-brands/"
 msgstr ""
 
-#: classes/class-perfect-woocommerce-brands.php:54
-msgid ""
-"<a href=\"https://wordpress.org/support/plugin/perfect-woocommerce-brands/"
-"reviews/?rate=5#new-post\" target=\"_blank\">Leave a review</a>"
+#. Description of the plugin
+msgid "Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store."
 msgstr ""
 
-#: classes/class-perfect-woocommerce-brands.php:55
-msgid ""
-"<a href=\"https://translate.wordpress.org/projects/wp-plugins/perfect-"
-"woocommerce-brands\" target=\"_blank\">Translate the plugin</a>"
+#. Author of the plugin
+msgid "QuadLayers"
 msgstr ""
 
-#: classes/class-perfect-woocommerce-brands.php:56
-msgid ""
-"<a href=\"https://github.com/titodevera/perfect-woocommerce-brands\" target="
-"\"_blank\">View on GitHub</a>"
+#. Author URI of the plugin
+msgid "https://quadlayers.com"
 msgstr ""
 
-#: classes/class-perfect-woocommerce-brands.php:79
-msgid "Settings"
+#: lib/admin/class-admin-tab.php:26
+#: lib/admin/class-admin-tab.php:359
+msgid "General"
 msgstr ""
 
-#: classes/class-perfect-woocommerce-brands.php:280
-msgid "PWB Product carousel"
+#: lib/admin/class-admin-tab.php:27
+#: lib/admin/class-admin-tab.php:77
+msgid "Shop & Categories"
 msgstr ""
 
-#: classes/class-perfect-woocommerce-brands.php:281
-msgid "Product carousel by brand or by category"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:289
-#: classes/class-perfect-woocommerce-brands.php:611
-#: classes/class-pwb-product-tab.php:18 classes/class-pwb-product-tab.php:35
-#: classes/admin/class-pwb-exporter-support.php:22
-#: classes/admin/class-pwb-importer-support.php:22
-#: classes/admin/class-pwb-importer-support.php:33
-msgid "Brand"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:297
-msgid "Products"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:300
-msgid "Number of products to load"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:305
-msgid "Products to show"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:308
-msgid "Number of products to show"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:313
-msgid "Products to scroll"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:316
-msgid "Number of products to scroll"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:321
-#: classes/class-perfect-woocommerce-brands.php:370
-msgid "Autoplay"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:323
-#: classes/class-perfect-woocommerce-brands.php:372
-msgid "Autoplay carousel"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:328
-#: classes/class-perfect-woocommerce-brands.php:377
-msgid "Arrows"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:330
-#: classes/class-perfect-woocommerce-brands.php:379
-msgid "Display prev and next arrows"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:336
-msgid "PWB Brands carousel"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:337
-msgid "Brands carousel"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:346
-msgid "Items"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:349
-msgid "Number of items to load (or 'featured')"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:354
-msgid "Items to show"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:357
-msgid "Number of items to show"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:362
-msgid "Items to scroll"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:365
-msgid "Number of items to scroll"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:383
-#: classes/class-perfect-woocommerce-brands.php:411
-#: classes/class-perfect-woocommerce-brands.php:492
-#: classes/admin/class-pwb-admin-tab.php:129
-msgid "Brand logo size"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:394
-msgid "PWB All brands"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:395
-msgid "Show all brands"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:404
-msgid "Brands per page"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:407
-msgid "Show x brands per page"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:418
-msgid "Order by"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:432
-msgid "Order"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:442
-msgid "Title position"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:446
-msgid "Before image"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:447
-msgid "After image"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:448
-msgid "Hide"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:454
-#: classes/widgets/class-pwb-dropdown.php:43
-#: classes/widgets/class-pwb-list.php:67
-msgid "Hide empty"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:456
-msgid "Hide brands that have not been assigned to any product"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:464
-msgid "PWB AZ Listing"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:465
-msgid "AZ Listing for brands"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:474
-msgid "PWB brand"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:475
-msgid "Show brand for a specific product"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:485
-msgid "Product id"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:488
-msgid "Product id (post id)"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:533
-#: classes/shortcodes/class-pwb-brand.php:29
-#: classes/shortcodes/class-pwb-brand.php:31
-msgid "View brand"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:598
-msgid "¿Start migration?"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:599
-msgid ""
-"We are migrating the product brands. ¡Don´t close this window until the "
-"process is finished!"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:600
-msgid "¿Start loading dummy data?"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:601
-msgid ""
-"We are importing the dummy data. ¡Don´t close this window until the process "
-"is finished!"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:610
-#: classes/class-perfect-woocommerce-brands.php:612
-#: classes/admin/class-edit-brands-page.php:128
-#: classes/admin/class-pwb-admin-tab.php:21
-#: classes/widgets/class-pwb-dropdown.php:19
-#: classes/widgets/class-pwb-filter-by-brand.php:20
-#: classes/widgets/class-pwb-filter-by-brand.php:75
-#: classes/widgets/class-pwb-list.php:19 templates/widgets/dropdown.php:16
+#: lib/admin/class-admin-tab.php:28
+#: lib/admin/class-admin-tab.php:278
+#: lib/admin/class-admin-tab.php:421
+#: lib/admin/class-edit-brands-page.php:157
+#: lib/class-woocommerce.php:761
+#: lib/class-woocommerce.php:763
+#: lib/widgets/class-brands-dropdown.php:20
+#: lib/widgets/class-brands-list.php:20
+#: lib/widgets/class-filter-by-brand.php:22
+#: lib/widgets/class-filter-by-brand.php:89
+#: templates/widgets/dropdown.php:14
 msgid "Brands"
 msgstr ""
 
-#: classes/class-perfect-woocommerce-brands.php:613
-msgid "All Brands"
+#: lib/admin/class-admin-tab.php:29
+#: lib/admin/class-admin-tab.php:225
+#: lib/class-woocommerce.php:387
+msgid "Products"
 msgstr ""
 
-#: classes/class-perfect-woocommerce-brands.php:614
-msgid "Edit Brand"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:615
-msgid "View Brand"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:616
-msgid "Update Brand"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:617
-msgid "Add New Brand"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:618
-msgid "New Brand Name"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:619
-msgid "Parent Brand"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:620
-msgid "Parent Brand:"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:621
-msgid "Search Brands"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:622
-msgid "Popular Brands"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:623
-msgid "Separate brands with commas"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:624
-msgid "Add or remove brands"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:625
-msgid "Choose from the most used brands"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:626
-msgid "No brands found"
-msgstr ""
-
-#: classes/class-perfect-woocommerce-brands.php:697
-msgid "All"
-msgstr ""
-
-#: classes/class-pwb-api-support.php:87
-msgid "Product brands"
-msgstr ""
-
-#: classes/class-pwb-term.php:20
-msgid "Only WP_Term objects are allowed"
-msgstr ""
-
-#: classes/admin/class-brands-custom-fields.php:20
-#: classes/admin/class-brands-custom-fields.php:59
-msgid "Description"
-msgstr ""
-
-#: classes/admin/class-brands-custom-fields.php:22
-#: classes/admin/class-brands-custom-fields.php:63
-msgid ""
-"Brand description for the archive pages. You can include some html markup "
-"and shortcodes."
-msgstr ""
-
-#: classes/admin/class-brands-custom-fields.php:26
-#: classes/admin/class-brands-custom-fields.php:68
-#: classes/widgets/class-pwb-list.php:43
-msgid "Brand logo"
-msgstr ""
-
-#: classes/admin/class-brands-custom-fields.php:28
-#: classes/admin/class-brands-custom-fields.php:34
-#: classes/admin/class-brands-custom-fields.php:72
-#: classes/admin/class-brands-custom-fields.php:92
-msgid "Select image"
-msgstr ""
-
-#: classes/admin/class-brands-custom-fields.php:32
-#: classes/admin/class-brands-custom-fields.php:88
-msgid "Brand banner"
-msgstr ""
-
-#: classes/admin/class-brands-custom-fields.php:35
-msgid "This image will be shown on brand page"
-msgstr ""
-
-#: classes/admin/class-brands-custom-fields.php:39
-#: classes/admin/class-brands-custom-fields.php:108
-msgid "Brand banner link"
-msgstr ""
-
-#: classes/admin/class-brands-custom-fields.php:41
-#: classes/admin/class-brands-custom-fields.php:112
-msgid "This link should be relative to site url. Example: product/product-name"
-msgstr ""
-
-#: classes/admin/class-edit-brands-page.php:39
-msgid "featured"
-msgstr ""
-
-#: classes/admin/class-edit-brands-page.php:74
-msgid "Logo"
-msgstr ""
-
-#: classes/admin/class-edit-brands-page.php:96
-msgid "Set as featured"
-msgstr ""
-
-#: classes/admin/class-edit-brands-page.php:118
-msgid "Error!"
-msgstr ""
-
-#: classes/admin/class-edit-brands-page.php:131
-msgid "Show featured brands first"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:70
-msgid "Brands settings"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:76
-msgid "Slug"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:79
-msgid "Brands taxonomy slug"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:84
-msgid "Show brand description"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:88
-msgid "Show brand description (if is set) on brand archive page"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:91
-msgid "Yes, before product loop"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:92
-msgid "Yes, after product loop"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:93
-msgid "No, hide description"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:97
-msgid "Single product tab"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:100
-msgid "Show brand tab in single product page"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:104
-msgid "Show brands in loop"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:107
-msgid "Show brand logo (or name) in product loop"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:110
-#: classes/admin/class-pwb-admin-tab.php:123
-msgid "No"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:111
-#: classes/admin/class-pwb-admin-tab.php:124
-msgid "Show brand link"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:112
-#: classes/admin/class-pwb-admin-tab.php:125
-msgid "Show brand image (if is set)"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:116
-msgid "Show brands in single product"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:119
-msgid "Show brand logo (or name) in single product"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:137
-msgid "Brand position"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:140
-msgid "For single product"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:143
-msgid "Before title"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:144
-msgid "After title"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:145
-msgid "After price"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:146
-msgid "After excerpt"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:147
-msgid "After add to cart"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:148
-msgid "After meta"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:149
-msgid "After sharing"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:153
-msgid "Brands page"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:156
-msgid "For linking breadcrumbs"
-msgstr ""
-
-#: classes/admin/class-pwb-admin-tab.php:173
+#: lib/admin/class-admin-tab.php:30
+#: lib/admin/class-admin-tab.php:307
 msgid "Tools"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:179
-#: templates/admin/brands-exporter.php:16
+#: lib/admin/class-admin-tab.php:32
+#: vendor_packages/wp-plugin-table-links.php:23
+msgid "Documentation"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:37
+#: vendor_packages/wp-plugin-table-links.php:13
+msgid "Premium"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:42
+msgid "Suggestions"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:83
+#: lib/admin/class-admin-tab.php:179
+msgid "Show brands in loop"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:86
+#: lib/admin/class-admin-tab.php:182
+msgid "Show brand logo (or name) in product loop"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:89
+#: lib/admin/class-admin-tab.php:185
+#: lib/admin/class-admin-tab.php:245
+#: lib/admin/class-admin-tab.php:290
+#: lib/admin/class-admin-tab.php:402
+msgid "No"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:90
+#: lib/admin/class-admin-tab.php:186
+#: lib/admin/class-admin-tab.php:246
+msgid "Show brand link"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:91
+#: lib/admin/class-admin-tab.php:187
+#: lib/admin/class-admin-tab.php:247
+msgid "Show brand image (if is set)"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:95
+#: lib/admin/class-admin-tab.php:192
+msgid "Brands in loop separator"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:98
+#: lib/admin/class-admin-tab.php:195
+#: lib/admin/class-admin-tab.php:271
+msgid "Show separator between brands"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:102
+#: lib/admin/class-admin-tab.php:200
+msgid "Show brands in loop hook"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:105
+#: lib/admin/class-admin-tab.php:203
+msgid "Show brand logo (or name) in product loop hook"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:108
+#: lib/admin/class-admin-tab.php:206
+msgid "Before shop loop item"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:109
+#: lib/admin/class-admin-tab.php:207
+msgid "Before shop loop item title"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:110
+#: lib/admin/class-admin-tab.php:208
+msgid "After shop loop item"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:111
+#: lib/admin/class-admin-tab.php:209
+msgid "After shop loop item title"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:127
+msgid "Archives"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:133
+msgid "Show brand title"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:137
+msgid "Show brand title (if is set) on brand archive page"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:140
+#: lib/admin/class-admin-tab.php:152
+#: lib/admin/class-admin-tab.php:165
+msgid "Yes, before product loop"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:141
+msgid "No, hide title"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:145
+msgid "Show brand description"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:149
+msgid "Show brand description (if is set) on brand archive page"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:153
+#: lib/admin/class-admin-tab.php:166
+msgid "Yes, after product loop"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:154
+msgid "No, hide description"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:158
+msgid "Show brand banner"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:162
+msgid "Show brand banner (if is set) on brand archive page"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:167
+msgid "No, hide banner"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:171
+msgid "Columns"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:175
+msgid "Number of columns in the brand page"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:231
+msgid "Products tab"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:234
+msgid "Show brand tab in single product page"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:238
+msgid "Show brands in single product"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:241
+msgid "Show brand logo (or name) in single product"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:251
+msgid "Brand position"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:254
+msgid "For single product"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:257
+msgid "Before title"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:258
+msgid "After title"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:259
+msgid "After price"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:260
+msgid "After excerpt"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:261
+msgid "After add to cart"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:262
+msgid "In meta"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:263
+msgid "After meta"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:264
+msgid "After sharing"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:268
+msgid "Brands in single product separator"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:275
+msgid "Brands label"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:279
+msgid "Change or disable the brands label in the single products page."
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:280
+msgid "Display label for brand links."
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:284
+msgid "Brands breadcrumb"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:287
+msgid "Include brand in product breadcrumb"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:291
+#: lib/admin/class-admin-tab.php:403
+msgid "Yes"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:292
+msgid "Replace category"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:313
+#: templates/admin/brands-exporter.php:13
 msgid "Import brands"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:183
-#, php-format
-msgid ""
-"Import brands from other brand plugin. <a href=\"%s\" target=\"_blank"
-"\">Click here for more details</a>"
+#: lib/admin/class-admin-tab.php:317
+msgid "Import brands from other brand plugin. <a href=\"%s\" target=\"_blank\">Click here for more details</a>"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:188
-#: classes/admin/class-pwb-admin-tab.php:201
+#: lib/admin/class-admin-tab.php:322
+#: lib/admin/class-admin-tab.php:335
 msgid "-"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:189
+#: lib/admin/class-admin-tab.php:323
 msgid "YITH WooCommerce Brands Add-On"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:190
+#: lib/admin/class-admin-tab.php:324
 msgid "Ultimate WooCommerce Brands"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:191
+#: lib/admin/class-admin-tab.php:325
 msgid "Offical WooCommerce Brands"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:195
+#: lib/admin/class-admin-tab.php:329
 msgid "Dummy data"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:198
+#: lib/admin/class-admin-tab.php:332
 msgid "Import generic brands and assign it to products randomly"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:202
+#: lib/admin/class-admin-tab.php:336
 msgid "Start import"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:206
+#: lib/admin/class-admin-tab.php:340
 msgid "System status"
 msgstr ""
 
-#: classes/admin/class-pwb-admin-tab.php:208
+#: lib/admin/class-admin-tab.php:342
 msgid "Show system status"
 msgstr ""
 
-#: classes/admin/class-pwb-coupon.php:24
-msgid "Brands restriction"
+#: lib/admin/class-admin-tab.php:353
+msgid "brands"
 msgstr ""
 
-#: classes/admin/class-pwb-coupon.php:25
+#: lib/admin/class-admin-tab.php:353
+msgid "brand-name"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:365
+msgid "Slug"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:368
+msgid "Brands taxonomy slug"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:370
+msgid "Your brands URLs will look like \"%s\""
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:377
+#: lib/class-woocommerce.php:475
+#: lib/class-woocommerce.php:503
+#: lib/class-woocommerce.php:596
+msgid "Brand logo size"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:380
+msgid "Select the size for the brand logo image around the site"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:381
+msgid "The default image sizes can be configured under \"Settings > Media\". You can also define your own image sizes"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:386
+msgid "Brands page"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:389
+msgid "For linking breadcrumbs"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:390
+msgid "Select your \"Brands\" page (if you have one), it will be linked in the breadcrumbs."
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:395
+msgid "Brands search"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:398
+msgid "Better search experience"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:399
+msgid "Redirect if the search matchs with a brands name."
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:463
+msgid "Edit brands"
+msgstr ""
+
+#: lib/admin/class-brands-custom-fields.php:21
+msgid "Description"
+msgstr ""
+
+#: lib/admin/class-brands-custom-fields.php:23
+#: lib/admin/class-brands-custom-fields.php:67
+msgid "Brand description for the archive pages. You can include some html markup and shortcodes."
+msgstr ""
+
+#: lib/admin/class-brands-custom-fields.php:27
+#: lib/admin/class-brands-custom-fields.php:72
+#: lib/widgets/class-brands-list.php:54
+msgid "Brand logo"
+msgstr ""
+
+#: lib/admin/class-brands-custom-fields.php:29
+#: lib/admin/class-brands-custom-fields.php:35
+#: lib/admin/class-brands-custom-fields.php:76
+#: lib/admin/class-brands-custom-fields.php:96
+msgid "Select image"
+msgstr ""
+
+#: lib/admin/class-brands-custom-fields.php:33
+#: lib/admin/class-brands-custom-fields.php:92
+msgid "Brand banner"
+msgstr ""
+
+#: lib/admin/class-brands-custom-fields.php:36
+msgid "This image will be shown on brand page"
+msgstr ""
+
+#: lib/admin/class-brands-custom-fields.php:40
+#: lib/admin/class-brands-custom-fields.php:112
+msgid "Brand banner link"
+msgstr ""
+
+#: lib/admin/class-brands-custom-fields.php:42
+#: lib/admin/class-brands-custom-fields.php:116
+msgid "This link should be relative to site url. Example: \"/product/product-name\""
+msgstr ""
+
+#: lib/admin/class-coupon.php:29
+msgid "Product brands"
+msgstr ""
+
+#: lib/admin/class-coupon.php:30
+#: lib/admin/class-coupon.php:44
 msgid "Any brand"
 msgstr ""
 
-#: classes/admin/class-pwb-coupon.php:34
-msgid ""
-"Coupon will be valid if there are at least one product of this brands in the "
-"cart"
+#: lib/admin/class-coupon.php:40
+msgid "Product brands that the coupon will be applied to, or that need to be in the cart in order for the \"Fixed cart discount\" to be applied."
 msgstr ""
 
-#: classes/shortcodes/class-pwb-all-brands.php:108
+#: lib/admin/class-coupon.php:43
+msgid "Exclude brands"
+msgstr ""
+
+#: lib/admin/class-coupon.php:54
+msgid "Product brands that the coupon will not be applied to, or that cannot be in the cart in order for the \"Fixed cart discount\" to be applied."
+msgstr ""
+
+#: lib/admin/class-edit-brands-page.php:48
+msgid "featured"
+msgstr ""
+
+#: lib/admin/class-edit-brands-page.php:87
+msgid "Logo"
+msgstr ""
+
+#: lib/admin/class-edit-brands-page.php:88
+msgid "Featured"
+msgstr ""
+
+#: lib/admin/class-edit-brands-page.php:104
+msgid "Set as featured"
+msgstr ""
+
+#: lib/admin/class-edit-brands-page.php:138
+msgid "Error!"
+msgstr ""
+
+#: lib/admin/class-edit-brands-page.php:160
+msgid "Show featured brands first"
+msgstr ""
+
+#: lib/admin/class-exporter-support.php:22
+#: lib/admin/class-importer-support.php:22
+#: lib/admin/class-importer-support.php:33
+#: lib/class-product.php:22
+#: lib/class-product.php:40
+#: lib/class-woocommerce.php:379
+#: lib/class-woocommerce.php:622
+#: lib/class-woocommerce.php:762
+msgid "Brand"
+msgid_plural "Brands"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-rest-api.php:47
+msgid "Brand name."
+msgstr ""
+
+#: lib/class-rest-api.php:64
+msgid "Unique identifier for the resource."
+msgstr ""
+
+#: lib/class-rest-api.php:90
+msgid "Whether to bypass trash and force deletion."
+msgstr ""
+
+#: lib/class-rest-api.php:218
+msgid "Product brands."
+msgstr ""
+
+#: lib/class-term.php:28
+msgid "Only WP_Term objects are allowed"
+msgstr ""
+
+#: lib/class-woocommerce.php:370
+msgid "PWB Product carousel"
+msgstr ""
+
+#: lib/class-woocommerce.php:371
+msgid "Product carousel by brand or by category"
+msgstr ""
+
+#: lib/class-woocommerce.php:390
+msgid "Number of products to load"
+msgstr ""
+
+#: lib/class-woocommerce.php:395
+msgid "Products to show"
+msgstr ""
+
+#: lib/class-woocommerce.php:398
+msgid "Number of products to show"
+msgstr ""
+
+#: lib/class-woocommerce.php:403
+msgid "Products to scroll"
+msgstr ""
+
+#: lib/class-woocommerce.php:406
+msgid "Number of products to scroll"
+msgstr ""
+
+#: lib/class-woocommerce.php:411
+#: lib/class-woocommerce.php:462
+msgid "Autoplay"
+msgstr ""
+
+#: lib/class-woocommerce.php:413
+#: lib/class-woocommerce.php:464
+msgid "Autoplay carousel"
+msgstr ""
+
+#: lib/class-woocommerce.php:418
+#: lib/class-woocommerce.php:469
+msgid "Arrows"
+msgstr ""
+
+#: lib/class-woocommerce.php:420
+#: lib/class-woocommerce.php:471
+msgid "Display prev and next arrows"
+msgstr ""
+
+#: lib/class-woocommerce.php:428
+msgid "PWB Brands carousel"
+msgstr ""
+
+#: lib/class-woocommerce.php:429
+msgid "Brands carousel"
+msgstr ""
+
+#: lib/class-woocommerce.php:438
+msgid "Items"
+msgstr ""
+
+#: lib/class-woocommerce.php:441
+msgid "Number of items to load (or 'featured')"
+msgstr ""
+
+#: lib/class-woocommerce.php:446
+msgid "Items to show"
+msgstr ""
+
+#: lib/class-woocommerce.php:449
+msgid "Number of items to show"
+msgstr ""
+
+#: lib/class-woocommerce.php:454
+msgid "Items to scroll"
+msgstr ""
+
+#: lib/class-woocommerce.php:457
+msgid "Number of items to scroll"
+msgstr ""
+
+#: lib/class-woocommerce.php:486
+msgid "PWB All brands"
+msgstr ""
+
+#: lib/class-woocommerce.php:487
+msgid "Show all brands"
+msgstr ""
+
+#: lib/class-woocommerce.php:496
+msgid "Brands per page"
+msgstr ""
+
+#: lib/class-woocommerce.php:499
+msgid "Show x brands per page"
+msgstr ""
+
+#: lib/class-woocommerce.php:510
+msgid "Order by"
+msgstr ""
+
+#: lib/class-woocommerce.php:524
+msgid "Order"
+msgstr ""
+
+#: lib/class-woocommerce.php:534
+msgid "Title position"
+msgstr ""
+
+#: lib/class-woocommerce.php:538
+msgid "Before image"
+msgstr ""
+
+#: lib/class-woocommerce.php:539
+msgid "After image"
+msgstr ""
+
+#: lib/class-woocommerce.php:540
+msgid "Hide"
+msgstr ""
+
+#: lib/class-woocommerce.php:546
+#: lib/widgets/class-brands-dropdown.php:49
+#: lib/widgets/class-brands-list.php:78
+msgid "Hide empty"
+msgstr ""
+
+#: lib/class-woocommerce.php:548
+msgid "Hide brands that have not been assigned to any product"
+msgstr ""
+
+#: lib/class-woocommerce.php:556
+msgid "PWB AZ Listing"
+msgstr ""
+
+#: lib/class-woocommerce.php:557
+msgid "AZ Listing for brands"
+msgstr ""
+
+#: lib/class-woocommerce.php:565
+msgid "Only parent brands"
+msgstr ""
+
+#: lib/class-woocommerce.php:579
+msgid "PWB brand"
+msgstr ""
+
+#: lib/class-woocommerce.php:580
+msgid "Show brand for a specific product"
+msgstr ""
+
+#: lib/class-woocommerce.php:589
+msgid "Product id"
+msgstr ""
+
+#: lib/class-woocommerce.php:592
+msgid "Product id (post id)"
+msgstr ""
+
+#: lib/class-woocommerce.php:649
+#: templates/shortcodes/brand.php:18
+msgid "View brand"
+msgstr ""
+
+#: lib/class-woocommerce.php:740
+msgid "¿Start migration?"
+msgstr ""
+
+#: lib/class-woocommerce.php:741
+msgid "We are migrating the product brands. ¡Don´t close this window until the process is finished!"
+msgstr ""
+
+#: lib/class-woocommerce.php:742
+msgid "¿Start loading dummy data?"
+msgstr ""
+
+#: lib/class-woocommerce.php:743
+msgid "We are importing the dummy data. ¡Don´t close this window until the process is finished!"
+msgstr ""
+
+#: lib/class-woocommerce.php:764
+msgid "All Brands"
+msgstr ""
+
+#: lib/class-woocommerce.php:765
+msgid "Edit Brand"
+msgstr ""
+
+#: lib/class-woocommerce.php:766
+msgid "View Brand"
+msgstr ""
+
+#: lib/class-woocommerce.php:767
+msgid "Update Brand"
+msgstr ""
+
+#: lib/class-woocommerce.php:768
+msgid "Add New Brand"
+msgstr ""
+
+#: lib/class-woocommerce.php:769
+msgid "New Brand Name"
+msgstr ""
+
+#: lib/class-woocommerce.php:770
+msgid "Parent Brand"
+msgstr ""
+
+#: lib/class-woocommerce.php:771
+msgid "Parent Brand:"
+msgstr ""
+
+#: lib/class-woocommerce.php:772
+msgid "Search Brands"
+msgstr ""
+
+#: lib/class-woocommerce.php:773
+msgid "Popular Brands"
+msgstr ""
+
+#: lib/class-woocommerce.php:774
+msgid "Separate brands with commas"
+msgstr ""
+
+#: lib/class-woocommerce.php:775
+msgid "Add or remove brands"
+msgstr ""
+
+#: lib/class-woocommerce.php:776
+msgid "Choose from the most used brands"
+msgstr ""
+
+#: lib/class-woocommerce.php:777
+msgid "No brands found"
+msgstr ""
+
+#: lib/class-woocommerce.php:866
+msgid "All"
+msgstr ""
+
+#: lib/shortcodes/class-all-brands.php:157
 msgid "First page"
 msgstr ""
 
-#: classes/shortcodes/class-pwb-all-brands.php:111
+#: lib/shortcodes/class-all-brands.php:160
 msgid "Previous page"
 msgstr ""
 
-#: classes/shortcodes/class-pwb-all-brands.php:115
+#: lib/shortcodes/class-all-brands.php:164
 msgid "Next page"
 msgstr ""
 
-#: classes/shortcodes/class-pwb-all-brands.php:118
+#: lib/shortcodes/class-all-brands.php:167
 msgid "Last page"
 msgstr ""
 
-#: classes/shortcodes/class-pwb-all-brands.php:123
+#: lib/shortcodes/class-all-brands.php:171
 msgid "No results"
 msgstr ""
 
-#: classes/widgets/class-pwb-dropdown.php:10
+#: lib/widgets/class-brands-dropdown.php:11
 msgid "Adds a brands dropdown to your site"
 msgstr ""
 
-#: classes/widgets/class-pwb-dropdown.php:11
+#: lib/widgets/class-brands-dropdown.php:12
 msgid "Brands dropdown"
 msgstr ""
 
-#: classes/widgets/class-pwb-dropdown.php:26
+#: lib/widgets/class-brands-dropdown.php:27
 msgid "Title"
 msgstr ""
 
-#: classes/widgets/class-pwb-dropdown.php:54
-#: classes/widgets/class-pwb-list.php:77
+#: lib/widgets/class-brands-dropdown.php:60
+#: lib/widgets/class-brands-list.php:88
 msgid "Only favorite brands"
 msgstr ""
 
-#: classes/widgets/class-pwb-filter-by-brand.php:11
-msgid "Recommended for product categories or shop page"
-msgstr ""
-
-#: classes/widgets/class-pwb-filter-by-brand.php:12
-msgid "Filter products by brand"
-msgstr ""
-
-#: classes/widgets/class-pwb-filter-by-brand.php:25
-#: classes/widgets/class-pwb-list.php:28
-msgid "Title:"
-msgstr ""
-
-#: classes/widgets/class-pwb-filter-by-brand.php:30
-msgid "Max number of brands"
-msgstr ""
-
-#: classes/widgets/class-pwb-filter-by-brand.php:41
-msgid "Hide filter button"
-msgstr ""
-
-#: classes/widgets/class-pwb-list.php:10
+#: lib/widgets/class-brands-list.php:11
 msgid "Adds a brands list to your site"
 msgstr ""
 
-#: classes/widgets/class-pwb-list.php:11
+#: lib/widgets/class-brands-list.php:12
 msgid "Brands list"
 msgstr ""
 
-#: classes/widgets/class-pwb-list.php:37
+#: lib/widgets/class-brands-list.php:33
+#: lib/widgets/class-filter-by-brand.php:29
+msgid "Title:"
+msgstr ""
+
+#: lib/widgets/class-brands-list.php:48
 msgid "Display as:"
 msgstr ""
 
-#: classes/widgets/class-pwb-list.php:42
+#: lib/widgets/class-brands-list.php:53
 msgid "Brand name"
 msgstr ""
 
-#: classes/widgets/class-pwb-list.php:47
+#: lib/widgets/class-brands-list.php:58
 msgid "Columns:"
 msgstr ""
 
-#: classes/widgets/class-pwb-list.php:87
+#: lib/widgets/class-brands-list.php:98
 msgid "Randomize"
 msgstr ""
 
-#: classes/widgets/class-pwb-list.php:119
+#: lib/widgets/class-brands-list.php:145
 msgid "Go to"
 msgstr ""
 
-#: templates/admin/brands-exporter.php:15
+#: lib/widgets/class-filter-by-brand.php:13
+msgid "Recommended for product categories or shop page"
+msgstr ""
+
+#: lib/widgets/class-filter-by-brand.php:14
+msgid "Filter products by brand"
+msgstr ""
+
+#: lib/widgets/class-filter-by-brand.php:35
+msgid "Max number of brands"
+msgstr ""
+
+#: lib/widgets/class-filter-by-brand.php:43
+msgid "Hide filter button"
+msgstr ""
+
+#: lib/widgets/class-filter-by-brand.php:50
+msgid "Show only first level brands"
+msgstr ""
+
+#: templates/admin/brands-exporter.php:12
 msgid "Export brands"
 msgstr ""
 
-#: templates/admin/brands-exporter.php:18
-msgid ""
-"This tool allows you to export and import the brands between different sites "
-"using PWB."
+#: templates/admin/brands-exporter.php:15
+msgid "This tool allows you to export and import the brands between different sites using PWB."
 msgstr ""
 
-#: templates/shortcodes/carousel.php:24
-#: templates/shortcodes/product-carousel.php:28
+#: templates/shortcodes/carousel.php:20
+#: templates/shortcodes/product-carousel.php:23
 msgid "Loading"
 msgstr ""
 
-#: templates/shortcodes/product-carousel.php:34
-msgid "Nothing found"
+#: templates/widgets/filter-by-brand.php:29
+msgid "Apply filter"
 msgstr ""
 
-#: templates/widgets/filter-by-brand.php:25
-msgid "Apply filter"
+#: templates/widgets/filter-by-brand.php:32
+msgid "Remove filter"
+msgstr ""
+
+#: vendor_packages/wp-notice-plugin-promote.php:24
+msgid "This plugin allows you to add custom fields to the checkout page, related to billing, shipping or additional fields sections."
+msgstr ""
+
+#: vendor_packages/wp-notice-plugin-promote.php:31
+msgid "It allows you to reduce the steps in the checkout process by skipping the shopping cart page. This can encourage buyers to shop more and quickly. You will increase your sales reducing cart abandonment."
+msgstr ""
+
+#: vendor_packages/wp-notice-plugin-promote.php:42
+msgid "Hello! Thank you for choosing the %s plugin!"
+msgstr ""
+
+#: vendor_packages/wp-notice-plugin-promote.php:48
+msgid "Could you please give it a 5-star rating on WordPress?. Your feedback will boost our motivation and help us promote and continue to improve this product."
+msgstr ""
+
+#: vendor_packages/wp-notice-plugin-promote.php:50
+msgid "Yes, of course!"
+msgstr ""
+
+#: vendor_packages/wp-notice-plugin-promote.php:55
+msgid "Report a bug"
+msgstr ""
+
+#: vendor_packages/wp-notice-plugin-promote.php:63
+msgid "Purchase Now"
+msgstr ""
+
+#: vendor_packages/wp-notice-plugin-promote.php:69
+msgid "Hello! We have a special gift!"
+msgstr ""
+
+#: vendor_packages/wp-notice-plugin-promote.php:74
+msgid "Today we want to make you a special gift. Using the coupon code %1$s before the next 48 hours you can get a 20 percent discount on the premium version of the %2$s plugin."
+msgstr ""
+
+#: vendor_packages/wp-notice-plugin-promote.php:82
+#: vendor_packages/wp-notice-plugin-promote.php:100
+#: vendor_packages/wp-notice-plugin-promote.php:118
+msgid "More info!"
+msgstr ""
+
+#: vendor_packages/wp-notice-plugin-promote.php:92
+#: vendor_packages/wp-notice-plugin-promote.php:110
+msgid "Hello! We want to invite you to try our %s plugin!"
+msgstr ""
+
+#: vendor_packages/wp-plugin-table-links.php:8
+msgid "Settings"
+msgstr ""
+
+#: vendor_packages/wp-plugin-table-links.php:18
+msgid "Support"
 msgstr ""

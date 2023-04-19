@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const { zip, COMPRESSION_LEVEL } = require('zip-a-folder');
 
 const pluginName = process.env.npm_package_name;
 const pluginFolder = './.plugin/' + pluginName;
@@ -80,17 +79,6 @@ const copyFromToArr = async (files) => {
 	}
 };
 
-/**
- * Compresses a folder to the specified zip file.
- * @param {string} folder 
- * @param {string} filePath 
- */
-const compressFromTo = async (source, target) => {
-	const sourcePath = path.resolve(source);
-	const targetPath = path.resolve(target);
-	return await zip(sourcePath, targetPath, { compression: COMPRESSION_LEVEL.high });
-};
-
 const moveFromTo = async (source, target) => {
 	try {
 		const sourcePath = path.resolve(source);
@@ -134,8 +122,8 @@ const consoleInfo = (message) => {
 module.exports.pluginName = pluginName;
 module.exports.pluginFolder = pluginFolder;
 module.exports.copyFromToArr = copyFromToArr;
-module.exports.compressFromTo = compressFromTo;
 module.exports.deleteFromPluginFolder = deleteFromPluginFolder;
 module.exports.consoleSuccess = consoleSuccess;
 module.exports.consoleError = consoleError;
 module.exports.consoleInfo = consoleInfo;
+module.exports.copyFileFromTo = copyFileFromTo;
