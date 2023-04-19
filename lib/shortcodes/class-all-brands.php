@@ -6,7 +6,23 @@ defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
 class All_Brands {
 
+	protected static function replace_curly_quotes( $attrs ) {
+		if ( is_array( $attrs ) ) {
+			foreach ( $attrs as $key => $value ) {
+				$new_key           = str_replace( [ '“', '”', '″' ], '', $key );
+				$new_value         = str_replace( [ '“', '”', '″' ], '', $value );
+				$attrs[ $new_key ] = $new_value;
+
+				if ( $new_key != $key ) {
+					unset( $attrs[ $key ] );
+				}
+			}
+		}
+		return $attrs;
+	}
+
 	public static function all_brands_shortcode( $atts ) {
+		$atts = self::replace_curly_quotes( $atts );
 		$atts = shortcode_atts(
 			array(
 				'per_page'       => '10',
