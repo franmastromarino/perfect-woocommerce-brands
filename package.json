@@ -30,7 +30,7 @@
 		"docker": "wp-env",
 		"start:js": "npm run delete:build && wp-scripts start",
 		"start:php": "npm run setup:php && composer dump-autoload",
-		"start": "npm run start:js && npm run start:php",
+		"start": "npm run start:php && npm run start:js",
 		"phpcs:report:csv": "php ./vendor/bin/phpcs --warning-severity=0 --extensions=php --report=csv --report-file=./phpcs_error.csv ./lib --standard=./phpcs.xml",
 		"phpcs:report:txt": "php ./vendor/bin/phpcs --warning-severity=0 --extensions=php --report-file=./phpcs_error.txt ./lib --standard=./phpcs.xml  ",
 		"phpcs:report:autofix": "php ./vendor/bin/phpcbf ./lib",
