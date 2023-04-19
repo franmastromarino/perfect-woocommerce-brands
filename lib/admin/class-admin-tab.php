@@ -113,6 +113,14 @@ class Admin_Tab {
 									),
 									'default' => 'after_shop_loop_item_title',
 								),
+								array(
+									'name'    => __( 'Show brands in loop hook order', 'perfect-woocommerce-brands' ),
+									'type'    => 'number',
+									'class'   => 'pwb-admin-tab-field pwb-premium-field',
+									'desc'    => __( 'Show brand logo (or name) in product loop hook order', 'perfect-woocommerce-brands' ),
+									'id'      => 'wc_pwb_admin_tab_brands_in_loop_hook_order',
+									'default' => 9,
+								),
 								'section_end'   => array(
 									'type' => 'sectionend',
 									'id'   => 'wc_pwb_admin_tab_section_end',
@@ -210,6 +218,14 @@ class Admin_Tab {
 										'after_shop_loop_item_title' => __( 'After shop loop item title', 'perfect-woocommerce-brands' ),
 									),
 									'default' => 'after_shop_loop_item_title',
+								),
+								array(
+									'name'    => __( 'Show brands in loop hook order', 'perfect-woocommerce-brands' ),
+									'type'    => 'number',
+									'class'   => 'pwb-admin-tab-field pwb-premium-field',
+									'desc'    => __( 'Show brand logo (or name) in product loop hook order', 'perfect-woocommerce-brands' ),
+									'id'      => 'wc_pwb_admin_tab_archives_brand_in_loop_hook_order',
+									'default' => 9,
 								),
 								'section_end'   => array(
 									'type' => 'sectionend',
