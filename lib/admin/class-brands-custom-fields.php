@@ -19,8 +19,14 @@ class Brands_Custom_Fields {
 
 	<div class="form-field pwb_brand_cont">
 	<label for="pwb_brand_desc"><?php esc_html_e( 'Description', 'perfect-woocommerce-brands' ); ?></label>
-	<textarea id="pwb_brand_description_field" name="pwb_brand_description_field" rows="5" cols="40"></textarea>
+	<?php wp_editor( '', 'pwb_brand_description_field', array( 'textarea_rows' => 5 ) ); ?>
 	<p id="brand-description-help-text"><?php esc_html_e( 'Brand description for the archive pages. You can include some html markup and shortcodes.', 'perfect-woocommerce-brands' ); ?></p>
+	</div>
+
+	<div class="form-field pwb_brand_cont">
+	<label for="pwb_long_brand_desc"><?php esc_html_e( 'Second description', 'perfect-woocommerce-brands' ); ?></label>
+	<?php wp_editor( '', 'pwb_long_brand_description_field', array( 'textarea_rows' => 5 ) ); ?>
+	<p id="brand-description-help-text"><?php esc_html_e( 'Second brand description for the archive pages. You can include some html markup and shortcodes.', 'perfect-woocommerce-brands' ); ?></p>
 	</div>
 
 	<div class="form-field pwb_brand_cont">
@@ -53,6 +59,7 @@ class Brands_Custom_Fields {
 		$term_value_image       = get_term_meta( $term->term_id, 'pwb_brand_image', true );
 		$term_value_banner      = get_term_meta( $term->term_id, 'pwb_brand_banner', true );
 		$term_value_banner_link = get_term_meta( $term->term_id, 'pwb_brand_banner_link', true );
+		$term_long_brand_desc   = get_term_meta( $term->term_id, 'pwb_long_brand_desc', true );
 		ob_start();
 		$image_size_selected = get_option( 'wc_pwb_admin_tab_brand_logo_size', 'thumbnail' );
 
@@ -65,6 +72,15 @@ class Brands_Custom_Fields {
 		<td>
 		<?php wp_editor( html_entity_decode( $term->description ), 'pwb_brand_description_field', array( 'editor_height' => 120 ) ); ?>
 		<p id="brand-description-help-text"><?php esc_html_e( 'Brand description for the archive pages. You can include some html markup and shortcodes.', 'perfect-woocommerce-brands' ); ?></p>
+		</td>
+	</tr>
+	<tr class="form-field">
+		<th>
+		<label for="pwb_long_brand_desc"><?php esc_html_e( 'Second description' ); ?></label>
+		</th>
+		<td>
+		<?php wp_editor( html_entity_decode( $term_long_brand_desc ), 'pwb_long_brand_description_field', array( 'editor_height' => 120 ) ); ?>
+		<p id="brand-description-help-text"><?php esc_html_e( 'Second brand description for the archive pages. You can include some html markup and shortcodes.', 'perfect-woocommerce-brands' ); ?></p>
 		</td>
 	</tr>
 	<tr class="form-field">
@@ -174,5 +190,16 @@ class Brands_Custom_Fields {
 			$wpdb->update( $wpdb->term_taxonomy, array( 'description' => $desc ), array( 'term_id' => $term_id ) );
 		}
 		/* ·············· /Brand desc ·············· */
+
+		/* ·············· Brand second desc ·············· */
+		$old_long_description = get_term_meta( $term_id, 'pwb_long_brand_desc', true );
+		$new_long_description = isset( $_POST['pwb_long_brand_description_field'] ) ? wp_kses_post( wp_unslash( $_POST['pwb_long_brand_description_field'] ) ) : '';
+
+		if ( $old_long_description && '' === $new_long_description ) {
+			delete_term_meta( $term_id, 'pwb_long_brand_desc' );
+		} elseif ( $old_long_description !== $new_long_description ) {
+			update_term_meta( $term_id, 'pwb_long_brand_desc', $new_long_description );
+		}
+		/* ·············· /Brand second desc ·············· */
 	}
 }

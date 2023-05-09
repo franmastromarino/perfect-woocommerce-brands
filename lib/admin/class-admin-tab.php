@@ -164,6 +164,19 @@ class Admin_Tab {
 									),
 								),
 								array(
+									'name'    => __( 'Show long brand description', 'perfect-woocommerce-brands' ),
+									'type'    => 'select',
+									'class'   => 'pwb-admin-tab-field pwb-premium-field',
+									'default' => 'no',
+									'desc'    => __( 'Show long brand description (if is set) on brand archive page', 'perfect-woocommerce-brands' ),
+									'id'      => 'wc_pwb_admin_tab_long_brand_desc',
+									'options' => array(
+										'yes'            => __( 'Yes, before product loop', 'perfect-woocommerce-brands' ),
+										'yes_after_loop' => __( 'Yes, after product loop', 'perfect-woocommerce-brands' ),
+										'no'             => __( 'No, hide description', 'perfect-woocommerce-brands' ),
+									),
+								),
+								array(
 									'name'    => __( 'Show brand banner', 'perfect-woocommerce-brands' ),
 									'type'    => 'select',
 									'class'   => 'pwb-admin-tab-field',
