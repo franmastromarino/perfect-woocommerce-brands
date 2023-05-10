@@ -13,7 +13,6 @@ class WooCommerce {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		$this->brand_logo_position();
 		add_action( 'wp', array( $this, 'brand_desc_position' ) );
-		add_action( 'wp', array( $this, 'long_brand_desc_position' ) );
 		/**
 		 * Add brands to product loop before price and after sale flash
 		 */
@@ -347,25 +346,6 @@ class WooCommerce {
 				} elseif ( 'yes_after_loop' == $show_desc ) {
 					add_action( 'woocommerce_after_main_content', array( $this, 'print_brand_desc' ), 9 );
 				}
-			}
-		}
-	}
-
-	public function long_brand_desc_position() {
-		if ( is_tax( 'pwb-brand' ) && ! is_paged() ) {
-
-			$show_desc   = get_option( 'wc_pwb_admin_tab_long_brand_desc' );
-
-			if ( 'yes' == $show_desc ) {
-				/**
-				 * Show second brand description before loop
-				 */
-				add_action( 'woocommerce_archive_description', array( $this, 'print_long_brand_description' ), 15 );
-			} elseif ( 'yes_after_loop' == $show_desc ) {
-				/**
-				 * Show second brand description after loop
-				 */
-				add_action( 'woocommerce_after_main_content', array( $this, 'print_long_brand_description' ), 9 );
 			}
 		}
 	}
@@ -932,19 +912,6 @@ class WooCommerce {
 		}
 	}
 
-	public function print_long_brand_desc() {
-		$queried_object  = get_queried_object();
-		$show_desc       = get_option( 'wc_pwb_admin_tab_long_brand_desc' );
-		$show_desc_class = ( ! $show_desc || 'yes' == $show_desc ) ? 'pwb-before-loop' : 'pwb-after-loop';
-		$long_brand_desc = get_term_meta( $queried_object->term_id, 'pwb_long_brand_desc', true );
-		ob_start();
-		if ( '' != $long_brand_desc && 'no' !== $show_desc ) {
-			echo '<div class="pwb-brand-description ' . esc_attr( $show_desc_class ) . '">';
-			echo do_shortcode( apply_filters( 'the_content', $long_brand_desc ) );
-			echo '</div>';
-		}
-	}
-
 	public function print_brand_banner_and_desc() {
 		$queried_object = get_queried_object();
 
@@ -958,19 +925,6 @@ class WooCommerce {
 			echo '<div class="pwb-brand-banner-cont ' . esc_attr( $show_desc_class ) . '">';
 			$this->print_brand_banner();
 			$this->print_brand_desc();
-			echo '</div>';
-		}
-	}
-
-	public function print_long_brand_description() {
-		$queried_object  = get_queried_object();
-		$show_desc       = get_option( 'wc_pwb_admin_tab_long_brand_desc' );
-		$show_desc_class = ( ! $show_desc || 'yes' == $show_desc ) ? 'pwb-before-loop' : 'pwb-after-loop';
-		$long_brand_desc = get_term_meta( $queried_object->term_id, 'pwb_long_brand_desc', true );
-
-		if ( '' != $long_brand_desc && 'no' !== $show_desc ) {
-			echo '<div class="pwb-brand-banner-cont ' . esc_attr( $show_desc_class ) . '">';
-			$this->print_long_brand_desc();
 			echo '</div>';
 		}
 	}
