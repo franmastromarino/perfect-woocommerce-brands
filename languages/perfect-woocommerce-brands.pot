@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Perfect Brands WooCommerce 3.0.6\n"
+"Project-Id-Version: Perfect Brands WooCommerce 3.0.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/perfect-woocommerce-brands\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-04-19T16:16:08+00:00\n"
+"POT-Creation-Date: 2023-05-10T15:39:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: perfect-woocommerce-brands\n"
@@ -35,7 +35,7 @@ msgid "https://quadlayers.com"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:26
-#: lib/admin/class-admin-tab.php:376
+#: lib/admin/class-admin-tab.php:389
 msgid "General"
 msgstr ""
 
@@ -45,8 +45,8 @@ msgid "Shop & Categories"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:28
-#: lib/admin/class-admin-tab.php:295
-#: lib/admin/class-admin-tab.php:438
+#: lib/admin/class-admin-tab.php:308
+#: lib/admin/class-admin-tab.php:451
 #: lib/admin/class-edit-brands-page.php:157
 #: lib/class-woocommerce.php:761
 #: lib/class-woocommerce.php:763
@@ -59,13 +59,13 @@ msgid "Brands"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:29
-#: lib/admin/class-admin-tab.php:242
+#: lib/admin/class-admin-tab.php:255
 #: lib/class-woocommerce.php:387
 msgid "Products"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:30
-#: lib/admin/class-admin-tab.php:324
+#: lib/admin/class-admin-tab.php:337
 msgid "Tools"
 msgstr ""
 
@@ -84,63 +84,63 @@ msgid "Suggestions"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:83
-#: lib/admin/class-admin-tab.php:188
+#: lib/admin/class-admin-tab.php:201
 msgid "Show brands in loop"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:86
-#: lib/admin/class-admin-tab.php:191
+#: lib/admin/class-admin-tab.php:204
 msgid "Show brand logo (or name) in product loop"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:89
-#: lib/admin/class-admin-tab.php:194
-#: lib/admin/class-admin-tab.php:262
-#: lib/admin/class-admin-tab.php:307
-#: lib/admin/class-admin-tab.php:419
+#: lib/admin/class-admin-tab.php:207
+#: lib/admin/class-admin-tab.php:275
+#: lib/admin/class-admin-tab.php:320
+#: lib/admin/class-admin-tab.php:432
 msgid "No"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:90
-#: lib/admin/class-admin-tab.php:195
-#: lib/admin/class-admin-tab.php:263
+#: lib/admin/class-admin-tab.php:208
+#: lib/admin/class-admin-tab.php:276
 msgid "Show brand link"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:91
-#: lib/admin/class-admin-tab.php:196
-#: lib/admin/class-admin-tab.php:264
+#: lib/admin/class-admin-tab.php:209
+#: lib/admin/class-admin-tab.php:277
 msgid "Show brand image (if is set)"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:95
-#: lib/admin/class-admin-tab.php:201
+#: lib/admin/class-admin-tab.php:214
 msgid "Brands in loop separator"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:98
-#: lib/admin/class-admin-tab.php:204
-#: lib/admin/class-admin-tab.php:288
+#: lib/admin/class-admin-tab.php:217
+#: lib/admin/class-admin-tab.php:301
 msgid "Show separator between brands"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:102
-#: lib/admin/class-admin-tab.php:209
+#: lib/admin/class-admin-tab.php:222
 msgid "Show brands in loop hook"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:105
-#: lib/admin/class-admin-tab.php:212
+#: lib/admin/class-admin-tab.php:225
 msgid "Show brand logo (or name) in product loop hook"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:108
-#: lib/admin/class-admin-tab.php:215
+#: lib/admin/class-admin-tab.php:228
 msgid "Before shop loop item"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:109
-#: lib/admin/class-admin-tab.php:216
+#: lib/admin/class-admin-tab.php:229
 msgid "Before shop loop item title"
 msgstr ""
 
@@ -149,22 +149,22 @@ msgid "Shop loop item title"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:111
-#: lib/admin/class-admin-tab.php:218
+#: lib/admin/class-admin-tab.php:231
 msgid "After shop loop item title"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:112
-#: lib/admin/class-admin-tab.php:217
+#: lib/admin/class-admin-tab.php:230
 msgid "After shop loop item"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:117
-#: lib/admin/class-admin-tab.php:223
+#: lib/admin/class-admin-tab.php:236
 msgid "Show brands in loop hook order"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:120
-#: lib/admin/class-admin-tab.php:226
+#: lib/admin/class-admin-tab.php:239
 msgid "Show brand logo (or name) in product loop hook order"
 msgstr ""
 
@@ -183,6 +183,7 @@ msgstr ""
 #: lib/admin/class-admin-tab.php:149
 #: lib/admin/class-admin-tab.php:161
 #: lib/admin/class-admin-tab.php:174
+#: lib/admin/class-admin-tab.php:187
 msgid "Yes, before product loop"
 msgstr ""
 
@@ -200,228 +201,238 @@ msgstr ""
 
 #: lib/admin/class-admin-tab.php:162
 #: lib/admin/class-admin-tab.php:175
+#: lib/admin/class-admin-tab.php:188
 msgid "Yes, after product loop"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:163
+#: lib/admin/class-admin-tab.php:176
 msgid "No, hide description"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:167
-msgid "Show brand banner"
+msgid "Show long brand description"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:171
-msgid "Show brand banner (if is set) on brand archive page"
-msgstr ""
-
-#: lib/admin/class-admin-tab.php:176
-msgid "No, hide banner"
+msgid "Show long brand description (if is set) on brand archive page"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:180
-msgid "Columns"
+msgid "Show brand banner"
 msgstr ""
 
 #: lib/admin/class-admin-tab.php:184
+msgid "Show brand banner (if is set) on brand archive page"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:189
+msgid "No, hide banner"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:193
+msgid "Columns"
+msgstr ""
+
+#: lib/admin/class-admin-tab.php:197
 msgid "Number of columns in the brand page"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:248
+#: lib/admin/class-admin-tab.php:261
 msgid "Products tab"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:251
+#: lib/admin/class-admin-tab.php:264
 msgid "Show brand tab in single product page"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:255
+#: lib/admin/class-admin-tab.php:268
 msgid "Show brands in single product"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:258
+#: lib/admin/class-admin-tab.php:271
 msgid "Show brand logo (or name) in single product"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:268
+#: lib/admin/class-admin-tab.php:281
 msgid "Brand position"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:271
+#: lib/admin/class-admin-tab.php:284
 msgid "For single product"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:274
+#: lib/admin/class-admin-tab.php:287
 msgid "Before title"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:275
+#: lib/admin/class-admin-tab.php:288
 msgid "After title"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:276
+#: lib/admin/class-admin-tab.php:289
 msgid "After price"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:277
+#: lib/admin/class-admin-tab.php:290
 msgid "After excerpt"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:278
+#: lib/admin/class-admin-tab.php:291
 msgid "After add to cart"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:279
+#: lib/admin/class-admin-tab.php:292
 msgid "In meta"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:280
+#: lib/admin/class-admin-tab.php:293
 msgid "After meta"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:281
+#: lib/admin/class-admin-tab.php:294
 msgid "After sharing"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:285
+#: lib/admin/class-admin-tab.php:298
 msgid "Brands in single product separator"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:292
+#: lib/admin/class-admin-tab.php:305
 msgid "Brands label"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:296
+#: lib/admin/class-admin-tab.php:309
 msgid "Change or disable the brands label in the single products page."
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:297
+#: lib/admin/class-admin-tab.php:310
 msgid "Display label for brand links."
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:301
+#: lib/admin/class-admin-tab.php:314
 msgid "Brands breadcrumb"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:304
+#: lib/admin/class-admin-tab.php:317
 msgid "Include brand in product breadcrumb"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:308
-#: lib/admin/class-admin-tab.php:420
+#: lib/admin/class-admin-tab.php:321
+#: lib/admin/class-admin-tab.php:433
 msgid "Yes"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:309
+#: lib/admin/class-admin-tab.php:322
 msgid "Replace category"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:330
+#: lib/admin/class-admin-tab.php:343
 #: templates/admin/brands-exporter.php:13
 msgid "Import brands"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:334
+#: lib/admin/class-admin-tab.php:347
 msgid "Import brands from other brand plugin. <a href=\"%s\" target=\"_blank\">Click here for more details</a>"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:339
 #: lib/admin/class-admin-tab.php:352
+#: lib/admin/class-admin-tab.php:365
 msgid "-"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:340
+#: lib/admin/class-admin-tab.php:353
 msgid "YITH WooCommerce Brands Add-On"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:341
+#: lib/admin/class-admin-tab.php:354
 msgid "Ultimate WooCommerce Brands"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:342
+#: lib/admin/class-admin-tab.php:355
 msgid "Offical WooCommerce Brands"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:346
+#: lib/admin/class-admin-tab.php:359
 msgid "Dummy data"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:349
+#: lib/admin/class-admin-tab.php:362
 msgid "Import generic brands and assign it to products randomly"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:353
+#: lib/admin/class-admin-tab.php:366
 msgid "Start import"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:357
+#: lib/admin/class-admin-tab.php:370
 msgid "System status"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:359
+#: lib/admin/class-admin-tab.php:372
 msgid "Show system status"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:370
+#: lib/admin/class-admin-tab.php:383
 msgid "brands"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:370
+#: lib/admin/class-admin-tab.php:383
 msgid "brand-name"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:382
+#: lib/admin/class-admin-tab.php:395
 msgid "Slug"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:385
+#: lib/admin/class-admin-tab.php:398
 msgid "Brands taxonomy slug"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:387
+#: lib/admin/class-admin-tab.php:400
 msgid "Your brands URLs will look like \"%s\""
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:394
+#: lib/admin/class-admin-tab.php:407
 #: lib/class-woocommerce.php:475
 #: lib/class-woocommerce.php:503
 #: lib/class-woocommerce.php:596
 msgid "Brand logo size"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:397
+#: lib/admin/class-admin-tab.php:410
 msgid "Select the size for the brand logo image around the site"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:398
+#: lib/admin/class-admin-tab.php:411
 msgid "The default image sizes can be configured under \"Settings > Media\". You can also define your own image sizes"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:403
+#: lib/admin/class-admin-tab.php:416
 msgid "Brands page"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:406
+#: lib/admin/class-admin-tab.php:419
 msgid "For linking breadcrumbs"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:407
+#: lib/admin/class-admin-tab.php:420
 msgid "Select your \"Brands\" page (if you have one), it will be linked in the breadcrumbs."
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:412
+#: lib/admin/class-admin-tab.php:425
 msgid "Brands search"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:415
+#: lib/admin/class-admin-tab.php:428
 msgid "Better search experience"
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:416
+#: lib/admin/class-admin-tab.php:429
 msgid "Redirect if the search matchs with a brands name."
 msgstr ""
 
-#: lib/admin/class-admin-tab.php:480
+#: lib/admin/class-admin-tab.php:493
 msgid "Edit brands"
 msgstr ""
 
@@ -430,39 +441,48 @@ msgid "Description"
 msgstr ""
 
 #: lib/admin/class-brands-custom-fields.php:23
-#: lib/admin/class-brands-custom-fields.php:67
+#: lib/admin/class-brands-custom-fields.php:74
 msgid "Brand description for the archive pages. You can include some html markup and shortcodes."
 msgstr ""
 
 #: lib/admin/class-brands-custom-fields.php:27
-#: lib/admin/class-brands-custom-fields.php:72
+msgid "Second description"
+msgstr ""
+
+#: lib/admin/class-brands-custom-fields.php:29
+#: lib/admin/class-brands-custom-fields.php:83
+msgid "Second brand description for the archive pages. You can include some html markup and shortcodes."
+msgstr ""
+
+#: lib/admin/class-brands-custom-fields.php:33
+#: lib/admin/class-brands-custom-fields.php:88
 #: lib/widgets/class-brands-list.php:54
 msgid "Brand logo"
 msgstr ""
 
-#: lib/admin/class-brands-custom-fields.php:29
 #: lib/admin/class-brands-custom-fields.php:35
-#: lib/admin/class-brands-custom-fields.php:76
-#: lib/admin/class-brands-custom-fields.php:96
+#: lib/admin/class-brands-custom-fields.php:41
+#: lib/admin/class-brands-custom-fields.php:92
+#: lib/admin/class-brands-custom-fields.php:112
 msgid "Select image"
 msgstr ""
 
-#: lib/admin/class-brands-custom-fields.php:33
-#: lib/admin/class-brands-custom-fields.php:92
+#: lib/admin/class-brands-custom-fields.php:39
+#: lib/admin/class-brands-custom-fields.php:108
 msgid "Brand banner"
 msgstr ""
 
-#: lib/admin/class-brands-custom-fields.php:36
+#: lib/admin/class-brands-custom-fields.php:42
 msgid "This image will be shown on brand page"
 msgstr ""
 
-#: lib/admin/class-brands-custom-fields.php:40
-#: lib/admin/class-brands-custom-fields.php:112
+#: lib/admin/class-brands-custom-fields.php:46
+#: lib/admin/class-brands-custom-fields.php:128
 msgid "Brand banner link"
 msgstr ""
 
-#: lib/admin/class-brands-custom-fields.php:42
-#: lib/admin/class-brands-custom-fields.php:116
+#: lib/admin/class-brands-custom-fields.php:48
+#: lib/admin/class-brands-custom-fields.php:132
 msgid "This link should be relative to site url. Example: \"/product/product-name\""
 msgstr ""
 
@@ -783,23 +803,23 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: lib/shortcodes/class-all-brands.php:157
+#: lib/shortcodes/class-all-brands.php:173
 msgid "First page"
 msgstr ""
 
-#: lib/shortcodes/class-all-brands.php:160
+#: lib/shortcodes/class-all-brands.php:176
 msgid "Previous page"
 msgstr ""
 
-#: lib/shortcodes/class-all-brands.php:164
+#: lib/shortcodes/class-all-brands.php:180
 msgid "Next page"
 msgstr ""
 
-#: lib/shortcodes/class-all-brands.php:167
+#: lib/shortcodes/class-all-brands.php:183
 msgid "Last page"
 msgstr ""
 
-#: lib/shortcodes/class-all-brands.php:171
+#: lib/shortcodes/class-all-brands.php:187
 msgid "No results"
 msgstr ""
 
