@@ -1,0 +1,66 @@
+# Files
+#https://github.com/10up/action-wordpress-plugin-deploy/
+#https://github.com/marketplace/actions/wordpress-plugin-svn-deploy
+
+.DS_Store
+*.zip
+
+# Dependencies
+node_modules
+package-lock.json
+package.json
+composer.json
+composer.lock
+pnpm-lock.yaml
+
+# PhpCs
+/phpcs.xml
+/phpcs_error.txt
+/phpcs_error.csv
+
+# Tests
+/.wp-env.json
+/artifacts
+/test-results
+/playwright-report
+/playwright
+/jest.config.js
+/phpunit
+/tests
+
+# Build and Configuration
+/.tools
+/bin
+/webpack.config.js
+/playwright.config.js
+/packages
+
+# Lock
+/.plugin
+/.distignore
+
+# Git Files
+/.git
+/.gitattributes
+/.github
+/.gitignore
+
+# Linters and Formatters
+/.editorconfig
+/.eslintignore
+/.eslintrc.json
+/.lintstagedrc
+/.prettierignore
+/.prettierrc.js
+/.stylelintrc.json
+
+# IDE
+/.vscode
+/.ideas
+/.design
+
+# Documentation
+/README.md
+
+# Husky
+/.husky

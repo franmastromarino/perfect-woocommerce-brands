@@ -1,21 +1,31 @@
-# Lock
-package-lock.json
-composer.lock
-pnpm-lock.yaml
+# Mac OS files
+.DS_Store
+*.zip
+
 # Dependencies
 node_modules
 vendor
 jetpack_vendor
-# Build
-build
+package-lock.json
+composer.lock
+pnpm-lock.yaml
+
 # PhpCs
-phpcs_error.txt
-phpcs_error.csv
-#Test
-artifacts
+/phpcs_error.txt
+/phpcs_error.csv
+/phpcs_error.xml
+
+# Tests
+/artifacts
 /test-results
-playwright-report
-playwright
-#Zip
-*.zip
-.plugin
+/playwright-report
+/playwright
+
+# Build
+/build
+/.tools/vendor
+/.tools/composer.lock
+/.plugin
+
+# IDE settings
+.vscode/settings.json
