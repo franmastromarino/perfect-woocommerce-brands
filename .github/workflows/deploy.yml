@@ -59,4 +59,4 @@ jobs:
         env:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-          SLUG: woocommerce-direct-checkout
+          SLUG: perfect-woocommerce-brands
