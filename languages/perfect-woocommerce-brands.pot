@@ -927,7 +927,7 @@ msgid "Hello! Thank you for choosing the %s plugin!"
 msgstr ""
 
 #: vendor_packages/wp-notice-plugin-promote.php:48
-msgid "Could you please give it a 5-star rating on WordPress?. Your feedback will boost our motivation and help us promote and continue to improve this product."
+msgid "Could you please give it a 5-star rating on WordPress? Your feedback boosts our motivation, helps us promote, and continues to improve this product. Your support matters!"
 msgstr ""
 
 #: vendor_packages/wp-notice-plugin-promote.php:50
