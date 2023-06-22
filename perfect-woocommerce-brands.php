@@ -4,7 +4,7 @@
  * Plugin Name:             Perfect Brands WooCommerce
  * Plugin URI:              https://quadlayers.com/portfolio/perfect-woocommerce-brands/
  * Description:             Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
- * Version:                 3.1.1
+ * Version:                 3.2.0
  * Text Domain:             perfect-woocommerce-brands
  * Author:                  QuadLayers
  * Author URI:              https://quadlayers.com
@@ -23,7 +23,7 @@ define( 'PWB_PLUGIN_FILE', __FILE__ );
 define( 'PWB_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'PWB_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
 define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'PWB_PLUGIN_VERSION', '3.1.1' );
+define( 'PWB_PLUGIN_VERSION', '3.2.0' );
 define( 'PWB_PLUGIN_NAME', 'Perfect WooCommerce Brands' );
 define( 'PWB_PREFIX', 'pwb' );
 define( 'PWB_PURCHASE_URL', 'https://quadlayers.com/portfolio/perfect-woocommerce-brands/?utm_source=pwb_admin' );
@@ -73,4 +73,16 @@ register_deactivation_hook(
 		 */
 		update_option( 'old_wc_pwb_admin_tab_slug', 'null' );
 	}
+);
+
+/**
+ * Declarate compatibility with WooCommerce Custom Order Tables
+ */
+add_action(
+    'before_woocommerce_init',
+    function() {
+        if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+        }
+    }
 );
