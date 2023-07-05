@@ -1,8 +1,13 @@
-# Ignore artifacts:
-node_modules
-jetpack_vendor
-vendor
-build
-test
-bin
-.plugin
+/node_modules
+/vendor
+/assets
+/tests
+/jetpack_vendor
+/build
+/artifacts
+/test-results
+/playwright-report
+/playwright
+/.plugin
+**/test/**
+playwright.config.js

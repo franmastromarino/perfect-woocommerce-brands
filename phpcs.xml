@@ -1,25 +1,26 @@
 <?xml version="1.0"?>
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Example Project" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
-
 	<description>QuadLayers PHPCS rules</description>
-
 	<!-- Configs -->
 	<config name="minimum_supported_wp_version" value="4.7" />
 	<config name="testVersion" value="7.1-" />
-
 	<!-- Exclude paths -->
-	<exclude-pattern>*/node_modules/*</exclude-pattern>
-	<exclude-pattern>*/vendor/*</exclude-pattern>
-	<exclude-pattern>*/jetpack_vendor/*</exclude-pattern>
-	<exclude-pattern>*/tests/*</exclude-pattern>
-
+	<exclude-pattern>/node_modules</exclude-pattern>
+	<exclude-pattern>/vendor</exclude-pattern>
+	<exclude-pattern>/tests</exclude-pattern>
+	<exclude-pattern>/jetpack_vendor/i18n-map.php</exclude-pattern>
+	<exclude-pattern>/jetpack_vendor/automattic</exclude-pattern>
+	<exclude-pattern>/build</exclude-pattern>
+	<exclude-pattern>/artifacts</exclude-pattern>
+	<exclude-pattern>/test-results</exclude-pattern>
+	<exclude-pattern>/playwright-report</exclude-pattern>
+	<exclude-pattern>/playwright</exclude-pattern>
+	<exclude-pattern>/.plugin</exclude-pattern>
 	<!-- Include the WordPress-Extra standard. -->
 	<rule ref="WordPress-Extra">
 		<!-- <exclude name="WordPress.WP.GlobalVariablesOverride" /> -->
 		<exclude name="WordPress.WP.I18n.MissingTranslatorsComment"/>
 		<!-- <exclude name="WordPress.PHP.YodaConditions.NotYoda" /> -->
-
-		<!-- New -->
 		<exclude name="Squiz.Commenting.FileComment.Missing" />
 		<exclude name="Squiz.Commenting.ClassComment.Missing" />
 		<exclude name="Squiz.Commenting.VariableComment.Missing" />
@@ -27,14 +28,11 @@
 		<exclude name="Squiz.Commenting.FunctionComment.MissingParamTag" />
 		<exclude name="Squiz.Commenting.FunctionComment.MissingParamName" />
 		<exclude name="Squiz.Commenting.FunctionComment.MissingParamComment" />
-
 		<exclude name="WooCommerce.Commenting.CommentHooks.MissingHookComment" />
 	</rule>
-
 	<!-- Add in some extra rules from other standards. -->
 	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
 	<rule ref="Generic.Commenting.Todo"/>
-
 	<!-- Exclude WooCommerce-Core rules. -->
 	<rule ref="WooCommerce-Core">
 		<exclude name="Core.Commenting.CommentTags.AuthorTag" />
@@ -42,12 +40,8 @@
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax" />
 		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
 	</rule>
-
 	<!-- Exclude tests folder. -->
 	<rule ref="PHPCompatibility">
 		<exclude-pattern>*/tests/*</exclude-pattern>
 	</rule>
-		
-
-
 </ruleset>

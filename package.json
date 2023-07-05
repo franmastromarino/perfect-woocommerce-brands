@@ -3,55 +3,42 @@
 	"description": "Perfect WooCommerce Brands",
 	"main": "index.js",
 	"scripts": {
-		"tools:delete:lock": "node ./bin/delete.js ./.tools/composer.lock",
-		"tools:delete:dependencies": "node ./bin/delete.js .tools/vendor",
-		"tools:clean": "pnpm run tools:delete:lock && pnpm run tools:delete:dependencies",
-		"tools:update": "cd .tools && composer update",
-		"tools:start": "pnpm run tools:setup && cd .tools && composer dump-autoload",
-		"tools:setup": "cd .tools & composer install",
-		"tools:report:csv": "php .tools/vendor/bin/phpcs --warning-severity=0 --extensions=php --report=csv --report-file=./phpcs_error.csv ./lib",
-		"tools:report:txt": "php .tools/vendor/bin/phpcs --warning-severity=0 --extensions=php --report-file=./phpcs_error.txt ./lib",
-		"tools:report:autofix": "php .tools/vendor/bin/phpcbf ./lib",
-		"tools:i18n": "php .tools/vendor/wp-cli/wp-cli/php/boot-fs.php i18n make-pot .plugin/perfect-woocommerce-brands .plugin/perfect-woocommerce-brands/languages/perfect-woocommerce-brands.pot && node ./bin/copy.js ./.plugin/perfect-woocommerce-brands/languages/perfect-woocommerce-brands.pot ./languages",
+		"tools:setup": "cd .tools && pnpm run setup",
+		"tools:phpcbf": "node .tools/bin/phpcbf.js",
+		"tools:phpcs": "node .tools/bin/phpcs.js",
+		"tools:makepot": "node .tools/bin/makepot.js",
 		"preinstall": "npx only-allow pnpm",
-		"delete:build": "node ./bin/delete.js ./build",
-		"delete:lock:js": "node ./bin/delete.js ./package-lock.json ./pnpm-lock.yaml",
-		"delete:lock:php": "node ./bin/delete.js ./composer.lock ",
-		"delete:lock": "pnpm run delete:lock:js && pnpm run delete:lock:php",
-		"delete:dependencies:js": "node ./bin/delete.js ./node_modules",
-		"delete:dependencies:php": "node ./bin/delete.js ./vendor ./jetpack_vendor",
-		"delete:dependencies": "pnpm run delete:dependencies:js && pnpm run delete:dependencies:php",
-		"delete:plugin": "node ./bin/delete.js ./.plugin",
-		"delete:phpcs_error": "node ./bin/delete.js ./phpcs_error.csv ./phpcs_error.txt",
-		"delete:playwright": "node ./bin/delete.js ./playwright-report ./playwright",
-		"clean:js": "pnpm run delete:build & pnpm run delete:lock:js & pnpm run delete:dependencies:js & pnpm run delete:playwright",
-		"clean:php": "pnpm run delete:lock:php & pnpm run delete:dependencies:php & delete:phpcs_error & pnpm run delete:plugin",
+		"delete:build": "node .tools/bin/delete.js ./build ./languages",
+		"delete:plugin": "node .tools/bin/delete.js ./.plugin",
+		"clean:js": "pnpm run delete:plugin && node .tools/bin/delete.js ./build ./package-lock.json ./pnpm-lock.yaml ./node_modules ./playwright-report ./playwright",
+		"clean:php": "pnpm run delete:plugin && node .tools/bin/delete.js ./composer.lock ./vendor ./jetpack_vendor ./phpcs_error.xml ./phpcs_error.csv ./phpcs_error.txt",
 		"clean": "pnpm run clean:js && pnpm run clean:php",
-		"setup:js": "pnpm install --force && husky install && playwright install",
-		"setup:php": "composer install && pnpm run tools:setup",
-		"setup": "npm install pnpm -g && pnpm run clean & pnpm run setup:js && pnpm run setup:php",
+		"setup:js": "pnpm run clean:js && pnpm install --force && pnpm husky install && pnpm playwright install",
+		"setup:php": "pnpm run clean:php && composer install",
+		"setup": "pnpm run setup:js && pnpm run setup:php && pnpm run tools:setup",
 		"update:js": "pnpm update",
-		"update:php": "composer update && pnpm run delete:plugin",
+		"update:php": "composer update",
 		"update": "pnpm run update:js && pnpm run update:php",
-		"format:js": "lint-staged && eslint --fix --ext .js,.jsx .",
-		"format:php": "pnpm run tools:report:autofix",
-		"format": "pnpm run format:js & pnpm run format:php",
 		"test:unit:php": "cd .tools && composer run-script test:phpunit",
 		"test:unit:js": "jest",
-		"test:unit": "pnpm run test:unit:js & pnpm run test:unit:php",
+		"test:unit": "pnpm run test:unit:js && pnpm run test:unit:php",
 		"test:e2e": "pnpm run docker start && playwright test",
-		"test": "pnpm run test:unit & pnpm run test:e2e",
+		"test": "pnpm run test:unit && pnpm run test:e2e",
 		"docker": "wp-env",
 		"start:js": "pnpm run delete:build && wp-scripts start",
-		"start:php": "pnpm run setup:php && composer dump-autoload",
-		"start": "pnpm run start:js && pnpm run start:php",
-		"build:js": "pnpm run delete:build &&  wp-scripts build",
+		"start:php": "composer dump-autoload",
+		"start": "pnpm run start:php && pnpm run start:js",
+		"build:js": "pnpm run delete:build && wp-scripts build",
 		"build:php": "composer install --no-dev && composer dump-autoload -o --no-dev",
-		"build": "pnpm run build:js && pnpm run build:php",
-		"build:plugin": "pnpm run delete:plugin && pnpm run build && node ./bin/buildPlugin.js && pnpm run tools:i18n",
-		"build:plugin:zip": "pnpm run build:plugin && node ./bin/buildPluginZip.js",
-		"build:plugin:wc": "pnpm run delete:plugin && pnpm run build && node ./bin/buildPlugin.js --wc && pnpm run tools:i18n",
-		"build:plugin:wc:zip": "pnpm run build:plugin:wc && node ./bin/buildPluginZip.js"
+		"build": "pnpm run delete:plugin && pnpm run build:js && pnpm run build:php && pnpm run tools:makepot",
+		"zip": "pnpm run build && node .tools/bin/plugin.js && node .tools/bin/wc.js && node .tools/bin/zip.js",
+		"format:php": "pnpm run tools:phpcbf",
+		"format:js": "wp-scripts format ./packages",
+		"format": "pnpm run format:php && pnpm run format:js",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint:pkg-json": "wp-scripts lint-pkg-json"
 	},
 	"author": "QuadLayers",
 	"license": "ISC",
@@ -84,5 +71,54 @@
 		"webpack": "^5.82.0",
 		"webpack-remove-empty-scripts": "^0.8.4",
 		"zip-a-folder": "^1.1.5"
+	},
+	"dependencies": {
+		"wp-scaffolding": "^1.1.8"
+	},
+	"scaffolding": {
+		"zip": [
+			"jetpack_vendor",
+			"lib",
+			"vendor",
+			"vendor_packages",
+			"build",
+			"languages",
+			"compatibility",
+			"templates",
+			"assets",
+			"wpml-config.xml",
+			"main.php",
+			"perfect-woocommerce-brands.php",
+			"uninstall.php",
+			"readme.txt"
+		],
+		"git": [
+			".design",
+			".todo",
+			".design",
+			".github",
+			".docs"
+		]
+	},
+	"lint-staged": {
+		"*.{js,json,ts,tsx,yml,yaml}": [
+			"wp-scripts format"
+		],
+		"*.{js,ts,tsx}": [
+			"wp-scripts lint-js"
+		],
+		"*.scss": [
+			"wp-scripts lint-style"
+		],
+		"package-lock.json": [
+			"npm run lint:lockfile",
+			"node ./bin/check-latest-npm.js"
+		],
+		"packages/*/package.json": [
+			"wp-scripts lint-pkg-json"
+		],
+		"**/tsconfig.json": [
+			"npm run lint:tsconfig"
+		]
 	}
 }

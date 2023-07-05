@@ -1,0 +1,26 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"settings": {
+		"react": {
+			"version": "17.0.2"
+		}
+	},
+	"extends": ["plugin:@wordpress/eslint-plugin/recommended"],
+	"rules": {
+		"react/prop-types": "off",
+		"jsdoc/check-tag-names": "off",
+		"jsx-a11y/label-has-associated-control": "off",
+		"jsx-a11y/click-events-have-key-events": "off",
+		"jsx-a11y/no-noninteractive-element-interactions": "off",
+		"jsx-a11y/no-noninteractive-element-to-interactive-role": "off",
+		"jsx-a11y/no-static-element-interactions": "off",
+		"jsx-a11y/anchor-has-content": "off",
+		"jsx-a11y/anchor-is-valid": "off",
+		"import/no-unresolved": "off",
+		"@wordpress/i18n-translator-comments": "off",
+		"no-nested-ternary": "off"
+	}
+}

@@ -1,10 +1,10 @@
 {
-	"name": "quadlayers/tools",
-	"description": "QuadLayers Tools",
+	"name": "franmastromarino/tools",
+	"description": "FranMastromarino Tools",
 	"type": "project",
 	"authors": [
 		{
-			"name": "QuadLayers",
+			"name": "FranMastromarino",
 			"email": "noreply@quadlayers.com"
 		}
 	],
@@ -27,6 +27,14 @@
 		"wp-cli/i18n-command": "*"
 	},
 	"scripts": {
-		"test:phpunit": "./vendor/bin/phpunit ../phpunit"
+		"test:phpunit": "./vendor/bin/phpunit ../tests/phpunit",
+		"clean": "node bin/delete.js ./vendor ./composer.lock",
+		"setup": "composer clean && composer install",
+		"update": "composer clean && composer update",
+		"start": "composer dump-autoload",
+		"report:txt": "php vendor/bin/phpcs --standard=./phpcs.xml --warning-severity=0 --report-file=./phpcs_error.txt --extensions=php ./",
+		"report:csv": "php vendor/bin/phpcs --standard=./phpcs.xml --warning-severity=0 --report-csv=./phpcs_error.csv --extensions=php ./",
+		"report:xml": "php vendor/bin/phpcs --standard=./phpcs.xml --warning-severity=0 --report-xml=./phpcs_error.xml --extensions=php ./",
+		"makepot": "node bin/makepot.js"
 	}
 }

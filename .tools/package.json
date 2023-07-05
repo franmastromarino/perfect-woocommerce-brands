@@ -1,0 +1,11 @@
+{
+	"name": "tools",
+	"description": "Tools",
+	"main": "index.js",
+	"scripts": {
+		"setup": "pnpm install --force && composer install"
+	},
+	"dependencies": {
+		"archiver": "^5.3.1"
+	}
+}

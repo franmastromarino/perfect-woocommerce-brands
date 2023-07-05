@@ -1,0 +1,28 @@
+{
+	"Print php variable to console": {
+		"prefix": "clog",
+		"body": [
+			"error_log( '$1: ' . json_encode( $$1, JSON_PRETTY_PRINT ) );"
+		],
+		"description": "Log output to console php",
+		"scope": "php"
+	},
+	"Print php string to console": {
+		"prefix": "slog",
+		"body": ["error_log( '$1' );"],
+		"description": "Log output to console php",
+		"scope": "php"
+	},
+	"Print js variable to console": {
+		"prefix": "clog",
+		"body": ["console.log('$1: ', $1);", "$2"],
+		"description": "Log output to console",
+		"scope": "javascript,typescript"
+	},
+	"Print js string to console": {
+		"prefix": "slog",
+		"body": ["console.log('$1');", "$2"],
+		"description": "Log output to console",
+		"scope": "javascript,typescript"
+	}
+}

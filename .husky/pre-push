@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Install browsers for PlayWright tests
+#npx playwright install
+# Execute tests
+#npm run test
+#./vendor/bin/phpunit phpunit
+
+# # Check if the push includes a tag
+# while read local_ref local_sha remote_ref remote_sha; do
+#   if [[ $remote_ref == refs/tags/* ]]; then
+#     # This is a tag push, perform necessary actions
+#     folder="build"
+#     if [ ! -d "$folder" ]; then
+#       echo "Error: $folder folder does not exist"
+#       exit 1
+#     fi
+#     # Add the compiled code
+#     git add build/ -f
+#     # Amend the tag to include the latest commit
+#     git tag -f --allow-empty -a "${remote_ref#refs/tags/}" -m "Release: ${remote_ref#refs/tags/}" ${remote_sha}
+#   fi
+# done

@@ -5,7 +5,13 @@
 		},
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"eslint.validate": ["javascript"],
+	"[json]": {
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": true
+		},
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"eslint.validate": ["javascript", "json"],
 	"editor.tabCompletion": "on",
 	"diffEditor.codeLens": true,
 	"search.exclude": {
@@ -29,8 +35,8 @@
 	"phpsab.composerJsonPath": "./composer.json",
 	"phpsab.debug": true,
 	"phpsab.standard": "./phpcs.xml",
-	"phpsab.executablePathCS": ".tools/vendor/bin/phpcs.bat",
-	"phpsab.executablePathCBF": ".tools/vendor/bin/phpcbf.bat",
+	"phpsab.executablePathCS": ".tools/vendor/bin/phpcs",
+	"phpsab.executablePathCBF": ".tools/vendor/bin/phpcbf",
 	"files.eol": "\n",
 	"intelephense.stubs": [
 		"apache",
