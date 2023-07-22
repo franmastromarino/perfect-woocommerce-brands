@@ -1,31 +1,27 @@
-# Mac OS files
-.DS_Store
-*.zip
-
+# Lock
+package-lock.json
+composer.lock
+pnpm-lock.yaml
 # Dependencies
 node_modules
 vendor
 jetpack_vendor
-package-lock.json
-composer.lock
-pnpm-lock.yaml
-
-# PhpCs
-/phpcs_error.txt
-/phpcs_error.csv
-/phpcs_error.xml
-
-# Tests
-/artifacts
-/test-results
-/playwright-report
-/playwright
-
 # Build
-/build
-/.tools/vendor
-/.tools/composer.lock
-/.plugin
-
-# IDE settings
+*.zip
+build
+# PhpCs
+phpcs_error.txt
+phpcs_error.csv
+phpcs_error.xml
+#Test
+artifacts
+/test-results
+playwright-report
+playwright
+.tools/vendor
+.tools/composer.lock
+.plugin
+.prettierrc
+README.md
+.DS_Store
 .vscode/settings.json

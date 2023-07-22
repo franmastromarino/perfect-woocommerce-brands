@@ -7,3 +7,33 @@
 
 # Convert to LF line endings on checkout.
 *.php text eol=lf
+
+# Exclude files from the package.
+.husky                  export-ignore
+.design                 export-ignore
+.ideas                  export-ignore
+.vscode                 export-ignore
+node_modules            export-ignore
+packages                export-ignore
+tests                   export-ignore
+.editorconfig           export-ignore
+.eslintignore           export-ignore
+.eslintrc.json          export-ignore
+.gitignore              export-ignore
+.gitattributes          export-ignore
+.lintstagedrc           export-ignore
+.prettierignore         export-ignore
+.prettierrc.js          export-ignore
+.stylelintrc.json       export-ignore
+.wp-env.json            export-ignore
+composer.json           export-ignore
+composer.lock           export-ignore
+jest.config.js          export-ignore
+package-lock.json       export-ignore
+package.json            export-ignore
+phpcs_error.txt         export-ignore
+phpcs_error.csv         export-ignore
+phpcs_error.xml         export-ignore
+phpcs.xml               export-ignore
+playwright.config.js    export-ignore
+webpack.config.js       export-ignore
