@@ -4,17 +4,17 @@
  * Plugin Name:             Perfect Brands WooCommerce
  * Plugin URI:              https://quadlayers.com/portfolio/perfect-woocommerce-brands/
  * Description:             Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
- * Version:                 3.2.1
+ * Version:                 3.2.2
  * Text Domain:             perfect-woocommerce-brands
  * Author:                  QuadLayers
  * Author URI:              https://quadlayers.com
  * License:                 GPLv3
  * Domain Path:             /languages
  * Request at least:        4.7.0
- * Tested up to:            6.2
+ * Tested up to:            6.3
  * Requires PHP:            5.6
  * WC requires at least:    4.0
- * WC tested up to:         7.9
+ * WC tested up to:         8.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -23,7 +23,7 @@ define( 'PWB_PLUGIN_FILE', __FILE__ );
 define( 'PWB_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'PWB_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
 define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'PWB_PLUGIN_VERSION', '3.2.1' );
+define( 'PWB_PLUGIN_VERSION', '3.2.2' );
 define( 'PWB_PLUGIN_NAME', 'Perfect WooCommerce Brands' );
 define( 'PWB_PREFIX', 'pwb' );
 define( 'PWB_PURCHASE_URL', 'https://quadlayers.com/portfolio/perfect-woocommerce-brands/?utm_source=pwb_admin' );

@@ -4,12 +4,12 @@ Donate link: https://quadlayers.com/portfolio/perfect-woocommerce-brands/
 Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 6.2
-Stable tag: 3.2.1
+Tested up to: 6.3
+Stable tag: 3.2.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 WC requires at least: 4.7.0
-WC tested up to: 7.8
+WC tested up to: 8.0
 
 Perfect Brands for WooCommerce allows you to show product brands in your WooCommerce based store
 
@@ -94,102 +94,105 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
-= 3.2.1=
+= 3.2.2 =
 * WooCommerce compatibility
-= 3.2.0=
+* WordPress compatibility
+= 3.2.1 =
+* WooCommerce compatibility
+= 3.2.0 =
 * New: WooCommerce HPOS compatibility
 * New: WooCommerce COT compatibility
-= 3.1.1=
+= 3.1.1 =
 * Fix: Translation strings
-= 3.1.0=
+= 3.1.0 =
 * Fix: WooCommerce compatibility
-= 3.0.9=
+= 3.0.9 =
 * Fix: WooCommerce compatibility
-= 3.0.8=
+= 3.0.8 =
 * Fix: Fix curly shortcode quotes
-= 3.0.7=
+= 3.0.7 =
 * Fix: Fix curly shortcode quotes
-= 3.0.6=
+= 3.0.6 =
 * Fix: Premium compatibility
-= 3.0.5=
+= 3.0.5 =
 * Fix: All brands shortcode flexbox
-= 3.0.4=
+= 3.0.4 =
 * Fix: Composer packages update
-= 3.0.3=
+= 3.0.3 =
 * Fix: Composer packages update
 * New: WooCommerce compatibility
-= 3.0.2=
+= 3.0.2 =
 * Fix: Composer packages update
-= 3.0.1=
+= 3.0.1 =
 * Fix: PHP error
-= 3.0.0=
+= 3.0.0 =
 * Fix: Refactor
-= 2.5.6=
+= 2.5.6 =
 * New: WooCommerce compatibility
-= 2.5.5=
+= 2.5.5 =
 * Fix: AZ listing shortcode hide empty
 * Fix:Remove duplicated documentation link
-= 2.5.4=
+= 2.5.4 =
 * Fix: Readme update
-= 2.5.3=
+= 2.5.3 =
 * Fix: PHP error
-= 2.5.2=
+= 2.5.2 =
 * Fix: WooCommerce brands loop order
-= 2.5.1=
+= 2.5.1 =
 * New: PHP error
-= 2.5.0=
+= 2.5.0 =
 * New: Premium compatibility
-= 2.4.5=
+= 2.4.5 =
 * Fix: Allow video embeds in brand description
-= 2.4.4=
+= 2.4.4 =
 * Fix: Align rest api to WC standard functionality
-= 2.4.3=
+= 2.4.3 =
 * Fix: Product tab brand link
-= 2.4.2=
+= 2.4.2 =
 * Fix: Carousel shortcode
-= 2.4.1=
+= 2.4.1 =
 * New: Load scrips & styles from build folder
-= 2.4.0=
+= 2.4.0 =
 * New: Align rest api to WC standard functionality
 * Fix: Rollback separate brands by comma
-= 2.3.0=
+= 2.3.0 =
 * Fix: i18n az listing shortcode cache transient
 * Fix: Shortcode brand description attribute
-= 2.2.9=
+= 2.2.9 =
 * Fix: Separate brands by comma
 * Fix: Add span to brands filter
-= 2.2.8=
+= 2.2.8 =
 * Fix: Settings link
-= 2.2.7=
+= 2.2.7 =
 * Fix: WooCommerce compatibility
-= 2.2.5=
+= 2.2.5 =
 * Fix: WooCommerce compatibility
 * Fix: brand description
-= 2.2.4=
+= 2.2.4 =
 * Fix: rating notification
-= 2.2.3=
+= 2.2.3 =
 * Fix: PHP error
-= 2.2.2=
+= 2.2.2 =
 * Fix: WooCommerce compatibility
-= 2.2.1=
+= 2.2.1 =
 * Fix: WooCommerce compatibility
-= 2.2.0=
+= 2.2.0 =
 * Fix: WooCommerce compatibility
-= 2.1.9=
+= 2.1.9 =
 * Fix: WooCommerce compatibility
-= 2.1.8=
+= 2.1.8 =
 * Fix: WooCommerce compatibility
-= 2.1.7=
+= 2.1.7 =
 * Fix: small css issues
-= 2.1.6=
+= 2.1.6 =
 * Fix: WooCommerce compatibility
-= 2.1.5=
+= 2.1.5 =
 * Fix: WooCommerce Product Brands translation plural
-= 2.1.4=
+= 2.1.4 =
 * Fix: QuadLayers widget image
 = 2.1.3 =
 * Fix: Disable search brands in products
-= 2.1.2=
+= 2.1.2 =
 * Fix: QuadLayers widget cache
 = 2.1.1 =
 * Fix: WooCommerce Brands carousel 
