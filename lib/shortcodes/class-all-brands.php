@@ -55,6 +55,8 @@ class All_Brands {
 
 			$count = self::count_visible_products( $brand->term_id );
 
+			error_log( 'count: ' . json_encode( $count, JSON_PRETTY_PRINT ) );
+
 			if ( ! $count && $hide_empty ) {
 				unset( $brands[ $key ] );
 			} else {
@@ -79,6 +81,7 @@ class All_Brands {
 		$args     = array(
 			'posts_per_page' => -1,
 			'post_type'      => 'product',
+			'fields'         => 'ids',
 			'tax_query'      => array(
 				array(
 					'taxonomy' => 'pwb-brand',
