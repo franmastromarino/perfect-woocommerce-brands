@@ -55,8 +55,6 @@ class All_Brands {
 
 			$count = self::count_visible_products( $brand->term_id );
 
-			error_log( 'count: ' . json_encode( $count, JSON_PRETTY_PRINT ) );
-
 			if ( ! $count && $hide_empty ) {
 				unset( $brands[ $key ] );
 			} else {
