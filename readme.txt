@@ -1,11 +1,11 @@
 ﻿=== Perfect Brands for WooCommerce ===
 Contributors: quadlayers, titodevera
-Donate link: https://quadlayers.com/portfolio/perfect-woocommerce-brands/
+Donate link: https://quadlayers.com/products/perfect-woocommerce-brands/
 Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 6.3
-Stable tag: 3.2.5
+Stable tag: 3.2.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 WC requires at least: 4.7.0
@@ -19,7 +19,7 @@ Perfect WooCommerce Brands is a perfect tool to organize your site, highlight th
 
 == Presentation ==
 
-[Premium](https://quadlayers.com/portfolio/perfect-woocommerce-brands/) | [Demo](https://quadlayers.com/perfect-woocommerce-brands/) | [Community](https://www.facebook.com/groups/quadlayers/) | [Documentation](https://quadlayers.com/documentation/perfect-woocommerce-brands/)
+[Premium](https://quadlayers.com/products/perfect-woocommerce-brands/) | [Demo](https://quadlayers.com/perfect-woocommerce-brands/) | [Community](https://www.facebook.com/groups/quadlayers/) | [Documentation](https://quadlayers.com/documentation/perfect-woocommerce-brands/)
 
 Whether we like to admit it or not, we are all influenced by brands. Brands are a guarantee for quality, they assure product recognition in customers.
 Is essential to work with product brands for increase sales and generate reliability on your e-commerce site.
@@ -94,6 +94,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 3.2.6 =
+* Update portfolio link
 = 3.2.5 =
 * Count brands products performance issue
 = 3.2.3 =

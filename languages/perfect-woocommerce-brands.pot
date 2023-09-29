@@ -19,7 +19,7 @@ msgid "Perfect Brands WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
-msgid "https://quadlayers.com/portfolio/perfect-woocommerce-brands/"
+msgid "https://quadlayers.com/products/perfect-woocommerce-brands/"
 msgstr ""
 
 #. Description of the plugin
