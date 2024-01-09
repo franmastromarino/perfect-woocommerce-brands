@@ -72,7 +72,7 @@
 		"webpack-remove-empty-scripts": "^0.8.4"
 	},
 	"dependencies": {
-		"wp-scaffolding": "^1.2.1"
+		"wp-scaffolding": "^1.2.4"
 	},
 	"scaffolding": {
 		"zip": [
