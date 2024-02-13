@@ -40,10 +40,13 @@ class Product {
 		<h2><?php echo esc_html( apply_filters( 'woocommerce_product_brand_heading', esc_html__( 'Brand', 'perfect-woocommerce-brands' ) ) ); ?></h2>
 		<?php foreach ( $brands as $brand ) : ?>
 			<?php
-			$image_size = get_option( 'wc_pwb_admin_tab_brand_logo_size', 'thumbnail' );
-			$brand_logo = get_term_meta( $brand->term_id, 'pwb_brand_image', true );
-			$brand_logo = wp_get_attachment_image( $brand_logo, apply_filters( 'pwb_product_tab_brand_logo_size', $image_size ) );
-			$brand_link = get_term_link( $brand->term_id, 'pwb-brand' );
+			$image_size     = get_option( 'wc_pwb_admin_tab_brand_logo_size', 'thumbnail' );
+			$brand_logo     = get_term_meta( $brand->term_id, 'pwb_brand_image', true );
+			$brand_logo     = wp_get_attachment_image( $brand_logo, apply_filters( 'pwb_product_tab_brand_logo_size', $image_size ) );
+			$brand_link     = get_term_link( $brand->term_id, 'pwb-brand' );
+			$brand_long_esc = get_term_meta( $brand->term_id, 'pwb_long_brand_desc', true );
+			$show           = get_option( 'wc_pwb_admin_tab_long_brand_desc' );
+
 			?>
 				<div id="tab-pwb_tab-content">
 					<h3><?php echo esc_html( $brand->name ); ?></h3>
@@ -58,6 +61,16 @@ class Product {
 							</span>
 					<?php endif; ?>
 				</div>
+				<?php
+				if ( ! empty( $brand_long_esc ) ) :
+					$show = get_option( 'wc_pwb_admin_tab_long_brand_desc' );
+					?>
+					<?php if ( 'no' !== $show ) : ?>
+						<div>
+							<?php echo wp_kses_post( $brand_long_esc ); ?>
+						</div>
+					<?php endif; ?>
+				<?php endif; ?>
 		<?php endforeach; ?>
 		<?php
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
