@@ -19,6 +19,7 @@ class Product_Carousel {
 				'products_to_scroll' => '1',
 				'autoplay'           => 'false',
 				'arrows'             => 'false',
+				'rtl'				 => 'false',
 			),
 			$atts,
 			'pwb-product-carousel'
@@ -52,6 +53,7 @@ class Product_Carousel {
 			'slidesToScroll' => (int) self::$atts['products_to_scroll'],
 			'autoplay'       => ( 'true' === self::$atts['autoplay'] ) ? true : false,
 			'arrows'         => ( 'true' === self::$atts['arrows'] ) ? true : false,
+			'rtl'     		 => ( 'true' === self::$atts['rtl'] ) ? true : false,
 		);
 
 		return htmlspecialchars( json_encode( $slick_settings ), ENT_QUOTES, 'UTF-8' );
