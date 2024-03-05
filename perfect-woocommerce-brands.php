@@ -62,7 +62,7 @@ register_activation_hook(
 );
 
 /**
- * Plugin activation hook
+ * Plugin deactivation hook
  */
 register_deactivation_hook(
 	__FILE__,
