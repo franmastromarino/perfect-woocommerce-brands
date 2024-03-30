@@ -5,11 +5,11 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 6.4
-Stable tag: 3.3.6
+Stable tag: 3.3.7
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 WC requires at least: 4.7.0
-WC tested up to: 8.6
+WC tested up to: 8.7
 
 Perfect Brands for WooCommerce allows you to show product brands in your WooCommerce based store
 
