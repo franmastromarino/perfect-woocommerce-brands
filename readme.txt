@@ -5,7 +5,7 @@ Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufact
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 6.6
-Stable tag: 3.4.3
+Stable tag: 3.4.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 WC requires at least: 4.0
@@ -93,6 +93,9 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 5. Product carousel by brand
 
 
+== Changelog ==
+= 3.4.4 =
+* WooCommerce compatibility
 == Changelog ==
 = 3.4.3 =
 * WooCommerce compatibility
