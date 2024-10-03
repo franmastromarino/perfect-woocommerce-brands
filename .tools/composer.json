@@ -11,18 +11,18 @@
 	"minimum-stability": "stable",
 	"config": {
 		"platform": {
-			"php": "7.3.0"
+			"php": "7.4.0"
 		},
 		"allow-plugins": {
 			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
 	},
 	"require": {
-		"php": ">=7.1.0"
+		"php": ">=7.4.0"
 	},
 	"require-dev": {
-		"woocommerce/woocommerce-sniffs": "^0.1.3",
-		"phpunit/phpunit": "^9.5",
+		"woocommerce/woocommerce-sniffs": "^1.0.0",
+		"phpunit/phpunit": "^9.6",
 		"wp-cli/wp-cli": "*",
 		"wp-cli/i18n-command": "*"
 	},
@@ -31,10 +31,6 @@
 		"clean": "node bin/delete.js ./vendor ./composer.lock",
 		"setup": "composer clean && composer install",
 		"update": "composer clean && composer update",
-		"start": "composer dump-autoload",
-		"report:txt": "php vendor/bin/phpcs --standard=./phpcs.xml --warning-severity=0 --report-file=./phpcs_error.txt --extensions=php ./",
-		"report:csv": "php vendor/bin/phpcs --standard=./phpcs.xml --warning-severity=0 --report-csv=./phpcs_error.csv --extensions=php ./",
-		"report:xml": "php vendor/bin/phpcs --standard=./phpcs.xml --warning-severity=0 --report-xml=./phpcs_error.xml --extensions=php ./",
-		"makepot": "node bin/makepot.js"
+		"start": "composer dump-autoload"
 	}
 }

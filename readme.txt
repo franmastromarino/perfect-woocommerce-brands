@@ -9,7 +9,7 @@ Stable tag: 3.4.3
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 WC requires at least: 4.0
-WC tested up to: 9.2
+WC tested up to: 9.3
 
 Perfect Brands for WooCommerce allows you to show product brands in your WooCommerce based store
 

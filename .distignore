@@ -29,11 +29,15 @@ pnpm-lock.yaml
 /tests
 
 # Build and Configuration
+/.delete
+/.todo
 /.tools
+/.wordpress-org
 /bin
 /webpack.config.js
 /playwright.config.js
 /packages
+.eslintrc
 
 # Lock
 /.plugin
