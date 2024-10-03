@@ -51,5 +51,4 @@ class Importer_Support {
 		}
 		return $object;
 	}
-
 }

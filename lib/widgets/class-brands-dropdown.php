@@ -103,7 +103,5 @@ class Brands_Dropdown extends \WP_Widget {
 			echo $after_widget;// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		}
-
 	}
-
 }

@@ -38,5 +38,4 @@ class Exporter_Support {
 		}
 		return implode( ',', $brand_names );
 	}
-
 }

@@ -50,7 +50,6 @@ class AZ_Listing {
 			array( 'grouped_brands' => $grouped_brands ),
 			false
 		);
-
 	}
 
 	private static function has_products( $brand_id ) {
@@ -81,7 +80,5 @@ class AZ_Listing {
 		$wp_query = new WP_Query( $args );
 		wp_reset_postdata();
 		return $wp_query->posts;
-
 	}
-
 }

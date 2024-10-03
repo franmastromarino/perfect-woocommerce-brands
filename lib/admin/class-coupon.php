@@ -56,7 +56,6 @@ class Coupon {
 		<?php
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo ob_get_clean();
-
 	}
 
 	public function coupon_save( $post_id ) {
@@ -72,7 +71,6 @@ class Coupon {
 		} else {
 			update_post_meta( $post_id, '_pwb_coupon_exclude_brands', array_filter( array_map( 'intval', $_POST['_pwb_coupon_exclude_brands'] ) ) );// phpcs:ignore WordPress.Security
 		}
-
 	}
 
 	public function is_valid_for_brand( $availability, $coupon ) {
@@ -194,5 +192,4 @@ class Coupon {
 
 		return $valid;
 	}
-
 }

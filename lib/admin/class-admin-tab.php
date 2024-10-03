@@ -20,7 +20,7 @@ class Admin_Tab {
 
 		add_filter(
 			'pwb_admin_settings_tabs',
-			function( $tabs ) {
+			function ( $tabs ) {
 
 				$tabs = array(
 					''               => __( 'General', 'perfect-woocommerce-brands' ),
@@ -51,7 +51,7 @@ class Admin_Tab {
 
 		add_filter(
 			'pwb_admin_settings_fields',
-			function( $fields ) {
+			function ( $fields ) {
 
 				global $current_section;
 

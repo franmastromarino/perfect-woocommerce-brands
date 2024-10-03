@@ -41,7 +41,6 @@ final class Plugin {
 				do_action( 'pwb_init' );
 			}
 		);
-
 	}
 
 	public static function instance() {

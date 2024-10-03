@@ -15,7 +15,7 @@ class Carousel {
 				'items'           => '10',
 				'items_to_show'   => '5',
 				'items_to_scroll' => '1',
-				'rtl'			  => 'false',
+				'rtl'             => 'false',
 				'image_size'      => 'thumbnail',
 				'autoplay'        => 'false',
 				'arrows'          => 'false',
@@ -46,7 +46,6 @@ class Carousel {
 			),
 			false
 		);
-
 	}
 
 	private static function slick_settings() {
@@ -56,11 +55,10 @@ class Carousel {
 			'slidesToScroll' => (int) self::$atts['items_to_scroll'],
 			'autoplay'       => ( 'true' === self::$atts['autoplay'] ) ? true : false,
 			'arrows'         => ( 'true' === self::$atts['arrows'] ) ? true : false,
-			'rtl'			 => ( 'true' === self::$atts['rtl'] ) ? true : false,
+			'rtl'            => ( 'true' === self::$atts['rtl'] ) ? true : false,
 		);
 
 		return htmlspecialchars( json_encode( $slick_settings ), ENT_QUOTES, 'UTF-8' );
-
 	}
 
 	private static function brands_data() {
@@ -94,11 +92,9 @@ class Carousel {
 				'name'            => $brand->name,
 			);
 
-			$foreach_i++;
+			++$foreach_i;
 		}
 
 		return $brands;
-
 	}
-
 }

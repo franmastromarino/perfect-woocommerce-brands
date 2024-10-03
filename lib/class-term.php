@@ -43,5 +43,4 @@ class Term {
 	public function get( $key = 'id' ) {
 		return ( isset( $this->$key ) ) ? $this->$key : false;
 	}
-
 }

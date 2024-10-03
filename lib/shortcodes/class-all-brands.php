@@ -9,8 +9,8 @@ class All_Brands {
 	protected static function replace_curly_quotes( $attrs ) {
 		if ( is_array( $attrs ) ) {
 			foreach ( $attrs as $key => $value ) {
-				$new_key           = str_replace( [ '“', '”', '″' ], '', $key );
-				$new_value         = str_replace( [ '“', '”', '″' ], '', $value );
+				$new_key           = str_replace( array( '“', '”', '″' ), '', $key );
+				$new_value         = str_replace( array( '“', '”', '″' ), '', $value );
 				$attrs[ $new_key ] = $new_value;
 
 				if ( $new_key != $key ) {

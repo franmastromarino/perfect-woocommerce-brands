@@ -45,18 +45,18 @@ class Brands_List extends \WP_Widget {
 		">
 	</p>
 	<p>
-	  <label for="<?php echo esc_attr( $this->get_field_id( 'display_as' ) ); ?>"><?php esc_html_e( 'Display as:', 'perfect-woocommerce-brands' ); ?></label>
-	  <select
+		<label for="<?php echo esc_attr( $this->get_field_id( 'display_as' ) ); ?>"><?php esc_html_e( 'Display as:', 'perfect-woocommerce-brands' ); ?></label>
+		<select
 		class="widefat pwb-select-display-as"
 		id="<?php echo esc_attr( $this->get_field_id( 'display_as' ) ); ?>"
 		name="<?php echo esc_attr( $this->get_field_name( 'display_as' ) ); ?>">
 		<option value="brand_name" <?php selected( $display_as, 'brand_name' ); ?>><?php esc_html_e( 'Brand name', 'perfect-woocommerce-brands' ); ?></option>
 		<option value="brand_logo" <?php selected( $display_as, 'brand_logo' ); ?>><?php esc_html_e( 'Brand logo', 'perfect-woocommerce-brands' ); ?></option>
-	  </select>
+		</select>
 	</p>
 	<p class="pwb-display-as-logo<?php echo ( 'brand_logo' == $display_as ) ? ' show' : ''; ?>">
-	  <label for="<?php echo esc_attr( $this->get_field_id( 'columns' ) ); ?>"><?php esc_html_e( 'Columns:', 'perfect-woocommerce-brands' ); ?></label>
-	  <select
+		<label for="<?php echo esc_attr( $this->get_field_id( 'columns' ) ); ?>"><?php esc_html_e( 'Columns:', 'perfect-woocommerce-brands' ); ?></label>
+		<select
 		class="widefat"
 		id="<?php echo esc_attr( $this->get_field_id( 'columns' ) ); ?>"
 		name="<?php echo esc_attr( $this->get_field_name( 'columns' ) ); ?>">
@@ -66,37 +66,37 @@ class Brands_List extends \WP_Widget {
 		<option value="4" <?php selected( $columns, '4' ); ?>>4</option>
 		<option value="5" <?php selected( $columns, '5' ); ?>>5</option>
 		<option value="6" <?php selected( $columns, '6' ); ?>>6</option>
-	  </select>
+		</select>
 	</p>
 	<p>
-	  <input
-	  type="checkbox"
-	  id="<?php echo esc_attr( $this->get_field_id( 'hide_empty' ) ); ?>"
-	  name="<?php echo esc_attr( $this->get_field_name( 'hide_empty' ) ); ?>"
+		<input
+		type="checkbox"
+		id="<?php echo esc_attr( $this->get_field_id( 'hide_empty' ) ); ?>"
+		name="<?php echo esc_attr( $this->get_field_name( 'hide_empty' ) ); ?>"
 		<?php checked( $hide_empty ); ?>>
-	  <label for="<?php echo esc_attr( $this->get_field_id( 'hide_empty' ) ); ?>">
+		<label for="<?php echo esc_attr( $this->get_field_id( 'hide_empty' ) ); ?>">
 		<?php esc_html_e( 'Hide empty', 'perfect-woocommerce-brands' ); ?>
-	  </label>
+		</label>
 	</p>
 	<p>
-	  <input
-	  type="checkbox"
-	  id="<?php echo esc_attr( $this->get_field_id( 'only_featured' ) ); ?>"
-	  name="<?php echo esc_attr( $this->get_field_name( 'only_featured' ) ); ?>"
+		<input
+		type="checkbox"
+		id="<?php echo esc_attr( $this->get_field_id( 'only_featured' ) ); ?>"
+		name="<?php echo esc_attr( $this->get_field_name( 'only_featured' ) ); ?>"
 		<?php checked( $only_featured ); ?>>
-	  <label for="<?php echo esc_attr( $this->get_field_id( 'only_featured' ) ); ?>">
+		<label for="<?php echo esc_attr( $this->get_field_id( 'only_featured' ) ); ?>">
 		<?php esc_html_e( 'Only favorite brands', 'perfect-woocommerce-brands' ); ?>
-	  </label>
+		</label>
 	</p>
 	<p class="pwb-display-as-logo<?php echo ( 'brand_logo' == $display_as ) ? ' show' : ''; ?>">
-	  <input
-	  type="checkbox"
-	  id="<?php echo esc_attr( $this->get_field_id( 'randomize' ) ); ?>"
-	  name="<?php echo esc_attr( $this->get_field_name( 'randomize' ) ); ?>"
+		<input
+		type="checkbox"
+		id="<?php echo esc_attr( $this->get_field_id( 'randomize' ) ); ?>"
+		name="<?php echo esc_attr( $this->get_field_name( 'randomize' ) ); ?>"
 		<?php checked( $randomize ); ?>>
-	  <label for="<?php echo esc_attr( $this->get_field_id( 'randomize' ) ); ?>">
+		<label for="<?php echo esc_attr( $this->get_field_id( 'randomize' ) ); ?>">
 		<?php esc_html_e( 'Randomize', 'perfect-woocommerce-brands' ); ?>
-	  </label>
+		</label>
 	</p>
 
 		<?php
@@ -150,7 +150,5 @@ class Brands_List extends \WP_Widget {
 			echo $after_widget; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 
 		}
-
 	}
-
 }

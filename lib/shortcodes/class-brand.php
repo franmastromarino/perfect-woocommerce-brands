@@ -40,7 +40,5 @@ class Brand {
 			),
 			false
 		);
-
 	}
-
 }

@@ -2,7 +2,7 @@
 
 namespace QuadLayers\PWB;
 
-use \WP_Error, WP_REST_Server, \WC_REST_Terms_Controller;
+use WP_Error, WP_REST_Server, WC_REST_Terms_Controller;
 
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
@@ -18,7 +18,6 @@ class Rest_Api extends WC_REST_Terms_Controller {
 
 		add_filter( "rest_{$this->taxonomy}_collection_params", array( $this, 'modify_collection_params' ), 10, 2 );
 		add_filter( 'woocommerce_rest_product_object_query', array( $this, 'brand_query_args' ), 10, 2 );
-
 	}
 
 	/**
@@ -187,7 +186,6 @@ class Rest_Api extends WC_REST_Terms_Controller {
 		$item['brand_banner'] = wp_get_attachment_image_src( $brand_banner_id );
 
 		return $item;
-
 	}
 
 	/**
