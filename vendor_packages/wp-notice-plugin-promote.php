@@ -14,7 +14,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 	 */
 	define( 'PWB_PROMOTE_PREMIUM_SELL_SLUG', 'perfect-woocommerce-brands-pro' );
 	define( 'PWB_PROMOTE_PREMIUM_SELL_NAME', 'Perfect WooCommerce Brands PRO' );
-	define( 'PWB_PROMOTE_PREMIUM_INSTALL_URL', 'https://quadlayers.com/product/perfect-woocommerce-brands/?utm_source=pwb_admin' );
+	define( 'PWB_PROMOTE_PREMIUM_INSTALL_URL', 'https://quadlayers.com/products/perfect-woocommerce-brands/?utm_source=pwb_admin' );
 	define( 'PWB_PROMOTE_PREMIUM_SELL_URL', PWB_PREMIUM_SELL_URL );
 	/**
 	 * Notice cross sell 1
