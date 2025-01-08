@@ -17,9 +17,15 @@ class Product {
 
 			if ( ! empty( $brands ) ) {
 				$show_brand_tab = get_option( 'wc_pwb_admin_tab_brand_single_product_tab' );
+				$brand_label    = get_option( 'wc_pwb_admin_tab_brand_single_label' );
+
+				if ( ! $brand_label ) {
+					$brand_label = __( 'Brand', 'perfect-woocommerce-brands' );
+				}
+
 				if ( 'yes' == $show_brand_tab || ! $show_brand_tab ) {
 					$tabs['pwb_tab'] = array(
-						'title'    => __( 'Brand', 'perfect-woocommerce-brands' ),
+						'title'    => $brand_label,
 						'priority' => 20,
 						'callback' => array( $this, 'product_tab_content' ),
 					);
