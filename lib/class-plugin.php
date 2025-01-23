@@ -16,6 +16,13 @@ final class Plugin {
 		 */
 		load_plugin_textdomain( 'perfect-woocommerce-brands', false, PWB_PLUGIN_DIR . '/languages' );
 
+		add_filter(
+			'default_option_woocommerce_brand_permalink',
+			function () {
+				return 'brands';
+			}
+		);
+
 		/**
 		 * Load plugin files on woocommerce_init init
 		 */
