@@ -14,7 +14,7 @@ final class Plugin {
 		/**
 		 * Load plugin textdomain.
 		 */
-		load_plugin_textdomain( 'perfect-woocommerce-brands', false, PWB_PLUGIN_DIR . '/languages' );
+		add_action( 'init', array( $this, 'load_textdomain' ) );
 
 		add_filter(
 			'default_option_woocommerce_brand_permalink',
@@ -48,6 +48,10 @@ final class Plugin {
 				do_action( 'pwb_init' );
 			}
 		);
+	}
+
+	public function load_textdomain() {
+		load_plugin_textdomain( 'perfect-woocommerce-brands', false, PWB_PLUGIN_DIR . '/languages' );
 	}
 
 	public static function instance() {
