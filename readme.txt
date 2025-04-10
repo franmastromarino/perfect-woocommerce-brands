@@ -4,12 +4,12 @@ Donate link: https://quadlayers.com/products/perfect-woocommerce-brands/
 Tags: woocommerce, woocommerce brands, woocommerce product, woocommerce manufacturer, woocommerce supplier, e-commerce
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 6.7
-Stable tag: 3.5.0
+Tested up to: 6.8
+Stable tag: 3.5.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 WC requires at least: 4.0
-WC tested up to: 9.7
+WC tested up to: 9.8
 
 Perfect Brands for WooCommerce allows you to show product brands in your WooCommerce based store
 
@@ -94,6 +94,8 @@ You can also contribute [translating the plugin](https://translate.wordpress.org
 
 
 == Changelog ==
+= 3.5.1 =
+* WooCommerce compatibility
 = 3.5.0 =
 * WooCommerce compatibility
 * Fix textdomain error
