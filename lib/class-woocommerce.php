@@ -921,10 +921,14 @@ class WooCommerce {
 		$brand_banner      = get_term_meta( $queried_object->term_id, 'pwb_brand_banner', true );
 		$brand_banner_link = get_term_meta( $queried_object->term_id, 'pwb_brand_banner_link', true );
 
+		$theme = wp_get_theme();
+
+		$is_blocksy = strtolower( $theme->get_template() ) === 'blocksy';
+
 		if ( '' != $brand_banner || '' != $queried_object->description && 'no' !== $show_desc ) {
 			echo '<div class="pwb-brand-banner-cont ' . esc_attr( $show_desc_class ) . '">';
 			$this->print_brand_banner();
-			$this->print_brand_desc();
+			! $is_blocksy && $this->print_brand_desc();
 			echo '</div>';
 		}
 	}
