@@ -23,10 +23,6 @@ class Edit_Brands_Page {
 	}
 
 	public function add_brands_count( $tax_name ) {
-		$brands          = get_terms(
-			$tax_name,
-			array( 'hide_empty' => false )
-		);
 		$brands_featured = get_terms(
 			$tax_name,
 			array(
