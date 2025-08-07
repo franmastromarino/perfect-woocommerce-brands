@@ -4,7 +4,7 @@
  * Plugin Name:             Perfect Brands WooCommerce
  * Plugin URI:              https://quadlayers.com/products/perfect-woocommerce-brands/
  * Description:             Perfect WooCommerce Brands allows you to show product brands in your WooCommerce based store.
- * Version:                 3.5.8
+ * Version:                 3.5.9
  * Text Domain:             perfect-woocommerce-brands
  * Author:                  QuadLayers
  * Author URI:              https://quadlayers.com
@@ -23,14 +23,10 @@ define( 'PWB_PLUGIN_FILE', __FILE__ );
 define( 'PWB_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 define( 'PWB_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
 define( 'PWB_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-define( 'PWB_PLUGIN_VERSION', '3.5.8' );
+define( 'PWB_PLUGIN_VERSION', '3.5.9' );
 define( 'PWB_PLUGIN_NAME', 'Perfect WooCommerce Brands' );
 define( 'PWB_PREFIX', 'pwb' );
-define( 'PWB_PURCHASE_URL', 'https://quadlayers.com/products/perfect-woocommerce-brands/?utm_source=pwb_admin' );
-define( 'PWB_SUPPORT_URL', 'https://quadlayers.com/account/support/?utm_source=pwb_admin' );
-define( 'PWB_DOCUMENTATION_URL', 'https://quadlayers.com/documentation/perfect-woocommerce-brands/?utm_source=pwb_admin' );
 define( 'PWB_GROUP_URL', 'https://www.facebook.com/groups/quadlayers' );
-define( 'PWB_PREMIUM_SELL_URL', 'https://quadlayers.com/products/perfect-woocommerce-brands/?utm_source=pwb_admin' );
 
 /**
  * Load composer autoload.

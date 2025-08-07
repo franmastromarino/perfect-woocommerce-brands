@@ -15,15 +15,15 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 		 */
 		define( 'PWB_PROMOTE_PREMIUM_SELL_SLUG', 'perfect-woocommerce-brands-pro' );
 		define( 'PWB_PROMOTE_PREMIUM_SELL_NAME', 'Perfect WooCommerce Brands PRO' );
-		define( 'PWB_PROMOTE_PREMIUM_INSTALL_URL', 'https://quadlayers.com/products/perfect-woocommerce-brands/?utm_source=pwb_admin' );
-		define( 'PWB_PROMOTE_PREMIUM_SELL_URL', PWB_PREMIUM_SELL_URL );
+		define( 'PWB_PROMOTE_PREMIUM_INSTALL_URL', 'https://quadlayers.com/products/perfect-woocommerce-brands/?utm_source=pwb_plugin&utm_medium=dashboard_notice&utm_campaign=premium_upgrade&utm_content=premium_install_button' );
+		define( 'PWB_PROMOTE_PREMIUM_SELL_URL', 'https://quadlayers.com/products/perfect-woocommerce-brands/?utm_source=pwb_plugin&utm_medium=dashboard_notice&utm_campaign=premium_upgrade&utm_content=premium_link' );
 		/**
 		 * Notice cross sell 1
 		 */
 		define( 'PWB_PROMOTE_CROSS_INSTALL_1_SLUG', 'woocommerce-checkout-manager' );
 		define( 'PWB_PROMOTE_CROSS_INSTALL_1_NAME', 'WooCommerce Checkout Manager' );
 		define( 'PWB_PROMOTE_CROSS_INSTALL_1_DESCRIPTION', esc_html__( 'This plugin allows you to add custom fields to the checkout page, related to billing, shipping or additional fields sections.', 'perfect-woocommerce-brands' ) );
-		define( 'PWB_PROMOTE_CROSS_INSTALL_1_URL', 'https://quadlayers.com/products/woocommerce-checkout-manager/?utm_source=pwb_admin' );
+		define( 'PWB_PROMOTE_CROSS_INSTALL_1_URL', 'https://quadlayers.com/products/woocommerce-checkout-manager/?utm_source=pwb_plugin&utm_medium=dashboard_notice&utm_campaign=cross_sell&utm_content=checkout_manager_link' );
 		define( 'PWB_PROMOTE_CROSS_INSTALL_1_LOGO_SRC', plugins_url( '/assets/backend/img/woocommerce-checkout-manager.jpg', PWB_PLUGIN_FILE ) );
 		/**
 		 * Notice cross sell 2
@@ -31,7 +31,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 		define( 'PWB_PROMOTE_CROSS_INSTALL_2_SLUG', 'woocommerce-direct-checkout' );
 		define( 'PWB_PROMOTE_CROSS_INSTALL_2_NAME', 'WooCommerce Direct Checkout' );
 		define( 'PWB_PROMOTE_CROSS_INSTALL_2_DESCRIPTION', esc_html__( 'It allows you to reduce the steps in the checkout process by skipping the shopping cart page. This can encourage buyers to shop more and quickly. You will increase your sales reducing cart abandonment.', 'perfect-woocommerce-brands' ) );
-		define( 'PWB_PROMOTE_CROSS_INSTALL_2_URL', 'https://quadlayers.com/products/woocommerce-direct-checkout/?utm_source=pwb_admin' );
+		define( 'PWB_PROMOTE_CROSS_INSTALL_2_URL', 'https://quadlayers.com/products/woocommerce-direct-checkout/?utm_source=pwb_plugin&utm_medium=dashboard_notice&utm_campaign=cross_sell&utm_content=direct_checkout_link' );
 		define( 'PWB_PROMOTE_CROSS_INSTALL_2_LOGO_SRC', plugins_url( '/assets/backend/img/woocommerce-direct-checkout.jpg', PWB_PLUGIN_FILE ) );
 
 		new \QuadLayers\WP_Notice_Plugin_Promote\Load(
@@ -48,7 +48,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 									'<br>'
 					),
 					'notice_link'        => PWB_PROMOTE_REVIEW_URL,
-					'notice_more_link'   => PWB_SUPPORT_URL,
+					'notice_more_link'   => 'https://quadlayers.com/account/support/?utm_source=pwb_plugin&utm_medium=dashboard_notice&utm_campaign=support&utm_content=report_bug_button',
 					'notice_more_label'  => esc_html__(
 						'Report a bug',
 						'perfect-woocommerce-brands'

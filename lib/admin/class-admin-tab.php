@@ -30,12 +30,12 @@ class Admin_Tab {
 					'tools'          => __( 'Tools', 'perfect-woocommerce-brands' ),
 					array(
 						'title'  => __( 'Documentation', 'perfect-woocommerce-brands' ),
-						'href'   => PWB_DOCUMENTATION_URL,
+						'href'   => 'https://quadlayers.com/documentation/perfect-woocommerce-brands/?utm_source=pwb_plugin&utm_medium=admin_header&utm_campaign=documentation&utm_content=documentation_link',
 						'target' => '_blank',
 					),
 					array(
 						'title'  => __( 'Premium', 'perfect-woocommerce-brands' ),
-						'href'   => PWB_PREMIUM_SELL_URL,
+						'href'   => 'https://quadlayers.com/products/perfect-woocommerce-brands/?utm_source=pwb_plugin&utm_medium=admin_header&utm_campaign=premium_upgrade&utm_content=premium_link',
 						'target' => '_blank',
 					),
 					array(
@@ -345,7 +345,7 @@ class Admin_Tab {
 										'class'   => 'pwb-admin-tab-field',
 										'desc'    => sprintf(
 											__( 'Import brands from other brand plugin. <a href="%s" target="_blank">Click here for more details</a>', 'perfect-woocommerce-brands' ),
-											str_replace( '/?', '/brands/?', PWB_DOCUMENTATION_URL )
+											'https://quadlayers.com/documentation/perfect-woocommerce-brands/brands/?utm_source=pwb_plugin&utm_medium=admin_tab&utm_campaign=documentation&utm_content=documentation_link'
 										),
 										'id'      => 'wc_pwb_admin_tab_tools_migrate',
 										'options' => array(
