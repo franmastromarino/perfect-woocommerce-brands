@@ -11,7 +11,7 @@
 	"minimum-stability": "stable",
 	"config": {
 		"platform": {
-			"php": "7.4.0"
+			"php": "7.2.0"
 		},
 		"allow-plugins": {
 			"quadlayers/wp-autoload": true,
@@ -20,7 +20,7 @@
 		}
 	},
 	"require": {
-		"php": ">=7.4.0",
+		"php": ">=7.2.0",
 		"automattic/jetpack-composer-plugin": "*",
 		"automattic/jetpack-assets": "*",
 		"quadlayers/wp-dashboard-widget-news": "*",
@@ -28,7 +28,7 @@
 		"quadlayers/wp-notice-plugin-promote": "*",
 		"quadlayers/wp-plugin-table-links": "*",
 		"quadlayers/wp-plugin-suggestions": "*",
-		"franmastromarino/wp-plugin-feedback": "*"
+		"franmastromarino/wp-plugin-feedback": "dev-php7.2"
 	},
 	"autoload": {
 		"classmap": [
