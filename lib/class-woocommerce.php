@@ -114,20 +114,36 @@ class WooCommerce {
 		if ( ! empty( $atts['brands'] ) ) {
 			global $wpdb;
 
-			$terms_in = implode( "', '", $atts['brands'] );
-			$in       = sprintf( "IN('%s')", $terms_in );
-			$from     = sprintf( 'FROM %1$sterm_relationships as tr INNER JOIN %1$sterm_taxonomy as tt ON tr.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN %1$sterms as t ON tt.term_id = t.term_id', $wpdb->prefix );
+			// Sanitize and validate brand slugs to prevent SQL injection
+			$sanitized_brands = array();
+			foreach ( $atts['brands'] as $brand_slug ) {
+				// Sanitize the slug
+				$sanitized_slug = sanitize_text_field( $brand_slug );
 
-			$where = sprintf( "WHERE tt.taxonomy LIKE 'pwb_brand' AND t.slug %s", $in );
+				// Validate that the term exists (security check)
+				if ( term_exists( $sanitized_slug, 'pwb-brand' ) ) {
+					// Escape for SQL and add to array
+					$sanitized_brands[] = esc_sql( $sanitized_slug );
+				}
+			}
 
-			// phpcs:disable WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-			$ids = $wpdb->get_col( sprintf( 'SELECT DISTINCT tr.object_id %s %s', $from, $where ) );
+			// Only proceed if we have valid brand slugs
+			if ( ! empty( $sanitized_brands ) ) {
+				$terms_in = implode( "', '", $sanitized_brands );
+				$in       = sprintf( "IN('%s')", $terms_in );
+				$from     = sprintf( 'FROM %1$sterm_relationships as tr INNER JOIN %1$sterm_taxonomy as tt ON tr.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN %1$sterms as t ON tt.term_id = t.term_id', $wpdb->prefix );
 
-			if ( ! empty( $ids ) ) {
-				if ( 1 === count( $ids ) ) {
-					$query_args['p'] = $ids[0];
-				} else {
-					$query_args['post__in'] = $ids;
+				$where = sprintf( "WHERE tt.taxonomy LIKE 'pwb-brand' AND t.slug %s", $in );
+
+				// phpcs:disable WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				$ids = $wpdb->get_col( sprintf( 'SELECT DISTINCT tr.object_id %s %s', $from, $where ) );
+
+				if ( ! empty( $ids ) ) {
+					if ( 1 === count( $ids ) ) {
+						$query_args['p'] = $ids[0];
+					} else {
+						$query_args['post__in'] = $ids;
+					}
 				}
 			}
 		}
