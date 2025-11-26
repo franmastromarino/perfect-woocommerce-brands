@@ -16,7 +16,7 @@ class Admin_Tab {
 		add_filter( 'woocommerce_sections_' . $this->id, array( $this, 'add_tabs' ) );
 		add_action( 'woocommerce_sections_' . $this->id, array( $this, 'add_settings' ) );
 		add_action( 'woocommerce_settings_save_' . $this->id, array( $this, 'save_settings' ) );
-		add_action( 'admin_footer', array( __CLASS__, 'add_premium_css' ) );
+		add_action( 'admin_footer', array( __CLASS__, 'add_premium_style' ) );
 
 		add_filter(
 			'pwb_admin_settings_tabs',
@@ -510,7 +510,7 @@ class Admin_Tab {
 		return $fields;
 	}
 
-	public static function add_premium_css() {
+	public static function add_premium_style() {
 		?>
 		<style>
 			.pwb-premium-field {
